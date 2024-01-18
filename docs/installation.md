@@ -1,0 +1,23 @@
+---
+title: Installation
+icon: material/package-variant
+---
+
+# Installation
+
+Install Recce in  yoiur dbt project with pip:
+
+```
+pip install recce
+```
+
+To take full advantage of all the features of Recce, ensure that [dbt_profiler](https://hub.getdbt.com/data-mie/dbt_profiler/latest/) and [audit-helper](https://hub.getdbt.com/dbt-labs/audit_helper/latest/) are installed via the `packages.yml` file in your dbt project .
+
+```yaml 
+packages:
+  - package: dbt-labs/audit_helper
+    version: <version>
+  - package: data-mie/dbt_profiler
+    version: <version>
+
+```

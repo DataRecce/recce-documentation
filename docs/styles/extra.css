@@ -1,0 +1,37 @@
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+	font-weight: bold;
+}
+.md-typeset h1 {
+	color: --md-default-fg-color;
+}
+
+.md-typeset code:not(.md-typeset pre > code) {
+	color: #ff6e42;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.md-typeset a {
+	
+}
+.md-typeset a:hover {
+	border-bottom: solid #ff6e42 1px;
+	color: #ff6e42;
+}
+
+.md-nav {
+	font-size: 0.8rem;
+}
+
+.md-nav__title {
+	display: none;
+}
+
+.md-nav__item {
+	padding: 0.3rem 0;
+	font-weight: bold;
+}
+
+.md-nav__link[href]:hover {
+	color: #ff6e42;
+}
