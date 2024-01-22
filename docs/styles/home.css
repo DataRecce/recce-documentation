@@ -1,0 +1,140 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.8rem;
+}
+
+h3 {
+  font-size: 3rem;
+  margin-bottom: 1.6rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h5 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  margin-bottom: 2rem;
+}
+
+a {
+  color: #ff6e42;
+}
+
+.btn {
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+}
+.btn.btn-primary {
+  background-color: #ff6e42;
+  border-color: #ff6e42;
+  color: #fff;
+  padding: 0.5rem;
+  font-weight: bold;
+  border-bottom: solid #420f00 4px;
+  transition: none;
+  text-transform: uppercase;
+}
+.btn.btn-primary a {
+  color: #fff;
+}
+.btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active {
+  background-color: #ff6e42 !important;
+  border-color: #ff6e42 !important;
+  border-bottom: none;
+  position: relative;
+  bottom: -3px;
+  margin-bottom: 4px;
+}
+
+header {
+  padding: 4rem 0;
+  background-color: #f1f1f1;
+}
+header .header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header .header-content .brand {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+header .header-content .brand .logo {
+  margin-right: 1rem;
+}
+header .header-content .brand .logo img {
+  width: 100%;
+  max-width: 50px;
+  height: auto;
+}
+header .header-content .brand h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 3.6rem;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+header .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+header .nav .nav-item {
+  margin-left: 4rem;
+  font-size: 1.8rem;
+}
+header .nav .nav-item:first-of-type {
+  margin-left: 0;
+}
+header .nav .nav-item a {
+  color: #ff6e42;
+}
+header .nav .nav-item.btn {
+  font-size: 1.6rem;
+}
+header .nav .nav-item.btn a {
+  color: #fff;
+}
+
+.hero {
+  background-color: gray;
+  min-height: 60rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 1600px;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/*# sourceMappingURL=home.css.map */

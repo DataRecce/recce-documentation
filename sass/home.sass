@@ -1,0 +1,62 @@
+@import variables
+@import global
+@import buttons
+
+header
+	padding: 4rem 0
+	background-color: $color-light-gray
+
+	.header-content
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+
+
+		.brand
+			display: flex
+			flex-direction: row
+			align-content: center
+			justify-content: center
+			align-items: center
+			text-decoration: none
+			.logo
+				margin-right: 1rem
+				img
+					width: 100%
+					max-width: 50px
+					height: auto
+			h1
+				margin: 0
+				padding: 0
+				font-size: 3.6rem
+				text-transform: uppercase
+				font-family: $font-brand
+				font-weight: 800
+
+	.nav
+		display: flex
+		justify-content: center
+		align-items: center
+		align-content: center
+		.nav-item
+			margin-left: 4rem
+			font-size: 1.8rem
+			&:first-of-type
+				margin-left: 0
+			a
+				color: $color-brand
+			&.btn
+				font-size: 1.6rem
+				a
+					color: #fff
+
+.hero
+	background-color: gray
+	min-height: 60rem
+	width: 100%
+
+.container
+	max-width: 1600px
+
+section
+	padding: 4rem 0

@@ -8,3 +8,14 @@ Build static site
 
 Customize the site
 https://squidfunk.github.io/mkdocs-material/setup/
+
+
+Add Extra css to:
+```
+/docs/styles/extra.css
+```
+
+Landing page overides in
+```
+/material/overrides
+```

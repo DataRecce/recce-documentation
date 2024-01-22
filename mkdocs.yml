@@ -5,8 +5,9 @@ extra_css:
 
 nav:
   - index.md
-  - installation.md
-  - getting-started.md
+  - docs/index.md
+  - docs/installation.md
+  - docs/get-started.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -19,6 +20,7 @@ markdown_extensions:
 
 theme:
   name: material
+  custom_dir: material/overrides
   logo: assets/images/recce-logo-white.png
   palette:
     # Palette toggle for automatic mode
@@ -42,8 +44,15 @@ theme:
         name: Switch to system preference   
 
   features:
-    - navigation.instant
-    - navigation.instant.progress
+    #- navigation.instant
+    #- navigation.instant.progress
     - navigation.sections
     - content.code.copy
+
+plugins:
+  - extra-sass
+  - search
+
+watch:
+  - material
 
