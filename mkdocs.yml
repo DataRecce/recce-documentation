@@ -50,7 +50,6 @@ theme:
     - content.code.copy
 
 plugins:
-  - extra-sass
   - search
 
 watch:
