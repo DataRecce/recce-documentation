@@ -1,4 +1,11 @@
 site_name: Recce Documentation
+site_description: >-
+  Data change validation for dbt projects - 
+  Create 'all signal, no noise' pull request comments
+
+# Repository
+repo_name: datarecce/recce
+repo_url: https://github.com/datarecce/recce
 
 extra_css:
   - styles/extra.css
@@ -8,6 +15,14 @@ nav:
   - docs/index.md
   - docs/installation.md
   - docs/get-started.md
+  - Features:
+    - docs/features/lineage-diff.md
+    - docs/features/schema-diff.md
+    - docs/features/row-count-diff.md
+    - docs/features/query-diff.md
+    - docs/features/profile-diff.md
+    - docs/features/value-diff.md
+    - docs/features/checklist.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -44,8 +59,9 @@ theme:
         name: Switch to system preference   
 
   features:
-    #- navigation.instant
-    #- navigation.instant.progress
+    # - navigation.instant
+    # - navigation.instant.progress
+    # - navigation.tabs
     - navigation.sections
     - content.code.copy
 

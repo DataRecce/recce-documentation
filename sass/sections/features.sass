@@ -1,0 +1,71 @@
+$block-width: 800px
+
+section.features
+	padding: 0
+	display: flex
+	flex-direction: column
+
+	.feature
+		display: flex
+		flex-direction: column
+	
+		.feature-image
+			background-color: $color-white			
+			width: 100%
+			@include media-breakpoint-up(md)
+				width: 50%
+				display: flex
+				justify-content: flex-end
+				align-items: center
+			.feature-image-holder
+				width: 100%
+				max-width: $block-width
+				padding: 8rem 4rem
+				@include media-breakpoint-up(xl)
+					padding: 8rem
+				img
+					width: 100%
+					height: auto
+			
+		.feature-description
+			&.brand
+				background-color: $color-brand
+				color: $color-white
+			&.alt
+				background-color: $color-silver
+				color: $color-white
+			&.light
+				background-color: $color-off-white
+			
+			width: 100%
+			@include media-breakpoint-up(md)
+				width: 50%
+				display: flex
+				justify-content: flex-start
+				align-items: center
+			.description-holder
+				width: 100%
+				max-width: $block-width
+				padding: 6rem 4rem
+				@include media-breakpoint-up(xl)
+					padding: 8rem
+
+				h2
+					@include media-breakpoint-up(lg)
+						font-size: 4rem
+					@include media-breakpoint-up(xl)
+						font-size: 5rem
+
+		@include media-breakpoint-up(md)
+			flex-direction: row
+			&:nth-of-type(even)
+				flex-flow: row-reverse
+
+				.feature-image
+					justify-content: flex-start
+				.feature-description
+					justify-content: flex-end
+					//background-color: $color-light-gray
+
+
+
