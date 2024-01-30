@@ -12152,6 +12152,10 @@ section.features .feature .feature-description.brand {
   background-color: #ff6e42;
   color: #fff;
 }
+section.features .feature .feature-description.brand ::selection {
+  background-color: #fff;
+  color: #ff6e42;
+}
 section.features .feature .feature-description.alt {
   background-color: #797aaa;
   color: #fff;
@@ -12259,6 +12263,10 @@ body:before {
   right: 0;
   bottom: 0;
   z-index: -1;
+}
+body ::selection {
+  background-color: #ff6e42;
+  color: #fff;
 }
 
 header {
