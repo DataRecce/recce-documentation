@@ -12250,7 +12250,7 @@ body {
 }
 body:before {
   content: "";
-  background-image: url("../../assets/images/dotted-bg.png");
+  background-image: url("../assets/images/dotted-bg.png");
   background-repeat: repeat;
   opacity: 0.5;
   position: absolute;
