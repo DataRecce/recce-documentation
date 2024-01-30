@@ -11948,40 +11948,120 @@ section.hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10rem 0;
   min-height: 60rem;
+  overflow: hidden;
+  position: relative;
 }
-section.hero .message {
+section.hero .section-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+@media (min-width: 992px) {
+  section.hero .section-content {
+    flex-direction: row;
+    height: 70rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+section.hero .section-content .message {
   width: 100%;
-  max-width: 500px;
+  width: 100%;
+  padding: 3rem;
 }
-section.hero .message h1, section.hero .message .h1 {
-  font-size: 8rem;
+@media (min-width: 992px) {
+  section.hero .section-content .message {
+    width: 40%;
+  }
+}
+section.hero .section-content .message h1, section.hero .section-content .message .h1 {
+  font-size: 6rem;
   font-weight: 800;
   color: #ff6e42;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
-section.hero .message h2, section.hero .message .h2 {
-  font-size: 3rem;
+@media (min-width: 768px) {
+  section.hero .section-content .message h1, section.hero .section-content .message .h1 {
+    text-align: center;
+  }
+  section.hero .section-content .message h1 br, section.hero .section-content .message .h1 br {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  section.hero .section-content .message h1, section.hero .section-content .message .h1 {
+    font-size: 8rem;
+    text-align: left;
+  }
+  section.hero .section-content .message h1 br, section.hero .section-content .message .h1 br {
+    display: block;
+  }
+}
+section.hero .section-content .message h2, section.hero .section-content .message .h2 {
+  font-size: 2rem;
   font-weight: 300;
+  line-height: 1.6;
+}
+@media (min-width: 768px) {
+  section.hero .section-content .message h2, section.hero .section-content .message .h2 {
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
+  section.hero .section-content .message h2, section.hero .section-content .message .h2 {
+    text-align: left;
+  }
+}
+section.hero .section-content .featured-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+@media (min-width: 992px) {
+  section.hero .section-content .featured-image {
+    width: 60%;
+  }
+}
+section.hero .section-content .featured-image img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 992px) {
+  section.hero .section-content .featured-image img {
+    width: 120%;
+    position: absolute;
+    top: 0rem;
+    right: -20rem;
+  }
 }
 
 section.cta {
   background-color: #3B3B3B;
-  padding: 6rem 0;
+  padding: 3rem 2rem;
+}
+@media (min-width: 992px) {
+  section.cta {
+    padding: 5rem 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  section.cta {
+    padding: 6rem 0;
+  }
 }
 section.cta h2, section.cta .h2 {
   color: #fff;
   font-size: 2.8rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
   margin-bottom: 0;
   padding: 3rem 0;
 }
 @media (min-width: 992px) {
   section.cta h2, section.cta .h2 {
-    font-size: 3.2rem;
+    font-size: 4rem;
     padding: 3rem 4rem 3rem 0;
   }
 }
@@ -12025,10 +12105,10 @@ section.features {
 }
 section.features .feature {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  overflow: hidden;
 }
 section.features .feature .feature-image {
-  background-color: #fff;
   width: 100%;
 }
 @media (min-width: 768px) {
@@ -12052,6 +12132,18 @@ section.features .feature .feature-image .feature-image-holder {
 section.features .feature .feature-image .feature-image-holder img {
   width: 100%;
   height: auto;
+}
+section.features .feature .feature-image.overlap {
+  position: relative;
+  min-height: 50rem;
+}
+section.features .feature .feature-image.overlap .feature-image-holder {
+  position: absolute;
+  overflow: hidden;
+  padding-top: 0;
+  top: 0;
+  width: 120%;
+  max-width: 900px;
 }
 section.features .feature .feature-description {
   width: 100%;
@@ -12087,12 +12179,20 @@ section.features .feature .feature-description .description-holder {
 }
 @media (min-width: 992px) {
   section.features .feature .feature-description .description-holder h2, section.features .feature .feature-description .description-holder .h2 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 @media (min-width: 1200px) {
   section.features .feature .feature-description .description-holder h2, section.features .feature .feature-description .description-holder .h2 {
-    font-size: 5rem;
+    font-size: 4rem;
+  }
+}
+section.features .feature .feature-description .description-holder p {
+  font-size: 1.8rem;
+}
+@media (min-width: 1200px) {
+  section.features .feature .feature-description .description-holder p {
+    font-size: 2rem;
   }
 }
 @media (min-width: 768px) {
@@ -12114,10 +12214,57 @@ section.footer {
   background-color: #222222;
   color: #fff;
 }
+section.footer .footer-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section.footer .footer-holder .brand {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+}
+section.footer .footer-holder .brand .logo {
+  margin-right: 1rem;
+}
+section.footer .footer-holder .brand .logo img {
+  width: 100%;
+  max-width: 50px;
+  height: auto;
+}
+section.footer .footer-holder .brand h1, section.footer .footer-holder .brand .h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 3.6rem;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  color: #fff;
+}
+
+body {
+  position: relative;
+}
+body:before {
+  content: "";
+  background-image: url("../../assets/images/dotted-bg.png");
+  background-repeat: repeat;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
 
 header {
   padding: 4rem 0;
   background-color: #f3f3f3;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 header .header-content {
   display: flex;

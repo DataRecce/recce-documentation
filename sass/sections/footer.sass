@@ -1,3 +1,28 @@
 section.footer
 	background-color: darken($color-dark-gray, 10%)
 	color: $color-white
+	.footer-holder
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		.brand
+			display: flex
+			flex-direction: row
+			align-content: center
+			justify-content: flex-start
+			align-items: center
+			text-decoration: none
+			.logo
+				margin-right: 1rem
+				img
+					width: 100%
+					max-width: 50px
+					height: auto
+			h1
+				margin: 0
+				padding: 0
+				font-size: 3.6rem
+				text-transform: uppercase
+				font-family: $font-brand
+				font-weight: 800
+				color: $color-white

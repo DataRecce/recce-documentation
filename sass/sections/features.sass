@@ -7,10 +7,11 @@ section.features
 
 	.feature
 		display: flex
-		flex-direction: column
+		flex-direction: column-reverse
+		overflow: hidden
 	
 		.feature-image
-			background-color: $color-white			
+			//background-color: $color-white			
 			width: 100%
 			@include media-breakpoint-up(md)
 				width: 50%
@@ -27,6 +28,18 @@ section.features
 					width: 100%
 					height: auto
 			
+			&.overlap
+				position: relative
+				min-height: 50rem
+				.feature-image-holder
+					position: absolute
+					overflow: hidden
+					padding-top: 0
+					top: 0
+					width: 120%
+					max-width: 900px
+
+
 		.feature-description
 			&.brand
 				background-color: $color-brand
@@ -52,9 +65,13 @@ section.features
 
 				h2
 					@include media-breakpoint-up(lg)
-						font-size: 4rem
+						font-size: 3rem
 					@include media-breakpoint-up(xl)
-						font-size: 5rem
+						font-size: 4rem
+				p
+					font-size: 1.8rem
+					@include media-breakpoint-up(xl)
+						font-size: 2rem
 
 		@include media-breakpoint-up(md)
 			flex-direction: row
