@@ -13,14 +13,14 @@ select * from {{ ref("mymodel") }}
 ```
 
 <figure markdown>
-  ![Recce Query Diff](../../../assets/images/features/query-diff.png)
+  ![Recce Query Diff](../../assets/images/features/query-diff.png)
   <figcaption>Query Diff</figcaption>
 </figure>
 
 After performing a query, select the primary key by clicking the `key` icon.
 
 <figure markdown>
-  ![Recce Query Diff](/../assets/images/features/query-diff.gif)
+  ![Recce Query Diff](../../assets/images/features/query-diff.gif)
   <figcaption>Query Diff</figcaption>
 </figure>
 

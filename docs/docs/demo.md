@@ -12,7 +12,7 @@ Try `Recce` without installing using this [online demo](https://pr1.cloud.datare
 The demo showcases a [pull request](https://github.com/DataRecce/jaffle_shop_duckdb/pull/1) that fixes the `customer_lifetime_value` calculation in dbt's Jaffle Shop project to only included completed orders.
 
 <figure markdown>
-  ![customers.sql](../../assets/images/demo/clv-customers-model-fs8.png)
+  ![customers.sql](../assets/images/demo/clv-customers-model-fs8.png)
   <figcaption>Jaffle Shop customers.sql</figcaption>
 </figure>
 
@@ -26,7 +26,7 @@ Some example validation checks you might create include:
 Run a [Value Diff](features/value-diff.md) to check the percentage match of the `customer_lifetime_value` column between production and the development branch.
 
 <figure markdown>
-  ![CLV Value Diff](../../assets/images/demo/clv-value-diff-fs8.png)
+  ![CLV Value Diff](../assets/images/demo/clv-value-diff-fs8.png)
   <figcaption>Value Diff - Customers Model</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ Run a [Value Diff](features/value-diff.md) to check the percentage match of the 
 Check the [Profile Diff](features/profile-diff.md) of the customers table to see how the `customer_lifetime_value` has been impacted.
 
 <figure markdown>
-  ![CLV Profile Diff](../../assets/images/demo/clv-profile-diff-fs8.png)
+  ![CLV Profile Diff](../assets/images/demo/clv-profile-diff-fs8.png)
   <figcaption>Profile Diff - Customers Model</figcaption>
 </figure>
 
@@ -48,7 +48,7 @@ select customer_id, customer_lifetime_value from {{ ref("customers") }} where cu
 ```
 
 <figure markdown>
-  ![CLV Query Diff](../../assets/images/demo/clv-query-diff-fs8.png)
+  ![CLV Query Diff](../assets/images/demo/clv-query-diff-fs8.png)
   <figcaption>Query Diff - Customers Model</figcaption>
 </figure>
 
