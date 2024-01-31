@@ -12222,17 +12222,25 @@ section.footer .footer-holder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 section.footer .footer-holder .brand {
   display: flex;
   flex-direction: row;
   align-content: center;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
+  margin-right: 1rem;
 }
 section.footer .footer-holder .brand .logo {
   margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 35px;
 }
 section.footer .footer-holder .brand .logo img {
   width: 100%;
@@ -12242,11 +12250,14 @@ section.footer .footer-holder .brand .logo img {
 section.footer .footer-holder .brand h1, section.footer .footer-holder .brand .h1 {
   margin: 0;
   padding: 0;
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
-  font-weight: 800;
   color: #fff;
+  font-weight: 800;
+}
+section.footer .footer-holder p.copy {
+  margin-bottom: 0;
 }
 
 body {
@@ -12278,6 +12289,8 @@ header .header-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 header .header-content .brand {
   display: flex;
@@ -12286,9 +12299,15 @@ header .header-content .brand {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  margin-right: 1rem;
 }
 header .header-content .brand .logo {
   margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 35px;
 }
 header .header-content .brand .logo img {
   width: 100%;
@@ -12298,20 +12317,31 @@ header .header-content .brand .logo img {
 header .header-content .brand h1, header .header-content .brand .h1 {
   margin: 0;
   padding: 0;
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
 header .nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   align-content: center;
+  flex-wrap: wrap;
 }
 header .nav .nav-item {
-  margin-left: 4rem;
+  margin-left: 2rem;
   font-size: 1.8rem;
+}
+@media (min-width: 576px) {
+  header .nav .nav-item {
+    margin-left: 4rem;
+  }
+}
+@media (min-width: 768px) {
+  header .nav .nav-item {
+    margin-left: 6rem;
+  }
 }
 header .nav .nav-item:first-of-type {
   margin-left: 0;
@@ -12321,6 +12351,7 @@ header .nav .nav-item a {
 }
 header .nav .nav-item.btn {
   font-size: 1.6rem;
+  padding: 0.1rem 0.5rem;
 }
 header .nav .nav-item.btn a {
   color: #fff;
