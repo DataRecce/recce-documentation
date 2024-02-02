@@ -10,6 +10,11 @@ repo_url: https://github.com/datarecce/recce
 extra_css:
   - styles/extra.css
 
+extra:
+  analytics:
+    provider: google
+    property: G-E06MSTE2SX
+
 nav:
   - index.md
   - docs/index.md
