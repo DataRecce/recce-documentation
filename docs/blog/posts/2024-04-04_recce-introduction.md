@@ -4,7 +4,7 @@ date: 2024-04-04
 slug: data-validaton-toolkit-for-dbt-data-projects
 cover_image: all-signal-no-noise-medium.png
 description: >
-  Validate modeling changes and create "all-signal" PR comments
+  Validate modeling changes and create 'all-signal' PR comments
 categories:
   - General
 ---
