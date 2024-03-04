@@ -11,13 +11,7 @@
 	border-radius: 3px;
 }
 
-.md-typeset a {
-	
-}
-.md-typeset a:hover {
-	border-bottom: solid #ff6e42 1px;
-	color: #ff6e42;
-}
+/**** Nav ****/
 
 .md-nav {
 	font-size: 0.8rem;
@@ -35,3 +29,57 @@
 .md-nav__link[href]:hover {
 	color: #ff6e42;
 }
+
+/**** Blog ****/
+
+.md-post--excerpt .md-post__content h2 {
+	line-height: 1.2;
+}
+
+.md-post__action a {
+	background-color: #ff6e42;
+	color: #fff !important;
+	padding: .3rem 1rem;
+	border-radius: 1rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 1rem;
+}
+.md-post__action a:hover {
+	border-bottom: none !important;
+}
+
+
+.md-post--excerpt {
+	padding-bottom: 2.5rem;
+	margin-bottom: 2.5rem;
+	border-bottom: dashed black 1px;
+}
+
+.md-post--excerpt:last-of-type {
+	border-bottom: none;
+}
+
+
+/**** Links ****/
+
+.md-typeset a {
+	
+}
+.md-typeset a:hover, .md-typeset a:focus, 
+.md-post .md-post__meta a:hover, .md-post .md-post__meta a:focus {
+	border-bottom: solid #ff6e42 1px;
+	color: #ff6e42;
+}
+
+h1 a:hover, h2 a:hover a, h3 a:hover {
+	border-bottom: none;
+/*	background-color: #ff6e42;*/
+/*	color: #fff;*/
+}
+
+
+
+
+
