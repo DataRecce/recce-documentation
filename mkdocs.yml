@@ -7,6 +7,8 @@ site_description: >-
 repo_name: datarecce/recce
 repo_url: https://github.com/datarecce/recce
 
+site_url: https://datarecce.io
+
 extra_css:
   - styles/extra.css
 
@@ -17,6 +19,7 @@ extra:
 
 nav:
   - index.md
+  - blog/index.md
   - docs/index.md
   - docs/installation.md
   - docs/get-started.md
@@ -30,6 +33,9 @@ nav:
     - docs/features/value-diff.md
     - docs/features/checklist.md
 
+  #- Recce Blog:
+    #- blog/index.md
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -40,6 +46,8 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - md_in_html
+  #- toc:
+  #   title: On this page
 
 theme:
   name: material
@@ -76,6 +84,18 @@ theme:
 plugins:
   - search
   - glightbox
+  - social:
+      cards_layout_options:
+        background_color: "#ff6e42"
+  - blog:
+      blog_dir: blog
+      archive: true
+      post_dir: "{blog}/posts"
+      categories_name: Categories
+      post_url_format: "{slug}" # Removed date from URL "{date}/{slug}"
+      blog_toc: false       # enable for blog, archive and category index pages
+      #archive_toc: false    # enable for archive index pages
+      # categories_toc: true # enable for category index pages
 
 watch:
   - material
