@@ -86,7 +86,7 @@ plugins:
   - glightbox
   - social:
       cards_layout_options:
-        background_color: "#ff6e42"
+        background_color: "#ff6e41"
   - blog:
       blog_dir: blog
       archive: true
