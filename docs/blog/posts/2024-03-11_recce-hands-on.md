@@ -1,7 +1,7 @@
 ---
 title: Hands-On Data Impact Analysis for dbt Data Projects with Recce
 date: 2024-03-11
-slug: data-validaton-toolkit-for-dbt-data-projects
+slug: hands-on-data-impact-analysis-recce
 description: >
   Use diffing techniques to perform data drill-down and QA your work
 categories:
