@@ -1,8 +1,7 @@
 ---
 title: Data Validation Toolkit for dbt Data Projects
-date: 2024-04-04
+date: 2024-03-04
 slug: data-validaton-toolkit-for-dbt-data-projects
-cover_image: all-signal-no-noise-medium.png
 description: >
   Validate modeling changes and create 'all-signal' PR comments
 categories:
