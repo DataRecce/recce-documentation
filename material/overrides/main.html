@@ -9,20 +9,26 @@
 
 <!-- Announcement bar -->
 {% block announce %}
-  For updates follow <strong>@datarecce</strong> on
-  <a rel="me" href="https://mastodon.social/@DataRecce">
-    <span class="twemoji mastodon">
-      {% include ".icons/fontawesome/brands/mastodon.svg" %}
-    </span>
-    <strong>Mastodon</strong>
-  </a>
-  and
-  <a href="https://x.com/datarecce">
-    <span class="twemoji twitter">
-      {% include ".icons/fontawesome/brands/x-twitter.svg" %}
-    </span>
-    <strong>Twitter</strong>
-  </a>
+  For updates follow us on
+  <span style="display: inline-block;">
+    <a rel="me" href="https://mastodon.social/@DataRecce" target="_blank">
+      <span class="twemoji mastodon">
+        {% include ".icons/fontawesome/brands/mastodon.svg" %}
+      </span>&nbsp;<strong>Mastodon</strong>
+    </a>
+  </span>,  
+  <span style="display: inline-block;">
+    <a href="https://x.com/datarecce" target="_blank">
+      <span class="twemoji twitter">
+        {% include ".icons/fontawesome/brands/x-twitter.svg" %}
+      </span>&nbsp;<strong>Twitter</strong>
+    </a>
+  </span>, and 
+  <span style="display: inline-block;">
+    <a href="https://www.linkedin.com/company/datarecce" target="_blank">
+      <span class="twemoji linkedin">&nbsp;{% include ".icons/fontawesome/brands/linkedin.svg" %}&nbsp;</span>&nbsp;<strong>LinkedIn</strong>
+    </a>
+  </span>
 {% endblock %}
 
 <!-- Theme-related JavaScript -->
@@ -32,3 +38,4 @@
   <!-- Extra JavaScript (can't be set in mkdocs.yml due to content hash) -->
   <script src="{{ 'assets/js/custom.js' | url }}"></script>
 {% endblock %}
+
