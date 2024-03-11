@@ -73,7 +73,7 @@
 	color: #ff6e42;
 }
 
-.md-typeset .md-button:hover {
+.md-typeset .md-button:hover, .md-typeset .md-button:focus {
 	background-color: #e04f23;
 	border-color: #e04f23;
 
