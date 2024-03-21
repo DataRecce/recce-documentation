@@ -32,6 +32,7 @@ nav:
     - docs/features/query-diff.md
     - docs/features/row-count-diff.md
     - docs/features/schema-diff.md
+    - docs/features/top-k-diff.md
     - docs/features/value-diff.md
     
 
