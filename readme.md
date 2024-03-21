@@ -7,7 +7,7 @@ npm install
 npm install -g sass
 ```
 
-## Update
+## Build & Serve
 
 Build static site
 `mkdocs build`
@@ -15,21 +15,59 @@ Build static site
 Start local server 
 `mkdocs serve`
 
-Update Sass for the landing page
+## Landing page
+
+If you are updating the CSS styles for the `landing page`, it is generated from the root `sass`:
 `sass --watch sass/home.sass docs/styles/home.css`
 
+## Other customizations
+
+[Extra css](https://www.mkdocs.org/user-guide/customizing-your-theme/) for documentation pages can be added here:
+
+```
+/docs/styles/extra.css
+```
+
+Overrides, such as the custom landing page, are stored in the following location:
+
+```
+/material/overrides
+
+```
+
+## Configuration options
+Configuration options are set in the `mkdocs.yml` file. 
+- [MKDocs Configuration](https://www.mkdocs.org/user-guide/configuration/)
+- 
+
+
+## Adding new feature pages
+1. To add new features, create a Markdown file in `docs/docs/features` and added a title, e.g.:
+
+```
+---
+title: Histogram Diff
+---
+```
+
+2. Add the page to the `nav` block in `mkdocs,yml`:
+
+```
+nav:
+  - index.md
+  ...
+  - Features:
+    - docs/features/histogram-diff.md
+    ...
+```
+
+3. Add images to `docs/assets/images/features`
 
 
 ## Customize the site
 https://squidfunk.github.io/mkdocs-material/setup/
 
 
-Add Extra css to:
-```
-/docs/styles/extra.css
-```
 
-Landing page overides in
-```
-/material/overrides
-```
+
+
