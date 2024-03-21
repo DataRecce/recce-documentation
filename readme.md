@@ -15,8 +15,11 @@ Build static site
 Start local server 
 `mkdocs serve`
 
-## Landing page
+> [!TIP]
+> If you encounter cairo linking issue, you can try the [workaround solution](https://github.com/Kozea/cairocffi/issues/28#issuecomment-1173455046).
 
+
+## Landing page
 If you are updating the CSS styles for the `landing page`, it is generated from the root `sass`:
 `sass --watch sass/home.sass docs/styles/home.css`
 
@@ -39,7 +42,6 @@ Overrides, such as the custom landing page, are stored in the following location
 Configuration options are set in the `mkdocs.yml` file. 
 - [MKDocs Configuration](https://www.mkdocs.org/user-guide/configuration/)
 - 
-
 
 ## Adding new feature pages
 1. To add new features, create a Markdown file in `docs/docs/features` and added a title, e.g.:
