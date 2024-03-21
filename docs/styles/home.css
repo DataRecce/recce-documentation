@@ -12287,10 +12287,15 @@ header {
 }
 header .header-content {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+@media (min-width: 768px) {
+  header .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 header .header-content .brand {
   display: flex;
@@ -12300,6 +12305,12 @@ header .header-content .brand {
   align-items: center;
   text-decoration: none;
   margin-right: 1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  header .header-content .brand {
+    margin-bottom: 0;
+  }
 }
 header .header-content .brand .logo {
   margin-right: 1rem;
@@ -12324,10 +12335,15 @@ header .header-content .brand h1, header .header-content .brand .h1 {
 }
 header .nav {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  header .nav {
+    justify-content: flex-end;
+  }
 }
 header .nav .nav-item {
   margin-left: 2rem;
@@ -12335,12 +12351,12 @@ header .nav .nav-item {
 }
 @media (min-width: 576px) {
   header .nav .nav-item {
-    margin-left: 4rem;
+    margin-left: 3rem;
   }
 }
 @media (min-width: 768px) {
   header .nav .nav-item {
-    margin-left: 6rem;
+    margin-left: 5rem;
   }
 }
 header .nav .nav-item:first-of-type {
