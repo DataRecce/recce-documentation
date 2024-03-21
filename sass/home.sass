@@ -31,8 +31,10 @@ header
 
 	.header-content
 		display: flex
-		flex-direction: row
-		justify-content: space-between
+		flex-direction: column
+		@include media-breakpoint-up(md)
+			flex-direction: row
+			justify-content: space-between
 		padding-left: 2rem
 		padding-right: 2rem
 
@@ -45,6 +47,9 @@ header
 			align-items: center
 			text-decoration: none
 			margin-right: 1rem
+			margin-bottom: 2rem
+			@include media-breakpoint-up(md)
+				margin-bottom: 0
 			.logo
 				margin-right: 1rem
 				display: flex
@@ -66,18 +71,20 @@ header
 
 	.nav
 		display: flex
-		justify-content: flex-end
 		align-items: center
 		align-content: center
 		flex-wrap: wrap
+		justify-content: center
+		@include media-breakpoint-up(md)
+			justify-content: flex-end
 
 		.nav-item
 			margin-left: 2rem
 			font-size: 1.8rem
 			@include media-breakpoint-up(sm)
-				margin-left: 4rem
+				margin-left: 3rem
 			@include media-breakpoint-up(md)
-				margin-left: 6rem
+				margin-left: 5rem
 			&:first-of-type
 				margin-left: 0
 
