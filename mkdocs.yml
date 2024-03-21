@@ -25,13 +25,15 @@ nav:
   - docs/get-started.md
   - docs/demo.md
   - Features:
-    - docs/features/lineage-diff.md
-    - docs/features/schema-diff.md
-    - docs/features/row-count-diff.md
-    - docs/features/query-diff.md
-    - docs/features/profile-diff.md
-    - docs/features/value-diff.md
     - docs/features/checklist.md
+    - docs/features/histogram-diff.md
+    - docs/features/lineage-diff.md
+    - docs/features/profile-diff.md
+    - docs/features/query-diff.md
+    - docs/features/row-count-diff.md
+    - docs/features/schema-diff.md
+    - docs/features/value-diff.md
+    
 
   #- Recce Blog:
     #- blog/index.md
