@@ -13,18 +13,18 @@
 
 /**** Nav ****/
 
-.md-nav {
+/* .md-nav {
 	font-size: 0.8rem;
-}
+} */
 
 /*.md-nav__title {
 	display: none;
 }*/
 
-.md-nav__item {
+/* .md-nav__item {
 	padding: 0.3rem 0;
 	font-weight: bold;
-}
+} */
 
 .md-nav__link[href]:hover {
 	color: #ff6e42;
