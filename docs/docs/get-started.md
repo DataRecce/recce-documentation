@@ -7,7 +7,7 @@ icon: material/rocket-launch-outline
 
 ## Prerequisites
 
-`Recce` requires that your dbt project has two environments to compare. For example, one for production and another for development. 
+`Recce` requires that your dbt project has two [environments](https://docs.getdbt.com/docs/environments-in-dbt) to compare. For example, one for production and another for development. 
 
 Prepare two targets with separate [schemas](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#understanding-target-schemas) in your dbt profile. Your `profiles.yml` might look something like this:
 

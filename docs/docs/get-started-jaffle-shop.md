@@ -1,9 +1,7 @@
 ---
-title: 5min Tutorial
-icon: material/rocket-launch-outline
+title: 5 Minutes Tutorial
+icon: material/school
 ---
-
-## Getting Started by Jaffle Shop
 
 **Jaffle Shop** is an example project officially provided by dbt-labs. This document uses [jaffle_shop_duckdb](https://github.com/dbt-labs/jaffle_shop_duckdb) to enable you to start using **recce** locally from scratch within five minutes.
 

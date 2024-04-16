@@ -1,5 +1,6 @@
 ---
 title: Checklist
+icon: material/playlist-check
 ---
 
 # Checklist
