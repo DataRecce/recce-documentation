@@ -10,7 +10,7 @@ Row Count Diff shows the difference in row count between the base and target env
 Diff the row count for a single model:
 
 <figure markdown>
-  ![Recce Row Count Diff - Single model](../../assets/images/features/row-count-diff-single.gif)
+  ![Recce Row Count Diff - Single model](../../assets/images/features/row-count-diff-single.gif){: .shadow}
   <figcaption>Row Count Diff - Single model</figcaption>
 </figure>
 
@@ -19,6 +19,6 @@ Diff the row count for a single model:
 Diff the row count for multiple models:
 
 <figure markdown>
-  ![Recce Row Count Diff - Multiple models](../../assets/images/features/row-count-diff-multiple.gif)
+  ![Recce Row Count Diff - Multiple models](../../assets/images/features/row-count-diff-multiple.gif){: .shadow}
   <figcaption>Row Count Diff - Multiple model</figcaption>
 </figure>

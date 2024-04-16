@@ -7,7 +7,7 @@ title: Schema Diff
 Schema Diff shows added, removed, and renamed columns. Click a model in the Lineage DAG Diff to view the Schema Diff.
 
 <figure markdown>
-  ![Recce Schema Diff](../../assets/images/features/schema-diff.gif)
+  ![Recce Schema Diff](../../assets/images/features/schema-diff.gif){: .shadow}
   <figcaption>Schema Diff</figcaption>
 </figure>
 

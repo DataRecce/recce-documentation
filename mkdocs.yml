@@ -34,19 +34,11 @@ nav:
   - Guides:
     - Getting Started:
       - docs/get-started.md
+      - docs/get-started-jaffle-shop.md
       - docs/installation.md  
-    - Lineage:
-      - docs/features/lineage-diff.md
-      - docs/features/row-count-diff.md
-      - docs/features/schema-diff.md      
-      - docs/features/value-diff.md      
-      - docs/features/profile-diff.md
-      - docs/features/top-k-diff.md
-      - docs/features/histogram-diff.md
-              
-    - Query:
-      - docs/features/query-diff.md        
-    - Checklist:
+    - Web UI:
+      - docs/features/lineage.md
+      - docs/features/query.md            
       - docs/features/checklist.md
     
   - Blog: 'https://medium.com/inthepipeline'
@@ -54,6 +46,7 @@ nav:
     #- blog/index.md
 
 markdown_extensions:
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span

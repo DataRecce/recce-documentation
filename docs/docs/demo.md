@@ -12,7 +12,7 @@ Try `Recce` without installing using this [online demo](https://pr1.cloud.datare
 The demo showcases a [pull request](https://github.com/DataRecce/jaffle_shop_duckdb/pull/1) that fixes the `customer_lifetime_value` calculation in dbt's Jaffle Shop project to only included completed orders.
 
 <figure markdown>
-  ![customers.sql](../assets/images/demo/clv-customers-model-fs8.png)
+  ![customers.sql](../assets/images/demo/clv-customers-model-fs8.png){: .shadow}
   <figcaption>Jaffle Shop customers.sql</figcaption>
 </figure>
 

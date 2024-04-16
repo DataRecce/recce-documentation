@@ -18,7 +18,7 @@ Top-K Diff shows a ranked comparison of top-k elements from each model. The top 
 
 
 <figure markdown>
-  ![Generate a Recce Top-K Diff ](../../assets/images/features/top-k-diff.gif)
+  ![Generate a Recce Top-K Diff ](../../assets/images/features/top-k-diff.gif){: .shadow}
   <figcaption>Generate a Recce Top-K Diff </figcaption>
 </figure>
 
