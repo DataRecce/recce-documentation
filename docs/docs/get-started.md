@@ -28,7 +28,7 @@ jaffle_shop:
 ## Install `Recce`
 
 Install Recce using `pip`:
-```bash
+```shell
 pip install -U recce
 ```
 
@@ -38,7 +38,7 @@ The following instructions give an overview of the process of using Recce in you
 
 Navigate to your dbt project.
 
-```bash
+```shell
 cd your-dbt-project/
 ```
 
@@ -53,16 +53,16 @@ cd your-dbt-project/
 
 Checkout the `main` branch of your project and generate the required artifacts into `target-base`. You can skip `dbt build` if this environment already exists. 
 
-```bash
+```shell
 git checkout main
 
-dbt build --target prod --target-path target-base
+dbt run --target prod
 dbt docs generate --target prod --target-path target-base/
 ```
 
 #### Generate artifacts for the `target` environment
 
-```bash
+```shell
 git checkout feature/my-awesome-feature
 
 dbt run
@@ -73,18 +73,17 @@ dbt docs generate
 ## Start the `Recce` server
 Start the `Recce` server with the follow command:
 
-```bash
+```shell
 recce server
 ```
 
-If you want to use a previously exported `Recce` state file, specify it when starting the server:
+Recce use dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts), which is generated when every invocation. You can find these files in the `target/` folder.
 
-```bash
-recce server issue-123.json
-```
+| artifacts     | dbt command                        |
+| ------------- | ---------------------------------- |
+| manifest.json | `dbt docs generate`, `dbt run`, .. |
+| catalog.json  | `dbt docs generate`                |
 
-The `Recce` server will now be accessible at `127.0.0.1:8000`.
+!!! tip
 
-
-
-
+    The regeneration of the `catalog.json` file is not required after every `dbt run`. it is only required to regenerate this file when models or columns are added or updated.

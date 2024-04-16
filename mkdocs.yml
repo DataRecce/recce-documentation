@@ -34,6 +34,7 @@ nav:
   - Guides:
     - Getting Started:
       - docs/get-started.md
+      - docs/get-started-jaffle-shop.md
       - docs/installation.md  
     - Lineage:
       - docs/features/lineage-diff.md
@@ -54,6 +55,7 @@ nav:
     #- blog/index.md
 
 markdown_extensions:
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span

@@ -20,7 +20,7 @@ select * from {{ ref("mymodel") }}
 After performing a query, select the primary key by clicking the `key` icon.
 
 <figure markdown>
-  ![Recce Query Diff](../../assets/images/features/query-diff.gif)
+  ![Recce Query Diff](../../assets/images/features/query-diff.gif){: .shadow}
   <figcaption>Query Diff</figcaption>
 </figure>
 

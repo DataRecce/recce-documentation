@@ -10,7 +10,7 @@ Models are color coded to indicate `added`, `removed`, and `modified` models.
 
 
 <figure markdown>
-  ![Recce Lineage Diff](../../assets/images/features/lineage-diff.gif)
+  ![Recce Lineage Diff](../../assets/images/features/lineage-diff.gif){: .shadow}
   <figcaption>Lineage Diff</figcaption>
 </figure>
 

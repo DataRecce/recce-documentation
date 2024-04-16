@@ -18,6 +18,6 @@ Histogram Diff compares the distribution of a column in an overlay histogram cha
 
 
 <figure markdown>
-  ![Generate a Recce Histogram Diff ](../../assets/images/features/histogram-diff.gif)
+  ![Generate a Recce Histogram Diff ](../../assets/images/features/histogram-diff.gif){: .shadow}
   <figcaption>Generate a Recce Histogram Diff </figcaption>
 </figure>
