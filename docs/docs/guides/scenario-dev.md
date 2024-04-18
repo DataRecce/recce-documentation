@@ -43,7 +43,7 @@ In Recce, you can conduct an initial assessment of your impact scope by [Lineage
 
 With lineage diff, you can start from the modified models to confirm your impact. An inexpensive method is to examine the impact scope of the affected models' metadata.
 
-Firstly, you can start by examining [Row count diff](../features/lineage.md#schema-diff) to see if any changes are detected in each model's schema. Sometimes, a change from **Integer** to **Text**, or from **Decimal** to **Numeric**, may have subtle impacts on your downstream models.
+Firstly, you can start by examining [Schema diff](../features/lineage.md#schema-diff) to see if any changes are detected in each model's schema. Sometimes, a change from **Integer** to **Text**, or from **Decimal** to **Numeric**, may have subtle impacts on your downstream models.
 
 Additionally, whether the models with schema changes have only added columns is worth noting, as this might not significantly affect your downstream processes. However, if columns are removed, it's essential to pay special attention to ensure it's the expected outcome.
 
