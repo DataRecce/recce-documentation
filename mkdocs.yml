@@ -36,6 +36,7 @@ nav:
           - docs/get-started-jaffle-shop.md
           - docs/installation.md
           - docs/start-with-dbt-cloud.md
+          - docs/recce-ci-with-github-action.md
       - Web UI:
           - docs/features/lineage.md
           - docs/features/query.md
