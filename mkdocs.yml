@@ -29,8 +29,7 @@ nav:
   - index.md
   - Overview:
     - docs/index.md
-    - docs/demo.md
-  
+    - docs/demo.md  
   - Guides:
     - Getting Started:
       - docs/get-started.md
@@ -40,6 +39,13 @@ nav:
       - docs/features/lineage.md
       - docs/features/query.md            
       - docs/features/checklist.md
+    - Command Line Interface:
+      - docs/features/recce-run.md
+    - Scenarios:
+      - docs/guides/scenario-dev.md
+      - docs/guides/scenario-pr-review.md
+      - docs/guides/scenario-ci.md
+
     
   - Blog: 'https://medium.com/inthepipeline'
   #- Recce Blog:
@@ -56,6 +62,9 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   #- toc:
   #   title: On this page
 
