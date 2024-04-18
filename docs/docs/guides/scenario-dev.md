@@ -10,15 +10,16 @@ In developing a project with dbt, there are numerous methods available to help y
 In order to enable Recce to compare the base and current environment, you need to prepare artifacts for both environments.
 
 For base environment, put the dbt artifacts in your `target-base/` path. You can have the following options
+
 1. **Download the artifacts from remote storage:** If you use dbt cloud, you can download the latest artifacts in [your production environment](https://docs.getdbt.com/docs/deploy/deploy-environments). For non dbt cloud case, you can upload the latest artifacts to cloud storage (e.g. s3), and write a scripts to download artifacts.
-2. **Generate the artifacts for production environment:**
+2. **Generate the artifacts for the production environment:**
     ```shell
     dbt docs generate --target prod --target-path target-base/
     ```
 
-For current developing environment, for most of the dbt command, it would generate the `manifest.json`. If you want to update the schema information, you have to run the `dbt docs generate` to update the schema information.
+For current developing environment, for most of the dbt command, it would generate the `manifest.json`. If you want to update the schema information, you have to run the `dbt docs generate` to generate the `catalog.json`.
 
-Recce also watch the the `target/` and `target-base/` folder. If there is artifact file changed, the recce web ui would reload to the latest version.
+Recce also watch the the `target/` and `target-base/` folders. If there is artifact file changed, the recce web ui would reload to the latest version.
 
 
 ## Development Cycle
@@ -36,7 +37,7 @@ Here, I assume your pull request hasn't been marked as "ready for review" yet, a
 
 DBT provides a method to identify modified models using `dbt ls -s state:modified+,` but this is obviously not usable within dbt docs. While you can determine how many models are affected using this command, you can't visualize these results.
 
-In Recce, you can conduct an initial assessment of your impact scope, which may help you identify potential unintended impacts.
+In Recce, you can conduct an initial assessment of your impact scope by [Lineage diff](../features/lineage.md#lineage-diff), which may help you identify potential unintended impacts.
 
 ### Validate the Models' Metadata
 
@@ -58,15 +59,15 @@ Apparently, model metadata alone is insufficient. Sometimes, we need to assess t
 
 Recce provides 4 powerful diff tools to compare the data level changes.
 
-1. **Value Diff:** You can use value diff to observe the matched percentage for each column.
-2. **Profile Diff:** You can use profile diff to compare basic statistical values for each column, such as count, distinct count, min, max, and average.
-3. **Histogram Diff:** You can use histogram diff to examine the distribution changes of numeric columns.
-4. **Top-k Diff:** You can use top-k diff to analyze distribution changes of categorical columns.
+1. [Value Diff](../features/lineage.md#value-diff): You can use value diff to observe the matched percentage for each column.
+2. [Profile Diff](../features/lineage.md#profile-diff): You can use profile diff to compare basic statistical values for each column, such as count, distinct count, min, max, and average.
+3. [Histogram Diff](../features/lineage.md#histogram-diff): You can use histogram diff to examine the distribution changes of numeric columns.
+4. [Top-K Diff](../features/lineage.md#top-k-diff): You can use top-k diff to analyze distribution changes of categorical columns.
 
 It's important to note that these queries may take longer to execute and require reading larger amounts of data. Please choose the appropriate method based on the data volume of each model.
 
 ### Validate by Adhoc Query
-If you want to choose the most flexible method, AdHoc Query is the way to go. You can compare individual records, perform complex operations like **where**, **group by**, **order by**. Or even query multiple models with joins.
+If you want to choose the most flexible method, [Query diff](../features/query.md) is the way to go. You can compare individual records, perform complex operations like **where**, **group by**, **order by**. Or even query multiple models with joins.
 
 AdHoc queries also support the use of dbt macros, providing the highest level of flexibility for validation. However, the downside is that you'll need to write the queries yourself.
 
@@ -92,7 +93,7 @@ ORDER BY
     month desc
 ```
 
-Next, you can add this check to your checklist. After modifying your code each time, rerun this check until it meets your requirements.
+Next, you can add this check to your [checklist](../features/checklist.md). After modifying your code each time, rerun this check until it meets your requirements.
 
 ## Store your data
 

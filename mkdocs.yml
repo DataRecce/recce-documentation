@@ -27,10 +27,10 @@ extra:
       link: https://mastodon.social/@DataRecce
 nav:
   - index.md
-  - Overview:
-    - docs/index.md
-    - docs/demo.md  
   - Guides:
+    - Overview:
+      - docs/index.md
+      - docs/demo.md  
     - Getting Started:
       - docs/get-started.md
       - docs/get-started-jaffle-shop.md
