@@ -18,38 +18,38 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/DataRecce/recce
     - icon: fontawesome/brands/slack
-      link: https://getdbt.slack.com/archives/C05C28V7CPP      
+      link: https://getdbt.slack.com/archives/C05C28V7CPP
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/datarecce
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/datarecce
-    - icon: fontawesome/brands/mastodon 
+    - icon: fontawesome/brands/mastodon
       link: https://mastodon.social/@DataRecce
 nav:
   - index.md
   - Guides:
-    - Overview:
-      - docs/index.md
-      - docs/demo.md  
-    - Getting Started:
-      - docs/get-started.md
-      - docs/get-started-jaffle-shop.md
-      - docs/installation.md  
-    - Web UI:
-      - docs/features/lineage.md
-      - docs/features/query.md            
-      - docs/features/checklist.md
-    - Command Line Interface:
-      - docs/features/recce-run.md
-    - Scenarios:
-      - docs/guides/scenario-dev.md
-      - docs/guides/scenario-pr-review.md
-      - docs/guides/scenario-ci.md
+      - Overview:
+          - docs/index.md
+          - docs/demo.md
+      - Getting Started:
+          - docs/get-started.md
+          - docs/get-started-jaffle-shop.md
+          - docs/installation.md
+          - docs/start-with-dbt-cloud.md
+      - Web UI:
+          - docs/features/lineage.md
+          - docs/features/query.md
+          - docs/features/checklist.md
+      - Command Line Interface:
+          - docs/features/recce-run.md
+      - Scenarios:
+          - docs/guides/scenario-dev.md
+          - docs/guides/scenario-pr-review.md
+          - docs/guides/scenario-ci.md
 
-    
-  - Blog: 'https://medium.com/inthepipeline'
+  - Blog: "https://medium.com/inthepipeline"
   #- Recce Blog:
-    #- blog/index.md
+  #- blog/index.md
 
 markdown_extensions:
   - admonition
@@ -65,8 +65,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  #- toc:
-  #   title: On this page
+        #- toc:
+        #   title: On this page
+
 
 theme:
   name: material
@@ -80,7 +81,7 @@ theme:
         name: Switch to light mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
+      scheme: default
       primary: deep orange
       toggle:
         icon: material/brightness-7
@@ -91,14 +92,14 @@ theme:
       primary: deep orange
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference   
+        name: Switch to system preference
 
   features:
     # - navigation.instant
     # - navigation.instant.progress
     - navigation.tabs
     - navigation.sections
-    - content.code.copy  
+    - content.code.copy
 
 plugins:
   - search
@@ -112,10 +113,9 @@ plugins:
       post_dir: "{blog}/posts"
       categories_name: Categories
       post_url_format: "{slug}" # Removed date from URL "{date}/{slug}"
-      blog_toc: false       # enable for blog, archive and category index pages
+      blog_toc: false # enable for blog, archive and category index pages
       #archive_toc: false    # enable for archive index pages
       # categories_toc: true # enable for category index pages
 
 watch:
   - material
-
