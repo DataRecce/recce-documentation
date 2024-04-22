@@ -97,7 +97,7 @@ Next, you can add this check to your [checklist](../features/checklist.md). Afte
 
 ## Store your data
 
-During development, we may inevitably switch branches. If you want to preserve the current state, you can use the Export feature to save it as a file for later loading.
+During development, we may inevitably switch branches. If you want to preserve the current state, you can use the [Export the state file](../features/state-file.md) for later loading.
 
 
 Another technique is to specify the file directly when opening it.
