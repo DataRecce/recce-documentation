@@ -66,13 +66,13 @@ icon: material/school
    recce server
    ```
    Open the link http://0.0.0.0:8000, you can see the lineage diff
-   ![](/assets/images/jaffle-shop/jaffle_shop_lineage.png)
+   ![](../assets/images/jaffle-shop/jaffle_shop_lineage.png)
 1. Switch to the **Query** tab, run this query
    ```sql
    select * from {{ ref("orders") }} order by 1
    ```
    Click the `Run Diff` or press `Cmd + Shift + Enter`
    Click on the 🔑 icon next to the `order_id` column to compare records that are uniquely identified by their `order_id`.
-   ![](/assets/images/jaffle-shop/jaffle_shop_query.png)
+   ![](../assets/images/jaffle-shop/jaffle_shop_query.png)
 1. Click the `+` to add the query result to checklist
-   ![](/assets/images/jaffle-shop/jaffle_shop_check.png)
+   ![](../assets/images/jaffle-shop/jaffle_shop_check.png)
