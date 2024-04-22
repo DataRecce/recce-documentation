@@ -17,7 +17,7 @@ It's from Lineage Diff that you will determine which models to investigate furth
 
 
 ### Node Summary
-![](/assets/images/features/node.png){: .shadow}
+![](../../assets/images/features/node.png){: .shadow}
 
 - Models are color coded to indicate `added`, `removed`, and `modified` models.
 - The bottom icon indicates if there is `row count changed` or `schema changed` detected. A row count changed icon is only shown if there is row count diff executed on this node.
@@ -108,7 +108,7 @@ The primary key is automatically inferenced by the first column with the [unique
 
 You can query all the diff records from the value diff result.
 
-![](/assets/images/features/value-diff-detail.gif){: .showdow}
+![](../../assets/images/features/value-diff-detail.gif){: .showdow}
 
 ### Profile Diff
 

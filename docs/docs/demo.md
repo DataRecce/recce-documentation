@@ -23,7 +23,7 @@ Some example validation checks you might create include:
 
 ### Value Diff
 
-Run a [Value Diff](features/value-diff.md) to check the percentage match of the `customer_lifetime_value` column between production and the development branch.
+Run a [Value Diff](features/lineage.md#value-diff) to check the percentage match of the `customer_lifetime_value` column between production and the development branch.
 
 <figure markdown>
   ![CLV Value Diff](../assets/images/demo/clv-value-diff-fs8.png)
@@ -32,7 +32,7 @@ Run a [Value Diff](features/value-diff.md) to check the percentage match of the 
 
 ### Profile Diff
 
-Check the [Profile Diff](features/profile-diff.md) of the customers table to see how the `customer_lifetime_value` has been impacted.
+Check the [Profile Diff](features/lineage.md#profile-diff) of the customers table to see how the `customer_lifetime_value` has been impacted.
 
 <figure markdown>
   ![CLV Profile Diff](../assets/images/demo/clv-profile-diff-fs8.png)
@@ -41,7 +41,7 @@ Check the [Profile Diff](features/profile-diff.md) of the customers table to see
 
 
 ### Query Diff
-Run a [Query Diff](features/query-diff.md) to compare the the actual values in prod and dev.
+Run a [Query Diff](features/query.md) to compare the the actual values in prod and dev.
 
 ```SQL
 select customer_id, customer_lifetime_value from {{ ref("customers") }} where customer_id < 50;
