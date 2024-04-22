@@ -1,11 +1,11 @@
 ---
-title: Continue Integration
+title: Continuous Integration (CI)
 icon: octicons/play-16
 ---
 
-# Recce CI integrate with GitHub Action
+# Recce CI integration with GitHub Action
 
-Recce provide `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Action to compare the data models between two environments when a new pull-request is created.
+Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Action to compare the data models between two environments when a new pull-request is created.
 
 ## Prerequisites
 
