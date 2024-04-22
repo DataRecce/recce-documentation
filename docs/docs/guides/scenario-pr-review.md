@@ -37,7 +37,7 @@ Another core feature of Recce is its various checks, which allow us to compare k
 
 ## Share the Recce File
 
-If you want the reviewer to access your environment, you can also attach the Recce file to the PR comment.
+If you want the reviewer to access your environment, you can also attach the [Recce state file](../features/state-file.md) to the PR comment.
 
 **As a Submitter**
 
@@ -57,6 +57,6 @@ By adding the `--review` option, the Recce server will use the DBT artifacts fro
 
 !!!Note
     
-    Although the artifacts are from the Recce state, you still need to provide the profiles.yml and dbt_project.yml files so that Recce knows which credentials to use to connect to the data warehouse.
+    Although the artifacts are from the Recce state, you still need to provide the `profiles.yml` and `dbt_project.yml` files so that Recce knows which credentials to use to connect to the data warehouse.
 
 

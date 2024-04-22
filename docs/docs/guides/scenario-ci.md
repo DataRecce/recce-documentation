@@ -178,7 +178,7 @@ jobs:
 
 ## Review the Recce State File
 
-Once the Recce CI workflow is completed, you can download the Recce state file from the GitHub pull-request. The Recce state file contains the comparison results of the data models between the base and current environments.
+Once the Recce CI workflow is completed, you can download the [Recce state file](../features/state-file.md) from the GitHub pull-request. The Recce state file contains the comparison results of the data models between the base and current environments.
 
 ```bash
 recce server --review recce_state.json

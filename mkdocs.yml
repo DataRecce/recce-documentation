@@ -42,6 +42,8 @@ nav:
           - docs/features/checklist.md
       - Command Line Interface:
           - docs/features/recce-run.md
+      - Advanced Features:
+          - docs/features/state-file.md
       - Scenarios:
           - docs/guides/scenario-dev.md
           - docs/guides/scenario-pr-review.md
