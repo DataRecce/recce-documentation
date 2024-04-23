@@ -44,6 +44,7 @@ nav:
           - docs/features/recce-run.md
       - Advanced Features:
           - docs/features/state-file.md
+          - docs/features/preset-checks.md
       - Scenarios:
           - docs/guides/scenario-dev.md
           - docs/guides/scenario-pr-review.md
