@@ -5,29 +5,34 @@ icon: octicons/play-16
 
 # Recce CI integration with GitHub Action
 
-Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Action to compare the data models between two environments when a new pull-request is created.
+Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Actions (or other CI tools) to compare the data models between two environments when a new pull-request is created.
+
+The following guide demonstrates how to configure Recce in GitHub Actions.
 
 ## Prerequisites
 
-Before you start integrating Recce with GitHub Action, you need to have the following prerequisites:
+Before integrating Recce with GitHub Actions, you will need to configure the following items:
 
-- Set up two environments in your data warehouse. For example, one for production and another for development.
+- Set up **two environments** in your data warehouse. For example, one for production and another for development.
 
-- Provide the credentials profile for both environments in your `profiles.yml` file to let Recce access your data warehouse. You can put the credentials in the `profiles.yml` file. Or you can use the environment variables to provide the credentials.
+- Provide the **credentials profile** for both environments in your `profiles.yml` so that Recce can access your data warehouse. You can put the credentials in a `profiles.yml` file, or use environment variables.
 
-- Set up the data warehouse credentials in the GitHub repository secrets. You can set up the credentials in the GitHub repository secrets by following the steps mentioned in the [GitHub documentation](https://docs.github.com/en/actions/reference/encrypted-secrets).
+- Set up the **data warehouse credentials** in your [GitHub repository secrets](https://docs.github.com/en/actions/reference/encrypted-secrets).
 
-## Set up Recce with GitHub Action
+## Set up Recce with GitHub Actions
 
-We will suggest setting up two GitHub Actions workflows in your GitHub repository. One for the production environment and another for the development environment.
+We suggest setting up two GitHub Actions workflows in your GitHub repository. One for the production environment and another for the development environment.
 
-For the production environment, it will be triggered on every merge to the main branch.
+- **Production environment workflow**: Triggered on every merge to the `main branch`. This ensures that production artifacts are readily available for use when a PR is opened.
 
-And for the development environment, it will be triggered on every push commits to the pull-request branch.
+- **Development environment workflow**: Triggered on every push to the `pull-request branch`. This workflow will compare production models with the current development environment.
 
-### Base Workflow (Main Branch)
+### Production Workflow (Main Branch)
 
-In this workflow, we will set up the GitHub Action to run the dbt commands for the production environment. And then, it will package the dbt artifacts and upload them to the 3rd party storage system outside the GitHub. We will use the AWS S3 bucket to store the dbt artifacts here.
+This workflow will perform the following actions:
+
+1. Run dbt on the production environment.
+2. Upload the generated artifacts to S3 for later use.
 
 ```yaml
 name: Recce CI Base Branch
@@ -87,9 +92,15 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
 ```
 
-### Current Workflow (Pull Request Branch)
+### Development Workflow (Pull Request Branch)
 
-In the current workflow, we will set up the GitHub Action to run the dbt commands for the development environment. And then, download the dbt artifacts built in the base environment from the 3rd party storage system. After that, it will compare the data models between the base and current environments using Recce.
+This workflow will perform the following actions:
+
+1. Run dbt on the development environment.
+2. Download previously generated production artifacts from S3.
+3. Use Recce to compare the current environment with the downloaded production artifacts.
+4. Post the Recce [state file](../features/state-file.md) to a pull request comment.
+
 
 ```yaml
 name: Recce CI Current Branch
@@ -176,12 +187,15 @@ jobs:
           ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
 ```
 
+
 ## Review the Recce State File
 
-Once the Recce CI workflow is completed, you can download the [Recce state file](../features/state-file.md) from the GitHub pull-request. The Recce state file contains the comparison results of the data models between the base and current environments.
+Review the downloaded Recce [state file](../features/state-file.md) with the folowing command:
 
 ```bash
 recce server --review recce_state.json
 ```
 
-In the Recce server review mode, you can review the comparison results of the data models between the base and current environments. It will contain the row counts of modified data models, and the query results of the Recce Preset Checks.
+In the Recce server `--review` mode, you can review the comparison results of the data models between the base and current environments. It will contain the row counts of modified data models, and the results of any Recce [Preset Checks](../../features/preset-checks/).
+
+
