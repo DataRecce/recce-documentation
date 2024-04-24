@@ -10,6 +10,7 @@ Preset checks can be the fixed checks that are generated every time a new recce 
 
 ## Configure the Preset Check
 
+To configure the preset checks, add the settings to the [recce config file](../reference/configuration.md).
 
 1. Add a check to your checklist
     ![alt text](../../assets/images/features/preset-checks-prep.png){: .shadow}

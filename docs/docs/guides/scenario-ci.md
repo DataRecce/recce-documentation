@@ -196,6 +196,6 @@ Review the downloaded Recce [state file](../features/state-file.md) with the fol
 recce server --review recce_state.json
 ```
 
-In the Recce server `--review` mode, you can review the comparison results of the data models between the base and current environments. It will contain the row counts of modified data models, and the results of any Recce [Preset Checks](../../features/preset-checks/).
+In the Recce server `--review` mode, you can review the comparison results of the data models between the base and current environments. It will contain the row counts of modified data models, and the results of any Recce [Preset Checks](../features/preset-checks.md).
 
 
