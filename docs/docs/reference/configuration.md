@@ -12,7 +12,7 @@ The config file for Recce is located in recce.yml. Currently, only preset checks
 ```yaml
 # recce.yml
 checks:
-    - name: Query diff of customers
+  - name: Query diff of customers
     description: |
         This is the demo preset check.
 
@@ -28,11 +28,11 @@ checks:
 
 | Field  | Description | Type |
 | --- | --- | ---|
-| name  | the title of the check  | string |
-| description  | the description of the check  | string |
-| type | the type of the check | string |
-| params| the parameters for running the check | object |
-| view_options | the options for presenting the run result | object |
+| `name`  | the title of the check  | string |
+| `description`  | the description of the check  | string |
+| `type` | the type of the check | string |
+| `params` | the parameters for running the check | object |
+| `view_options` | the options for presenting the run result | object |
 
 
 !!!Note
