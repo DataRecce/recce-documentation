@@ -34,7 +34,7 @@ pip install -U recce
 
 ## Use `Recce` in your dbt project
 
-The following instructions give an overview of the process of using Recce in your dbt project. For a hands-on tutorial, please check the Jaffle Shop Demo.
+The following instructions give an overview of the process of using Recce in your dbt project. For a hands-on tutorial, please check the [Jaffle Shop Tutorial](./get-started-jaffle-shop.md).
 
 Navigate to your dbt project.
 
