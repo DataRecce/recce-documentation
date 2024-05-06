@@ -72,7 +72,10 @@ Here, the official [example project](https://github.com/TobikoData/sqlmesh/tree/
     ```
    and apply this change to the **dev** environment
     ```shell
-    $ sqlmesh --config local_config plan dev    
+    sqlmesh --config local_config plan dev    
+    ```
+    output
+    ```shell
     New environment `dev` will be created from `prod`
     Summary of differences against `dev`:
     Models:
@@ -99,7 +102,10 @@ Here, the official [example project](https://github.com/TobikoData/sqlmesh/tree/
 
 1. Use `sqlmesh table-diff` to check the change.
     ```shell
-    $ sqlmesh --config local_config table_diff prod:dev sushi.customers    
+    sqlmesh --config local_config table_diff prod:dev sushi.customers    
+    ```
+    output
+    ```
     Schema Diff Between 'PROD' and 'DEV' environments for model 'sushi.customers':
     └── Schemas match
 
