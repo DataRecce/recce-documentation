@@ -45,6 +45,7 @@ nav:
           - docs/features/checklist.md
       - Command Line Interface:
           - docs/features/recce-run.md
+          - docs/features/recce-summary.md
       - Advanced Features:
           - docs/features/state-file.md
           - docs/features/preset-checks.md
@@ -55,7 +56,6 @@ nav:
           - docs/guides/scenario-ci.md
       - Architecture:
           - docs/architecture/overview.md
-
 
   - Blog: "https://medium.com/inthepipeline"
   #- Recce Blog:
@@ -77,6 +77,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
         #- toc:
         #   title: On this page
+
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
