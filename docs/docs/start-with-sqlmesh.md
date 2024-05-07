@@ -1,5 +1,5 @@
 ---
-title: Start with SQLMesh (Experiment)
+title: Start with SQLMesh (Experimental)
 icon: material/rocket-launch-outline
 ---
 
