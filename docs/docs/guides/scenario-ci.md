@@ -99,7 +99,7 @@ This workflow will perform the following actions:
 1. Run dbt on the development environment.
 2. Download previously generated production artifacts from S3.
 3. Use Recce to compare the current environment with the downloaded production artifacts.
-4. Post the Recce [state file](../features/state-file.md) to a pull request comment.
+4. Use Recce to generate the summary of the current changes and post it as a comment on the pull request. Please refer to the [Recce Summary](../features/recce-summary.md) for more information.
 
 ````yaml
 name: Recce CI Current Branch
