@@ -36,21 +36,27 @@ graph LR
 model.jaffle_shop.customers["customers
 
 [What's Changed]
-Code, Schema, Value Diff"]
+Code, Value Diff"]
 style model.jaffle_shop.customers stroke:#ffa502
 model.jaffle_shop.customers---->model.jaffle_shop.customer_segments
 model.jaffle_shop.customers---->model.jaffle_shop.customer_order_pattern
 model.jaffle_shop.customer_segments["customer_segments"]
 model.jaffle_shop.customer_order_pattern["customer_order_pattern"]
+
 ```
+
+## Checks Summary
+
+| Total Checks | Impacted Checks |
+| ------------ | --------------- |
+| 5            | 2               |
 
 ## Impacted Checks
 
-| Name                                       | Type        | Description                                                     | Type of Changes       |
-| ------------------------------------------ | ----------- | --------------------------------------------------------------- | --------------------- |
-| Model schema of customers                  | Schema Diff | The schema of customers should not be changed                   | Dictionary Item Added |
-| Value diff of customers                    | Value Diff  | The customer_lifetime_value in customers should be 100% matched | Column Changed        |
-| Query diff of customers avg lifetime value | Query Diff  | The average of customer_lifetime_value should not be changed    | Values Changed        |
+| Name                                       | Type       | Description                                                     |
+| ------------------------------------------ | ---------- | --------------------------------------------------------------- |
+| Value diff of customers                    | Value Diff | The customer_lifetime_value in customers should be 100% matched |
+| Query diff of customers avg lifetime value | Query Diff | The average of customer_lifetime_value should not be changed    |
 ````
 
 The rendered output will look like this. [Example Output](./recce-summary-example.md)
@@ -62,18 +68,27 @@ The rendered output will look like this. [Example Output](./recce-summary-exampl
 The lineage graph shows the lineage of the models that are impacted by the modified models. The graph is generated using the `mermaid` library. The graph is a directed graph that shows the relationship between the models. The graph is generated based on the modified models and their's children models.
 If the model is modified or impacted by the modified model, it will be highlighted in the `[What's Changed]` section.
 
+#### Example of Lineage Graph
+
 ```mermaid
 graph LR
 model.jaffle_shop.customers["customers
 
 [What's Changed]
-Code, Schema, Value Diff"]
+Code, Value Diff"]
 style model.jaffle_shop.customers stroke:#ffa502
 model.jaffle_shop.customers---->model.jaffle_shop.customer_segments
 model.jaffle_shop.customers---->model.jaffle_shop.customer_order_pattern
 model.jaffle_shop.customer_segments["customer_segments"]
 model.jaffle_shop.customer_order_pattern["customer_order_pattern"]
 ```
+
+### Checks Summary
+
+Shows the total number of checks and the number of impacted checks. The table will contain the following columns:
+
+- Total Checks - The total number of checks.
+- Impacted Checks - The number of impacted checks.
 
 ### Impacted Checks
 
@@ -82,10 +97,15 @@ The impacted checks table shows the checks that are impacted by the modified mod
 - Name - The name of the check.
 - Type - The type of the check.
 - Description - The description of the check.
-- Type of Changes - The type of changes detected by Recce.
 
-| Name                                       | Type        | Description                                                     | Type of Changes       |
-| ------------------------------------------ | ----------- | --------------------------------------------------------------- | --------------------- |
-| Model schema of customers                  | Schema Diff | The schema of customers should not be changed                   | Dictionary Item Added |
-| Value diff of customers                    | Value Diff  | The customer_lifetime_value in customers should be 100% matched | Column Changed        |
-| Query diff of customers avg lifetime value | Query Diff  | The average of customer_lifetime_value should not be changed    | Values Changed        |
+#### Example of Impacted Checks
+
+| Name                                       | Type       | Description                                                     |
+| ------------------------------------------ | ---------- | --------------------------------------------------------------- |
+| Value diff of customers                    | Value Diff | The customer_lifetime_value in customers should be 100% matched |
+| Query diff of customers avg lifetime value | Query Diff | The average of customer_lifetime_value should not be changed    |
+
+## How to Integrate with CI/CD Pipeline
+
+The generated summary can be posted to any kinds of repository hosting platform, such as GitHub, GitLab, or Bitbucket.
+Please refer to the [Recce CI integration with GitHub Action](../guides/scenario-ci.md) section for more information on how to integrate Recce with your CI/CD pipeline.
