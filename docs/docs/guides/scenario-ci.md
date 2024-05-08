@@ -99,10 +99,9 @@ This workflow will perform the following actions:
 1. Run dbt on the development environment.
 2. Download previously generated production artifacts from S3.
 3. Use Recce to compare the current environment with the downloaded production artifacts.
-4. Post the Recce [state file](../features/state-file.md) to a pull request comment.
+4. Use Recce to generate the summary of the current changes and post it as a comment on the pull request. Please refer to the [Recce Summary](../features/recce-summary.md) for more information.
 
-
-```yaml
+````yaml
 name: Recce CI Current Branch
 
 on:
@@ -177,6 +176,28 @@ jobs:
           name: recce-state-file
           path: recce_state.json
 
+      - name: Prepare Recce Summary
+        id: recce-summary
+        run: |
+          recce summary recce_state.json > recce_summary.md
+          cat recce_summary.md >> $GITHUB_STEP_SUMMARY
+          echo '${{ env.NEXT_STEP_MESSAGE }}' >> recce_summary.md
+        env:
+          ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
+          NEXT_STEP_MESSAGE: |
+            ## Next Steps
+            If you want to check more detail inforamtion about the recce result, please download the [artifact](${{ steps.recce-artifact-uploader.outputs.artifact-url }}) file and open it by [Recce](https://pypi.org/project/recce/) CLI.
+
+            ### How to check the recce result
+            ```bash
+            # Unzip the downloaded artifact file
+            tar -xf recce-state-file.zip
+
+            # Launch the recce server based on the state file
+            recce server --review recce_state.json
+
+            # Open the recce server http://localhost:8000 by your browser
+
       - name: Comment on pull request
         uses: thollander/actions-comment-pull-request@v2
         with:
@@ -185,17 +206,14 @@ jobs:
             Please download the [artifact](${{ env.ARTIFACT_URL }}) for the state file.
         env:
           ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
-```
-
+````
 
 ## Review the Recce State File
 
-Review the downloaded Recce [state file](../features/state-file.md) with the folowing command:
+Review the downloaded Recce [state file](../features/state-file.md) with the following command:
 
 ```bash
 recce server --review recce_state.json
 ```
 
 In the Recce server `--review` mode, you can review the comparison results of the data models between the base and current environments. It will contain the row counts of modified data models, and the results of any Recce [Preset Checks](../features/preset-checks.md).
-
-
