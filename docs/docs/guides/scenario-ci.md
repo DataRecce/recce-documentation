@@ -182,6 +182,15 @@ jobs:
           recce summary recce_state.json > recce_summary.md
           cat recce_summary.md >> $GITHUB_STEP_SUMMARY
           echo '${{ env.NEXT_STEP_MESSAGE }}' >> recce_summary.md
+
+          # Handle the case when the recce summary is too long to be displayed in the GitHub PR comment
+          if [[ `wc -c recce_summary.md | awk '{print $1}'` -ge '65535' ]]; then
+            echo '# Recce Summary
+          The recce summary is too long to be displayed in the GitHub PR comment.
+          Please check the summary detail in the [Job Summary](${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}) page.
+          ${{ env.NEXT_STEP_MESSAGE }}' > recce_summary.md
+          fi
+
         env:
           ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
           NEXT_STEP_MESSAGE: |

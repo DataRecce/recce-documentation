@@ -22,7 +22,7 @@ recce summary recce-state.json
 The output of the `summary` command will be markdown format. The markdown output will contain the following sections:
 
 - Lineage Graph - A graph that shows the lineage of the models that are impacted by the modified models.
-- Impacted Checks - A table that shows the impacted checks.
+- Checks Summary - A summary of the checks that are detected mismatch between `base` and `current` environments.
 
 ### Example Output
 
@@ -36,7 +36,7 @@ graph LR
 model.jaffle_shop.customers["customers
 
 [What's Changed]
-Code, Value Diff"]
+Code, Schema, Value Diff"]
 style model.jaffle_shop.customers stroke:#ffa502
 model.jaffle_shop.customers---->model.jaffle_shop.customer_segments
 model.jaffle_shop.customers---->model.jaffle_shop.customer_order_pattern
@@ -47,16 +47,17 @@ model.jaffle_shop.customer_order_pattern["customer_order_pattern"]
 
 ## Checks Summary
 
-| Total Checks | Impacted Checks |
-| ------------ | --------------- |
-| 5            | 2               |
+| Total Checks | Data Mismatch Detected |
+| ------------ | ---------------------- |
+| 5            | 3                      |
 
-## Impacted Checks
+### Checks of Data Mismatch Detected
 
-| Name                                       | Type       | Description                                                     |
-| ------------------------------------------ | ---------- | --------------------------------------------------------------- |
-| Value diff of customers                    | Value Diff | The customer_lifetime_value in customers should be 100% matched |
-| Query diff of customers avg lifetime value | Query Diff | The average of customer_lifetime_value should not be changed    |
+| Name                                       | Type        | Related Models |
+| ------------------------------------------ | ----------- | -------------- |
+| Model schema of customers                  | Schema Diff | customers      |
+| Value diff of customers                    | Value Diff  | customers      |
+| Query diff of customers avg lifetime value | Query Diff  | N/A            |
 ````
 
 The rendered output will look like this. [Example Output](./recce-summary-example.md)
@@ -75,7 +76,7 @@ graph LR
 model.jaffle_shop.customers["customers
 
 [What's Changed]
-Code, Value Diff"]
+Code, Schema, Value Diff"]
 style model.jaffle_shop.customers stroke:#ffa502
 model.jaffle_shop.customers---->model.jaffle_shop.customer_segments
 model.jaffle_shop.customers---->model.jaffle_shop.customer_order_pattern
@@ -85,25 +86,30 @@ model.jaffle_shop.customer_order_pattern["customer_order_pattern"]
 
 ### Checks Summary
 
-Shows the total number of checks and the number of impacted checks. The table will contain the following columns:
+Shows the total number of checks and the number of data mismatched checks. The table will contain the following columns:
 
 - Total Checks - The total number of checks.
-- Impacted Checks - The number of impacted checks.
+- Data Mismatch Detected - The number of checks which data mismatched between `base` and `current` environments.
 
-### Impacted Checks
+### Checks of Data Mismatch Detected
 
-The impacted checks table shows the checks that are impacted by the modified models. We will only show the checks if Recce detects the values are changed in that check. The table will contain the following columns:
+Shows the checks that are detected data mismatch between `base` and `current` environments.
+If the check is detected data mismatch, we will suggest the PR reviewer should take a look at the check and investigate the data mismatch is expected or not.
+The table will contain the following columns:
 
 - Name - The name of the check.
 - Type - The type of the check.
-- Description - The description of the check.
+- Related Models - The models that are related to the check. If a check is not related to any models, it will be `N/A`.
 
-#### Example of Impacted Checks
+If all the check between `base` and `current` environments are matched, the `Checks of Data Mismatch Detected` section will not be shown.
 
-| Name                                       | Type       | Description                                                     |
-| ------------------------------------------ | ---------- | --------------------------------------------------------------- |
-| Value diff of customers                    | Value Diff | The customer_lifetime_value in customers should be 100% matched |
-| Query diff of customers avg lifetime value | Query Diff | The average of customer_lifetime_value should not be changed    |
+#### Example of Data Mismatch Detected
+
+| Name                                       | Type        | Related Models |
+| ------------------------------------------ | ----------- | -------------- |
+| Model schema of customers                  | Schema Diff | customers      |
+| Value diff of customers                    | Value Diff  | customers      |
+| Query diff of customers avg lifetime value | Query Diff  | N/A            |
 
 ## How to Integrate with CI/CD Pipeline
 
