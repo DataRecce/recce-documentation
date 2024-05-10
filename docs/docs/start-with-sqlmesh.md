@@ -146,9 +146,11 @@ Here, the official [example project](https://github.com/TobikoData/sqlmesh/tree/
     order by status
     ```
     
-    Click the **KEY** icon in the query result to show the result grouped by `status` column.    
-    ![Query Diff Result](../assets//images/sqlmesh/sqlmesh-query-diff.png){: .shadow}
+    Set the primary key as `status` and click the **Run Diff** button
 
+    ![Query Diff Result](../assets//images/sqlmesh/sqlmesh-query-diff.png){: .shadow}
+    
+    You will see that there is only one record where `status=NULL` that differs. In the original version, there were two records with `status=NULL`, but in the new version, there is no record with `status=NULL`.
 
 
 ## Supported Recce Features
