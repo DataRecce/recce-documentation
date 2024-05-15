@@ -11,9 +11,14 @@ Query page provides an AdHoc query interface to run arbitrary query or diff the 
 select * from {{ ref("mymodel") }}
 ```
 
-1. **Run:** performs query in the current environment
-2. **Run Diff:** performs the same query in both environments and diffs the results.
-3. **Primary key:** select the primary key(s) used to compare the query results.
+**Actions**
+
+- **Run:** performs query in the current environment.
+- **Run Diff:** performs the same query in both environments and diffs the results.
+
+**Form**
+
+- **Primary key:** select the primary key(s) used to compare the query results.
 
 !!! note
 
@@ -47,12 +52,12 @@ Click the `+` button in the result pane, then you can add the query result to th
 
 In the current version, Recce provides two ways to compare the query result between two environments.
 
-_Query diff occurs in the client side:_
+**Query diff occurs in the client side:**
 
 Without providing primary key(s) upfront, AdDoc query compare in the client side. That is, Recce fetches the first 2,000 rows and compare in the client side. The advantage is it has more flexibility to query sql for no PK, especially when column structures differ or no clear primary key exists.
 However, the limitation is that we cannot find the mismatched rows in a big query result.
 
-_Query diff occurs in the warehouse:_
+**Query diff occurs in the warehouse:**
 
 With primary key(s) given, it can perform a query diff in the warehouse. It only displays changed, added, or removed rows. Therefore, if only one record is different among a million, that specific record will be visible. Hence, it also reduces the amount of data transferred.
 
