@@ -54,6 +54,7 @@ nav:
           - docs/guides/scenario-dev.md
           - docs/guides/scenario-pr-review.md
           - docs/guides/scenario-ci.md
+          - docs/guides/best-practices-prep-env.md
       - Architecture:
           - docs/architecture/overview.md
 
