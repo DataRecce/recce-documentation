@@ -26,17 +26,32 @@ body
 
 header
 	padding: 4rem 0
-	background-color: $color-light-gray
-	background-color: rgba(0,0,0,0.05)
+	//background-color: $color-light-gray
+	//background-color: rgba(0,0,0,0.05)
+	position: relative
+	&:after
+		position: absolute
+		content: ""
+		width: 80%
+		display: block
+		left: 50%
+		transform: translateX(-50%)
+		bottom: 0
+		border-bottom: dotted $color-dark-gray 2px
+		@include media-breakpoint-up(md)
+			display: none
 
 	.header-content
 		display: flex
 		flex-direction: column
+		padding-left: 2rem
+		padding-right: 2rem
+
+
 		@include media-breakpoint-up(md)
 			flex-direction: row
 			justify-content: space-between
-		padding-left: 2rem
-		padding-right: 2rem
+		
 
 
 		.brand
@@ -47,7 +62,7 @@ header
 			align-items: center
 			text-decoration: none
 			margin-right: 1rem
-			margin-bottom: 2rem
+			margin-bottom: 3rem
 			@include media-breakpoint-up(md)
 				margin-bottom: 0
 			.logo
@@ -75,6 +90,10 @@ header
 		align-content: center
 		flex-wrap: wrap
 		justify-content: center
+		font-family: $font-header
+		font-weight: 600
+		text-transform: uppercase
+		letter-spacing: 1px
 		@include media-breakpoint-up(md)
 			justify-content: flex-end
 
@@ -89,7 +108,18 @@ header
 				margin-left: 0
 
 			a
-				color: $color-brand
+				color: $color-dark-gray
+				@include media-breakpoint-up(md)
+					//color: $color-brand
+				&:hover
+					color: $color-brand
+					@include media-breakpoint-up(md)
+						//color: $color-dark-gray
+
+			&.signup
+				display: none
+				@include media-breakpoint-up(md)
+					display: inline-block
 			&.btn
 				font-size: 1.6rem
 				padding: 0.1rem 0.5rem
