@@ -11914,11 +11914,16 @@ a {
   font-size: 1.6rem;
   border-radius: 0.5rem;
 }
+@media (min-width: 992px) {
+  .btn {
+    font-size: 2rem;
+  }
+}
 .btn.btn-primary {
   background-color: #ff6e42;
   border-color: #ff6e42;
   color: #fff;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   font-weight: bold;
   border-bottom: solid #420f00 4px;
   transition: none;
@@ -11969,22 +11974,35 @@ section.hero .section-content .message {
   width: 100%;
   width: 100%;
   padding: 3rem;
+  z-index: 99;
 }
 @media (min-width: 992px) {
   section.hero .section-content .message {
-    width: 40%;
+    width: 100%;
+    position: relative;
+    top: -8rem;
   }
 }
 section.hero .section-content .message h1, section.hero .section-content .message .h1 {
-  font-size: 6rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #ff6e42;
+  color: #3B3B3B;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+section.hero .section-content .message h1 span, section.hero .section-content .message .h1 span {
+  color: #ff6e42;
+}
+@media (min-width: 576px) {
+  section.hero .section-content .message h1, section.hero .section-content .message .h1 {
+    font-size: 4rem;
+  }
 }
 @media (min-width: 768px) {
   section.hero .section-content .message h1, section.hero .section-content .message .h1 {
-    text-align: center;
+    font-size: 5rem;
   }
   section.hero .section-content .message h1 br, section.hero .section-content .message .h1 br {
     display: none;
@@ -11992,7 +12010,7 @@ section.hero .section-content .message h1, section.hero .section-content .messag
 }
 @media (min-width: 992px) {
   section.hero .section-content .message h1, section.hero .section-content .message .h1 {
-    font-size: 8rem;
+    font-size: 5.5rem;
     text-align: left;
   }
   section.hero .section-content .message h1 br, section.hero .section-content .message .h1 br {
@@ -12003,6 +12021,10 @@ section.hero .section-content .message h2, section.hero .section-content .messag
   font-size: 2rem;
   font-weight: 300;
   line-height: 1.6;
+  text-align: center;
+}
+section.hero .section-content .message h2 strong, section.hero .section-content .message .h2 strong {
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   section.hero .section-content .message h2, section.hero .section-content .message .h2 {
@@ -12012,16 +12034,18 @@ section.hero .section-content .message h2, section.hero .section-content .messag
 @media (min-width: 992px) {
   section.hero .section-content .message h2, section.hero .section-content .message .h2 {
     text-align: left;
+    max-width: 500px;
   }
 }
 section.hero .section-content .featured-image {
   width: 100%;
   height: 100%;
-  position: relative;
+  right: 0;
 }
 @media (min-width: 992px) {
   section.hero .section-content .featured-image {
     width: 60%;
+    position: absolute;
   }
 }
 section.hero .section-content .featured-image img {
@@ -12061,7 +12085,7 @@ section.cta h2, section.cta .h2 {
 }
 @media (min-width: 992px) {
   section.cta h2, section.cta .h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     padding: 3rem 4rem 3rem 0;
   }
 }

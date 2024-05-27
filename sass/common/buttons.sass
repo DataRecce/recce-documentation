@@ -1,11 +1,13 @@
 .btn
 	font-size: 1.6rem
 	border-radius: 0.5rem
+	@include media-breakpoint-up(lg)
+		font-size: 2rem
 	&.btn-primary
 		background-color: $color-brand
 		border-color: $color-brand
 		color: #fff
-		padding: 0.5rem
+		padding: 0.5rem 2rem
 		font-weight: bold
 		border-bottom: solid darken($color-brand, 50%) 4px
 		transition: none
