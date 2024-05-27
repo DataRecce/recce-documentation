@@ -12411,8 +12411,22 @@ body ::selection {
 
 header {
   padding: 4rem 0;
-  background-color: #f3f3f3;
-  background-color: rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+header:after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  border-bottom: dotted #3B3B3B 2px;
+}
+@media (min-width: 768px) {
+  header:after {
+    display: none;
+  }
 }
 header .header-content {
   display: flex;
@@ -12434,7 +12448,7 @@ header .header-content .brand {
   align-items: center;
   text-decoration: none;
   margin-right: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 @media (min-width: 768px) {
   header .header-content .brand {
@@ -12468,6 +12482,10 @@ header .nav {
   align-content: center;
   flex-wrap: wrap;
   justify-content: center;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 @media (min-width: 768px) {
   header .nav {
@@ -12492,7 +12510,18 @@ header .nav .nav-item:first-of-type {
   margin-left: 0;
 }
 header .nav .nav-item a {
+  color: #3B3B3B;
+}
+header .nav .nav-item a:hover {
   color: #ff6e42;
+}
+header .nav .nav-item.signup {
+  display: none;
+}
+@media (min-width: 768px) {
+  header .nav .nav-item.signup {
+    display: inline-block;
+  }
 }
 header .nav .nav-item.btn {
   font-size: 1.6rem;
