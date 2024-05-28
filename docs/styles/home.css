@@ -12326,8 +12326,8 @@ section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h4
 section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h5, section.testimonials .testimonial .testimonial-meta .testimonial-meta-content .h5 {
   font-size: 1.6rem;
   margin: 0;
+  width: 300px;
 }
-
 section.footer {
   background-color: #222222;
   color: #fff;
