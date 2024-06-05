@@ -1,6 +1,6 @@
 ---
 title: "Best Practices for Preparing Environments"
-icon: octicons/play-16
+icon:  octicons/thumbsup-16
 ---
 
 Recce is designed to compare two environments in your data project. To use it effectively, it is crucial to prepare environments through CI.
