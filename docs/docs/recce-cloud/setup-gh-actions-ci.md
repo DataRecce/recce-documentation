@@ -2,24 +2,16 @@
 title: Recce Cloud - Setup CI in GitHub Actions
 template: embed.html
 ---
+In this step, we will set up the automated preparation of the PR environment and upload the dbt artifacts to GitHub workflow artifacts. We will also retrieve the artifacts of the base environment to run recce, and place the state file in the artifacts so that the recce server can be launched in Codespaces for PR review.
 
-# Recce Cloud - Setup CI in GitHub Actions
+## Workflow Template
 
 ````yaml
-name: OSO Recce CI
+name: Recce CI PR Branch
 
 on:
-  workflow_dispatch:
   pull_request:
     branches: [main]
-
-env:
-  # dbt env variables used in your dbt profiles.yml
-  DBT_PROFILES_DIR: ./
-  DBT_GOOGLE_PROJECT: ${{ vars.DBT_GOOGLE_PROJECT }}
-  DBT_GOOGLE_DATASET: ${{ vars.DBT_GOOGLE_DATASET }}
-  DBT_GOOGLE_KEYFILE: /tmp/google/google-service-account.json
-  KEYFILE_CONTENTS: ${{ secrets.KEYFILE_CONTENTS }}
 
 jobs:
   check-pull-request:
@@ -28,54 +20,47 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        with:
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.12.x"
-
+          python-version: "3.10.x"
       - name: Install dependencies
         run: |
-          pipx install poetry==1.7.1
-          poetry install
-          poetry run which dbt
-
-      - name: Install Recce
-        run: poetry run pip install recce-nightly
-
-      - name: Add packages.yml file
-        run: |
-          echo '${{ vars.PACKAGES_YAML }}' > packages.yml
-
-      - name: Prep Google keyfile
-        run: |
-          mkdir -p "$(dirname $DBT_GOOGLE_KEYFILE)" 
-          echo "$KEYFILE_CONTENTS" > $DBT_GOOGLE_KEYFILE
-
+          pip install -r requirements.txt
+          pip install recce
       - name: Prepare dbt Base environment
         run: |
-          run_id=$(gh run list --workflow "OSO Recce Staging CI" --repo DataRecce/oso --status success --limit 1 --json databaseId --jq '.[0].databaseId')
-          gh run download $run_id --repo DataRecce/oso
-          mv dbt-artifacts target-base
+          gh repo set-default ${{ github.repository }}
+          base_branch=${{ github.base_ref }}
+          run_id=$(gh run list --workflow ${WORKFLOW_BASE} --branch ${base_branch} --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          echo "Download artifacts from run $run_id"
+          gh run download ${run_id} -n target -D target-base
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set PR Schema
-        run: echo "DBT_GOOGLE_DEV_DATASET=OSO_PR_${{ github.event.pull_request.number }}" >> $GITHUB_ENV
-
+          WORKFLOW_BASE: ".github/workflows/dbt_base.yml"
       - name: Prepare dbt Current environment
         run: |
-          source $(poetry env info --path)/bin/activate
+          git checkout ${{ github.event.pull_request.head.sha }}
           dbt deps
-          dbt build --target ${{ env.DBT_CURRENT_TARGET}}
+          dbt seed --target ${{ env.DBT_CURRENT_TARGET}}
+          dbt run --target ${{ env.DBT_CURRENT_TARGET}}
           dbt docs generate --target ${{ env.DBT_CURRENT_TARGET}}
         env:
           DBT_CURRENT_TARGET: "dev"
 
       - name: Run Recce CI
-        run: poetry run recce run
+        run: |
+          recce run --github-pull-request-url ${{ github.event.pull_request.html_url }}
 
-      - name: Archive Recce State File
+      - name: Upload DBT Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: target
+          path: target/
+
+      - name: Upload Recce State File
         uses: actions/upload-artifact@v4
         id: recce-artifact-uploader
         with:
@@ -85,7 +70,6 @@ jobs:
       - name: Prepare Recce Summary
         id: recce-summary
         run: |
-          source $(poetry env info --path)/bin/activate
           recce summary recce_state.json > recce_summary.md
           cat recce_summary.md >> $GITHUB_STEP_SUMMARY
           echo '${{ env.NEXT_STEP_MESSAGE }}' >> recce_summary.md
@@ -102,7 +86,7 @@ jobs:
           ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
           NEXT_STEP_MESSAGE: |
             ## Next Steps
-            If you want to check more detail inforamtion about the recce result, please download the [artifact](${{ steps.recce-artifact-uploader.outputs.artifact-url }}) file and open it by [Recce](https://pypi.org/project/recce/) CLI.
+            If you want to check more detail information about the recce result, please download the [artifact](${{ steps.recce-artifact-uploader.outputs.artifact-url }}) file and open it by [Recce](https://pypi.org/project/recce/) CLI.
 
             ### How to check the recce result
             ```bash
@@ -119,4 +103,42 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           filePath: recce_summary.md
+          comment_tag: recce
 ````
+
+## How to Check
+
+1. List the latest run for the workflow
+   ```
+   gh run list --workflow .github/workflows/recce_ci.yml    
+   ```
+   ![alt text](../../assets/images/recce-cloud/setup-run-pr.png)
+
+1. Download and check the artifact with name `target`
+   ```
+   mkdir /tmp/recce_ci
+   gh run download 9380708201 -n recce-state-file -D /tmp/recce_ci
+   gh run download 9380708201 -n target -D /tmp/recce_ci/target
+   ```
+1. Check the folder
+    ```
+    tree -L 2 /tmp/recce_ci
+    ```
+    result    
+    ``` 
+    /tmp/recce_ci
+    ├── recce_state.json
+    └── target
+        ├── catalog.json
+        ├── compiled
+        ├── graph.gpickle
+        ├── index.html
+        ├── manifest.json
+        ├── partial_parse.msgpack
+        ├── run
+        └── run_results.json
+
+    3 directories, 7 files
+    ```
+
+
