@@ -5,7 +5,6 @@ template: embed.html
 
 # Recce Cloud - Setup GitHub Codespaces
 
-Steps to setup Recce Cloud with GitHub Codespaces
 
 ## 1. Add the following file content to your `.devcontainer/devcontainer.json` file:
 
@@ -39,7 +38,9 @@ The python package file `requirements.txt` will be processed by default. If your
 
 2. Set the `DEPENDENCIES_SHELL_COMMAND` environment variable to the command to run to install the dependencies.
 
-3. Set the `DEPENDENCIES_SHELL_SCRIPT_PATH` environment variable to the path to the shell script to install the dependencies.
+3. Set the `DEPENDENCIES_SHELL_SCRIPT_PATH` environment variable to the path to the shell script to install the dependencies
+
+<!-- TODO: Prepare the setup of Codespaces Secret for DB credential -->
 
 ### Optional Environment Variables for `devcontainer.json`:
 
@@ -66,8 +67,21 @@ Command to run before launching the recce server
 - `POST_LAUNCH_RECCE_SERVER_COMMAND`
 Command to run after launching the recce server
 
-2. Commit the `.devcontainer` folder to your repository.
+## 2. Commit the `.devcontainer` folder to your repository.
 ```bash
 git add .devcontainer
 git commit -a -s -m "Add devcontainer configuration"
+```
+
+## Verify the Codespaces setup
+
+1. Open a new Codespace instance in your repository.
+
+2. Once the Codespace is ready, open the terminal and run the following commands to verify the codespaces setup:
+```bash
+# Verify the dbt's dependencies
+dbt debug
+
+# Verify the Recce CLI version
+recce version
 ```
