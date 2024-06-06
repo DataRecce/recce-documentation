@@ -1,9 +1,9 @@
 ---
-title: Recce Cloud - Setup GitHub Codespaces
+title: Setup GitHub Codespaces
 template: embed.html
 ---
 
-# Recce Cloud - Setup GitHub Codespaces
+
 
 ## Setup Recce Cloud in GitHub Codespaces
 
