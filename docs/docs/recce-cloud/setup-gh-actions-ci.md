@@ -1,5 +1,5 @@
 ---
-title: Recce Cloud - Setup CI in GitHub Actions
+title: Setup CI in GitHub Actions
 template: embed.html
 ---
 In this step, we will set up the automated preparation of the PR environment and upload the dbt artifacts to GitHub workflow artifacts. We will also retrieve the artifacts of the base environment to run recce, and place the state file in the artifacts so that the recce server can be launched in Codespaces for PR review.
