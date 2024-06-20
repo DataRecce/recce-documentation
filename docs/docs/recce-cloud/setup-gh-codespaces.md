@@ -36,11 +36,13 @@ GitHub Codespaces is a development environment provided by GitHub that allows de
 
     RUN pip install dbt-bigquery~=1.7.0 recce
     ```
-1. **Prepare the credential for dbt.** We recommend using the source-controlled `profiles.yml` in conjunction with environment variables to provide the credentials for connecting to the warehouse. There are two ways to provide environment variables
+1. **Prepare the credential for dbt.** We recommend using the source-controlled `profiles.yml` in conjunction with environment variables to provide the credentials for connecting to the warehouse. There are three ways to provide environment variables
 
-    - Define environment variable in the `devcontainer.json`
-    - Provide environment by the [Codespace secrets](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces).
-
+    - Define environment variables in the `devcontainer.json`
+    - Provide environment variables by the [account specific codespaces secrets](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)
+    - Provide environment variables by the [repository-level or organization-level codespaces secrets](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)
+    
+    Example profile
     ```
     myprofile:
         target: dev
@@ -52,7 +54,7 @@ GitHub Codespaces is a development environment provided by GitHub that allows de
                 dataset: "{{ env_var('DBT_SCHEMA') }}"
                 ...
                 threads: 32
-        ```
+    ```
 
 
 ## Verify the Codespaces Setup
