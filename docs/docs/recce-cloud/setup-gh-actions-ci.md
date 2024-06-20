@@ -24,14 +24,14 @@ myprofile:
 
 ### GitHub Token
 
-Currenlty, we use the GitHub token as the cloud token. Put your github token to the [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
+Currently, we use the GitHub token as the cloud token. Put your github token to the [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
 
 In the below example, we use the secret named `RECCE_CLOUD_TOKEN`
 
 
 !!!Note
 
-   You cannot use the [automatic generated token](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) here, because we need the personal access token (PAT) to verify if the user has PUSH permission of the repository.
+    You cannot use the [automatic generated token](https://docs.github.com/en/actions/security-guides/ automatic-token-authentication) here, because we need the personal access token (PAT) to verify if the user has PUSH permission of the repository.
 
 ## Workflow Template
 
