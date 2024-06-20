@@ -10,7 +10,11 @@ Without Recce Cloud, we use the Recce State File to store PR review states. Howe
 
 ## Prerequisite
 
-1. Prepare the github personal access token. Please see the [GitHub document](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+1. Prepare the github personal access token. Please see the [GitHub document](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). And set it to your environment variable.
+
+   ```
+   export GITHUB_TOKEN=<token>
+   ```
 
 2. (Optional) Install the github cli. Please see the [GitHub CLI document](https://github.com/cli/cli)
 
@@ -29,7 +33,7 @@ Without Recce Cloud, we use the Recce State File to store PR review states. Howe
    ```   
 1. Launch the recce server in the cloud mode. It will use the dbt artifacts in the local `target` and `target-base` and initiate a new review state if necessary.
    ```
-   recce server --cloud --cloud-token <GITHUB_TOKEN>
+   recce server --cloud
    ```
 
 ### Execute the `recce run` in the cloud mode
@@ -44,7 +48,7 @@ In general, recce run is used in CI/CD or automation environments. We can use re
 1. Prepare dbt artifacts for the base (`target-base/`) and current (`target/`) environments.
 1. Execute the recce run in the cloud mode. It will use the dbt artifacts in the local `target` and `target-base` and initiate a new review state if necessary.
    ```
-   recce run --cloud --cloud-token <GITHUB_TOKEN>
+   recce run --cloud
    ```
 
 ### Review in the `recce server` in the cloud mode
@@ -57,7 +61,7 @@ If the review state is already available for this PR, you can open the recce ser
 
 1. Launch the recce server to review this PR
     ```
-    recce server --review --cloud --cloud-token <GITHUB_TOKEN>
+    recce server --review --cloud
     ```
 
 ## Integrate the CI/CD workflow
