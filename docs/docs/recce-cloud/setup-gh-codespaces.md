@@ -3,94 +3,69 @@ title: Setup GitHub Codespaces
 template: embed.html
 ---
 
+GitHub Codespaces is a development environment provided by GitHub that allows developers to have identical and isolated environments for development. The GitHub Codespaces uses VS Code Server technology. We can launch it from a GitHub pull request page, and once it is started, the Recce server will run and port forwarding will be set up.
 
-
+![alt text](../../assets/images/recce-cloud/setup-architecture.png){: .shadow}
 ## Setup Recce Cloud in GitHub Codespaces
 
-### 1. Add the following file content to your `.devcontainer/devcontainer.json` file:
-
-```json
-{
-    "name": "Recce Cloud",
-    "image": "infuseai/dev-container-base-image:latest",
-    "containerEnv": {
-        "RECCE_CI_WORKFLOW_NAME": ".github/workflows/recce_ci.yml", // Path to the Recce CI workflow file
-        "DEPENDENCIES_FILE": "requirements.txt", // Path to the python dependencies file
-    },
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
-            }
-        }
-    },
-    "forwardPorts": [ 8000 ],
-    "portsAttributes": {
-        "8000": {
-            "label": "Recce Server",
-            "onAutoForward": "openBrowser"
-        }
-    },
-    "postStartCommand": "post_start_command"
-  }
-```
-The python package file `requirements.txt` will be processed by default. If your project uses a different method to manage dependencies, you can choose one of the following methods to customize the installation process.
-
-1. Set the `DEPENDENCIES_FILE` environment variable to the path of the python dependencies file.
-
-2. Set the `DEPENDENCIES_SHELL_COMMAND` environment variable to the command to run to install the dependencies.
-
-3. Set the `DEPENDENCIES_SHELL_SCRIPT_PATH` environment variable to the path to the shell script to install the dependencies
-
-<!-- TODO: Prepare the setup of Codespaces Secret for DB credential -->
-<details markdown='1'>
-  <summary>Optional Environment Variables</summary>
-
-  The following environment variables can be set in the `containerEnv` section of the `devcontainer.json` file
-
-  - `DEPENDENCIES_FILE`
-  Path to the python dependencies file (Default: `requirements.txt`)
-
-  - `DEPENDENCIES_SHELL_COMMAND`
-  Command to run to install the dependencies
-
-  - `DEPENDENCIES_SHELL_SCRIPT_PATH`
-  Path to shell script to install the dependencies
-
-  - `PRE_INSTALL_DEPENDENCIES_COMMAND`
-  Command to run before installing dependencies
-
-  - `POST_INSTALL_DEPENDENCIES_COMMAND`
-  Command to run after starting the recce server
-
-  - `PRE_LAUNCH_RECCE_SERVER_COMMAND`
-  Command to run before launching the recce server
-
-  - `POST_LAUNCH_RECCE_SERVER_COMMAND`
-  Command to run after launching the recce server
-
-  - `RECCE_CI_WORKFLOW_NAME`
-  Path or name of the Recce CI workflow file (Default: `.github/workflows/recce_ci.yml`)
-
-</details>
 
 
-### 2. Commit the `.devcontainer` folder to your repository.
-```bash
-git add .devcontainer
-git commit -a -s -m "Add devcontainer configuration"
-```
+1. Prepare the two files in your repository
+    ```
+    .devcontainer
+    ├── Dockerfile
+    └── devcontainer.json
+    ```
+1. Configure the `.devcontainer/devcontainer.json`
+    ```json
+    {
+        "name": "Recce CodeSpace",
+        "build": {
+            "dockerfile": "Dockerfile",
+        },
+        "containerEnv": {
+            "ENV_1": "env_1",
+            "ENV_2": "env_2",            
+        },
+        "postStartCommand": "recce server --cloud --review"
+    }
+    ```
+1. Prepare the `.devcontainer/Dockerfile`
+    ```
+    FROM mcr.microsoft.com/vscode/devcontainers/python:3.11
 
-## Verify the Codespaces setup
+    RUN pip install dbt-bigquery~=1.7.0 recce
+    ```
+1. **Prepare the credential for dbt.** We recommend using the source-controlled `profiles.yml` in conjunction with environment variables to provide the credentials for connecting to the warehouse. There are two ways to provide environment variables
 
-### 1. Launch a new Codespace instance manually in your repository
+    - Define environment variable in the `devcontainer.json`
+    - Provide environment by the [Codespace secrets](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces).
 
-### 2. Once the Codespace is ready, open the terminal and run the following commands to verify the codespaces setup
-```bash
-# Verify the dbt's dependencies
-dbt debug
+    ```
+    myprofile:
+        target: dev
+        outputs:
+            dev:
+                type: bigquery                
+                ...
+                password: "{{ env_var('DBT_PASSWORD') }}" 
+                dataset: "{{ env_var('DBT_SCHEMA') }}"
+                ...
+                threads: 32
+        ```
 
-# Verify the Recce CLI version
-recce version
-```
-Please make sure the commands run without any errors.
+
+## Verify the Codespaces Setup
+
+Here, we [use GutHub Codespaces for pull requests](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-for-pull-requests)
+
+1. Go a PR page. Please make sure that there is recce state for this PR
+   ```
+   gh pr checkout <pr number>
+   gh pr view -w  
+   ```
+1. Click the **Code** button and create codespace on the PR branch
+   ![alt text](../../assets/images/recce-cloud/setup-codespaces-pr.png){: .shadow}
+1. Starting a Codespace instance usually takes one to several minutes.
+1. When the recce server is started, there is a Open Browser notification appears. Click the button to open recce web UI in a new tab
+1. Or you can go to the **PORTS** tab to open the page.

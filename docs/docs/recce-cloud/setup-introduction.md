@@ -3,20 +3,73 @@ title: Introduction
 template: embed.html
 ---
 
-Recce Cloud is a service specifically designed for DBT PR Review. To achieve a more automated integration of Recce Cloud, this document briefly introduces how to integrate Recce Cloud with a GitHub repository.
+Recce Cloud is a service specifically designed for DBT PR Review workflow. This document briefly introduces how to integrate Recce Cloud with a GitHub repository.
 
-In the current version, we need to use two GitHub services, which are GitHub Actions and GitHub Codespaces.
+Without Recce Cloud, we use the Recce State File to store PR review states. However, this method is not very suitable for collaboration or integration with CI because our review states are not stored in a fixed location. Recce Cloud is designed to solve this problem.
 
-- **GitHub Actions**: We need to set up Workflows to automatically prepare the Base and PR Environments required by Recce. Additionally, the manifests of the generated environments and the state files for Recce should be placed in the [workflow artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts).
 
-- **GitHub Codespaces**: We use GitHub Codespaces to prepare a reusable Runtime, execute Recce within it, and port forward to use the Recce server in the cloud.
+## Prerequisite
 
-The following diagram describes the entire architecture.
+1. Prepare the github personal access token. Please see the [GitHub document](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+2. (Optional) Install the github cli. Please see the [GitHub CLI document](https://github.com/cli/cli)
+
+
+## Integrate with the PR review workflow
+### Launch the `recce server` in the cloud mode
+
+1. Create a branch for developing.
+   ```
+   git checkout -b <my-awesome-feature>
+   ```
+1. Develop your features and prepare the dbt artifacts for the base (`target-base/`) and current (`target/`) environments.
+1. Create a pull request for this branch
+   ```
+   gh pr create
+   ```   
+1. Launch the recce server in the cloud mode. It will use the dbt artifacts in the local `target` and `target-base` and initiate a new review state if necessary.
+   ```
+   recce server --cloud --cloud-token <GITHUB_TOKEN>
+   ```
+
+### Execute the `recce run` in the cloud mode
+
+
+In general, recce run is used in CI/CD or automation environments. We can use recce run to generate the review state and perform checks. Since it is an automated environment, we assume that the pull request already exists and that the automated process triggers recce run.
+
+1. Checkout a branch
+   ```
+   gh pr checkout 
+   ```
+1. Prepare dbt artifacts for the base (`target-base/`) and current (`target/`) environments.
+1. Execute the recce run in the cloud mode. It will use the dbt artifacts in the local `target` and `target-base` and initiate a new review state if necessary.
+   ```
+   recce run --cloud --cloud-token <GITHUB_TOKEN>
+   ```
+
+### Review in the `recce server` in the cloud mode
+If the review state is already available for this PR, you can open the recce server to review.
+
+1. Checkout the branch for a PR.
+    ```
+    gh pr checkout <pr number>
+    ```
+
+1. Launch the recce server to review this PR
+    ```
+    recce server --review --cloud --cloud-token <GITHUB_TOKEN>
+    ```
+
+## Integrate the CI/CD workflow
+
+[Continuous Integration(CI)](https://en.wikipedia.org/wiki/Continuous_integration) and [Continuous Delivery(CD)](https://en.wikipedia.org/wiki/Continuous_delivery) are best practices in software development. Through CI automation, a dbt project can systematically and continuously deliver and integrate high-quality results.
+
+To automate the process, we can use [GitHub Actions](https://github.com/features/actions) and [GitHub Codespaces](https://github.com/features/codespaces) to provide an automated and reusable workspace. The following diagram describes the entire ci/cd architecture.
 
 ![alt text](../../assets/images/recce-cloud/setup-architecture.png){: .shadow}
 
 Next, we will guide you through the process of integrating Recce Cloud with your GitHub repository in three steps.
 
-- **Setup GitHub Codespaces**: Upon completing this step, you can create an codespace instance on the GitHub repository page or PR page that allows you to use dbt and recce to connect to your data warehouse.
-- **Setup CD in GitHub Actions**: Upon completing this step, you can generate the latest base environment and place the dbt artifacts in the workflow run artifacts.
-- **Setup CI in GitHub Actions**: Upon completing this step, you can automatically prepare the PR environment when a PR push event occurs, and place the dbt artifacts and recce state file in the run artifacts. Additionally, use Codespaces to automatically start the Recce server to review the PR.
+1. **Setup CD in GitHub Actions**: Periodic generation of a base environment for use as a comparison base for recce.
+1. **Setup CI in GitHub Actions**: When pushing to the PR branch, automatically generate a PR environment. Then execute a recce run and place the results in the recce cloud.
+1. **Setup GitHub Codespaces**: Define a Codespace configuration that can generate a corresponding recce codespace instance in GitHub PR for PR review.

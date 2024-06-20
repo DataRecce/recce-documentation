@@ -5,6 +5,8 @@ template: embed.html
 
 In this step, we will set up the automated preparation of the base environment and upload the dbt artifacts to GitHub workflow artifacts, so that the CI workflow can use them.
 
+![alt text](../../assets/images/recce-cloud/setup-architecture.png){: .shadow}
+
 ## Workflow Template
 !!! note
 
@@ -15,6 +17,8 @@ name: Recce CI Base Branch
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'  
   push:
     branches:
       - main
@@ -55,9 +59,8 @@ jobs:
           path: target/
 ```
 
-## How to check
+## Verify the CD setup
 
-1. Install the [Github CLI](https://cli.github.com/)
 1. Go to the repository root
 1. List the latest run for the workflow
    ```
@@ -70,4 +73,3 @@ jobs:
    mkdir /tmp/artifact
    gh run download 9380631916 -n target -D /tmp/artifact    
    ```
-
