@@ -11,12 +11,10 @@ Without Recce Cloud, we use the Recce State File to store PR review states. Howe
 ## Prerequisite
 
 1. Prepare the github personal access token. Please see the [GitHub document](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). And set it to your environment variable.
-
    ```
    export GITHUB_TOKEN=<token>
    ```
-
-2. (Optional) Install the github cli. Please see the [GitHub CLI document](https://github.com/cli/cli)
+1. (Optional) Install the github cli. Please see the [GitHub CLI document](https://github.com/cli/cli)
 
 
 ## Integrate with the PR review workflow
