@@ -1,8 +1,9 @@
 ---
-title: State File
+title: Recce File
 icon: material/file
 ---
 
+## Introduction
 The state file is the serialized state of a recce instance. There are two scenarios where we need to export the state file:
 
 - [PR Review](#pr-review): We can include the state file in the PR Review Comment. If the reviewer wants to further connect to the PR environment, they can use this file to see the final results and perform deeper audits.
@@ -53,3 +54,76 @@ recce server recce_issue_1.json
 If this file exists, Recce will use it as the initial state. If it doesn't exist, Recce will create a new one. When the server is terminated, the final state will be written into this file.
 
 
+
+## Recce Cloud
+
+!!! Note
+
+    
+    Currently, Recce Cloud is still under development. If you are interested, please [sign up for a Recce Cloud invite](https://datarecce.io/) or contact us in the [dbt slack #tool-recce channel](https://getdbt.slack.com/archives/C05C28V7CPP)
+
+
+Although a state file can store the state, it is not very suitable for recording the latest review status of a PR. Especially since a PR may include the submitter, reviewer, and the automated processes in the CI workflow. The purpose of Recce Cloud is to solve the PR review status management issue.
+
+### PR Review Workflow
+This is a most common workflow: the submitter pushes commits to the GitHub PR, and the reviewer is responsible for reviewing/auditing the PR. This includes checking code changes, ensuring requirements are met, and assessing whether there is any impact on existing models.
+
+**As a submitter**
+
+1. Push changes to the remote
+1. Create PR for review
+1. Run dbt to prepare the PR review environment
+    ```
+    dbt run
+    ```
+1. Launch recce server for this PR branch
+    ```
+    recce server --cloud
+    ```
+1. Add recce checks for review
+1. Leave description and screenshots in the PR comments
+
+**As a reviewer**
+
+1. Checkout the PR branch
+1. Launch recce server for this PR branch in the review mode
+   ```
+   recce server --review --cloud
+   ```
+1. If all checks are good, mark all checks as **Checked**. Otherwise, leave comment in the PR comment or the recce check description.
+
+### PR Review Workflow with CI
+
+For more mature projects, we introduce CI automation to standardize the process and reduce human-caused variability or errors. 
+In the workflow, we will do the following two things in the CI:
+
+Execute dbt to create a PR environment.
+Execute recce to update dbt artifacts, rerun check runs, and update the PR status to Recce Cloud.
+
+
+**As a submitter**
+
+1. Push changes to the remote
+1. Create PR for review
+
+**In the CI workflow of the PR push event**
+
+1. The github action worflow is triggered by the push event
+1. Checkout the PR branch
+1. Fetch the dbt artifacts for the base environment
+1. Run dbt for the PR environment
+    ```
+    dbt run
+    ```
+1. Run recce for the current PR and upload state to the recce cloud.
+    ```
+    recce run --cloud
+    ```
+
+**As a submitter and reviewer, collaborate the state in the review mode recce server**
+
+1. Checkout the PR branch
+1. Launch recce server for this PR branch in the review mode
+   ```
+   recce server --review --cloud
+   ```
