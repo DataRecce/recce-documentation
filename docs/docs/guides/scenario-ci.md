@@ -5,7 +5,9 @@ icon: octicons/play-16
 
 # Recce CI integration with GitHub Action
 
-Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Actions (or other CI tools) to compare the data models between two environments when a new pull-request is created.
+Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Actions (or other CI tools) to compare the data models between two environments when a new pull-request is created. The below image describes the basic architecture.
+
+![ci/cd architecture](../../assets/images/pr/ci-cd.png){: .shadow}
 
 The following guide demonstrates how to configure Recce in GitHub Actions.
 
