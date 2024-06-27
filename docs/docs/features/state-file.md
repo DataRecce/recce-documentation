@@ -65,6 +65,10 @@ If this file exists, Recce will use it as the initial state. If it doesn't exist
 
 Although a state file can store the state, it is not very suitable for recording the latest review status of a PR. Especially since a PR may include the submitter, reviewer, and the automated processes in the CI workflow. The purpose of Recce Cloud is to solve the PR review status management issue.
 
+***Prerequisites***
+
+Before uploading the state file to Recce Cloud, you need to define a password to encrypt the state file. The password is used to encrypt the state file before uploading it to Recce Cloud. It will also be used to decrypt the state file when you download it from Recce Cloud. The password is not stored in Recce Cloud, so you need to keep it safe.
+
 ### PR Review Workflow
 This is a most common workflow: the submitter pushes commits to the GitHub PR, and the reviewer is responsible for reviewing/auditing the PR. This includes checking code changes, ensuring requirements are met, and assessing whether there is any impact on existing models.
 
@@ -78,7 +82,7 @@ This is a most common workflow: the submitter pushes commits to the GitHub PR, a
     ```
 1. Launch recce server for this PR branch
     ```
-    recce server --cloud
+    recce server --cloud --password <password-to-encrypt-state-file>
     ```
 1. Add recce checks for review
 1. Leave description and screenshots in the PR comments
@@ -88,7 +92,7 @@ This is a most common workflow: the submitter pushes commits to the GitHub PR, a
 1. Checkout the PR branch
 1. Launch recce server for this PR branch in the review mode
    ```
-   recce server --review --cloud
+   recce server --review --cloud --password <password-to-encrypt-state-file>
    ```
 1. If all checks are good, mark all checks as **Checked**. Otherwise, leave comment in the PR comment or the recce check description.
 
@@ -117,7 +121,7 @@ Execute recce to update dbt artifacts, rerun check runs, and update the PR statu
     ```
 1. Run recce for the current PR and upload state to the recce cloud.
     ```
-    recce run --cloud
+    recce run --cloud --password <password-to-encrypt-state-file>
     ```
 
 **As a submitter and reviewer, collaborate the state in the review mode recce server**
@@ -125,5 +129,5 @@ Execute recce to update dbt artifacts, rerun check runs, and update the PR statu
 1. Checkout the PR branch
 1. Launch recce server for this PR branch in the review mode
    ```
-   recce server --review --cloud
+   recce server --review --cloud --password <password-to-encrypt-state-file>
    ```
