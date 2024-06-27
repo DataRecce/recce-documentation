@@ -31,7 +31,13 @@ In the below example, we use the secret named `RECCE_CLOUD_TOKEN`
 
 !!!Note
 
-    You cannot use the [automatic generated token](https://docs.github.com/en/actions/security-guides/ automatic-token-authentication) here, because we need the personal access token (PAT) to verify if the user has PUSH permission of the repository.
+    You cannot use the [automatic generated token](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) here, because we need the personal access token (PAT) to verify if the user has PUSH permission of the repository.
+
+### Recce State Password
+
+The Recce State Password is used to encrypt/decrypt the state file before uploading/downloading it to/from Recce Cloud. The password is not stored in Recce Cloud, so you need to keep it safe. You can set the password in the workflow file or in the GitHub Actions Secrets. 
+
+In the below example, we set the password in the GitHub Actions Secrets named `RECCE_STATE_PASSWORD`.
 
 ## Workflow Template
 
@@ -83,6 +89,8 @@ jobs:
       - name: Run Recce
         run: |
           recce run --cloud --cloud-token ${{ secrets.RECCE_CLOUD_TOKEN }}
+        env:
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
 
       - name: Upload DBT Artifacts
         uses: actions/upload-artifact@v4
@@ -104,8 +112,10 @@ jobs:
           Please check the summary detail in the [Job Summary](${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}) page.
           ${{ env.NEXT_STEP_MESSAGE }}' > recce_summary.md
           fi
+          
 
         env:
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
           ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
           NEXT_STEP_MESSAGE: |
             ## Next Steps          
@@ -116,7 +126,7 @@ jobs:
             git checkout ${{ github.event.pull_request.head.ref }}
 
             # Launch the recce server based on the state file
-            recce server --review --cloud
+            recce server --review --cloud --password <recce-state-password>
 
             # Open the recce server http://localhost:8000 by your browser
             ```
@@ -136,5 +146,5 @@ jobs:
 
 1. Launch the recce server to review this PR
     ```
-    recce server --review --cloud --cloud-token <GITHUB_TOKEN>
+    recce server --review --cloud --cloud-token <GITHUB_TOKEN> --password ${{ secrets.RECCE_STATE_PASSWORD }}
     ```

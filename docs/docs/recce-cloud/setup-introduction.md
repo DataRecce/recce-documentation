@@ -14,6 +14,13 @@ Without Recce Cloud, we use the Recce State File to store PR review states. Howe
    ```
    export GITHUB_TOKEN=<token>
    ```
+
+1. Prepare the Recce state password. The Recce state password is used to encrypt/decrypt the state file before uploading/downloading it to/from Recce Cloud. The password is not stored in Recce Cloud, so you need to keep it safe.
+   ```
+   export RECCE_STATE_PASSWORD=<password>
+   ```
+   Or you can set it by the Recce's command line option with `--password <password>` or `-p <password>`
+
 1. (Optional) Install the github cli. Please see the [GitHub CLI document](https://github.com/cli/cli)
 
 
