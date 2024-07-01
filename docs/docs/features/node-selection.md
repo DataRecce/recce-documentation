@@ -3,10 +3,18 @@ title: Node Selection
 icon: material/select
 ---
 
-dbt provides the powerful feature of [node selection](https://docs.getdbt.com/reference/node-selection/syntax) in most of its commands. Recce also integrates node selection, allowing you to effectively choose your nodes.
+Recce supports **node selection** in [preset checks](./preset-checks.md). This enables you to target specific resources with data checks by selecting or excluding nodes. Recce node selection follows the same syntax as [dbt node selection](https://docs.getdbt.com/reference/node-selection/syntax).  
 
-## Supported Features
-Currently, row count diff and schema diff support setting node selection within [preset checks](./preset-checks.md). In the near future, the web UI will also support configuring related node selection settings.
+## Supported Checks
+
+The following checks currently support node selection:
+
+- Row Count Diff Check
+- Schema Diff Check
+
+!!! Note
+
+    Currently, node selection for preset checks must be enabled in in your `recce.yml`. Support for configuring node selection via the GUI is coming soon.
 
 
 ### Row Count Diff Check
