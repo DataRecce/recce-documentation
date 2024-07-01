@@ -48,7 +48,8 @@ nav:
           - docs/features/recce-summary.md
       - Advanced Features:
           - docs/features/state-file.md
-          - docs/features/preset-checks.md
+          - docs/features/preset-checks.md                    
+          - docs/features/node-selection.md
           - docs/reference/configuration.md
       - Scenarios:
           - docs/guides/scenario-dev.md
