@@ -3,7 +3,7 @@ title: Node Selection
 icon: material/select
 ---
 
-Recce supports **node selection** in [preset checks](./preset-checks.md). This enables you to target specific resources with data checks by selecting or excluding nodes. Recce node selection follows the same syntax as [dbt node selection](https://docs.getdbt.com/reference/node-selection/syntax).  
+Recce supports **node selection** in certain [preset checks](./preset-checks.md) ([see below](#supported-checks)). This enables you to target specific resources with data checks by selecting or excluding nodes. Recce node selection follows the same syntax as [dbt node selection](https://docs.getdbt.com/reference/node-selection/syntax).  
 
 ## Supported Checks
 
