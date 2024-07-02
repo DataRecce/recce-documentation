@@ -57,9 +57,6 @@ To configure the preset checks, add the settings to the [recce config file](../r
     Current:
         Manifest: 2024-04-22 03:24:11.262489+00:00
         Catalog:  2024-04-10 06:15:13.813125+00:00
-    ──────────────────────────────── Default queries ────────────────────────────────
-    Querying row count diff for the modified table models. [1 node(s)]
-    Completed in 0.06 seconds
     ───────────────────────────────── Preset checks ─────────────────────────────────
                                 Recce Preset Checks
     ──────────────────────────────────────────────────────────────────────────────
@@ -70,9 +67,11 @@ To configure the preset checks, add the settings to the [recce config file](../r
     The state file is stored at [recce_state.json]
     ```
 2. You can view the check results by launching the recce server.
-
     ```shell
     recce server recce_state.json
     ```
-
+3. You can show the summary of the state by the [recce summary](./recce-summary.md) command
+    ```shell
+    recce summary recce_state.json
+    ```
     
