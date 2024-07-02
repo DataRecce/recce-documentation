@@ -3,7 +3,7 @@ title: Node Selection
 icon: material/select
 ---
 
-Recce supports **node selection** in certain [preset checks](./preset-checks.md) ([see below](#supported-checks)). This enables you to target specific resources with data checks by selecting or excluding nodes. Recce node selection follows the same syntax as [dbt node selection](https://docs.getdbt.com/reference/node-selection/syntax).  
+Recce supports **node selection** in certain checks([see below](#supported-checks)). This enables you to target specific resources with data checks by selecting or excluding nodes. Recce node selection follows the same syntax as [dbt node selection](https://docs.getdbt.com/reference/node-selection/syntax).  
 
 ## Supported Checks
 
@@ -12,12 +12,8 @@ The following checks currently support node selection:
 - Row Count Diff Check
 - Schema Diff Check
 
-!!! Note
-
-    Currently, node selection for preset checks must be enabled in in your `recce.yml`. Support for configuring node selection via the GUI is coming soon.
-
-
-### Row Count Diff Check
+### Via YML in preset checks
+#### Row Count Diff Check
 
 **Usage**
 
@@ -54,7 +50,7 @@ checks:
     exclude: tag:skip_check
 ```
 
-### Schema Diff Check
+#### Schema Diff Check
 
 
 **Usage**
@@ -85,6 +81,14 @@ On the schema diff result page, it lists all the selected nodes and highlights t
   type: schema_diff
   params:
 ```
+
+### Via GUI
+
+Currently, node selection for checks can only by configured as preset checks in your `recce.yml`. Support for configuring node selection via the GUI is coming soon.
+
+## Lineage Diff
+
+We will also support using node selection in the [lineage diff](lineage.md#lineage-diff). Stay tuned.
 
 ## Limitation
 In dbt, node selection only lists the nodes currently present in the project, so it does not include removed nodes.
