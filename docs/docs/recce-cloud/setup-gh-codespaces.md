@@ -24,12 +24,17 @@ GitHub Codespaces is a development environment provided by GitHub that allows de
             "dockerfile": "Dockerfile",
         },
         "containerEnv": {
+            "RECCE_STATE_PASSWORD":"<password-defined-in-ci-step>",
             "ENV_1": "env_1",
-            "ENV_2": "env_2",            
+            "ENV_2": "env_2",
         },
         "postStartCommand": "recce server --cloud --review"
     }
     ```
+    The `RECCE_STATE_PASSWORD` is used to access the Recce state file in the cloud. You can also configure the password by Github Codespaces secrets. 
+    - [Account specific codespaces secrets](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)
+    - [Repository-level or organization-level codespaces secrets](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)
+
 1. Prepare the `.devcontainer/Dockerfile`
     ```
     FROM mcr.microsoft.com/vscode/devcontainers/python:3.11
