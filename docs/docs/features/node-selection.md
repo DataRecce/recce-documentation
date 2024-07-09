@@ -3,99 +3,42 @@ title: Node Selection
 icon: material/select
 ---
 
-Recce supports **node selection** in certain checks ([see below](#supported-checks)). This enables you to target specific resources with data checks by selecting or excluding nodes. Recce node selection follows the same syntax as [dbt node selection](https://docs.getdbt.com/reference/node-selection/syntax).  
+Recce supports dbt [node selection](https://docs.getdbt.com/reference/node-selection/syntax) in the [lineage diff](./lineage.md#lineage-diff). This enables you to target specific resources with data checks by selecting or excluding nodes.
 
-## Supported Checks
+## Supported syntax and methods
 
-The following checks currently support node selection:
+Since Recce uses dbt's built-in node selector, it supports most of the selecting methods. Here are some examples:
 
-- Row Count Diff Check
-- Schema Diff Check
+- Select a node: `my_model`
+- select by tag: `tag:nightly`
+- Select by wildcard: `customer*`
+- Select by graph operators:  `my_model+`, `+my_model`, `+my_model`, `1+my_model+`
+- Select by union: `model1 model2`
+- Select by intersection: `stg_invoices+,stg_accounts+`
+- Select by state: `state:modified`, `state:modified+`
 
-## How to use
 
-Configuring checks using node selection can be done via `recce.yml` for preset checks, and also via the Recce GUI (coming soon).
+### Use `state` method
 
-### Configure in `recce.yml` (preset checks)
+In dbt, you need to specify the `--state` option in the CLI. In Recce, we use the base environment as the state, allowing you to use the selector on the fly.
 
-Use the following YAML snippets to configure your preset checks using node selection.
 
-#### Row Count Diff Check
+### Removed nodes
+Another difference is that in dbt, you cannot select removed nodes. However, in Recce, you can select removed nodes and also find them using the graph operator. This is a notable distinction from dbt's node selection capabilities.
 
-**Usage**
 
-```
-checks:
-- name: <name>
-  description: <description>  
-  type: row_count_diff
-  params:
-    select: <selection>
-    exclude: <selection>
-```
+## Supported Diff
 
-**Example: Check row count diff for all modified table models.**
+In addition to lineage diff, other types of diff also support node selection. You can find these features in the **...** button at the top right corner. Currently supported diffs include:
 
-```
-checks:
-- name: Row count diff
-  description: Check the row count diff for all table models
-  type: row_count_diff
-  params:
-    select: state:modified,config.materialized:table
-```
+- Lineage diff
+- Row count diff
+- Schema diff
 
-**Example: Check row count diff by tag**
-
-```
-checks:
-- name: Row count diff
-  description: Check the row count diff
-  type: row_count_diff
-  params:
-    select: tag:row_count_diff
-    exclude: tag:skip_check
-```
-
-#### Schema Diff Check
-
-**Usage**
-```
-- name: <name>
-  description: <description>
-  type: schema_diff
-    select: <selection>
-    exclude: <selection>
-```
-
-On the schema diff result page, it lists all the selected nodes and highlights the nodes with schema changes.
-![schema diff with node selection](../../assets/images/features/schema-diff-node-selection.png){: .shadow}
-
-**Example: Check schema diff for all modified nodes and their downstream nodes**
-```
-- name: Schema diff
-  description: Check the schema diff for modified+
-  type: schema_diff
-  params:
-    select: state:modified+
-```
-
-**Example: Check schema diff for all nodes**
-```
-- name: Schema diff
-  description: Check the schema diff for all nodes.
-  type: schema_diff
-  params:
-```
-
-### Configure in Recce GUI
-
-Currently, node selection for checks can only by configured as preset checks in your `recce.yml`. Support for configuring node selection via the GUI is coming soon.
-
-## Lineage Diff
-
-We will also support using node selection in the [lineage diff](lineage.md#lineage-diff). Stay tuned.
+![](../../assets/images/features/node-selection.png){: .shadow}
 
 ## Limitation
-In dbt, node selection only lists the nodes currently present in the project, so it does not include removed nodes.
 
+- ["result" method](https://docs.getdbt.com/reference/node-selection/syntax#the-result-status) not supported
+- ["source_status" method](https://docs.getdbt.com/reference/node-selection/syntax#the-source_status-status) not supported.
+- [YAML selectors](https://docs.getdbt.com/reference/node-selection/yaml-selectors) not supported.
