@@ -4,26 +4,33 @@ icon: material/school
 ---
 
 
-
-## Clone the Jaffle Shop to a Private Repository
-
-
 **Jaffle Shop** is an example project officially provided by dbt-labs. This document uses [jaffle_shop_duckdb](https://github.com/dbt-labs/jaffle_shop_duckdb) to enable you to start using **recce cloud** from scratch within five minutes.
 
+## Clone Jaffle Shop to your Private Repositroy
 1. [Create a private repository](https://github.com/new) in your github account.
-1. Clone the “Jaffle Shop” dbt data project
+1. Clone the **Jaffle Shop** dbt data project
    ```shell
    git clone git@github.com:dbt-labs/jaffle_shop_duckdb.git
    cd jaffle_shop_duckdb
    ```
-1. Changet the 
+1. Change the remote url. Change the remote url to your repository.
    ```
    git remote set-url origin git@github.com:<owner>/<repo>.git
    ```
-1. Push it to my new created repository.   
+1. Push to your new created repository.   
    ```
    git push
    ```
+## Authorize the repository to the Recce Cloud.
+1. Go to the [recce cloud](https://cloud.datarecce.io/). If it is your first time to login, please click the **Continue with Github** and authorize your github account to the **Recce Cloud** GitHub App.
+    ![alt text](../../assets/images/recce-cloud/sign-in.png)
+    ![alt text](../../assets/images/recce-cloud/sign-in-authorize.png)
+1. Click the **Install** button to install **Recce Cloud** github app to your personal or organization account.
+    ![alt text](../../assets/images/recce-cloud/app-install.png)
+1. In the app installation page in GitHub, authorize the new created repository to the app.    
+    ![alt text](../../assets/images/recce-cloud/app-install-authorize.png)
+1. Then it will show up all the authorized repositories.
+    ![alt text](../../assets/images/recce-cloud/repo-list.png)    
 
 ## Prepare the base environment
 1. Prepare virtual env
@@ -45,13 +52,13 @@ icon: material/school
          type: duckdb
          path: 'jaffle_shop.duckdb'
          threads: 24
-   +    prod:
-   +      type: duckdb
-   +      path: 'jaffle_shop.duckdb'
-   +      schema: prod
-   +      threads: 24
+   +   prod:
+   +     type: duckdb
+   +     path: 'jaffle_shop.duckdb'
+   +     schema: prod
+   +     threads: 24
    ```
-1. Add dbt packages for recce. Add './packages.yml'
+1. Add dbt packages for recce. Add `./packages.yml`
    ```
    packages:
    - package: dbt-labs/audit_helper
@@ -77,29 +84,19 @@ icon: material/school
     dbt_modules/
     logs/
    ```
-1. Remove the existing github workflow.
+1. Remove the existing github action workflow.
    ```
    rm -rf .github/
    ```
-1. Push to the new remote
+1. Push to remote
    ```
    git add .
    git commit -m 'Add recce changes'
    git push
    ```   
 
-## Signup Recce Cloud / Install Recce Cloud App
-1. Go to the [recce cloud](https://staging.cloud.datarecce.io/)
-    ![alt text](image.png)
-    ![alt text](image-1.png)
-2. Click the [Install]()
-    ![alt text](image-2.png)
-    ![alt text](image-3.png)
-    ![alt text](image-4.png)
-   
-
-## Prepare the review state for PR
-
+## Prepare the review state for the PR
+As a PR author, you can prepare the recce review state and persist it in the recce cloud.
 
 1. Checkout a branch
    ```
@@ -134,17 +131,18 @@ icon: material/school
    git push
    ```
 
-1. Create a pull request for this branch.
-1. Prepare a [github token](https://github.com/settings/tokens). You have to provide the `repo` permission.
-   ![alt text](image-6.png)
+1. Create a pull request for this branch in your github repository.
+1. Prepare a [github token](https://github.com/settings/tokens) in your account. You have to provide the `repo` permission.
+   ![alt text](../../assets/images/recce-cloud/github-token.png)
       
-1. Run the recce server
+1. Ensure you have configured these environment variables.
    ```shell
    export GITHUB_TOKEN=<github-token>
+   export RECCE_STATE_PASSWORD=mypassword
    ```
 1. Run recce server in the cloud mode
    ```
-   recce server --cloud --password mypassword
+   recce server --cloud
    ```
    Open the link http://0.0.0.0:8000, you can see the lineage diff
    ![](../assets/images/jaffle-shop/jaffle_shop_lineage.png)
@@ -152,24 +150,30 @@ icon: material/school
    ```sql
    select * from {{ ref("orders") }} order by 1
    ```
-   Click the `Run Diff` or press `Cmd + Shift + Enter`
-   Click on the 🔑 icon next to the `order_id` column to compare records that are uniquely identified by their `order_id`.
-   ![](../assets/images/jaffle-shop/jaffle_shop_query.png)
+   Click the `Run Diff` button
 1. Click the `+` button to add the query result to checklist
-   ![](../assets/images/jaffle-shop/jaffle_shop_check.png)
 
-1. Terminate the server
+1. Terminate the server. It would store the state to the recce cloud.
 
 ## Review the PR
-1. Checkout the branch
+As a PR author, you can review the PR by using the state stored in the recce cloud.
+
+1. Checkout the PR branch
    ```
    git checkout feature/recce-getting-started
    ```
-1. Make sure you have the github token
+1. Ensure you have configured these environment variables.
+   ```shell
+   export GITHUB_TOKEN=<github-token>
+   export RECCE_STATE_PASSWORD=mypassword
    ```
-   export GITHUB_TOKEN=<token>
-   ```    
 1. Run the recce server
    ```   
-   recce server --cloud --password mypassword --review
+   recce server --cloud --review
    ```
+1. You can see the lineage diff and the checklist prepared by the PR author.
+
+
+!!! Note
+
+    In this tutorial, we use duckdb as the warehouse, which is a file-based warehouse. The reviewer needs to have the same duckdb file to run the query.
