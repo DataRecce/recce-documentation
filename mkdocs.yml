@@ -58,7 +58,7 @@ nav:
           - docs/guides/best-practices-prep-env.md
       - Architecture:
           - docs/architecture/overview.md
-  - Cloud (Beta):
+  - Cloud (Alpha):
       - docs/recce-cloud/index.md
       - docs/recce-cloud/getting-started-recce-cloud.md
       # - docs/recce-cloud/setup-gh-actions-cd.md

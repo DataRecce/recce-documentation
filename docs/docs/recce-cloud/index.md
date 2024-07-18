@@ -2,6 +2,11 @@
 title: Overview
 icon: material/hand-wave-outline
 ---
+
+!!! Note
+
+    Recce Cloud is currently in **private alpha** and scheduled for general availability later this year.  [Sign up](../../index.md#signup) to the Recce newsletter to be notified, or email [product@datarecce.io](mailto:product@datarecce.io) to join our design partnership program for early access.
+
 ## What is `Recce Cloud`?
 
 Recce Cloud is a service specifically designed for streamlining the DBT PR Review workflow. 

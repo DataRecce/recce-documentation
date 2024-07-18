@@ -2,7 +2,9 @@
 title: 5 Minutes Tutorial
 icon: material/school
 ---
+!!! Note
 
+    Recce Cloud is currently in **private alpha** and scheduled for general availability later this year.  [Sign up](../../index.md#signup) to the Recce newsletter to be notified, or email [product@datarecce.io](mailto:product@datarecce.io) to join our design partnership program for early access.
 
 **Jaffle Shop** is an example project officially provided by dbt-labs. This document uses [jaffle_shop_duckdb](https://github.com/dbt-labs/jaffle_shop_duckdb) to enable you to start using **recce cloud** from scratch within five minutes.
 
