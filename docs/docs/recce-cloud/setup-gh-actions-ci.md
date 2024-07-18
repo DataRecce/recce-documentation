@@ -1,6 +1,6 @@
 ---
 title: Setup CI in GitHub Actions
-template: embed.html
+icon: octicons/workflow-16
 ---
 In this step, we will set up the automated preparation of the PR environment and execute a recce run and place the results in the recce cloud.
 
