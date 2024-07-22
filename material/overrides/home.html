@@ -1,64 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recce - Data-Modeling Validation Toolkit for Analytics and Data Engineers</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans&family=Rubik:wght@300;600;800&family=Lora:wght@400..700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <meta property="og:title" content="Recce - Data-Modeling Validation Toolkit for Analytics and Data Engineers" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.datarecce.io" />
-    <meta property="og:description" content="Validate changes, merge fast, and don’t break production data. Recce is the ultimate data-modeling validation toolkit for dbt data projects." />
-    <meta
-      property="og:image"
-      content="https://www.datarecce.io/assets/images/recce-og-image.png"
-    />
-
-    <link rel="stylesheet" href="styles/home.css">
-    <link rel="icon" href="../assets/images/favicon.png">
-
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E06MSTE2SX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-E06MSTE2SX');
-    </script>
+{% extends "app.html" %}
 
 
-  </head>
-  
-  <body class="homepage">
-
-    <header>
-      <div class="container-xl">
-        <div class="header-content">
-          
-          <a href="/" class="brand">
-            <div class="logo">
-              <img src="assets/images/recce-logo-orange.png" />
-            </div>
-            <h1>Recce</h1>
-          </a>
-
-          <ul class="nav">
-            <li class="nav-item"><a href="docs" class="nav-link">Docs</a></li>
-            <li class="nav-item"><a href="https://medium.com/inthepipeline" class="nav-link" target="_blank">Blog</a></li>
-            <li class="nav-item"><a href="https://github.com/datarecce/recce" class="nav-link">GitHub</a></li>  
-            <li class="nav-item btn btn-primary signup"><a href="#signup" class="nav-link">Sign Up</a></li>
-          </ul>
-
-        </div>
-      </div>
-    </header>
+{% block content %}
 
     <section class="hero">
       <div class="container-xl">
@@ -72,7 +15,7 @@
             <a href="/docs/get-started/" class="btn btn-primary btn-large">Get Started</a>
           </div>
           <div class="featured-image">
-            <img src="assets/images/featured_image.png" />
+            <img src="/assets/images/featured_image.png" />
           </div>
 
         </div>
@@ -273,39 +216,8 @@
       </div>
     </section>
 
-    <section class="footer">
-      <div class="container">
-        <div class="row">
 
-          <div class="col col-12 col-sm-12">
-
-            <div class="footer-holder">
-
-              <a href="#top" class="brand">
-                <div class="logo">
-                  <img src="assets/images/recce-logo-white.png" />
-                </div>
-                <h1>Recce</h1>
-              </a>
-              
-              <p class="copy">&copy; 2024 InfuseAI</p>
-            </div>
-          
-          </div>
-
-
-        </div>
-      </div>
-
-    </section>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
-
-</html>
-
+{% endblock %}
 
 
 
