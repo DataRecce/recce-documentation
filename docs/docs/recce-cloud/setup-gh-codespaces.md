@@ -1,6 +1,6 @@
 ---
 title: Setup GitHub Codespaces
-template: embed.html
+icon: octicons/codespaces-16
 ---
 
 GitHub Codespaces is a development environment provided by GitHub that allows developers to have identical and isolated environments for development. The GitHub Codespaces uses VS Code Server technology. We can launch it from a GitHub pull request page, and once it is started, the Recce server will run and port forwarding will be set up.

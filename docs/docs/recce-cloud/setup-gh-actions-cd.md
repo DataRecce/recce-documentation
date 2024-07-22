@@ -1,6 +1,6 @@
 ---
 title: Setup CD in GitHub Actions
-template: embed.html
+icon: octicons/workflow-16
 ---
 
 In this step, we will set up the automated preparation of the base environment and upload the dbt artifacts to GitHub workflow artifacts, so that the CI workflow can use them.

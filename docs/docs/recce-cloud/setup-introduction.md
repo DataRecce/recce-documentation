@@ -1,6 +1,5 @@
 ---
 title: Introduction
-template: embed.html
 ---
 
 Recce Cloud is a service specifically designed for DBT PR Review workflow. This document briefly introduces how to integrate Recce Cloud with a GitHub repository.
