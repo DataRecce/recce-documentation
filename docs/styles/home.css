@@ -12287,7 +12287,7 @@ section.cta .form-holder .form-control {
   font-size: 2.3rem;
 }
 section.cta .form-holder .btn {
-  padding: 1rem 2rem;
+  padding: 0.6rem 2rem;
 }
 section.cta .form-holder #mce-responses {
   padding: 1rem 0;
@@ -12399,6 +12399,7 @@ section.features .feature .feature-description .description-holder {
 @media (min-width: 1200px) {
   section.features .feature .feature-description .description-holder h2, section.features .feature .feature-description .description-holder .h2 {
     font-size: 4rem;
+    font-weight: 800;
   }
 }
 section.features .feature .feature-description .description-holder p {
@@ -12514,8 +12515,64 @@ section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h5
   margin: 0;
   width: 300px;
 }
+.cloud-form {
+  background-color: #ff6e42;
+  padding: 3rem 0;
+}
+.cloud-form .section-header h2, .cloud-form .section-header .h2 {
+  color: #fff;
+  font-size: 2.6rem;
+}
+.cloud-form #mc_embed_shell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cloud-form #mc_embed_shell #mc_embed_signup {
+  border-radius: 1rem;
+}
+.cloud-form #mc_embed_shell #mc_embed_signup form {
+  padding: 1rem 2rem;
+  text-align: center;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .cloud-form #mc_embed_shell #mc_embed_signup form {
+    padding: 1rem 5rem;
+  }
+}
+.cloud-form #mc_embed_shell #mc_embed_signup form h2, .cloud-form #mc_embed_shell #mc_embed_signup form .h2 {
+  text-transform: uppercase;
+}
+.cloud-form #mc_embed_shell #mc_embed_signup form .mc-field-group {
+  width: 100%;
+}
+.cloud-form #mc_embed_shell #mc_embed_signup form #mc-embedded-subscribe {
+  background-color: #ff6e42;
+  text-transform: uppercase;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 0.08rem;
+  height: auto;
+  padding: 0.5rem 2.5rem;
+}
+.cloud-form #mc_embed_shell #mc_embed_signup div.response {
+  width: 100%;
+}
+
+section.cal-book {
+  background-color: #1f1f1f;
+}
+section.cal-book .section-header {
+  color: #fff;
+  text-transform: initial;
+}
+section.cal-book .section-header span {
+  text-transform: lowercase;
+}
+
 section.footer {
   background-color: #222222;
+  background-color: #ff6e42;
   color: #fff;
 }
 section.footer .footer-holder {
