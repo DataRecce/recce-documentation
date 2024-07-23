@@ -95,7 +95,7 @@ icon: material/school
    git add .
    git commit -m 'Add recce changes'
    git push
-   ```   
+   ```
 
 ## Prepare the review state for the PR
 As a PR author, you can prepare the recce review state and persist it in the recce cloud.
@@ -148,17 +148,20 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    ```
    Open the link http://0.0.0.0:8000, you can see the lineage diff
    ![](../assets/images/jaffle-shop/jaffle_shop_lineage.png)
-1. Switch to the **Query** tab, run this query
+1. Switch to the **Query** tab, add this query
    ```sql
    select * from {{ ref("orders") }} order by 1
    ```
-   Click the `Run Diff` button
+   Add the primary key `order_id` and click the `Run Diff` button
+   ![alt text](../../assets/images/recce-cloud/query-diff.png){: .shadow}    
 1. Click the `+` button to add the query result to checklist
-
+1. You can find that there are three checks in the **Checks** page
 1. Terminate the server. It would store the state to the recce cloud.
+1. In the GitHub PR page, we can find a failed check for this PR. This is because not all checks are approved.
+   ![alt text](../../assets/images/recce-cloud/pr-checks-wo-approved.png){: .shadow}
 
 ## Review the PR
-As a PR author, you can review the PR by using the state stored in the recce cloud.
+As a PR author, you can review the PR by using the state stored in the recce cloud. If the checks are all good, you can approve them.
 
 1. Checkout the PR branch
    ```
@@ -174,6 +177,12 @@ As a PR author, you can review the PR by using the state stored in the recce clo
    recce server --cloud --review
    ```
 1. You can see the lineage diff and the checklist prepared by the PR author.
+1. Approve all the checks if everything looks good to you
+   ![alt text](../../assets/images/recce-cloud/checks.png){: .shadow}
+1. Go back to the GitHub PR page, you can find that the recce check is marked as passed.
+   ![alt text](../../assets/images/recce-cloud/pr-checks-all-approved.png){: .shadow}
+   
+   
 
 
 !!! Note
