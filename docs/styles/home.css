@@ -12518,10 +12518,28 @@ section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h5
 .cloud-form {
   background-color: #ff6e42;
   padding: 3rem 0;
+  position: relative;
+}
+.cloud-form .large-logo {
+  position: absolute;
+  height: 150%;
+  width: auto;
+  top: -25%;
+  opacity: 0.3;
+  left: 50%;
+  -webkit-transform: translateX(-115%);
+  transform: translateX(-115%);
+}
+@media (min-width: 768px) {
+  .cloud-form .large-logo {
+    -webkit-transform: translateX(-140%);
+    transform: translateX(-140%);
+  }
 }
 .cloud-form .section-header h2, .cloud-form .section-header .h2 {
   color: #fff;
   font-size: 2.6rem;
+  text-transform: uppercase;
 }
 .cloud-form #mc_embed_shell {
   display: flex;

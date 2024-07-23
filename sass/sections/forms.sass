@@ -1,11 +1,36 @@
 .cloud-form
 	background-color: $color-brand
 	padding: 3rem 0
+	position: relative
+
+	.large-logo
+		position: absolute
+		height: 150%
+		width: auto
+		top: -25%
+		opacity: 0.3
+		left: 50%
+		-webkit-transform: translateX(-115%)
+		transform: translateX(-115%)
+		@include media-breakpoint-up(md)
+			-webkit-transform: translateX(-140%)
+			transform: translateX(-140%)
+
+	// &::before
+	// 	background-image: url('/assets/images/Logo_Recce_white-fs8.png')
+	// 	background-size: 100%
+	// 	content: ""
+	// 	position: absolute
+	// 	top: 0
+	// 	left: 0
+	// 	right: 0
+	// 	bottom: 0
 
 	.section-header
 		h2
 			color: $color-white
 			font-size: 2.6rem
+			text-transform: uppercase
 	#mc_embed_shell
 		display: flex
 		justify-content: center
