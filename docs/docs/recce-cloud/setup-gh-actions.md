@@ -1,52 +1,73 @@
 ---
-title: GitHub Actions
+title: Continue Integration (CI)
 icon: octicons/workflow-16
 ---
 
-We will set up the automated preparation of the base environment and upload the dbt artifacts to GitHub workflow artifacts, so that the CI workflow can use them.
+!!! Note
+
+    Recce Cloud is currently in **private alpha** and scheduled for general availability later this year.  [Sign up](../../index.md#signup) to the Recce newsletter to be notified, or email [product@datarecce.io](mailto:product@datarecce.io) to join our design partnership program for early access.
+
+[Continuous Integration(CI)](https://en.wikipedia.org/wiki/Continuous_integration) and [Continuous Delivery(CD)](https://en.wikipedia.org/wiki/Continuous_delivery) are best practices in software development. Through CI automation, a dbt project can systematically and continuously deliver and integrate high-quality results.
+
+To automate the process, we can use [GitHub Actions](https://github.com/features/actions) and [GitHub Codespaces](https://github.com/features/codespaces) to provide an automated and reusable workspace. The following diagram describes the entire ci/cd architecture.
 
 ![alt text](../../assets/images/recce-cloud/setup-architecture.png){: .shadow}
 
+We suggest setting up two GitHub Actions workflows in your GitHub repository. One for the base environment and another for the PR environment.
+
+- **Base environment workflow**: Triggered on every merge to the `main branch`. This ensures that base artifacts are readily available for use when a PR is opened.
+
+- **PR environment workflow**: Triggered on every push to the `pull-request branch`. This workflow will compare base models with the current PR environment.
+
 ## Prerequisites
 
-### DBT Profile
+1.  **Per-PR Enviornment**: To ensure that each PR has its own isolated environment, it is recommended to put `profile.yml` under source control in the repository and use environment variables to change the schema name. In the workflow, we can generate the corresponding schema name based on the PR number.
 
-To ensure that each PR has its own isolated environment, it is recommended to put profile.yml under source control in the repository and use environment variables to change the schema name. In the workflow, we can generate the corresponding schema name based on the PR number.
+    ```yaml
+    myprofile:
+      outputs:
+        pr:
+          type: snowflake
+          ...
+          schema: "{{ env_var('DBT_SCHEMA') | as_text }}"
+        prod:
+          type: snowflake
+          ...
+          schema: PUBLIC        
+    ```
 
-```
-myprofile:
-  outputs:
-    pr:
-      type: snowflake
-      ...
-      schema: "{{ env_var('DBT_SCHEMA') | as_text }}"      
-```
+2. **GitHub Token** and **Recce State Password**: As mentioned [here](index.md#prerequisite), please ensure that the two secrets are available when running recce commands. You can add `GH_TOKEN` and `RECCE_STATE_PASSWORD` to the [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions). Then we can use them in the Github Actions workflow file.
+   ```yaml
+   env:
+     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+     RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
+   ```
 
-### GitHub Token
-
-Currently, we use the GitHub token as the cloud token. Put your github token to the [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
-
-In the below example, we use the secret named `RECCE_CLOUD_TOKEN`
-
-
-!!!Note
+!!!warning
 
     You cannot use the [automatic generated token](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) here, because we need the personal access token (PAT) to verify if the user has PUSH permission of the repository.
 
-### Recce State Password
+    ```yaml    
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Don't use 'secrets.GITHUB_TOKEN' here
+    ```
 
-The Recce State Password is used to encrypt/decrypt the state file before uploading/downloading it to/from Recce Cloud. The password is not stored in Recce Cloud, so you need to keep it safe. You can set the password in the workflow file or in the GitHub Actions Secrets. 
-
-In the below example, we set the password in the GitHub Actions Secrets named `RECCE_STATE_PASSWORD`.
+## Set up Recce with GitHub Actions
 
 
-## Base Environment
+### Base Workflow (Main Branch)
+
+This workflow will perform the following actions:
+
+1. Run dbt on the base environment.
+2. Upload the generated DBT artifacts to [github workflow artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) for later use.
+
 !!! note
 
     Please place the above file in `.github/workflows/dbt_base.yml`. This workflow path will also be used in the next PR workflow. If you place it in a different location, please remember to make the corresponding changes in the next step.
 
 ```yaml
-name: Recce CI Base Branch
+name: Daily Job
 
 on:
   workflow_dispatch:
@@ -59,7 +80,10 @@ on:
 concurrency:
   group: recce-ci-base
   cancel-in-progress: true
-
+env:
+  # Credentials used by dbt profiles.yml
+  DBT_USER: ${{ secrets.DBT_USER }}
+  DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -71,6 +95,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10.x"
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
@@ -92,23 +117,18 @@ jobs:
           path: target/
 ```
 
-**Verify the CD setup**
-
-1. Go to the repository root
-1. List the latest run for the workflow
-   ```
-   gh run list --branch main --workflow .github/workflows/dbt_base.yml
-   ```
-   ![alt text](../../assets/images/recce-cloud/setup-run-base.png)
-
-1. Download and check the artifact with name `target`
-   ```
-   mkdir /tmp/artifact
-   gh run download 9380631916 -n target -D /tmp/artifact    
-   ```
+If executed successfully, the dbt target will be placed in the run artifacts and will be named **target**.
+![alt text](../../assets/images/recce-cloud/dbt-artifacts.png){: .shadow}
 
 
-## PR Environment
+### PR Workflow (Pull Request Branch)
+
+This workflow will perform the following actions:
+
+1. Run dbt on the PR environment.
+2. Download previously generated base artifacts from base workflow.
+3. Use Recce to compare the PR environment with the downloaded base artifacts.
+4. Use Recce to generate the summary of the current changes and post it as a comment on the pull request. Please refer to the [Recce Summary](../features/recce-summary.md) for more information.
 
 ````yaml
 name: Recce CI PR Branch
@@ -117,6 +137,15 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  WORKFLOW_BASE: ".github/workflows/dbt_base.yml"
+  # Credentials used by dbt profiles.yml
+  DBT_USER: ${{ secrets.DBT_USER }}
+  DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+  DBT_SCHEMA: "PR_${{ github.event.pull_request.number }}"
+  # Credentials used by recce
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
 jobs:
   check-pull-request:
     name: Check pull request by Recce CI
@@ -130,6 +159,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10.x"
+          cache: pip
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
@@ -141,11 +171,6 @@ jobs:
           run_id=$(gh run list --workflow ${WORKFLOW_BASE} --branch ${base_branch} --status success --limit 1 --json databaseId --jq '.[0].databaseId')
           echo "Download artifacts from run $run_id"
           gh run download ${run_id} -n target -D target-base
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORKFLOW_BASE: ".github/workflows/dbt_base.yml"
-      - name: Set schema name for the PR environment
-        run: echo "DBT_SCHEMA=PR_${{ github.event.pull_request.number }}" >> $GITHUB_ENV          
       - name: Prepare the PR environment
         run: |
           dbt deps
@@ -154,13 +179,9 @@ jobs:
           dbt docs generate --target ${{ env.DBT_CURRENT_TARGET}}
         env:
           DBT_CURRENT_TARGET: "pr"
-
       - name: Run Recce
         run: |
-          recce run --cloud --cloud-token ${{ secrets.RECCE_CLOUD_TOKEN }}
-        env:
-          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
-
+          recce run --cloud
       - name: Upload DBT Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -170,7 +191,7 @@ jobs:
       - name: Prepare Recce Summary
         id: recce-summary
         run: |
-          recce summary --cloud --cloud-token ${{ secrets.RECCE_CLOUD_TOKEN }} > recce_summary.md
+          recce summary --cloud > recce_summary.md
           cat recce_summary.md >> $GITHUB_STEP_SUMMARY
           echo '${{ env.NEXT_STEP_MESSAGE }}' >> recce_summary.md
 
@@ -185,17 +206,16 @@ jobs:
 
         env:
           RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
-          ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
           NEXT_STEP_MESSAGE: |
             ## Next Steps          
-            If you want to check more detail information about the recce result, please follow this instruction
+            If you want to check more detail information about the recce result, please follow this instruction.
 
             ```bash
             # Checkout to the PR branch
             git checkout ${{ github.event.pull_request.head.ref }}
 
             # Launch the recce server based on the state file
-            recce server --review --cloud --password <recce-state-password>
+            recce server --cloud --review
 
             # Open the recce server http://localhost:8000 by your browser
             ```
@@ -206,15 +226,15 @@ jobs:
           comment_tag: recce
 ````
 
+## Review the Recce State File
 
-**Verify the CI setup**
+**Review locally**
 
-1. Checkout the branch for a PR.
-    ```
-    gh pr checkout <pr number>
-    ```
+```bash
+git checkout <pr-branch>
+recce server --cloud --review
+```
 
-1. Launch the recce server to review this PR
-    ```
-    recce server --review --cloud --cloud-token <GITHUB_TOKEN> --password ${{ secrets.RECCE_STATE_PASSWORD }}
-    ```
+**Review in the GitHub codespace**
+
+Please see [GitHub Codespaces](./setup-gh-codespaces.md) integration
