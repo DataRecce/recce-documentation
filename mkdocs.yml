@@ -61,9 +61,8 @@ nav:
   - Cloud (Alpha):
       - docs/recce-cloud/index.md
       - docs/recce-cloud/getting-started-recce-cloud.md
-      # - docs/recce-cloud/setup-gh-actions-cd.md
-      # - docs/recce-cloud/setup-gh-actions-ci.md
-      # - docs/recce-cloud/setup-gh-codespaces.md
+      - docs/recce-cloud/setup-gh-actions.md      
+      - docs/recce-cloud/setup-gh-codespaces.md
   - Blog: "https://medium.com/inthepipeline"
   #- Recce Blog:
   #- blog/index.md
