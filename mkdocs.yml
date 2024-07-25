@@ -63,6 +63,9 @@ nav:
       - docs/recce-cloud/getting-started-recce-cloud.md
       - docs/recce-cloud/setup-gh-actions.md      
       - docs/recce-cloud/setup-gh-codespaces.md
+      - Cloud Architecture:
+        # - docs/recce-cloud/architecture/index.md
+        - docs/recce-cloud/architecture/security.md
   - Blog: "https://medium.com/inthepipeline"
   #- Recce Blog:
   #- blog/index.md
