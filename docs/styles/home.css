@@ -11913,6 +11913,14 @@ a {
 .btn {
   font-size: 1.6rem;
   border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  transition: none;
+  text-transform: uppercase;
+  border-left: none;
+  border-right: none;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
 }
 @media (min-width: 992px) {
   .btn {
@@ -11922,26 +11930,29 @@ a {
 .btn.btn-primary {
   background-color: #ff6e42;
   border-color: #ff6e42;
-  color: #fff;
-  padding: 0.5rem 2rem;
-  font-weight: bold;
-  border-bottom: solid #420f00 4px;
-  transition: none;
-  text-transform: uppercase;
-  border-left: none;
-  border-right: none;
-  font-family: "Rubik", sans-serif;
-  font-weight: 600;
-}
-.btn.btn-primary a {
-  color: #fff;
+  border-bottom: solid #a82700 4px;
 }
 .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active {
   background-color: #ff6e42 !important;
   border-color: #ff6e42 !important;
-  border-bottom: none;
+}
+.btn.btn-secondary {
+  background-color: #3B3B3B;
+  border-color: #3B3B3B;
+  border-bottom: solid black 4px;
+  color: #fff;
+}
+.btn.btn-secondary:hover, .btn.btn-secondary:focus, .btn.btn-secondary:active {
+  background-color: #3B3B3B !important;
+  border-color: #3B3B3B !important;
+}
+.btn a {
+  color: #fff;
+}
+.btn:hover, .btn:focus, .btn:active {
+  border-bottom: 0px;
   position: relative;
-  bottom: -3px;
+  bottom: -4px;
   margin-bottom: 4px;
 }
 
