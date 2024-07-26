@@ -156,8 +156,7 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    ```
    recce server --cloud
    ```
-   Open the link http://0.0.0.0:8000, you can see the lineage diff
-   ![](../../assets/images/jaffle-shop/jaffle_shop_lineage.png)
+   Open the link http://0.0.0.0:8000
 1. Switch to the **Query** tab, add this query
    ```sql
    select * from {{ ref("orders") }} order by 1
