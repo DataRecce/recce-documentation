@@ -5,7 +5,9 @@ icon: octicons/play-16
 
 # Recce CI integration with GitHub Action
 
-Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Actions (or other CI tools) to compare the data models between two environments when a new pull-request is created.
+Recce provides the `recce run` command for CI/CD pipeline. You can integrate Recce with GitHub Actions (or other CI tools) to compare the data models between two environments when a new pull-request is created. The below image describes the basic architecture.
+
+![ci/cd architecture](../../assets/images/pr/ci-cd.png){: .shadow}
 
 The following guide demonstrates how to configure Recce in GitHub Actions.
 
@@ -13,7 +15,7 @@ The following guide demonstrates how to configure Recce in GitHub Actions.
 
 Before integrating Recce with GitHub Actions, you will need to configure the following items:
 
-- Set up **two environments** in your data warehouse. For example, one for production and another for development.
+- Set up **two environments** in your data warehouse. For example, one for base and another for pull request.
 
 - Provide the **credentials profile** for both environments in your `profiles.yml` so that Recce can access your data warehouse. You can put the credentials in a `profiles.yml` file, or use environment variables.
 
@@ -21,23 +23,24 @@ Before integrating Recce with GitHub Actions, you will need to configure the fol
 
 ## Set up Recce with GitHub Actions
 
-We suggest setting up two GitHub Actions workflows in your GitHub repository. One for the production environment and another for the development environment.
+We suggest setting up two GitHub Actions workflows in your GitHub repository. One for the base environment and another for the PR environment.
 
-- **Production environment workflow**: Triggered on every merge to the `main branch`. This ensures that production artifacts are readily available for use when a PR is opened.
+- **Base environment workflow**: Triggered on every merge to the `main branch`. This ensures that base artifacts are readily available for use when a PR is opened.
 
-- **Development environment workflow**: Triggered on every push to the `pull-request branch`. This workflow will compare production models with the current development environment.
+- **PR environment workflow**: Triggered on every push to the `pull-request branch`. This workflow will compare base models with the current PR environment.
 
-### Production Workflow (Main Branch)
+### Base Workflow (Main Branch)
 
 This workflow will perform the following actions:
 
-1. Run dbt on the production environment.
-2. Upload the generated artifacts to S3 for later use.
+1. Run dbt on the base environment.
+2. Upload the generated DBT artifacts to [github workflow artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) for later use.
 
 ```yaml
 name: Recce CI Base Branch
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -48,7 +51,6 @@ concurrency:
 
 jobs:
   build:
-    name: DBT Runner
     runs-on: ubuntu-latest
 
     steps:
@@ -66,43 +68,34 @@ jobs:
       - name: Run DBT
         run: |
           dbt deps
-          dbt seed --target ${{ env.DBT_BASE_TARGET }} --target-path target-base
-          dbt run --target ${{ env.DBT_BASE_TARGET }} --target-path target-base
-          dbt docs generate --target ${{ env.DBT_BASE_TARGET }} --target-path target-base
+          dbt seed --target ${{ env.DBT_BASE_TARGET }}
+          dbt run --target ${{ env.DBT_BASE_TARGET }}
+          dbt docs generate --target ${{ env.DBT_BASE_TARGET }}
         env:
-          # Set the dbt target name of the base environment
-          DBT_BASE_TARGET: prod
+          DBT_BASE_TARGET: "prod"
 
-      - name: Package DBT artifacts
-        run: |
-          tar -czvf dbt-artifacts.tar.gz target-base
-          mv dbt-artifacts.tar.gz $GITHUB_WORKSPACE/${{ github.sha }}.tar.gz
-
-      - name: Upload to S3
-        run: |
-          aws s3 cp $GITHUB_WORKSPACE/${{ github.sha }}.tar.gz s3://${{ env.AWS_S3_BUCKET }}/${{ github.sha }}.tar.gz
-        env:
-          # Set these in your repository secrets
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # Set these in your repository secrets
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          # Set these in your repository secrets
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          # Set these in your repository secrets
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      - name: Upload DBT Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: target
+          path: target/
 ```
 
-### Development Workflow (Pull Request Branch)
+!!! note
+
+    Please place the above file in `.github/workflows/dbt_base.yml`. This workflow path will also be used in the next PR workflow. If you place it in a different location, please remember to make the corresponding changes in the next step.
+
+### PR Workflow (Pull Request Branch)
 
 This workflow will perform the following actions:
 
-1. Run dbt on the development environment.
-2. Download previously generated production artifacts from S3.
-3. Use Recce to compare the current environment with the downloaded production artifacts.
+1. Run dbt on the PR environment.
+2. Download previously generated base artifacts from base workflow.
+3. Use Recce to compare the PR environment with the downloaded base artifacts.
 4. Use Recce to generate the summary of the current changes and post it as a comment on the pull request. Please refer to the [Recce Summary](../features/recce-summary.md) for more information.
 
 ````yaml
-name: Recce CI Current Branch
+name: Recce CI PR Branch
 
 on:
   pull_request:
@@ -112,64 +105,50 @@ jobs:
   check-pull-request:
     name: Check pull request by Recce CI
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10.x"
-
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: Install Recce
-        run: |
           pip install recce
-
-      - name: Prepare DBT Base environment
+      - name: Prepare dbt Base environment
         run: |
-          if aws s3 cp s3://$AWS_S3_BUCKET/${{ github.event.pull_request.base.sha }}.tar.gz .; then
-            echo "Base environment found in S3"
-            tar -xvf ${{ github.event.pull_request.base.sha }}.tar.gz
-          else
-            echo "Base environment not found in S3. Running dbt to create base environment"
-            git checkout ${{ github.event.pull_request.base.sha }}
-            dbt deps
-            dbt seed --target ${{ env.DBT_BASE_TARGET }} --target-path target-base
-            dbt run --target ${{ env.DBT_BASE_TARGET }} --target-path target-base
-            dbt docs generate --target ${{ env.DBT_BASE_TARGET }} --target-path target-base
-          fi
+          gh repo set-default ${{ github.repository }}
+          base_branch=${{ github.base_ref }}
+          run_id=$(gh run list --workflow ${WORKFLOW_BASE} --branch ${base_branch} --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          echo "Download artifacts from run $run_id"
+          gh run download ${run_id} -n target -D target-base
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          # Set the dbt target name of the base environment
-          DBT_BASE_TARGET: prod
-
-      - name: Prepare DBT Current environment
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WORKFLOW_BASE: ".github/workflows/dbt_base.yml"
+      - name: Prepare dbt Current environment
         run: |
           git checkout ${{ github.event.pull_request.head.sha }}
           dbt deps
-          dbt seed --target ${{ env.DBT_CURRENT_TARGET }}
-          dbt run --target ${{ env.DBT_CURRENT_TARGET }}
-          dbt docs generate --target ${{ env.DBT_CURRENT_TARGET }}
+          dbt seed --target ${{ env.DBT_CURRENT_TARGET}}
+          dbt run --target ${{ env.DBT_CURRENT_TARGET}}
+          dbt docs generate --target ${{ env.DBT_CURRENT_TARGET}}
         env:
-          # Set the dbt target name of the current environment
-	        DBT_CURRENT_TARGET: dev
+          DBT_CURRENT_TARGET: "dev"
 
       - name: Run Recce CI
         run: |
           recce run --github-pull-request-url ${{ github.event.pull_request.html_url }}
 
-      - name: Archive Recce State File
+      - name: Upload DBT Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: target
+          path: target/
+
+      - name: Upload Recce State File
         uses: actions/upload-artifact@v4
         id: recce-artifact-uploader
         with:
@@ -192,10 +171,9 @@ jobs:
           fi
 
         env:
-          ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
           NEXT_STEP_MESSAGE: |
             ## Next Steps
-            If you want to check more detail inforamtion about the recce result, please download the [artifact](${{ steps.recce-artifact-uploader.outputs.artifact-url }}) file and open it by [Recce](https://pypi.org/project/recce/) CLI.
+            If you want to check more detail information about the recce result, please download the [artifact](${{ steps.recce-artifact-uploader.outputs.artifact-url }}) file and open it by [Recce](https://pypi.org/project/recce/) CLI.
 
             ### How to check the recce result
             ```bash
@@ -206,15 +184,13 @@ jobs:
             recce server --review recce_state.json
 
             # Open the recce server http://localhost:8000 by your browser
+            ```
 
       - name: Comment on pull request
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: |
-            Recce `run` successfully completed.
-            Please download the [artifact](${{ env.ARTIFACT_URL }}) for the state file.
-        env:
-          ARTIFACT_URL: ${{ steps.recce-artifact-uploader.outputs.artifact-url }}
+          filePath: recce_summary.md
+          comment_tag: recce
 ````
 
 ## Review the Recce State File

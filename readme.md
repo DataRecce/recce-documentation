@@ -78,7 +78,7 @@ Please use [pngquant](https://pngquant.org/) to optimize any PNG files:
 pngquant --force --quality=100 --strip --skip-if-larger --verbose <filename>.png
 ```
 
-Try to keep animated gifs no bigger than around 1MB. Only use multiple karge gifs on one page if absolutely neccessary. 
+Try to keep animated gifs no bigger than around 1MB. Only use multiple large gifs on one page if absolutely neccessary. 
 
 
 

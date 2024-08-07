@@ -48,7 +48,8 @@ nav:
           - docs/features/recce-summary.md
       - Advanced Features:
           - docs/features/state-file.md
-          - docs/features/preset-checks.md
+          - docs/features/preset-checks.md                    
+          - docs/features/node-selection.md
           - docs/reference/configuration.md
       - Scenarios:
           - docs/guides/scenario-dev.md
@@ -57,7 +58,14 @@ nav:
           - docs/guides/best-practices-prep-env.md
       - Architecture:
           - docs/architecture/overview.md
-
+  - Cloud (Alpha):
+      - docs/recce-cloud/index.md
+      - docs/recce-cloud/getting-started-recce-cloud.md
+      - docs/recce-cloud/setup-gh-actions.md      
+      - docs/recce-cloud/setup-gh-codespaces.md
+      - Cloud Architecture:
+        # - docs/recce-cloud/architecture/index.md
+        - docs/recce-cloud/architecture/security.md
   - Blog: "https://medium.com/inthepipeline"
   #- Recce Blog:
   #- blog/index.md

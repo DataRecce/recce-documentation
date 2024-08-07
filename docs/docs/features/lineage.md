@@ -23,17 +23,30 @@ It's from Lineage Diff that you will determine which models to investigate furth
 - The bottom icon indicates if there is `row count changed` or `schema changed` detected. A row count changed icon is only shown if there is row count diff executed on this node.
 - Click a model to view the [Node detail](#node-detail) and perform other checks. 
 
-### Select Models
-By clicking the **Select models** button, you can select multiple nodes for further operations. For detail, see the [Multi Nodes Selections] section (#multi-nodes-selection)
-
 ### Filter Nodes
-By clicking the **Filter nodes** button, you use different aspect to view the nodes
+In the top control bar, you can change the rule ot filter the nodes
 
 1. **View Mode:**
     - **Changed Models:** Modified nodes and their downstream + 1st degree of their parents.
     - **All:** Show all nodes.
 1. **Package:** Filter by dbt package names.
+1. **Select:** Select nodes by [node selection](./node-selection.md)
+1. **Exclude:** Exclude nodes by [node selection](./node-selection.md)
 
+### Select Nodes
+
+By clicking the **Select nodes** button at the top-right corner, you can select multiple nodes for further operations. For detail, see the [Multi Nodes Selections](#multi-nodes-selection) section 
+
+### Row Count Diff
+
+![](../../assets/images/features/row-count-diff-selector.gif){: .shadow}
+
+You can run the row count diff on the selected node (selected by `select` and `exclude`)
+
+To run the row count diff by selector
+
+1. Click the **...** button at the top-right corner.
+2. Click on **Row Count Diff by Selector**.
 
 
 ## Node Detail
@@ -179,8 +192,8 @@ Top-K Diff compares the distribution of a categorical column. The top 10 element
 
 ## Multi Nodes Selection
 
-### Select Models
-1. Click the **Select models** button
+### Select Nodes
+1. Click the **Select nodes** button
 2. Select one or more nodes
 3. or right click on a nodes, you can **Select parent nodes** or **Select child nodes**
 4. Click the action in the multi select control bar.
@@ -213,20 +226,60 @@ In the lineage page, we can run different type of check. However, for these reas
 1. Keep the check and I can rerun this after my code change
 2. Add my result and interpretation for review purpose
 
-To add the checklist,
+### Lineage Diff
 
-1. Lineage
-    - **All nodes:** Click **Add lineage diff check** button to add all lineage
-    - **Partial nodes:** Click **Select models** button > select nodes > Click **Add lineage check**
-1. Schema
-    - **Single node:** Click a model > **Add check** > **Schema check**
-    - **Multiple nodes:** Click **Select models** button > select nodes > Click **Add schema check**
-1. **Row count diff:** 
-    1. Click **Select models** button
-    1. Select nodes
-    1. Click **Row count diff**
-    1. Select a model
-    1. Click **Add to checklist**
-1. Other Diffs:
-    1. Execute the diff    
-    1. Click **Add to checklist**
+**Lineage diff by selector**
+
+1. Select nodes by `Select` and `Exclude` on the top control.
+1. Click **...** at the top-right corner
+1. Click the **Lineage diff**
+
+**Lineage diff by multi nodes selection**
+
+1. Click **Select nodes** button at the top-right corner
+1. Select nodes
+1. Click the **Add lineage diff check** button
+
+
+### Schema Diff
+
+**Schema diff by node selector**
+
+1. Select nodes by `Select` and `Exclude` on the top control.
+1. Click **...** at the top-right corner
+1. Click the **Schema diff** button
+
+
+**Schema diff by multi nodes selection**
+
+1. Click **Select nodes** button at the top-right corner
+1. Select nodes
+1. Click the **Add schema check** button
+
+**Schema diff for single node**
+
+1. Select a node, then the node detail would show.
+2. Click **Add check** button on the node detail pane.
+3. Click **Schema check**
+
+### Row Count Diff
+
+**Row count diff by node selector**
+
+1. Select nodes by `Select` and `Exclude` on the top control.
+1. Click **...** at the top-right corner
+1. Click the **Row Count Diff by Selctor**, then it will run the row count diff
+1. Click the **Add to checklist** in the result page.
+
+**Row count diff by multi nodes selection**
+
+1. Click **Select nodes** button
+1. Select nodes
+1. Click **Row count diff**, then it will run the row count diff
+1. Select a node, then the run result would show.
+1. Click **Add to checklist**
+
+### Other Diffs
+
+1. Execute the diff    
+1. Click **Add to checklist**
