@@ -27,6 +27,8 @@ extra:
       link: https://www.linkedin.com/company/datarecce
     - icon: fontawesome/brands/mastodon
       link: https://mastodon.social/@DataRecce
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/inthepipeline
 nav:
   - index.md
   - Guides:
@@ -66,9 +68,9 @@ nav:
       - Cloud Architecture:
         # - docs/recce-cloud/architecture/index.md
         - docs/recce-cloud/architecture/security.md
-  - Blog: "https://medium.com/inthepipeline"
-  #- Recce Blog:
-  #- blog/index.md
+  #- Blog: "https://medium.com/inthepipeline"
+  - Blog:
+    - blog/index.md
 
 markdown_extensions:
   - admonition
