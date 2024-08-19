@@ -5,7 +5,7 @@ slug: hands-on-data-impact-analysis-recce
 description: >
   Use diffing techniques to perform data drill-down and QA your work
 categories:
-  - General
+  - Features
 ---
 
 # Hands-On Data Impact Analysis for dbt Data Projects with Recce

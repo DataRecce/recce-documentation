@@ -5,7 +5,8 @@ slug: data-validaton-toolkit-for-dbt-data-projects
 description: >
   Validate modeling changes and create 'all-signal' PR comments
 categories:
-  - General
+  - Announcements
+  - Features
 ---
 
 # Next-Level Data Validation Toolkit for dbt Data Projects — Introducing Recce
