@@ -11,7 +11,7 @@ categories:
 
 # Use Histogram Overlay and Top-K Charts to Understand Data Change in dbt
 
-Data profiling stats are a really efficient way to get an understanding of the distribution of data in a dbt model. You can immediately see skewed data and spot data outliers, something which is difficult to do be checking data at the row level.
+Data profiling stats are a really efficient way to get an understanding of the distribution of data in a dbt model. You can immediately see skewed data and spot data outliers, something which is difficult to do when checking data at the row level. Here's how Recce can help you make the most of these high-level data stats:
 
 ## Visualize data change with histogram and top-k charts
 
