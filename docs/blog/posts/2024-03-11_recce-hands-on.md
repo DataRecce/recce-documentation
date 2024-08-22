@@ -83,7 +83,7 @@ Clicking the model pulls up the schema and you can check the row count. If there
 
 ## High-level data impact assessment
 
-The next stage of validation is high-level assessment. There are a number of checks that you can employ for this, currently [Profile Diff](https://datarecce.io/docs/features/profile-diff/), [Value-Diff](https://datarecce.io/docs/features/value-diff/), and Top-K Diff. Each providing a different statistical comparison to your baseline data.
+The next stage of validation is high-level assessment. There are a number of checks that you can employ for this, currently [Profile Diff](../../docs/features/lineage.md#profile-diff), [Value-Diff](../../docs/features/lineage.md#value-diff), and [Top-K Diff](../../docs/features/lineage.md#top-k-diff). Each providing a different statistical comparison to your baseline data.
 
 ### Profile Diff
 
