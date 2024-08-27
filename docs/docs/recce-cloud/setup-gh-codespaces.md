@@ -56,3 +56,36 @@ Here, we [use GitHub Codespaces for pull requests](https://docs.github.com/en/co
 1. Starting a Codespace instance usually takes one to several minutes.
 1. When the Recce server starts, an **Open Browser** notification will appear. Click the button to open the Recce web UI in a new tab.
 1. Or you can go to the **PORTS** tab to open the page.
+
+
+## FAQ
+
+**Q: How long does Codespace generally take to start?**
+
+The typical startup time is around 1 to 2 minutes. However, this depends on how your Dockerfile is configured. Codespace builds your image every time it starts, so if your Dockerfile includes multiple pip install <packages>, it may take longer.
+
+Once your Codespace instance is already running, you won’t need to wait again when you return to it.
+
+**Q: Is there a way to optimize the startup speed?**
+
+Codespace offers a [prebuild](https://docs.github.com/en/codespaces/prebuilding-your-codespaces) feature, which can significantly improve startup speed. However, you need to ensure that the image is up-to-date. To strike a balance between speed and update frequency, you can consider scheduling a weekly image rebuild.
+
+**Q: Can a Codespace environment be shared? Can different people access the same Codespace instance?**
+
+A Codespace environment is tied to each individual GitHub user account. Therefore, a Codespace instance opened by User A cannot be directly accessed by User B. However, User A can set a specific port to be public and [share the URL with others](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace#sharing-a-port). However, the server is still running under User A's account.
+
+**Q: Personal Codespace vs. Organization Codespace? How is Codespace billed?**
+
+By default, Codespace usage is billed to a GitHub personal account. GitHub offers a free tier, allowing each user 120 core hours per month for free.
+
+For GitHub organization accounts, you can configure all Codespace charges to be billed to the organization. In this case, billing is attributed to the organization rather than personal accounts.
+
+For more details on billing, please refer to the official [CodeSpace billing documentation](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+
+
+
+**Q: How to configure codespaces? What's the default dev container spec in Codespaces?**
+
+Codespace utilizes VSCode Dev Containers technology, which can be executed either locally (via Docker) or in the cloud (via GitHub Codespace). The configuration above provided are primarily recommendations for the recce cloud setup. For more advanced configuration options, you can refer to the [VSCode dev containers](https://code.visualstudio.com/docs/devcontainers/containers) or the [containers.dev](https://containers.dev/) documentation.
+
+The default configuration for GitHub Codespace is explained in the [documentation](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers). If you're looking to set up a development environment for dbt/Recce, you can also refer to the [Python project configuration documentation](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces).
