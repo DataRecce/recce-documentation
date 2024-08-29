@@ -3,7 +3,7 @@ title: Self-Serve Review for Self-Serve Data
 date: 2024-05-23
 slug: self-serve-review
 description: >
-  
+  Self-serve review provides a way for analysts to perform validate their own work, while at the same time providing context for peer reviewers responsible for merging changes into production
 categories:
   - Concepts
   - Use cases
