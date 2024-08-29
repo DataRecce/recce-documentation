@@ -1,6 +1,6 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="slug" content="histogram-overlay-top-k-dbt">
-<meta name="date" content="2024-03-20">
-<meta name="description" content="&gt;"><style>body {
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="slug" content="self-serve-review">
+<meta name="description" content="&gt;">
+<meta name="date" content="2024-05-23"><style>body {
   max-width: 980px;
   margin: 16px auto;
 }
@@ -1078,19 +1078,64 @@ body .markdown-body
 .highlight .vi{color:teal}
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
-</style><title>Use Histogram Overlay and Top-K Charts to Understand Data Change in dbt</title></head><body><article class="markdown-body"><p>These profiling stats even more useful when applied to data change validation in dbt projects
-categories:
-  - Features
-  - Usage</p>
+</style><title>Self-Serve Review for Self-Serve Data</title></head><body><article class="markdown-body"><p>categories:
+  - Concepts</p>
 <hr />
-<h1 id="use-histogram-overlay-and-top-k-charts-to-understand-data-change-in-dbt">Use Histogram Overlay and Top-K Charts to Understand Data Change in dbt<a class="headerlink" href="#use-histogram-overlay-and-top-k-charts-to-understand-data-change-in-dbt" title="Permanent link"></a></h1>
-<p>Data profiling stats are a really efficient way to get an understanding of the distribution of data in a dbt model. You can immediately see skewed data and spot data outliers, something which is difficult to do be checking data at the row level.</p>
-<h2 id="visualize-data-change-with-histogram-and-top-k-charts">Visualize data change with histogram and top-k charts<a class="headerlink" href="#visualize-data-change-with-histogram-and-top-k-charts" title="Permanent link"></a></h2>
-<p>Profiling stats become even more useful when applied to data change validation. Let’s say you’ve updated a data model in dbt and changed the calculation logic for a column — how can you get an overview of how the data was changed or impacted? This is where checking the top-k values, or the histogram, of before-and-after you made the changes, comes in handy — But there’s one major issue&hellip;</p>
+<h1 id="self-serve-review-for-self-serve-data">Self-Serve Review for Self-Serve Data<a class="headerlink" href="#self-serve-review-for-self-serve-data" title="Permanent link"></a></h1>
+<p>dbt has been revolutionary for data teams. ELT in general has changed the way we create and maintain data pipelines, but the biggest change has come in the form of ‘self-serve data’.</p>
+<blockquote>
+<p>A self-serve data platform… supports creating new data products without the need for custom tooling or specialized knowledge. — <a href="https://www.getdbt.com/blog/key-components-of-data-mesh-self-serve-data-platform#what-is-a-self-serve-data-platform">dbt</a></p>
+</blockquote>
+<p>The concept of <strong>self-serve</strong> data opened up access to the wider data team — You’ve probably found that all data roles in your team, from data engineer to data analyst, can have a hand in modifying and managing data, which brings new challenges to maintaining data stability.</p>
 <figure>
-  <img alt="Validate data modeling changes in dbt projects by comparing two environments with Recce" src="/Users/dave/recce/recce-docs/docs/blog/assets/images/hands-on-data-impact-analysis-dbt-data-projects-recce/impact-assessment-recce.png" />
-  <figcaption>Validate data modeling changes in dbt projects by comparing two environments with Recce</figcaption></figure>
-<p>The difficulty comes from your responsibility to check not only the model SQL code, but also the data, which is a product of your code. Even when code looks right, silent errors and hard to notice bugs can make their way into the data. <strong>A proper pull request review is not complete with data validation.</strong></p>
-<!-- more -->
-
-<h2 id="what-is-data-validation-and-why-you-need-to-do-it">What is data validation and why you need to do it<a class="headerlink" href="#what-is-data-validation-and-why-you-need-to-do-it" title="Permanent link"></a></h2></article></body></html>
+  <img alt="Histogram side-by-side" src="/Users/dave/recce/recce-docs/docs/blog/assets/images/self-serve-review/self-service-review-data.png" />
+  <figcaption>Bring Self-Service Review to Self-Service Data</figcaption></figure>
+<h2 id="data-incidents-still-happen">Data Incidents still happen<a class="headerlink" href="#data-incidents-still-happen" title="Permanent link"></a></h2>
+<p>Even with all of the benefits that dbt brings <strong>bad merges still happen</strong>. Your code is version controlled, and you can track and review code changes easier than ever, but data projects bring a unique challenge — you need to <strong>review the code and the data</strong>.
+<!-- more --></p>
+<h2 id="context-matters">Context matters<a class="headerlink" href="#context-matters" title="Permanent link"></a></h2>
+<p>In your team, you might find that <strong>data engineers are closer to infrastructure</strong>, while <strong>analysts are closer to business context</strong>. This means when it comes to pull request (PR) review on a data project:</p>
+<ul>
+<li><strong>data engineers</strong> are better able to review PRs in terms of structural impact and integrity,</li>
+<li>while <strong>analysts</strong> are better able to review PRs in terms of business context, but might be less aware of the larger impact to the data pipeline.</li>
+</ul>
+<p><em>The line between these roles is blurring since the introduction of the ‘analytics engineer’, but that transition is relatively new.</em></p>
+<h2 id="self-serve-review-for-self-serve-data_1">Self-serve review for self-serve data<a class="headerlink" href="#self-serve-review-for-self-serve-data_1" title="Permanent link"></a></h2>
+<p>The situation we end up with is that analysts are pushing changes to data projects without performing a complete PR review. This results in engineers fire-fighting issues post-merge, without proper context.</p>
+<h3 id="enable-analysts-to-review-their-own-work">Enable analysts to review their own work<a class="headerlink" href="#enable-analysts-to-review-their-own-work" title="Permanent link"></a></h3>
+<p>The solution is a way for analysts to perform self-serve review to validate their work, while at the same time providing context to peer reviewers responsible for merging changes into production.</p>
+<p>How can you help analysts to perform better PR reviews?</p>
+<p>There are processes you can put in place, like enforcing the use of pull request comments templates that help PR authors to structure their PRs, but the main issue comes down to how to perform impact assessment. Which, in turn, boils down to — how did this PR change the data?</p>
+<p>If you can provide analysts with the tools they need to check their work, you can eliminate bad merges.</p>
+<figure>
+  <img alt="Top-K comparison" src="/Users/dave/recce/recce-docs/docs/blog/assets/images/histogram-overlay-top-k-dbt/top-k-diff.png" />
+  <figcaption>Cross-referencing Top-K will become difficult with more categories</figcaption></figure>
+<p>There’s a real possibility that you’ll miss some edge cases when you can’t compare precisely and accurately. That means silent errors, or even pipeline-breaking errors, will make it into prod. Errors that you won’t find out about until the client or stakeholder calls to asks what’s up with the data.</p>
+<h2 id="how-to-meaningfully-compare-histograms-and-top-k">How to meaningfully compare histograms and top-k<a class="headerlink" href="#how-to-meaningfully-compare-histograms-and-top-k" title="Permanent link"></a></h2>
+<p><strong>The best way to diff profile stats like histogram and top-k stats, is to plot them on a single chart, overlaid on top of each other using shared axes.</strong></p>
+<p>Here’s the same histogram charts as the image above, but with the histograms plotted on a single chart:</p>
+<figure>
+  <img alt="Histogram Overlay Chart in Recce" src="/Users/dave/recce/recce-docs/docs/blog/assets/images/histogram-overlay-top-k-dbt/histogram-overlay-chart-data-recce-dbt.png" />
+  <figcaption>An overlaid histogram makes the charts actually useful!</figcaption></figure>
+<p>In this overlay histogram chart, you can quickly see the distribution change in a meaningful way. At each value range the scale of the data change is clear. The same is true for top-k. When the values are compared directly next to each other the impact is immediately understandable.</p>
+<figure>
+  <img alt="Top-K Diff side-by-side" src="/Users/dave/recce/recce-docs/docs/blog/assets/images/histogram-overlay-top-k-dbt/top-k.png" />
+  <figcaption>Side-by-side Top-K values for direct comparison</figcaption></figure>
+<p>Doing this manually isn’t straight forward. You’d need to code it in a Jupyter notebook with python and would take a lot of configuration, especially given that for dbt data projects you’ll be pulling data from two different schemas if you’re diffing dev and prod. Checking this kind of data profile diff for each PR in your project would require an unreasonable amount of work.</p>
+<h2 id="easily-diff-histogram-top-k-and-other-profiling-stats-in-recce">Easily diff histogram, top-k and other profiling stats in Recce<a class="headerlink" href="#easily-diff-histogram-top-k-and-other-profiling-stats-in-recce" title="Permanent link"></a></h2>
+<p>You can get histogram and top-k diffs, especially designed for dbt data projects, as part of the suite of data modeling validation tools in Recce.</p>
+<p>Recce compares your development and production datasets (or any two dbt envs) and enables a visual representation of data change through multiple diffing tools and query comparisons.</p>
+<figure>
+  <img alt="Histogram overlay chart for your dbt PR Review with Recce" src="/Users/dave/recce/recce-docs/docs/blog/assets/images/histogram-overlay-top-k-dbt/recce-histogram.gif" />
+  <figcaption>Get an overlaid histogram diff for your dbt PR Review with Recce</figcaption></figure>
+<h2 id="improved-visibility-of-data-change-for-dbt">Improved visibility of data change for dbt<a class="headerlink" href="#improved-visibility-of-data-change-for-dbt" title="Permanent link"></a></h2>
+<p>As a data or analytics engineer, the improved visibility of data change makes validating your work quicker, easier, and more accurate.</p>
+<p>As a PR reviewer you can do your job more efficiently and confidently sign off on data changes knowing that an edge case won’t come back to bite you.</p>
+<p>Recce is open-source and available now, so you can start properly validating your dev branch right away.</p>
+<h2 id="get-recce">Get Recce<a class="headerlink" href="#get-recce" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://github.com/datarecce/recce">GitHub</a></li>
+<li><a href="/Users/dave/recce/recce-docs/docs/docs/index.md">Recce Docs</a></li>
+<li>dbt Slack Channel <a href="https://getdbt.slack.com/archives/C05C28V7CPP">#tools-Recce</a></li>
+</ul>
+<script src="https://gist.github.com/DaveFlynn/7dc9b21354a4ee2ea87118bccdad4885.js"></script></article></body></html>
