@@ -3,7 +3,7 @@ title: Identify and Automate Data Checks on Critical dbt Models
 date: 2024-06-23
 slug: check-critical-models
 description: >
-  
+  Identifying critical dbt models and automating impact assessment on these models is essential for ensuring data integrity
 categories:
   - Usage
 ---
