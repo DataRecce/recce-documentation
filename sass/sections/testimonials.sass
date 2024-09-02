@@ -2,12 +2,27 @@ section.testimonials
 	padding: 8rem 0 
 	background-color: #f8f9fa
 
+	.testimonials-holder
+		display: grid
+		grid-template-columns: 1fr
+		grid-column-gap: 4rem
+		grid-row-gap: 4rem
+		padding-left: 5%
+		padding-right: 5%
+		@include media-breakpoint-up(lg)
+			grid-template-columns: 1fr 1fr 
+			padding-left: 0
+			padding-right: 0
+
 	.testimonial
-		margin: 4rem 
+		//margin: 4rem 
+		display: flex
+		flex-direction: column
 		.testimonial-body
 			display: flex
 			position: relative
 			flex-direction: column
+			flex-grow: 1
 			@include media-breakpoint-up(md)
 				flex-direction: row
 			i.quote-icon

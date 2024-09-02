@@ -12444,13 +12444,30 @@ section.testimonials {
   padding: 8rem 0;
   background-color: #f8f9fa;
 }
+section.testimonials .testimonials-holder {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 4rem;
+  grid-row-gap: 4rem;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+@media (min-width: 992px) {
+  section.testimonials .testimonials-holder {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 section.testimonials .testimonial {
-  margin: 4rem;
+  display: flex;
+  flex-direction: column;
 }
 section.testimonials .testimonial .testimonial-body {
   display: flex;
   position: relative;
   flex-direction: column;
+  flex-grow: 1;
 }
 @media (min-width: 768px) {
   section.testimonials .testimonial .testimonial-body {
