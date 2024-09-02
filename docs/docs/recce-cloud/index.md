@@ -45,7 +45,7 @@ The following instructions give an overview of the process of using Recce in you
    ```
 1. Develop your features and prepare the dbt artifacts for the base (`target-base/`) and current (`target/`) environments.
 1. Create a pull request for this branch. Recce Cloud requires an open pull request in your GitHub repository. It also stores the latest Recce state for each pull request.
-1. Launch the recce server in the cloud mode. It will use the dbt artifacts in the local `target` and `target-base` and initiate a new review state if necessary.
+1. Launch the recce server instance in the cloud mode. It will use the dbt artifacts in the local `target` and `target-base` and initiate a new review state if necessary.
    ```
    recce server --cloud
    ```
@@ -56,10 +56,10 @@ The following instructions give an overview of the process of using Recce in you
 
 
 ### Review in the cloud mode
-If the review state is already available for this PR, you can open the recce server to review.
+If the review state is already available for this PR, you can open the recce instance to review.
 
 1. Checkout the branch for the reviewed PR.
-1. Launch the recce server to review this PR
+1. Launch the recce instance to review this PR
     ```
     recce server --review --cloud
     ```

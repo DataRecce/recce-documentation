@@ -7,7 +7,7 @@ icon: octicons/codespaces-16
 
     Recce Cloud is currently in **private alpha** and scheduled for general availability later this year.  [Sign up](../../cloud.md#signup) to the Recce newsletter to be notified, or email [product@datarecce.io](mailto:product@datarecce.io) to join our design partnership program for early access.
 
-GitHub Codespaces is a development environment provided by GitHub that allows developers to have identical and isolated environments for development. The GitHub Codespaces uses VS Code Server technology. We can launch it from a GitHub pull request page, and once it is started, the Recce server will run and port forwarding will be set up.
+GitHub Codespaces is a development environment provided by GitHub that allows developers to have identical and isolated environments for development. The GitHub Codespaces uses VS Code Server technology. We can launch it from a GitHub pull request page, and once it is started, the Recce instance will run and port forwarding will be set up.
 
 ## Setup Recce Cloud in GitHub Codespaces
 
@@ -54,7 +54,7 @@ Here, we [use GitHub Codespaces for pull requests](https://docs.github.com/en/co
 1. Click the **Code** button and create a Codespace on the PR branch
    ![alt text](../../assets/images/recce-cloud/setup-codespaces-pr.png){: .shadow}
 1. Starting a Codespace instance usually takes one to several minutes.
-1. When the Recce server starts, an **Open Browser** notification will appear. Click the button to open the Recce web UI in a new tab.
+1. When the Recce instance starts, an **Open Browser** notification will appear. Click the button to open the Recce web UI in a new tab.
 1. Or you can go to the **PORTS** tab to open the page.
 
 
@@ -72,7 +72,7 @@ Codespace offers a [prebuild](https://docs.github.com/en/codespaces/prebuilding-
 
 **Q: Can a Codespace environment be shared? Can different people access the same Codespace instance?**
 
-A Codespace environment is tied to each individual GitHub user account. Therefore, a Codespace instance opened by User A cannot be directly accessed by User B. However, User A can set a specific port to be public and [share the URL with others](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace#sharing-a-port). However, the server is still running under User A's account.
+A Codespace environment is tied to each individual GitHub user account. Therefore, a Codespace instance opened by User A cannot be directly accessed by User B. However, User A can set a specific port to be public and [share the URL with others](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace#sharing-a-port). However, the instance is still running under User A's account.
 
 **Q: Personal Codespace vs. Organization Codespace? How is Codespace billed?**
 

@@ -38,7 +38,7 @@ To review a PR, you can download the corresponding state file and open the file 
 recce server --review recce_state.json
 ```
 
-In this mode, the Recce server won't use the dbt artifacts inside `target` and `target-base`. Instead, it will use the artifacts from the Recce state file.
+In this mode, the Recce instance won't use the dbt artifacts inside `target` and `target-base`. Instead, it will use the artifacts from the Recce state file.
 
 ## Development
 
