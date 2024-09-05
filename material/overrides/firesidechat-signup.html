@@ -1,0 +1,121 @@
+{% extends "app.html" %}
+
+
+{% block content %}
+
+
+
+
+  <section class="fireside-chat-signup">
+
+    <div class="container-xl">
+      <div class="section-header">
+        <h2 class="pb-0 mb-0">Data Productivity</h2>
+        <h2 class="color-brand text-capitalize">Beyond DevOps and dbt</h2>
+
+        <div class="row">
+          <div class="col col-12 col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
+
+            <p>Sign up to the Data Recce mailing list below and we'll email you a link to watch the fireside chat hosted by <a href="https://www.linkedin.com/in/clkao/">CL&nbsp;Kao</a>, founder of <a href="https://datarecce.io/">DataRecce.io</a>, and <a href="https://www.linkedin.com/in/noelgomez/">Noel&nbsp;Gomez</a>, co-founder of <a href="https://datacoves.com/">Datacoves.com</a> on August 27, 2024.</p>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="section-content">
+
+        <div class="row">
+          <div class="col col-12 col-sm-12">
+
+            <div id="mc_embed_shell">
+              <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+              <div id="mc_embed_signup">
+                  <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00c981e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                      <div id="mc_embed_signup_scroll">
+                          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                          <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""><span id="mce-EMAIL-HELPERTEXT" class="helper_text">Please enter your work email address</span></div><div class="mc-field-group"><label for="mce-FNAME">First Name </label><input type="text" name="FNAME" class=" text" id="mce-FNAME" value=""><span id="mce-FNAME-HELPERTEXT" class="helper_text">What should we call you?</span></div><div class="mc-field-group"><label for="mce-ROLE">Job Role <span class="asterisk">*</span></label><input type="text" name="ROLE" class="required text" id="mce-ROLE" required="" value=""></div>
+                      <div id="mce-responses" class="clear">
+                          <div class="response" id="mce-error-response" style="display: none;"></div>
+                          <div class="response" id="mce-success-response" style="display: none;"></div>
+                      </div><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b18366427f11835f05f68aeb_b82bfd845e" tabindex="-1" value=""></div><div class="clear text-center"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Sign Up and Watch"></div>
+                  </div>
+              </form>
+              </div>
+              <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[3]='ROLE';ftypes[3]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section class="concept-highlights">
+
+    <div class="container-xl">
+      <div class="section-header">
+        <h2>Build Better Data.</h2>
+      </div>
+
+
+      <div class="section-content">
+
+        <div class="row">
+          <div class="col col-12 col-sm-12 col-md-4">
+            <h2><span>Build data relationships</span><br />through team collaboration</h2>
+            <p>Work together on checking and validating data</p>
+          </div>
+
+          <div class="col col-12 col-sm-12 col-md-4">
+            <h2><span>Build data trust</span><br />in your data and your team</h2>
+            <p>Visualizing and interpreting change with stakeholders builds trust</p>
+          </div>
+
+          <div class="col col-12 col-sm-12 col-md-4">
+            <h2><span>Build data foundations</span><br />for data analytics</h2>
+            <p>Confidence in data results in a solid foundation for downstream usage</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="cal-book">
+
+    <div class="section-header">
+      <h2>Book <span>a</span> demo</h2>
+      <p>Find out more about how Recce can improve your data PR review process</p>
+    </div>
+
+    <!-- Cal inline embed code begins -->
+    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "chat", {origin:"https://cal.com"});
+
+      Cal.ns.chat("inline", {
+      elementOrSelector:"#my-cal-inline",
+      calLink: "team/recce/chat",
+      layout: "month_view"
+      });
+
+      Cal.ns.chat("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#ff6e42"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
+      <!-- Cal inline embed code ends -->
+
+
+  </section>
+
+
+
+{% endblock %}
