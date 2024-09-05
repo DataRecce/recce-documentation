@@ -1,0 +1,108 @@
+{% extends "app.html" %}
+
+
+{% block content %}
+
+
+
+  <section>
+
+    <div class="container-xl">
+      <div class="section-header">
+        <h2 class="pb-0 mb-0">Data Productivity</h2>
+        <h2 class="color-brand text-capitalize">Beyond DevOps and dbt</h2>
+
+        <div class="row">
+          <div class="col col-12 col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
+
+            <p>The following video is a recording of the fireside chat hosted by <a href="https://www.linkedin.com/in/clkao/">CL&nbsp;Kao</a>, founder of <a href="https://datarecce.io/">DataRecce.io</a>, and <a href="https://www.linkedin.com/in/noelgomez/">Noel&nbsp;Gomez</a>, co-founder of <a href="https://datacoves.com/">Datacoves.com</a> on August 27, 2024.</p>
+            <p><i>Thanks to all those who signed up and joined the event.</i></p>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="section-content">
+
+        <div class="row">
+          <div class="col col-12 col-sm-12">
+
+            <div class="responsive-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Lc90KuqEl4E?si=gEEgchCn7n7jZmqf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <section class="concept-highlights">
+
+    <div class="container-xl">
+      <div class="section-header">
+        <h2>Build Better Data.</h2>
+      </div>
+
+
+      <div class="section-content">
+
+        <div class="row">
+          <div class="col col-12 col-sm-12 col-md-4">
+            <h2><span>Build data relationships</span><br />through team collaboration</h2>
+            <p>Work together on checking and validating data</p>
+          </div>
+
+          <div class="col col-12 col-sm-12 col-md-4">
+            <h2><span>Build data trust</span><br />in your data and your team</h2>
+            <p>Visualizing and interpreting change with stakeholders builds trust</p>
+          </div>
+
+          <div class="col col-12 col-sm-12 col-md-4">
+            <h2><span>Build data foundations</span><br />for data analytics</h2>
+            <p>Confidence in data results in a solid foundation for downstream usage</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="cal-book">
+
+    <div class="section-header">
+      <h2>Book <span>a</span> demo</h2>
+      <p>Find out more about how Recce can improve your data PR review process</p>
+    </div>
+
+    <!-- Cal inline embed code begins -->
+    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "chat", {origin:"https://cal.com"});
+
+      Cal.ns.chat("inline", {
+      elementOrSelector:"#my-cal-inline",
+      calLink: "team/recce/chat",
+      layout: "month_view"
+      });
+
+      Cal.ns.chat("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#ff6e42"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
+      <!-- Cal inline embed code ends -->
+
+
+  </section>
+
+
+
+{% endblock %}
