@@ -111,7 +111,11 @@ git checkout <pr-check>
 recce summary --cloud > summary.md
 ```
 
-### Purge State
+### Recce cloud
+
+The cloud subcommand in recce provides functionality for managing state files in cloud storage.
+
+#### purge
 
 You can purge the state from your current PR. It is useful when
 
@@ -120,7 +124,25 @@ You can purge the state from your current PR. It is useful when
 
 ```shell
 git checkout <pr-branch>
-recce purge-cloud-state
+recce cloud purge
+```
+
+#### upload
+
+If you already have the state file for the PR, you can upload it to the cloud.
+
+```shell
+git checkout <pr-branch>
+recce cloud upload <recce-state-file>
+```
+
+#### download
+
+You can download the recce state file of the PR from cloud as well.
+
+```shell
+git checkout <pr-branch>
+recce cloud download
 ```
 
 ## GitHub Pull Request Status Check
