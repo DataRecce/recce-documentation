@@ -10,16 +10,25 @@ categories:
 ---
 # From DevOps to DataOps: A Fireside Chat on Practical Strategies for Effective Data Productivity
 
-Top priorities for data-driven organizations are data productivity, cost reduction, and error prevention. The four strategies to improve DataOps are: start with small, manageable improvements, follow a clear blueprint, conduct regular data reviews, and gradually introduce best practices across the team.
+Top priorities for data-driven organizations are data productivity, cost reduction, and error prevention. The four strategies to improve DataOps are: 
 
-In a recent fireside chat, [CL Kao](https://www.linkedin.com/in/clkao/), founder of [Recce](https://datarecce.io/), and [Noel Gomez](https://www.linkedin.com/in/noelgomez/), co-founder of [Datacoves](https://datacoves.com/), shared their combined experience of over two decades in the data and software industry. They discussed practical strategies to tackle these challenges, the evolution from DevOps to DataOps, and the need for companies to focus on data quality to avoid costly mistakes.
+1. start with small, manageable improvements, 
+2. follow a clear blueprint,
+3. conduct regular data reviews, and
+4. gradually introduce best practices across the team.
+
+In a recent [fireside chat](../../firesidechat.md), [CL Kao](https://www.linkedin.com/in/clkao/), founder of [Recce](https://datarecce.io/), and [Noel Gomez](https://www.linkedin.com/in/noelgomez/), co-founder of [Datacoves](https://datacoves.com/), shared their combined experience of over two decades in the data and software industry. They discussed practical strategies to tackle these challenges, the evolution from DevOps to DataOps, and the need for companies to focus on data quality to avoid costly mistakes.
 
 <figure markdown="span">
-  ![Firesidechat banner](../assets/images/firesidechat-20240827/firesidechat_banner.png)
-  <figcaption>Fireside Chat banner</figcaption>
+  ![Firesidechat banner](../assets/images/firesidechat-20240827/firesidechat_banner.jpg)
+  <figcaption>Data Productivity - Beyonig DevOps &amp; dbt</figcaption>
 </figure>
 
-Noel Gomez began his journey at Amgen, where he worked extensively on data governance and digital transformation. He learned that data quality is essential to preventing errors. With his software development background, he realized that many software practices weren’t applied to analytics—and saw the opportunity to merge these worlds. CL Kao worked on version control systems predating Git. He was involved more heavily in data when he helped start Taiwan’s civic tech community, focusing on making public data understandable. Despite their different paths, both agreed: many software practices can be adapted to data management, but there are critical differences. What are the similarities, and what sets DataOps apart?
+Noel Gomez began his journey at Amgen, where he worked extensively on data governance and digital transformation. He learned that data quality is essential to preventing errors. With his software development background, he realized that many software practices weren’t applied to analytics—and saw the opportunity to merge these worlds.
+
+CL Kao worked on version control systems predating Git. He was involved more heavily in data when he helped start Taiwan’s civic tech community, focusing on making public data understandable.
+
+Despite their different paths, both CL and Noel agree that many software practices can be adapted to data management, but there are critical differences. What are the similarities, and what sets DataOps apart?
 
 ### Similarities Between DevOps and DataOps
 
@@ -38,7 +47,9 @@ Why is DataOps so different from DevOps, despite having the same underlying prin
 
 ### Key Differences Between DevOps and DataOps
 
-DevOps focuses on smooth software deployment without downtime, while DataOps ensures the data driving business decisions is accurate and trustworthy, while revisiting how we extract insights. In DataOps, it’s not just about system uptime; the real challenge is preventing incorrect or incomplete data from leading to flawed decisions or costly errors. This introduces a new layer of complexity, as ensuring data accuracy can be more difficult than ensuring software stability.
+DevOps focuses on smooth software deployment without downtime, while DataOps ensures the data driving business decisions is accurate and trustworthy, while revisiting how we extract insights.
+
+In DataOps, it’s not just about system uptime; the real challenge is preventing incorrect or incomplete data from leading to flawed decisions or costly errors. This introduces a new layer of complexity, as ensuring data accuracy can be more difficult than ensuring software stability.
 
 A key distinction between DevOps and DataOps is the confidence teams have before releasing changes. In DevOps, you can deploy code changes confidently because everything has been tested in a controlled environment before production. In DataOps, even with the right tools, validating data is trickier because real-world data constantly changes and behaves unpredictably. It’s not just about running tests; it’s about verifying that the insights or automation from the data still make sense after transformations and processes.
 
