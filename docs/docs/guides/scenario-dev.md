@@ -105,5 +105,5 @@ Another technique is to specify the file directly when opening it.
 recce server recce_issue_123.json
 ```
 
-When you close the Recce server instance, it saves your current session to this file. The next time you open it using the same file, it will restore to the previous state.
+When you close the Recce instance, it saves your current session to this file. The next time you open it using the same file, it will restore to the previous state.
 
