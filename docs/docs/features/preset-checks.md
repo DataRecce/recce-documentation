@@ -5,7 +5,7 @@ icon: material/playlist-check
 
 In a dbt project, there may be some checks that need to be conducted for every PR. For example, this could be an SQL query, or checking whether an important model has had a schema change.
 
-Preset checks can be the fixed checks that are generated every time a new recce server is initiated.
+Preset checks can be the fixed checks that are generated every time a new Recce instance is initiated.
 
 
 ## Configure the Preset Check
@@ -41,7 +41,7 @@ To configure the preset checks, add the settings to the [recce config file](../r
 
 ### Recce Server
 
-1. When a new recce server is launched, all preset checks are automatically set up, but these checks are not executed at this time.
+1. When a new Recce instance is launched, all preset checks are automatically set up, but these checks are not executed at this time.
     ![alt text](../../assets/images/features/preset-checks.png){: .shadow}
 2. When the **Run Query** button is pressed, the check will be executed.
 

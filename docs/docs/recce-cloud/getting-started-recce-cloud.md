@@ -152,7 +152,7 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    export GITHUB_TOKEN=<github-token>
    export RECCE_STATE_PASSWORD=mypassword
    ```
-1. Run recce server in the cloud mode
+1. Run Recce instance in the cloud mode
    ```
    recce server --cloud
    ```
@@ -165,7 +165,7 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    ![alt text](../../assets/images/recce-cloud/query-diff.png){: .shadow}
 1. Click the `+` button to add the query result to checklist
 1. You can find that there are three checks in the **Checks** page
-1. Terminate the server. It would store the state to the recce cloud.
+1. Terminate the Recce instance. It would store the state to the recce cloud.
 1. In the GitHub PR page, we can find a failed check for this PR. This is because not all checks are approved.
    ![alt text](../../assets/images/recce-cloud/pr-checks-wo-approved.png){: .shadow}
 

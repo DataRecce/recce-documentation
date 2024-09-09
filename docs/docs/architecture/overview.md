@@ -52,7 +52,7 @@ A run documents a single execution of a Task, capturing details such as the type
     --data-raw '{}'
     ```
 
-In the recce server, each run is recorded, so in theory, it is possible to access the run history. However, the current UI does not offer this feature. You can see the complete run history from the exported recce state.
+In the Recce instance, each run is recorded, so in theory, it is possible to access the run history. However, the current UI does not offer this feature. You can see the complete run history from the exported recce state.
 
 
 ### Checks
