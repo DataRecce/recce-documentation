@@ -93,5 +93,3 @@ Recce is open-source and available now, so you can start properly validating you
 - dbt Slack Channel [#tools-Recce](https://getdbt.slack.com/archives/C05C28V7CPP)
 
 
-<script src="https://gist.github.com/DaveFlynn/7dc9b21354a4ee2ea87118bccdad4885.js"></script>
-

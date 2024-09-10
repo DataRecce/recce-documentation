@@ -128,5 +128,3 @@ The expectation from this change is that CLV will be reduced overall, and that t
 <em>Hint: Run a Profile Diff, then a Query Diff, on the customers model, then check for downstream impact.</em>
 
 
-<script src="https://gist.github.com/DaveFlynn/4135bc92aea95227939e3db03cf479a5.js"></script>
-
