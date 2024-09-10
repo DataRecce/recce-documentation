@@ -61,6 +61,12 @@
 	border-bottom: none;
 }
 
+.md-content__inner .article-cta {
+	border-top: dashed 1px #d2d2d2;
+	padding-top: 1rem;
+	margin-top: 1rem;
+}
+
 
 /**** Links ****/
 

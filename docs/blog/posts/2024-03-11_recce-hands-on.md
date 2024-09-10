@@ -185,6 +185,4 @@ Recce OSS is available on [GitHub](https://github.com/datarecce/recce) now. Foll
 - **Docs**: [DataRecce.io/docs](https://datarecce.io/docs)
 - **Discord**: [Recce Community](https://discord.gg/bP2Yfk9KEA)
 
-<script src="https://gist.github.com/DaveFlynn/4135bc92aea95227939e3db03cf479a5.js"></script>
-
 

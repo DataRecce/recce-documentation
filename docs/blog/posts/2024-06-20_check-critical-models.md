@@ -149,6 +149,3 @@ Every data project will have those critical models. It’s fine to check them ad
 - [Recce Docs](../../docs/index.md)
 - dbt Slack Channel [#tools-Recce](https://getdbt.slack.com/archives/C05C28V7CPP)
 
-
-<script src="https://gist.github.com/DaveFlynn/7dc9b21354a4ee2ea87118bccdad4885.js"></script>
-

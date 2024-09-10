@@ -24,6 +24,8 @@ In a recent [fireside chat](../../firesidechat.md), [CL Kao](https://www.linkedi
   <figcaption>Data Productivity - Beyonig DevOps &amp; dbt</figcaption>
 </figure>
 
+<!-- more -->
+
 Noel Gomez began his journey at Amgen, where he worked extensively on data governance and digital transformation. He learned that data quality is essential to preventing errors. With his software development background, he realized that many software practices weren’t applied to analytics—and saw the opportunity to merge these worlds.
 
 CL Kao worked on version control systems predating Git. He was involved more heavily in data when he helped start Taiwan’s civic tech community, focusing on making public data understandable.
@@ -111,4 +113,3 @@ The fireside chat ended with something that stood out—the passion of these fou
 **Recce**, founded by CL Kao, ensures data correctness across the pipeline. It simplifies validating data changes by curating proof of correctness, helping teams maintain confidence in their data as things get more complex. CL's vision is clear: "We are very passionate about the future of data-driven software and its development workflow."
 
 What data problems resonate with you? Let's connect and chat!
-<script src="https://gist.github.com/DaveFlynn/4135bc92aea95227939e3db03cf479a5.js"></script>
