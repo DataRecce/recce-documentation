@@ -67,7 +67,57 @@
 	margin-top: 1rem;
 }
 
+.md-content__inner .mailchimp-cta {
+	background-color: #ff6e42;
+	border-radius: 1rem;
+	overflow: hidden;
+	color: #fff;
+	margin-top: 1rem;
+	position: relative;
+	padding-left: 10%;
+	padding-right: 10%;
+}
 
+.md-content__inner .mailchimp-cta::before {
+  content: "";
+  position: absolute;
+  background-image: url('/assets/images/Logo_Recce_white-fs8.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 20%;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: 0;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup form {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup form h2 {
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+.md-content__inner .mailchimp-cta #mc_embed_signup form h3 {
+	margin-top: 0;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup .button {
+	text-transform: uppercase;
+	color: #ff6e42;
+	font-weight: bold;
+	background-color: #fff;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup .button:hover {
+	background-color: #000;
+}
 /**** Links ****/
 
 .md-typeset a {
