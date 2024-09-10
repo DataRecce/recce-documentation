@@ -118,6 +118,16 @@
 .md-content__inner .mailchimp-cta #mc_embed_signup .button:hover {
 	background-color: #000;
 }
+
+.md-content__inner .mailchimp-cta #mc_embed_signup #mce-success-response {
+	color: #fff;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup div.response {
+	width: 100%;
+}
+
+
 /**** Links ****/
 
 .md-typeset a {
