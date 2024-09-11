@@ -11933,6 +11933,33 @@ a {
   border: 0;
 }
 
+.announcement-bar {
+  background-color: #ff6e42;
+  color: #fff;
+  position: relative;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+.announcement-bar span {
+  text-decoration: underline;
+}
+.announcement-bar:hover span {
+  color: #420f00;
+}
+.announcement-bar p {
+  margin-bottom: 0;
+  padding: 0;
+}
+.announcement-bar a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
 .btn {
   font-size: 1.6rem;
   border-radius: 0.5rem;
@@ -12022,7 +12049,7 @@ section.hero .section-content .message {
   width: 100%;
   padding: 3rem;
   z-index: 99;
-  text-align: center;
+  text-align: left;
 }
 @media (min-width: 992px) {
   section.hero .section-content .message {
@@ -12079,7 +12106,7 @@ section.hero .section-content .message h2 strong, section.hero .section-content 
 }
 @media (min-width: 768px) {
   section.hero .section-content .message h2, section.hero .section-content .message .h2 {
-    text-align: center;
+    text-align: left;
   }
 }
 @media (min-width: 992px) {
@@ -12360,10 +12387,10 @@ section.features {
 section.features .feature {
   display: flex;
   flex-direction: column-reverse;
-  overflow: hidden;
 }
 section.features .feature .feature-image {
   width: 100%;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   section.features .feature .feature-image {
@@ -12400,6 +12427,7 @@ section.features .feature .feature-image.overlap .feature-image-holder {
   max-width: 900px;
 }
 section.features .feature .feature-description {
+  box-shadow: 0 0 44px 15px rgba(0, 0, 0, 0.06);
   width: 100%;
 }
 section.features .feature .feature-description.brand {
@@ -12734,6 +12762,16 @@ section.footer .footer-holder .brand h1, section.footer .footer-holder .brand .h
 }
 section.footer .footer-holder p.copy {
   margin-bottom: 0;
+}
+
+section.news {
+  padding: 6rem 0;
+}
+@media (min-width: 992px) {
+  section.news .event-details {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 body {

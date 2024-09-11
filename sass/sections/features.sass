@@ -8,11 +8,12 @@ section.features
 	.feature
 		display: flex
 		flex-direction: column-reverse
-		overflow: hidden
+		//overflow: hidden
 	
 		.feature-image
 			//background-color: $color-white			
 			width: 100%
+			overflow: hidden
 			@include media-breakpoint-up(md)
 				width: 50%
 				display: flex
@@ -41,6 +42,7 @@ section.features
 
 
 		.feature-description
+			box-shadow: 0 0 44px 15px rgba(0, 0, 0, 0.06)
 			&.brand
 				background-color: $color-brand
 				color: $color-white
