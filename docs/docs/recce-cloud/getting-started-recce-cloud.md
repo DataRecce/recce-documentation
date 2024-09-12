@@ -107,13 +107,11 @@ icon: material/school
 As a PR author, you can prepare the recce review state and persist it in the recce cloud.
 
 1. Checkout a branch
-
    ```
    git checkout -b feature/recce-getting-started
    ```
 
 1. Prepare development environment. First, edit an existing model `./models/staging/stg_payments.sql`.
-
    ```diff
    ...
 
@@ -127,9 +125,7 @@ As a PR author, you can prepare the recce review state and persist it in the rec
             from source
    )
    ```
-
    run on development environment.
-
    ```shell
    dbt seed
    dbt run
@@ -137,7 +133,6 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    ```
 
 1. Commit the change
-
    ```
    git add models/staging/stg_payments.sql
    git commit -m 'Update the model'
