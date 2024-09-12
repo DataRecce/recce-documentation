@@ -52,6 +52,7 @@ header
 		@include media-breakpoint-up(lg)
 			flex-direction: row
 			justify-content: space-between
+			align-items: flex-start
 		
 
 
@@ -85,47 +86,55 @@ header
 				font-family: $font-brand
 				font-weight: 800
 
-	.nav
-		display: flex
-		align-items: center
-		align-content: center
-		flex-wrap: wrap
-		justify-content: center
-		font-family: $font-header
-		font-weight: 600
-		text-transform: uppercase
-		letter-spacing: 1px
-		@include media-breakpoint-up(lg)
-			justify-content: flex-end
+	.nav-holder
+		.nav
+			display: flex
+			align-items: center
+			align-content: center
+			flex-wrap: wrap
+			justify-content: center
+			font-family: $font-header
+			font-weight: 600
+			text-transform: uppercase
+			letter-spacing: 1px
+			@include media-breakpoint-up(lg)
+				justify-content: flex-end
 
-		.nav-item
-			margin-left: 2rem
-			font-size: 1.8rem
-			@include media-breakpoint-up(sm)
-				margin-left: 3rem
-			@include media-breakpoint-up(md)
-				margin-left: 5rem
-			&:first-of-type
-				margin-left: 0
-
-			a
-				color: $color-dark-gray
+			.nav-item
+				margin-left: 2rem
+				font-size: 1.8rem
+				@include media-breakpoint-up(sm)
+					margin-left: 3rem
 				@include media-breakpoint-up(md)
-					//color: $color-brand
-				&:hover
-					color: $color-brand
-					@include media-breakpoint-up(md)
-						//color: $color-dark-gray
+					margin-left: 5rem
+				&:first-of-type
+					margin-left: 0
 
-			&.signup
-				display: none
-				@include media-breakpoint-up(md)
-					display: inline-block
-			&.btn
-				font-size: 1.6rem
-				padding: 0.1rem 0.5rem
 				a
-					color: #fff
+					color: $color-dark-gray
+					@include media-breakpoint-up(md)
+						//color: $color-brand
+					&:hover
+						color: $color-brand
+						@include media-breakpoint-up(md)
+							//color: $color-dark-gray
 
+				&.signup
+					display: none
+					@include media-breakpoint-up(md)
+						display: inline-block
+				&.btn
+					font-size: 1.6rem
+					padding: 0.1rem 0.5rem
+					a
+						color: #fff
 
+		.quotes-cta
+			text-align: center
+			padding-top: 2rem
+			font-family: $font-script
+			//font-family: $font-serif
+			font-size: 2rem
+			@include media-breakpoint-up(lg)
+				text-align: right
 
