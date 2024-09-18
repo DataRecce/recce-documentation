@@ -12771,6 +12771,11 @@ section.news {
   padding: 6rem 0;
 }
 @media (min-width: 992px) {
+  section.news .news-content .row:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+@media (min-width: 992px) {
   section.news .event-details {
     padding-left: 2rem;
     padding-right: 2rem;
