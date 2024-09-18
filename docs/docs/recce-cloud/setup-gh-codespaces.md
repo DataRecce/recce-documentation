@@ -14,10 +14,16 @@ GitHub Codespaces is a development environment provided by GitHub that allows de
 1. Prepare the two files in your repository
     ```
     .devcontainer
-    ├── Dockerfile
-    └── devcontainer.json
+    └── recce
+        ├── Dockerfile
+        └── devcontainer.json
     ```
-1. Configure the `.devcontainer/devcontainer.json`
+
+    !!! Tip 
+
+        You can place the devcontainer configuration in [any valid location for Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration). However, Recce Cloud will prioritize using `.devcontainer/recce/devcontainer.json` if it is available.
+
+1. Configure the `.devcontainer/recce/devcontainer.json`
     ```json
     {
         "name": "Recce CodeSpace",
@@ -83,9 +89,12 @@ For GitHub organization accounts, you can configure all Codespace charges to be 
 For more details on billing, please refer to the official [CodeSpace billing documentation](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 
-
-**Q: How to configure codespaces? What's the default dev container spec in Codespaces?**
+**Q: How to configure codespaces?**
 
 Codespace utilizes VSCode Dev Containers technology, which can be executed either locally (via Docker) or in the cloud (via GitHub Codespace). The configuration above provided are primarily recommendations for the recce cloud setup. For more advanced configuration options, you can refer to the [VSCode dev containers](https://code.visualstudio.com/docs/devcontainers/containers) or the [containers.dev](https://containers.dev/) documentation.
 
 The default configuration for GitHub Codespace is explained in the [documentation](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers). If you're looking to set up a development environment for dbt/Recce, you can also refer to the [Python project configuration documentation](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces).
+
+**Q: Can I have multiple devcontainer configurations? Which one is selected by default?**
+
+Yes, you can. Please refer to the [Codespaces documentation](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration) for more details. Recce Cloud will prioritize `.devcontainer/recce/devcontainer.json` if it is available. If not, it will default to `.devcontainer/devcontainer.json`, and then any other available configurations.
