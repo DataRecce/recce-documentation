@@ -35,6 +35,7 @@ GitHub Codespaces is a development environment provided by GitHub that allows de
             "DBT_USER": "${{ secrets.DBT_USER }}",
             "DBT_PASSWORD": "${{ secrets.DBT_PASSWORD }}",
         },
+        "forwardPorts": [8000],
         "postStartCommand": "recce server --cloud --review"
     }
     ```
