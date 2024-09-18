@@ -1,5 +1,11 @@
 section.news
 	padding: 6rem 0
+
+	.news-content
+		.row
+			&:nth-child(even)
+				@include media-breakpoint-up(lg)
+					flex-direction: row-reverse
 	
 	.event-details
 		@include media-breakpoint-up(lg)
