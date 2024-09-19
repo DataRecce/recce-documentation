@@ -88,10 +88,10 @@ Secondly, **dbt has introduced the new concept of ‘self-serve data’.** A pra
   <div id="mc_embed_signup">
     <h2 style="text-align: center; color: #ff6e42; font-size: 1.2rem; margin-top: 0">Download the Deck</h2>
 
-    <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00bd81e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+  <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00bd81e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
           <div id="mc_embed_signup_scroll" style="text-align: center;">
               <div class="indicates-required" style="display: none;"><span class="asterisk">*</span> indicates required</div>
-              <div class="mc-field-group" style="width:100%;"><label for="mce-EMAIL">Enter your email address and we'll send you the presentation deck: <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+              <div class="mc-field-group" style="width:100%;"><label for="mce-EMAIL" style="color: #000;">Enter your email address and we'll send you the presentation deck: <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" style="background-color: #fff; color: #000; font-size: 0.9rem"></div>
   <div hidden=""><input type="hidden" name="tags" value="6327490"></div>
           <div id="mce-responses" class="clear">
               <div class="response" id="mce-error-response" style="display: none;"></div>
@@ -318,7 +318,6 @@ With Recce Cloud, there’s no need to export and share the Recce File, or deal 
 
 Recce Cloud integrates with your GitHub PR and can block merging until all checks have been reviewed. 
 
-
 <div style="border-radius: 1rem;  padding: 0.5rem 0 0.5rem 0; background-color: #efefef; text-align: center;">
 
   <img src="../assets/images/support-self-serve-data-20240916/pdf-download-recce-deck.png" class="skip-glightbox" />
@@ -333,10 +332,10 @@ Recce Cloud integrates with your GitHub PR and can block merging until all check
   <div id="mc_embed_signup">
     <h2 style="text-align: center; color: #ff6e42; font-size: 1.2rem; margin-top: 0">Download the Deck</h2>
 
-    <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00bd81e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+  <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00bd81e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
           <div id="mc_embed_signup_scroll" style="text-align: center;">
               <div class="indicates-required" style="display: none;"><span class="asterisk">*</span> indicates required</div>
-              <div class="mc-field-group" style="width:100%;"><label for="mce-EMAIL">Enter your email address and we'll send you the presentation deck: <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+              <div class="mc-field-group" style="width:100%;"><label for="mce-EMAIL" style="color: #000;">Enter your email address and we'll send you the presentation deck: <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" style="background-color: #fff; color: #000; font-size: 0.9rem"></div>
   <div hidden=""><input type="hidden" name="tags" value="6327490"></div>
           <div id="mce-responses" class="clear">
               <div class="response" id="mce-error-response" style="display: none;"></div>
