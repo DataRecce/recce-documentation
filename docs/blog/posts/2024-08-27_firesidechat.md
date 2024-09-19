@@ -3,7 +3,7 @@ title: 'From DevOps to DataOps: A Fireside Chat on Practical Strategies for Effe
 date: 2024-08-27
 slug: from-devops-to-dataops-effective-data-productivity
 description: >
-  dataops.... 
+  Joined with industry experts CL Kao and Noel Gomez in a fireside chat exploring the evolution from DevOps to DataOps. Discover practical strategies for improving data productivity, reducing errors, and enhancing data quality. Learn how to apply software best practices to data management for more effective decision-making. Sign up for the full video recording to gain insights on modern DataOps workflows.
 categories:
   - Announcements
   - Webinar
