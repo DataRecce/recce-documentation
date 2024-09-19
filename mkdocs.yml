@@ -129,7 +129,9 @@ theme:
 
 plugins:
   - search
-  - glightbox
+  - glightbox:
+       skip_classes:
+         - skip-glightbox
   - social:
       cards_layout_options:
         background_color: "#ff6e41"

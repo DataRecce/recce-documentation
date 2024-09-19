@@ -1,5 +1,5 @@
 ---
-title: 'How to Support Self-Serve Data and Analytics with Comprehensive PR Review'
+title: 'Support Self-Serve Data with Comprehensive PR Review'
 date: 2024-09-16
 slug: self-serve-analytics-pr-review
 description: >
@@ -7,7 +7,7 @@ description: >
 categories:
   - Concepts
 ---
-# How to support self-serve data and analytics with comprehensive PR review
+# The Guide to Supporting Self-Serve Data and Analytics with Comprehensive PR Review
 
 dbt, the platform that popularized ELT, has revolutionized the way data teams create and maintain data pipelines. The key is in the ‘T’, of ELT. Rather than transforming data before it hits the data warehouse, as in traditional E*T*L, dbt flips this and promotes loading raw data into your data warehouse and transforming it there, thus EL*T*.
 
@@ -19,6 +19,7 @@ This, along with bringing analytics *inside* the data project, makes dbt an inte
 </figure>
 
 <!-- more -->
+
 
 **dbt transformations are stored as a series of SQL models** that transform the data through raw, staging, intermediate, and then mart stages, in which the data is ready for production use. Keeping all if these these transformations in the same place, as **the** **SSoT for how your data is generated**, has huge benefits, such as:
 
@@ -64,12 +65,44 @@ As Mikkel puts it, the value of data for business critical applications is high:
 
 Firstly, data change is inherently hard to review. You’re adapting the pull request review process from software practices, but it’s not ideally suited to reviewing data. PR review is all about reviewing code, not data.  When you open a pull request on a data project, **you can easily see how the SQL code** and transformation logic **has changed, but the data is still a black box**. 
 
-Secondly, **dbt has introduced the new concept of ‘self-serve data’.** A practice which completely changes how organizations think about data **by opening up data access to more people in the organization**. This shift, and the potential issues it might cause, require a rethinking of the role of data teams in the organization and, of course, which tools to use to support these new practices.
-
 <figure markdown="span">
   ![New Challenges to Data Integrity](../assets/images/support-self-serve-data-20240916/new-challenges.png)
   <figcaption>New Challenges to Data Integrity</figcaption>
 </figure>
+
+Secondly, **dbt has introduced the new concept of ‘self-serve data’.** A practice which completely changes how organizations think about data **by opening up data access to more people in the organization**. This shift, and the potential issues it might cause, require a rethinking of the role of data teams in the organization and, of course, which tools to use to support these new practices.
+
+
+
+<div style="border-radius: 1rem;  padding: 0.5rem 0 0.5rem 0; background-color: #efefef; text-align: center;">
+
+  <img src="../assets/images/support-self-serve-data-20240916/pdf-download-recce-deck.png" class="skip-glightbox" />
+
+  <div id="mc_embed_shell">
+        <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+          #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  </style>
+  <div id="mc_embed_signup">
+    <h2 style="text-align: center; color: #ff6e42; font-size: 1.2rem; margin-top: 0">Download the Deck</h2>
+
+    <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00bd81e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+          <div id="mc_embed_signup_scroll" style="text-align: center;">
+              <div class="indicates-required" style="display: none;"><span class="asterisk">*</span> indicates required</div>
+              <div class="mc-field-group" style="width:100%;"><label for="mce-EMAIL">Enter your email address and we'll send you the presentation deck: <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+  <div hidden=""><input type="hidden" name="tags" value="6327490"></div>
+          <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display: none;"></div>
+              <div class="response" id="mce-success-response" style="display: none;"></div>
+          </div><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b18366427f11835f05f68aeb_b82bfd845e" tabindex="-1" value=""></div><div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Send me the PDF" style="background-color: #ff6e42; text-transform: uppercase; font-weight: bold; font-size: 0.9rem; padding: 0.3rem 1rem; height: auto;"></div>
+      </div>
+  </form>
+  </div>
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ROLE';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+
+</div>
 
 ## What is self-serve data?
 
@@ -284,6 +317,37 @@ For those using Recce Cloud, the process is a lot smoother, with checks synced b
 With Recce Cloud, there’s no need to export and share the Recce File, or deal with manually exporting checks.
 
 Recce Cloud integrates with your GitHub PR and can block merging until all checks have been reviewed. 
+
+
+<div style="border-radius: 1rem;  padding: 0.5rem 0 0.5rem 0; background-color: #efefef; text-align: center;">
+
+  <img src="../assets/images/support-self-serve-data-20240916/pdf-download-recce-deck.png" class="skip-glightbox" />
+
+  <div id="mc_embed_shell">
+        <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+          #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  </style>
+  <div id="mc_embed_signup">
+    <h2 style="text-align: center; color: #ff6e42; font-size: 1.2rem; margin-top: 0">Download the Deck</h2>
+
+    <form action="https://datarecce.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=00bd81e5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+          <div id="mc_embed_signup_scroll" style="text-align: center;">
+              <div class="indicates-required" style="display: none;"><span class="asterisk">*</span> indicates required</div>
+              <div class="mc-field-group" style="width:100%;"><label for="mce-EMAIL">Enter your email address and we'll send you the presentation deck: <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+  <div hidden=""><input type="hidden" name="tags" value="6327490"></div>
+          <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display: none;"></div>
+              <div class="response" id="mce-success-response" style="display: none;"></div>
+          </div><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b18366427f11835f05f68aeb_b82bfd845e" tabindex="-1" value=""></div><div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Send me the PDF" style="background-color: #ff6e42; text-transform: uppercase; font-weight: bold; font-size: 0.9rem; padding: 0.3rem 1rem; height: auto;"></div>
+      </div>
+  </form>
+  </div>
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ROLE';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+
+</div>
 
 ## Conclusion
 
