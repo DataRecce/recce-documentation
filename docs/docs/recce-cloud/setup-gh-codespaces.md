@@ -65,6 +65,35 @@ Here, we [use GitHub Codespaces for pull requests](https://docs.github.com/en/co
 1. Or you can go to the **PORTS** tab to open the page.
 
 
+## Troubleshooting
+
+When you’ve opened a Codespace but are unable to connect to the Recce instance, you can troubleshoot by following these steps:
+
+1. Enter the Codespace instance
+1. Click on the blue block in the lower left corner of the status bar, which usually shows "Codespaces: instance name"   
+    ![alt text](../../assets/images/recce-cloud/codespace-troubleshoot-1.png)
+1. Select "View creation log"
+1. At this point, you should be able to see the reason why the Recce server failed to start.   
+    ![alt text](../../assets/images/recce-cloud/codespace-troubleshoot-2.png)
+
+Common causes might include:
+
+1. The current branch does not have a corresponding pull request. This usually happens when the Codespace is opened on the main branch or for a closed PR.
+1. The pull request does not have an uploaded Recce state. In review mode, the Recce state must be prepared via CI or locally before proceeding.
+1. The `RECCE_STATE_PASSWORD` mentioned above is not set or the password is incorrect.
+1. Other issues are preventing the Recce server from starting at all.
+
+If this is your first time setting up a Codespace, it’s recommended to first [test locally](./getting-started-recce-cloud.md#review-the-pr) with the following commands:
+
+```shell
+git checkout feature/recce-getting-started
+export GITHUB_TOKEN=<github-token>
+export RECCE_STATE_PASSWORD=mypassword
+recce server --cloud --review
+```
+
+Ensure it runs correctly locally. If it does, then the remaining issues within the Codespace are likely related to its configuration.
+
 ## FAQ
 
 **Q: How long does Codespace generally take to start?**
