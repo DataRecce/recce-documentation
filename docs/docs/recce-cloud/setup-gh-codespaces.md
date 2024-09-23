@@ -64,16 +64,18 @@ Once you complete [Recce Cloud setup](../../recce-cloud/#sign-up-the-recce-cloud
     ![Create in GitHub Codespaces](../../assets/images/recce-cloud/create-in-codespace.png){: .shadow}
 4. The Codespaces creation may take 1 to more than 5 mintues depeding on your Codespaces settings. And the Recce instance should take less than 1 minute to launch. 
     - Please view [FAQ](../../recce-cloud/setup-gh-codespaces/#faq) for how to speed up.
-5. You can see the "State" of the progress; And the Action you can take in each state.  (need Andy's support )
+5. You can see the "State" of the progress; And the Action you can take in each state.
     - Codespace Queued: the Codespace is creating 
         ![Codespace Queued](../../assets/images/recce-cloud/codespaces-queued.png){: .shadow}
-    - Codespace Provisioning: 
+    - Codespace Provisioning: the Codespace is provisioning
+    - Codespace Available: the Codespace is ready
     - Recce launching: Recce instance is launching
       - Stop: stop launching Recce instance
-    - Recce active: Recce instance is launced successfully. 
+    - Recce active: Recce instance is launched successfully. 
         - Open: open the Recce instance
-        - Stop: stop the Recce instance
+        - Stop: stop the Codespace
         ![Recce active](../../assets/images/recce-cloud/recce-active.png){: .shadow}
+    - Codespace ShuttingDown: the Codespace is shutting down
     - Stopped: the Codespace is stopped and the Recce instance is closed.
         - Restart: restart the Codespace 
         - Delete: delete the Codespace

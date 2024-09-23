@@ -21,7 +21,7 @@ We suggest setting up two GitHub Actions workflows in your GitHub repository. On
 
 ## Prerequisites
 
-1.  **Per-PR Enviornment**: To ensure that each PR has its own isolated environment, it is recommended to put `profile.yml` under source control in the repository and use environment variables to change the schema name. In the workflow, we can generate the corresponding schema name based on the PR number.
+1.  **Per-PR Environment**: To ensure that each PR has its own isolated environment, it is recommended to put `profile.yml` under source control in the repository and use environment variables to change the schema name. In the workflow, we can generate the corresponding schema name based on the PR number.
 
     ```yaml
     myprofile:
