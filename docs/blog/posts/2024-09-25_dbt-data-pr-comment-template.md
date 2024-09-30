@@ -170,4 +170,4 @@ The updated PR comment template not only helps to define the work contained in t
 
 Teams like Cal-ITP and the municipal government of Rio de Janeiro have adopted PR comment templates and use them as part of their PR process to improve reviewability and ensure data integrity.
 
-For your dbt projects, use this structured approach to PR comments to achieve fasterr, more thorough reviews, and ensure that any changes you introduce follow dbt best practices and are well-documented and correctly validated before merging.
+For your dbt projects, use this structured approach to PR comments to achieve faster, more thorough reviews, and ensure that any changes you introduce follow dbt best practices and are well-documented and correctly validated before merging.
