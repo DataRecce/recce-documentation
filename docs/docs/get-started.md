@@ -95,4 +95,4 @@ Here are the 3 steps to use Recce: (see the image below)
 1. Click the model you want to check
 1. Click “Explore Change”
 1. Click “Add to Checklist”
-![first time guide of Recce instance](../assets/images/onboarding/material.svg)
+![first time guide of Recce instance](../assets/images/onboarding/material.svg){: .shadow}
