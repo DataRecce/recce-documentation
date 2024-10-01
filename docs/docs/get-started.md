@@ -6,8 +6,7 @@ icon: material/rocket-launch-outline
 # Getting Started
 
 ## Prerequisites
-// why we set Recce as `Recce`? It's not a command. 
-`Recce` requires that your dbt project has two [environments](https://docs.getdbt.com/docs/environments-in-dbt) to compare. For example, one for production and another for development. 
+Recce requires that your dbt project has two [environments](https://docs.getdbt.com/docs/environments-in-dbt) to compare. For example, one for production and another for development. 
 
 Prepare two targets with separate [schemas](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#understanding-target-schemas) in your dbt profile. Your `profiles.yml` might look something like this:
 
@@ -25,14 +24,14 @@ jaffle_shop:
       schema: main
 ```
 
-## Install `Recce`
+## Install Recce
 
 Install Recce using `pip`:
 ```shell
 pip install -U recce
 ```
 
-## Use `Recce` in your dbt project
+## Use Recce in your dbt project
 
 The following instructions give an overview of the process of using Recce in your dbt project. For a hands-on tutorial, please check the [Jaffle Shop Tutorial](./get-started-jaffle-shop.md).
 
@@ -44,7 +43,7 @@ cd your-dbt-project/
 
 ### Prepare dbt artifacts
 
-`Recce` expects two sets of dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts) to be present:
+Recce expects two sets of dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts) to be present:
 
 - `target-base/` - dbt artifacts for to be used as the base for the comparison e.g. production
 - `target/` - dbt artifacts for your development branch
@@ -70,8 +69,8 @@ dbt docs generate
 ```
 
 
-## Start the `Recce` server
-Start the `Recce` server with the follow command:
+## Start the Recce server
+Start the Recce server with the follow command:
 
 ```shell
 recce server
@@ -88,7 +87,7 @@ Recce use dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifa
 
     The regeneration of the `catalog.json` file is not required after every `dbt run`. it is only required to regenerate this file when models or columns are added or updated.
 
-## First Time Guide
+## First Time Guide for Recce instance
 After you start the Recce server, you can see the Recce instance, the Web UI of the active Recce server. 
 
 Here are the 3 steps to use Recce: (see the image below)
