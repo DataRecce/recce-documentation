@@ -42,7 +42,7 @@ icon: material/school
 
 1. Prepare virtual env
    ```shell
-   python -m venv venv
+   python -m venv **venv**
    source venv/bin/activate
    ```
 1. Installation
@@ -91,7 +91,8 @@ icon: material/school
     dbt_modules/
     logs/
    ```
-1. Remove the existing github action workflow.
+   // this step is confusing. Becuase we didn't mention any github action in the tutorial.
+1. Remove the existing github action workflow. 
    ```
    rm -rf .github/
    ```
@@ -140,28 +141,32 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    ```
 
 1. Create a pull request for this branch in your github repository.
-1. Prepare a [github token](https://github.com/settings/tokens) in your account. You have to provide the `repo` permission.
+// github token have 2 types: classical and beta. which one? 
+// set experation date to "no expiration"? is that a requirement? 
+2. Prepare a [github token](https://github.com/settings/tokens) in your account. You have to provide the `repo` permission.
    ![alt text](../../assets/images/recce-cloud/github-token.png)
-1. Ensure you have configured these environment variables.
+3. Ensure you have configured these environment variables.
    ```shell
    export GITHUB_TOKEN=<github-token>
    export RECCE_STATE_PASSWORD=mypassword
    ```
-1. Run Recce instance in the cloud mode
+4. Run Recce instance in the cloud mode
    ```
    recce server --cloud
    ```
    Open the link http://0.0.0.0:8000
-1. Switch to the **Query** tab, add this query
+5. Switch to the **Query** tab, add this query
    ```sql
    select * from {{ ref("orders") }} order by 1
    ```
+   // default is payment_id, then it will show an error
    Add the primary key `order_id` and click the `Run Diff` button
    ![alt text](../../assets/images/recce-cloud/query-diff.png){: .shadow}
-1. Click the `+` button to add the query result to checklist
-1. You can find that there are three checks in the **Checks** page
-1. Terminate the Recce instance. It would store the state to the recce cloud.
-1. In the GitHub PR page, we can find a failed check for this PR. This is because not all checks are approved.
+   // + will be updated into "Add to Checklist"
+6. Click the `+` button to add the query result to checklist
+7. You can find that there are three checks in the **Checks** page
+8. Terminate the Recce instance. It would store the state to the recce cloud.
+9.  In the GitHub PR page, we can find a failed check for this PR. This is because not all checks are approved.
    ![alt text](../../assets/images/recce-cloud/pr-checks-wo-approved.png){: .shadow}
 
 ## Review the PR

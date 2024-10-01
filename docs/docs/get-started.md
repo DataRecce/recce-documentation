@@ -6,7 +6,7 @@ icon: material/rocket-launch-outline
 # Getting Started
 
 ## Prerequisites
-
+// why we set Recce as `Recce`? It's not a command. 
 `Recce` requires that your dbt project has two [environments](https://docs.getdbt.com/docs/environments-in-dbt) to compare. For example, one for production and another for development. 
 
 Prepare two targets with separate [schemas](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#understanding-target-schemas) in your dbt profile. Your `profiles.yml` might look something like this:
@@ -87,3 +87,13 @@ Recce use dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifa
 !!! tip
 
     The regeneration of the `catalog.json` file is not required after every `dbt run`. it is only required to regenerate this file when models or columns are added or updated.
+
+## First Time Guide
+After you start the Recce server, you can see the Recce instance, the Web UI of the active Recce server. 
+
+Here are the 3 steps to use Recce: (see the image below)
+
+1. Click the model you want to check
+1. Click “Explore Change”
+1. Click “Add to Checklist”
+![first time guide of Recce instance](../assets/images/onboarding/material.svg)
