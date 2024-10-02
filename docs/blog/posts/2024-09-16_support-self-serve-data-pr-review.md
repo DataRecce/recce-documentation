@@ -38,7 +38,7 @@ This, along with bringing analytics *inside* the data project, makes dbt an inte
 
 - **Version control** - the dbt project can be managed in a version control system such as git, essential for dbt CI workflows and PR review.
 - **Modular SQL** - dbt encourages a modular design to data pipelines. This better facilitates reviewing data models and transformed data, and enabling the re-use and referencing of data models.
-- **Reproducible pipelines** - the dbt project contains everything required to run the pipeline, which means anyone can checkout the project from version control and build the data. This is a fundemental part of data best practices and dataops.
+- **Reproducible pipelines** - the dbt project contains everything required to run the pipeline, which means anyone can checkout the project from version control and build the data. This is a fundamental part of data best practices and dataops.
 
 If you’ve come from a software engineering (SE) background, then these benefits may be familiar to you. Version control, modularity, and reproducibility are **the tenets of DevOps**, and have benefited software development for years. Through dbt, you’re able to adapt them as part of a new practice of **DataOps,** and **the pull request (PR) is at the center of the process.**
 
