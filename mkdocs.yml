@@ -71,6 +71,7 @@ nav:
   #- Blog: "https://medium.com/inthepipeline"
   - Blog:
     - blog/index.md
+    - blog/tags.md
 
 markdown_extensions:
   - admonition
@@ -129,10 +130,11 @@ theme:
 
 plugins:
   - search
-  - tags
+  - tags:
+      tags_file: blog/tags.md
   - glightbox:
-       skip_classes:
-         - skip-glightbox
+      skip_classes:
+        - skip-glightbox
   - social:
       cards_layout_options:
         background_color: "#ff6e41"
