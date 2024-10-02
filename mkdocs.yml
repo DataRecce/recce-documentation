@@ -129,6 +129,7 @@ theme:
 
 plugins:
   - search
+  - tags
   - glightbox:
        skip_classes:
          - skip-glightbox
