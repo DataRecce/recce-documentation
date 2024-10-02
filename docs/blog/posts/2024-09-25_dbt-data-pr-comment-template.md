@@ -6,7 +6,19 @@ description: >
    A PR comment template for dbt projects is essential for streamlining the pull request process, ensuring that both authors and reviewers are aligned on what changes have been made and how those changes have been validated. 
 categories:
   - Pull Request
+  - PR Review
   - Best Practices
+tags:
+  - dbt PR Review
+  - Data Validaton
+  - Data Integrity
+  - Self-Serve Data
+  - Self-Serve Analytics
+  - dbt CI
+  - Data Review
+  - Best Practices
+  - Data Quality
+  - DataOps  
 ---
 # The Ultimate PR Comment Template Boilerplate for dbt data projects
 
