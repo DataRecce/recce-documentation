@@ -163,7 +163,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install recce
+          pip install recce~=0.34
       - name: Download artifacts for the base environment
         run: |
           gh repo set-default ${{ github.repository }}
