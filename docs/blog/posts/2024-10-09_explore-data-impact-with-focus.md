@@ -3,7 +3,7 @@ title: Explore data impact and focus on tracking data validations with Recce's n
 date: 2024-10-09
 slug: explore-data-impact-with-focus
 description: >
-   A 
+   Recce's updated interface lets you stay on track while assessing and exploring data impact in your dbt project when making dbt data model changes, and performing dbt PR review. 
 categories:
   - Data Exploration
   - Impact assessment
