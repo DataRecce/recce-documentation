@@ -226,6 +226,30 @@ jobs:
           comment_tag: recce
 ````
 
+### PR workflow with dbt Cloud
+We can download the dbt artifacts from dbt Cloud for Recce if CI/CD on dbt Cloud is configured. The basic scenario is to download the latest artifacts of the deploy job for the base environment and the artifacts of the CI job for the current environment. We can archieve it via [dbt Cloud API](https://docs.getdbt.com/dbt-cloud/api-v2#/) and we need:
+
+1. [dbt Cloud Token](https://docs.getdbt.com/docs/dbt-cloud-apis/user-tokens)
+1. dbt Cloud Account ID: Check out your "Account settings" on dbt Cloud
+1. dbt Cloud Deploy Job ID: Check out "API trigger" of the deploy job
+1. dbt Cloud CI Job ID: Check out "API trigger" of the CI job
+
+![alt text](../../assets/images/recce-cloud/dbt-cloud-api-trigger.png){: .shadow }
+
+We prepare a GitHub Action ["Recce dbt Cloud Action"](https://github.com/marketplace/actions/recce-dbt-cloud-action) to do the following steps:
+
+1. Trigger the CI job on dbt Cloud
+1. Wait the CI job to finish
+1. Download the dbt artifacts from the deploy job to `./target-base` directory
+1. Download the dbt artifacts from the deploy job to `./target` directory
+
+Check out the [GitHub Action](GitHub Action page for complete) to configure the GitHub workflow.
+
+!!! note
+
+    Please ensure `Generate docs on run` is toggled in the "Execution settings" of deploy job and "Advanced settings" of CI job.
+    ![alt text](../../assets/images/recce-cloud/dbt-cloud-deploy-generate-docs.png){: .shadow }
+
 ## Review the Recce State File
 
 **Review locally**
