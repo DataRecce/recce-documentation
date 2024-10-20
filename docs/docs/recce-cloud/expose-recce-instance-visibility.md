@@ -35,6 +35,8 @@ By installing the ngrok CLI agent, you can create an ngrok endpoint and point it
     ngrok http <recce-instance-port>
     ```
 
+    ![alt text](../../assets/images/recce-cloud/ngrok-expose-fs8.png){: .shadow}
+
 1. Secure access with authentication
 
     ngrok provides a range of authentication options, from basic methods to integration with multiple OAuth providers.
@@ -58,6 +60,8 @@ Through tailscale, you can create your own private network (called a tailnet) an
     To create tailnet, users need to create an account and download tailscale. Please follow the [official guide](https://tailscale.com/kb/1017/install) to set it up.
     Then you can invite other members to join.
 
+    ![alt text](../../assets/images/recce-cloud/tailscale-dashboard-fs8.png){: .shadow}
+
     It also supports [integration with GitHub Codespaces](https://tailscale.com/kb/1160/github-codespaces).
 
 1. Connect your device to your account
@@ -72,4 +76,7 @@ Through tailscale, you can create your own private network (called a tailnet) an
     ```shell
     tailscale serve <recce-instance-port>
     ```
+
+    ![alt text](../../assets/images/recce-cloud/tailscale-expose-fs8.png){: .shadow}
+
     If you need more fine-grained access control policy, please refer [tailscale docs](https://tailscale.com/kb/1350/manage).
