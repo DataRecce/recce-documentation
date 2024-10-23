@@ -101,7 +101,7 @@ icon: material/school
    ```
    git add .
    git commit -m 'Add recce changes'
-   git push -u origin feature/recce-getting-started 
+   git push 
    ```
 
 ## Prepare the review state for the PR
@@ -138,7 +138,7 @@ As a PR author, you can prepare the recce review state and persist it in the rec
    ```
    git add models/staging/stg_payments.sql
    git commit -m 'Update the model'
-   git push
+   git push -u origin feature/recce-getting-started 
    ```
 
 1. Create a pull request for this branch in your github repository.
