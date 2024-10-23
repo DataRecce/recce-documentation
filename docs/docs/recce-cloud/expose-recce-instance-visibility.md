@@ -25,7 +25,7 @@ These services provide an endpoint for your Recce Instance, with optional authen
 
     Using these tools requires registering additional accounts, and you may need to subscribe to a paid plan to accommodate your usage and data transfer volume. For details, please refer to the Pricing Plans of [ngrok](https://ngrok.com/pricing) and [tailscale](https://tailscale.com/pricing).
 
-### Ngrok
+### ngrok
 
 After installing the Ngrok client, you can create an endpoint for the Recce Instance that will allow other users to participate in the dbt PR review process, without any additional tools or setup.
 
@@ -43,7 +43,7 @@ After installing the Ngrok client, you can create an endpoint for the Recce Inst
     ngrok http <recce-instance-port>
     ```
 
-    ![Ngrok forwarding to Recce](../../assets/images/recce-cloud/ngrok-expose.png){: .shadow}
+    ![ngrok forwarding to Recce](../../assets/images/recce-cloud/ngrok-expose.png){: .shadow}
 
 1. Secure access with authentication
 
@@ -61,12 +61,11 @@ After installing the Ngrok client, you can create an endpoint for the Recce Inst
 
 ### Tailscale
 
-Through tailscale, you can create your own private network (called a tailnet) and invite members to join it. Once set up, you can easily expose your Recce instance, making it accessible to all devices within the tailnet.
+Tailscale enables you to create your own private network (called a 'Tailnet') and invite members to join it. Once set up, you can easily expose your Recce instance, making it accessible to all devices within the Tailnet.
 
 1. Setup tailscale
     
-    To create tailnet, users need to create an account and download tailscale. Please follow the [official guide](https://tailscale.com/kb/1017/install) to set it up.
-    Then you can invite other members to join.
+    To create a Tailnet, first create an account, then download Tailscale and follow the [official guide](https://tailscale.com/kb/1017/install) to continue set-up. Once configured, you can then invite other members to join.
 
     ![Manage Tailscale devices](../../assets/images/recce-cloud/tailscale-dashboard-fs8.png){: .shadow}
 
@@ -79,7 +78,7 @@ Through tailscale, you can create your own private network (called a tailnet) an
 
 1. Put the Recce Instance online
 
-    The devices within your tailnet can access the Recce instance now.
+    The devices within your Tailnet can access the Recce Instance now.
 
     ```shell
     tailscale serve <recce-instance-port>
@@ -87,4 +86,4 @@ Through tailscale, you can create your own private network (called a tailnet) an
 
     ![alt text](../../assets/images/recce-cloud/tailscale-expose.png){: .shadow}
 
-    If you need more fine-grained access control policy, please refer [tailscale docs](https://tailscale.com/kb/1350/manage).
+    If you need a more fine-grained access control policy, please refer to the [Tailscale docs](https://tailscale.com/kb/1350/manage).
