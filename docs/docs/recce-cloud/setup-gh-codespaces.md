@@ -19,10 +19,6 @@ GitHub Codespaces is a development environment provided by GitHub that allows de
         └── devcontainer.json
     ```
 
-    !!! Tip 
-
-        You can place the devcontainer configuration in [any valid location for Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration). However, Recce Cloud will prioritize using `.devcontainer/recce/devcontainer.json` if it is available.
-
 1. Configure the `.devcontainer/recce/devcontainer.json`
     ```json
     {
