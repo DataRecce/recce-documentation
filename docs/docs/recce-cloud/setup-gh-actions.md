@@ -33,27 +33,26 @@ We suggest setting up two GitHub Actions workflows in your GitHub repository. On
         prod:
           type: snowflake
           ...
-          schema: PUBLIC        
+          schema: PUBLIC
     ```
 
-2. **GitHub Token** and **Recce State Password**: As mentioned [here](index.md#prerequisite), please ensure that the two secrets are available when running recce commands. You can add `GH_TOKEN` and `RECCE_STATE_PASSWORD` to the [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions). Then we can use them in the Github Actions workflow file.
-   ```yaml
-   env:
-     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-     RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
-   ```
+2.  **GitHub Token** and **Recce State Password**: As mentioned [here](index.md#prerequisite), please ensure that the two secrets are available when running recce commands. You can add `GH_TOKEN` and `RECCE_STATE_PASSWORD` to the [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions). Then we can use them in the Github Actions workflow file.
+    ```yaml
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
+    ```
 
 !!!warning
 
     You cannot use the [automatic generated token](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) here, because we need the personal access token (PAT) to verify if the user has PUSH permission of the repository.
 
-    ```yaml    
+    ```yaml
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Don't use 'secrets.GITHUB_TOKEN' here
     ```
 
 ## Set up Recce with GitHub Actions
-
 
 ### Base Workflow (Main Branch)
 
@@ -72,10 +71,10 @@ name: Daily Job
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  
+    - cron: "0 0 * * *"
   push:
     branches:
-      - main      
+      - main
 
 concurrency:
   group: recce-ci-base
@@ -95,7 +94,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10.x"
-          cache: 'pip'
+          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -119,7 +118,6 @@ jobs:
 
 If executed successfully, the dbt target will be placed in the run artifacts and will be named **target**.
 ![alt text](../../assets/images/recce-cloud/dbt-artifacts.png){: .shadow}
-
 
 ### PR Workflow (Pull Request Branch)
 
@@ -155,6 +153,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Merge Base Branch into PR
+        uses: cycleapple/PR-Update@v1.0.2
+        with:
+          baseBranch: ${{ github.event.pull_request.base.ref }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -202,7 +204,6 @@ jobs:
           Please check the summary detail in the [Job Summary](${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}) page.
           ${{ env.NEXT_STEP_MESSAGE }}' > recce_summary.md
           fi
-          
 
         env:
           RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD }}
@@ -227,6 +228,7 @@ jobs:
 ````
 
 ### PR workflow with dbt Cloud
+
 We can download the dbt artifacts from dbt Cloud for Recce if CI/CD on dbt Cloud is configured. The basic scenario is to download the latest artifacts of the deploy job for the base environment and the artifacts of the CI job for the current environment. We can archieve it via [dbt Cloud API](https://docs.getdbt.com/dbt-cloud/api-v2#/) and we need:
 
 1. [dbt Cloud Token](https://docs.getdbt.com/docs/dbt-cloud-apis/user-tokens)
