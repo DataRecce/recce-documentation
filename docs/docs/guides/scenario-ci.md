@@ -111,9 +111,10 @@ jobs:
         with:
           fetch-depth: 0
       - name: Merge Base Branch into PR
-        uses: cycleapple/PR-Update@v1.0.2
+        uses: DataRecce/PR-Update@v1
         with:
           baseBranch: ${{ github.event.pull_request.base.ref }}
+          autoMerge: false
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
