@@ -12520,22 +12520,23 @@ section.testimonials .testimonials-holder {
     padding-right: 0;
   }
 }
-section.testimonials .testimonial {
+
+.testimonial {
   display: flex;
   flex-direction: column;
 }
-section.testimonials .testimonial .testimonial-body {
+.testimonial .testimonial-body {
   display: flex;
   position: relative;
   flex-direction: column;
   flex-grow: 1;
 }
 @media (min-width: 768px) {
-  section.testimonials .testimonial .testimonial-body {
+  .testimonial .testimonial-body {
     flex-direction: row;
   }
 }
-section.testimonials .testimonial .testimonial-body i.quote-icon {
+.testimonial .testimonial-body i.quote-icon {
   color: #ff6e42;
   display: block;
   position: absolute;
@@ -12549,7 +12550,7 @@ section.testimonials .testimonial .testimonial-body i.quote-icon {
   line-height: 1;
 }
 @media (min-width: 768px) {
-  section.testimonials .testimonial .testimonial-body i.quote-icon {
+  .testimonial .testimonial-body i.quote-icon {
     font-size: 10rem;
     position: relative;
     opacity: 1;
@@ -12557,7 +12558,7 @@ section.testimonials .testimonial .testimonial-body i.quote-icon {
     left: 0;
   }
 }
-section.testimonials .testimonial .testimonial-body p.testimonial-text {
+.testimonial .testimonial-body p.testimonial-text {
   font-size: 2rem;
   font-family: "Lora", sans-serif;
   font-style: italic;
@@ -12566,22 +12567,22 @@ section.testimonials .testimonial .testimonial-body p.testimonial-text {
   margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  section.testimonials .testimonial .testimonial-body p.testimonial-text {
+  .testimonial .testimonial-body p.testimonial-text {
     padding-top: 4rem;
     font-size: 2.2rem;
     padding-left: 0;
   }
 }
-section.testimonials .testimonial .testimonial-meta {
+.testimonial .testimonial-meta {
   display: flex;
   justify-content: center;
 }
 @media (min-width: 768px) {
-  section.testimonials .testimonial .testimonial-meta {
+  .testimonial .testimonial-meta {
     justify-content: flex-end;
   }
 }
-section.testimonials .testimonial .testimonial-meta .testimonial-meta-content {
+.testimonial .testimonial-meta .testimonial-meta-content {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12590,14 +12591,14 @@ section.testimonials .testimonial .testimonial-meta .testimonial-meta-content {
   text-align: right;
 }
 @media (min-width: 768px) {
-  section.testimonials .testimonial .testimonial-meta .testimonial-meta-content {
+  .testimonial .testimonial-meta .testimonial-meta-content {
     flex-direction: row-reverse;
     align-items: center;
     align-content: center;
     text-align: right;
   }
 }
-section.testimonials .testimonial .testimonial-meta .testimonial-meta-content img {
+.testimonial .testimonial-meta .testimonial-meta-content img {
   width: 7rem;
   height: 7rem;
   border-radius: 100%;
@@ -12605,21 +12606,21 @@ section.testimonials .testimonial .testimonial-meta .testimonial-meta-content im
   margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
-  section.testimonials .testimonial .testimonial-meta .testimonial-meta-content img {
+  .testimonial .testimonial-meta .testimonial-meta-content img {
     margin-bottom: 0;
     margin-left: 2rem;
   }
 }
-section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h4, section.testimonials .testimonial .testimonial-meta .testimonial-meta-content .h4 {
+.testimonial .testimonial-meta .testimonial-meta-content h4, .testimonial .testimonial-meta .testimonial-meta-content .h4 {
   font-size: 1.8rem;
   margin: 0;
 }
-section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h5, section.testimonials .testimonial .testimonial-meta .testimonial-meta-content .h5 {
+.testimonial .testimonial-meta .testimonial-meta-content h5, .testimonial .testimonial-meta .testimonial-meta-content .h5 {
   font-size: 1.6rem;
   margin: 0;
   width: 300px;
 }
-section.testimonials .testimonial .testimonial-meta .testimonial-meta-content h5 span, section.testimonials .testimonial .testimonial-meta .testimonial-meta-content .h5 span {
+.testimonial .testimonial-meta .testimonial-meta-content h5 span, .testimonial .testimonial-meta .testimonial-meta-content .h5 span {
   font-weight: normal;
 }
 .cloud-form {
@@ -12782,6 +12783,102 @@ section.news {
   }
 }
 
+section.case-study .case-study-header h5, section.case-study .case-study-header .h5 {
+  color: #fff;
+  background-color: #adb5bd;
+  background-color: #ff6e42;
+  border-radius: 2rem;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+section.case-study .case-study-stats {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  position: relative;
+}
+section.case-study .case-study-stats .stats-header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -1.5rem;
+  background-color: #ff6e42;
+  color: #fff;
+  border-radius: 2rem;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+section.case-study .case-study-stats .row-stats {
+  background-color: #f3f3f3;
+  border-radius: 2rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+section.case-study .case-study-stats .row-stats .stat {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+section.case-study .case-study-stats .row-stats .stat:last-of-type {
+  padding-bottom: 0;
+}
+@media (min-width: 992px) {
+  section.case-study .case-study-stats .row-stats .stat {
+    padding-bottom: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+section.case-study .case-study-stats .row-stats .stat h2, section.case-study .case-study-stats .row-stats .stat .h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 992px) {
+  section.case-study .case-study-stats .row-stats .stat h2, section.case-study .case-study-stats .row-stats .stat .h2 {
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: 992px) {
+  section.case-study .case-study-stats .row-stats .stat h2 span, section.case-study .case-study-stats .row-stats .stat .h2 span {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  section.case-study .case-study-stats .row-stats .stat h2 span, section.case-study .case-study-stats .row-stats .stat .h2 span {
+    display: inline;
+  }
+}
+section.case-study .case-study-stats .row-stats .stat p {
+  margin-bottom: 0;
+}
+section.case-study .case-study-body h2, section.case-study .case-study-body .h2, section.case-study .case-study-body h3, section.case-study .case-study-body .h3, section.case-study .case-study-body h4, section.case-study .case-study-body .h4 {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+section.case-study .case-study-body h2:first-of-type, section.case-study .case-study-body .h2:first-of-type {
+  margin-top: 0;
+}
+section.case-study .case-study-body ul li {
+  max-width: 80%;
+  margin-bottom: 2rem;
+}
+section.case-study .case-study-body .testimonial {
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+@media (min-width: 992px) {
+  section.case-study .case-study-body .testimonial {
+    width: 75%;
+    margin-left: 5%;
+  }
+}
+
 body {
   position: relative;
   min-height: 100vh;
@@ -12815,7 +12912,6 @@ header:after {
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-  border-bottom: dotted #3B3B3B 2px;
 }
 @media (min-width: 768px) {
   header:after {
@@ -12888,17 +12984,17 @@ header .nav-holder .nav {
   }
 }
 header .nav-holder .nav .nav-item {
-  margin-left: 2rem;
+  margin-left: 1rem;
   font-size: 1.8rem;
 }
 @media (min-width: 576px) {
   header .nav-holder .nav .nav-item {
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
 }
 @media (min-width: 768px) {
   header .nav-holder .nav .nav-item {
-    margin-left: 5rem;
+    margin-left: 3rem;
   }
 }
 header .nav-holder .nav .nav-item:first-of-type {
@@ -12928,7 +13024,8 @@ header .nav-holder .nav .nav-item.btn a {
 header .nav-holder .quotes-cta {
   text-align: center;
   padding-top: 2rem;
-  font-family: "Sriracha", cursive;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
   font-size: 2rem;
 }
 @media (min-width: 992px) {
