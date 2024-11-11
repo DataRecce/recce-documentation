@@ -1,6 +1,20 @@
 {% extends "app.html" %}
 
 
+{% block meta %}
+    <title>Recce Case Study - Rio de Janeiro Department of Health</title>
+    
+    <meta property="og:title" content="Recce Case Study - Rio de Janeiro Department of Health" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://datarecce.io/case-studies/rio-department-of-health/" />
+    <meta property="og:description" content="Prefeitura do Rio de Janeiro uses Recce to ensure data correctness of the health records for 7 million people." />
+    <meta
+      property="og:image"
+      content="/assets/images/recce-og-image.png"
+    />
+{% endblock %}
+
+
 {% block content %}
 
 <section class="case-study">
@@ -150,7 +164,7 @@
 
 					<h2>Bonus</h2>
 
-					<p>The team created a script to help analysts easily generate the necessary dbt artifacts and start a Recce Instance with one command. Check out the script, recce.sh, in their data project repo.</p>
+					<p>The team created a script to help analysts easily generate the necessary dbt artifacts and start a Recce Instance with one command. Check out the script, <a href="https://github.com/prefeitura-rio/queries-rj-sms/blob/master/recce.sh">recce.sh</a> (or <a href="https://github.com/prefeitura-rio/queries-rj-sms/blob/master/recce.ps1">recce.ps1</a> for Windows users), in their data project repo.</p>
 
 
 				</div>
