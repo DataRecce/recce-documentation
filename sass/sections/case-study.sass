@@ -1,0 +1,82 @@
+section.case-study
+	.case-study-header
+		h5
+			color: $color-white
+			background-color: $color-medium-gray
+			background-color: $color-brand
+			border-radius: 2rem
+			display: inline-block
+			padding: 0.5rem 2rem
+			font-size: 1.8rem
+			text-transform: uppercase
+
+	.case-study-stats
+		margin-top: 8rem
+		margin-bottom: 8rem
+		position: relative
+		.stats-header
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			top: -1.5rem
+			background-color: $color-brand
+			color: $color-white
+			border-radius: 2rem
+			display: inline-block
+			padding: 0.5rem 2rem
+			font-size: 1.8rem
+			text-transform: uppercase
+
+		.row-stats
+			background-color: $color-light-gray
+			border-radius: 2rem
+			padding-top: 6rem
+			padding-bottom: 6rem
+			.stat
+				padding-left: 3rem
+				padding-right: 3rem
+				padding-bottom: 5rem
+				text-align: center
+				display: flex
+				flex-direction: column
+				&:last-of-type
+					padding-bottom: 0
+				@include media-breakpoint-up(lg)
+					padding-bottom: 0
+					padding-left: 2rem
+					padding-right: 2rem
+
+				
+				h2
+					font-size: 2.2rem
+					margin-bottom: 1rem
+					@include media-breakpoint-up(lg)
+						font-size: 2.4rem
+					span
+						@include media-breakpoint-up(lg)
+							display: none
+						@include media-breakpoint-up(xl)
+							display: inline
+				p
+					margin-bottom: 0
+		
+	.case-study-body
+
+		h2, h3, h4
+
+			margin-top: 5rem
+			margin-bottom: 2rem 
+		h2
+			&:first-of-type
+				margin-top: 0
+		ul
+			li
+				max-width: 80%
+				margin-bottom: 2rem
+		
+		.testimonial
+			margin-top: 4rem
+			margin-bottom: 6rem
+			@include media-breakpoint-up(lg)
+				width: 75%
+				margin-left: 5%

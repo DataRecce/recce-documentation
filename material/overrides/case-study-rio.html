@@ -1,0 +1,198 @@
+{% extends "app.html" %}
+
+
+{% block content %}
+
+<section class="case-study">
+
+	<div class="case-study-header mb-5">
+
+		<div class="container">
+			<div class="row">
+				<div class="col col-12 col-sm-12 col-lg-6 pe-5 mb-4">
+					<h5>Case Study</h5>
+					<h1>Rio de Janeiro Department of Health</h1>
+					<h2 class="fs-1 fw-normal" >Prefeitura do Rio de Janeiro uses Recce to ensure data correctness of the health records for 7 million people</h2>
+					<p>Recce enabled a formalized and streamlined approach to developing with dbt, providing complete visibility into data impact from modeling changes and eliminating the risk of merging bad data into production.<p>
+				</div>
+
+				<div class="col col-12 col-sm-12 col-lg-6 case-study-image d-flex justify-content-center align-items-center" style="background-color: #004a80; padding: 4rem; border-radius: 2rem;">
+						<img src="/assets/images/case-studies/rio/RIOPREFEITURA-vertical-branco-425x600.png" style="width: 100%; max-width: 200px; height: auto;" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="case-study-stats">
+		<h2 class="stats-header">The Stats</h2>
+		<div class="container">
+			<div class="row row-stats">
+				<div class="col col-12 col-lg-4 stat">
+					<h2>Pull Requests Now Merge in 1&nbsp;Hour</h2>
+					<p>Decreased dbt pull-request review-time from 1 day to an hour or less</p>
+				</div>
+				<div class="col col-12 col-lg-4 stat">
+					<h2>Complete Visibility into Data&nbsp;Impact </h2>
+					<p>PR authors can now see and understand the data impact from dbt modeling changes</p>
+				</div>
+				<div class="col col-12 col-lg-4 stat">
+					<h2>Enhanced <span>Stakeholder</span> Communication</h2>
+					<p>The single-source-of-truth for discussion with stakeholders and PR reviewers</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="case-study-body">
+
+		<div class="container">
+			<div class="row">
+				<div class="col col-12 col-sm-12 col-lg-12 col-xl-8 offset-xl-2">
+
+					<h2>The challenges of maintaining the health records for 7 million people</h2>
+
+					<p>The data team at the <a href="https://github.com/prefeitura-rio">Prefeitura do Rio de Janeiro</a> (City of Rio de Janeiro) health department <a href="https://doc.clickup.com/9013004335/d/h/8ckf21f-1073/e8ed96d7bccb902/8ckf21f-15753">uses Recce</a>, and the workflows that Recce encourages, to substantially improve the pull request process on their large-scale electronic health record (EHR) integration <a href="https://github.com/prefeitura-rio/queries-rj-sms/">data project</a>.</p>
+
+					<p>The health department's data team, consisting of six data scientists and engineers, was tasked with <strong>integrating EHR data from various sources covering around 7 million users and 100 million events</strong>.</p>
+
+					<div class="testimonial">
+
+		                <div class="testimonial-body">
+		                  <i class="bi bi-quote quote-icon"></i>
+		                  <p class="testimonial-text">
+		                    In my job I have to understand data change, and <strong>Recce was a game changer</strong>. It made our PR review much quicker - <strong>From a day to less than an hour to merge.</strong>
+		                  </p>
+		                </div>
+
+		                <div class="testimonial-meta">
+		                  <div class="testimonial-meta-content">
+		                    <img src="/assets/images/testimonials/testimonial-5.jpg" alt="" class="avatar avatar-md rounded-circle" >
+		                    <div class="ms-2">
+		                      <h4 class="text-primary mb-0"><a href="https://www.linkedin.com/in/thiagotcunha/" target="_blank">Thiago Trabach</a></h4>
+		                      <h5>Head of Data Science &amp; Engineering <br /><span>Prefeitura do Rio de Janeiro</span></h5>
+		                    </div>
+		                  </div>
+		                </div>
+
+		              </div>
+
+					<h3>A better dbt pull request review process was needed</h3>
+
+					<p>Daily work on the project involved defining and maintaining a growing dbt project with  increasing complexity. This resulted in frequent PRs requiring thorough review. <strong>Thiago, the head of data and engineering</strong>, was responsible for reviewing the majority of PRs and <strong>needed a solution to better optimize the PR review process to ensure data quality and consistency.</strong></p>
+
+					<p>Before implementing Recce, the PR review process was unstructured and time-consuming. The manual approach sometimes resulted in errors making their way into production.</p>
+
+					<h2>The solution to data integrity</h2>
+
+					<p>Thiago and the team adopted Recce, which helped facilitate a more structured PR review process. This allowed the data team to demonstrate the impact of code changes on data, and better equipped Thiago to review and sign-off the changes.</p>
+
+					<p>The new PR review process that Recce enabled the data team to:</p>
+
+					<ul>
+						<li><strong>Understand data impact</strong><br />By using Recce to check their work during development, the data team ensures that code changes are having the expected impact.</li>
+						<li><strong>Provide proof-of-correctness</strong><br />By using Recce to generate visualizations, lineage diff diagrams, data profiles, and more, the team has concrete evidence of the data changes resulting from their code modifications.</li>
+						<li><strong>PR review validation</strong><br/ >Thiago reviews the evidence presented in the PR, focusing on the key metrics and visualizations generated by Recce, to ensure that the changes align with the developer's stated intentions and do not introduce unexpected issues.</li>
+					</ul>
+
+				</div>
+
+				<div class="col col-12 col-sm-12 col-lg-12 col-xxl-10 offset-xxl-1">
+					<img src="/assets/images/case-studies/rio/rio-lineage.png" style="width: 100%; height: auto; margin-top: 6rem; margin-bottom: 6rem;" alt="Lineage Diff helps with model refactoring work by showing the removal of a model and a new source for modified model" />
+				</div>
+
+				<div class="col col-12 col-sm-12 col-lg-12 col-xl-8 offset-xl-2">
+
+					<p>Lineage Diff <a href="https://github.com/prefeitura-rio/queries-rj-sms/pull/76">helps</a> with model refactoring work by showing the removal of a model and a new source for modified model</p>
+
+					<h2>The result after implementing Recce in the data team</h2>
+
+					<p>After implementing Recce into their PR review process, the Health Department of Rio de Janeiro saw significant improvements in the following areas:</p>
+
+					<ul>
+						<li><strong>Reduced PR review time</strong><br /> The time required to review a pull request decreased dramatically from a day to under an hour.</li>
+						<li><strong>Increased data accuracy</strong><br />he structured process and visual evidence provided by Recce helped to identify and rectify data inconsistencies before they reached production, minimizing the risk of errors.</li>
+						<li><strong>Improved communication</strong><br />Recce checks provided a single source of truth on data impact that facilitated discussion around the changes.</li>
+					</ul>
+
+
+					<h3>Examples of where Recce was used</h3>
+
+					<p>The health department data teams used Recce in refactoring work which involved changing data sources and other jobs including addressing existing data quality issues and modifying data models.</p>
+
+					<p>Recce specifically helped to:</p>
+
+					<ul>
+						<li>Uncover situations in which <strong>duplicate records</strong> existed.</li>
+						<li>Demonstrate the <strong>improved accuracy</strong> of patient records by removing duplicate rows.</li>
+						<li><strong>Comparing data profiling stats</strong> after SQL logic changes, or updates to source tables, to understand how these changes may impact downstream data.</li>
+						<li>Proving that <strong>records previously containing null values</strong> have been fixed.</li>
+						<li>Used Lineage Diff to <strong>ensure that scope of impact was as expected.</li>
+					</strong>
+
+				</div>
+
+				<div class="col col-12 col-sm-12 col-lg-12 col-xxl-10 offset-xxl-1">
+
+					<img src="/assets/images/case-studies/rio/rio-pr-comment.png" style="width: 100%; height: auto; margin-top: 6rem; margin-bottom: 6rem;" alt="Actual screenshots of query diff and row count diff results from the Prefeitura do Rio de Janeiro data project" />
+
+				</div>
+
+				<div class="col col-12 col-sm-12 col-lg-12 col-xl-8 offset-xl-2">
+
+					<p>These represent just a handful of the real world situations in which Recce helped to validate the impact of dbt data model code changes on data; and enabled the team to merge PRs with the confidence there would not be unexpected data impact.</p>
+
+					<h2>Conclusion</h2>
+
+					<p>The intuitive nature of Recce, and ease-of-implementation into existing data workflows, made it a perfect fit for the team at Prefeitura do Rio de Janeiro. Recce not only provided the tools to perform data validation, but also encouraged a formalized PR review process that spans from development-time data modeling, right through to the final PR review.</p>
+
+					<p>The suite of tools offered by Recce provides unparalleled insight into data impact, making it an essential part of any data or analytics engineer’s toolkit. Join other teams like the Prefeitura do Rio de Janeiro and stop merging to prod in the dark - merge with confidence after performing a Data Recce. </p>
+
+					<h2>Bonus</h2>
+
+					<p>The team created a script to help analysts easily generate the necessary dbt artifacts and start a Recce Instance with one command. Check out the script, recce.sh, in their data project repo.</p>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</section>
+
+<section class="cal-book">
+
+      <div class="section-header">
+        <h2>Book <span>a</span> demo</h2>
+        <p>Find out more about how Recce can improve your data PR review process</p>
+      </div>
+
+      <!-- Cal inline embed code begins -->
+      <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "chat", {origin:"https://cal.com"});
+
+        Cal.ns.chat("inline", {
+        elementOrSelector:"#my-cal-inline",
+        calLink: "team/recce/chat",
+        layout: "month_view"
+        });
+
+        Cal.ns.chat("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#ff6e42"}},"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+        <!-- Cal inline embed code ends -->
+
+        <p class="text-center py-5">
+          <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
+            <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" />
+          </a>
+        </p>
+
+
+    </section>
+
+
+{% endblock %}

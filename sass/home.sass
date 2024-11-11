@@ -38,7 +38,7 @@ header
 		left: 50%
 		transform: translateX(-50%)
 		bottom: 0
-		border-bottom: dotted $color-dark-gray 2px
+		//border-bottom: dotted $color-dark-gray 2px
 		@include media-breakpoint-up(md)
 			display: none
 
@@ -101,12 +101,12 @@ header
 				justify-content: flex-end
 
 			.nav-item
-				margin-left: 2rem
+				margin-left: 1rem
 				font-size: 1.8rem
 				@include media-breakpoint-up(sm)
-					margin-left: 3rem
+					margin-left: 2rem
 				@include media-breakpoint-up(md)
-					margin-left: 5rem
+					margin-left: 3rem
 				&:first-of-type
 					margin-left: 0
 
@@ -132,7 +132,8 @@ header
 		.quotes-cta
 			text-align: center
 			padding-top: 2rem
-			font-family: $font-script
+			font-family: $font-header
+			font-weight: 600
 			//font-family: $font-serif
 			font-size: 2rem
 			@include media-breakpoint-up(lg)
