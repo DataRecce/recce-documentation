@@ -242,29 +242,59 @@ A Top-K Diff can be generated in two ways.
 
 
 
-## Multi Node Selection
+## Multi-Node Selection
 
-Multiple nodes can be selected to perform diffs on all nodes as part of a single check.
+Multiple nodes can be selected in the Lineage DAG. This enables actions to be performed on multiple nodes at the same time such as Row Count Diff, or Value Diff.
 
-### Select Nodes
-1. Click the **Select nodes** button.
-2. Select one or more nodes.
-3. Alternatively, right-click on a node and click **Select parent nodes** or **Select child nodes**.
-4. Click the action to perform in the control bar.
+### Select Nodes Individually
 
-### Row Count Diff
-An example of a multi-node Row Count Diff showing the row count difference between the base and current environments. 
+To select multiple nodes individually, click the check box on the nodes you wish to select.
 
 <figure markdown>
-  ![Recce Row Count Diff - Multiple models](../../assets/images/features/row-count-diff-multiple.gif){: .shadow}
-  <figcaption>Row Count Diff - Multiple model</figcaption>
+  ![Select multiple nodes individually](../../assets/images/features/multi-node-selection.gif){: .shadow}
+  <figcaption>Select multiple nodes individually</figcaption>
 </figure>
 
-### Value Diff
+### Select Parent or Child nodes
 
-An example of a multi-node Value Diff showing the matched percentage difference between the base and current environments. 
+To select a node and all of its parents or children:
 
-![Recce Value Diff - Multiple models](../../assets/images/features/value-diff-multiple.gif){: .shadow}
+1. Click the checkbox on the node
+2. Right click the node
+3. Click to select either parent or child nodes
+
+<figure markdown>
+  ![Select a node and its parents or children](../../assets/images/features/select-node-children.gif){: .shadow}
+  <figcaption>Select a node and its parents or children</figcaption>
+</figure>
+
+### Perform actions on multiple nodes
+
+After selecting the desired nodes, use the Actions menu at the top right of the screen to perform diffs or add checks.
+
+<figure markdown>
+  ![Perform actions on multiple nodes](../../assets/images/features/actions-menu.png){: .shadow}
+  <figcaption>Perform actions on multiple nodes</figcaption>
+</figure>
+
+### Example - Row Count Diff
+
+An example of selecting multiple nodes to perform a multi-node row count diff:
+
+<figure markdown>
+  ![Perform a Row Count Diff on multiple nodes](../../assets/images/features/multi-node-row-count-diff.gif){: .shadow}
+  <figcaption>Perform a Row Count Diff on multiple nodes</figcaption>
+</figure>
+
+### Example - Value Diff
+
+An example of selecting multiple nodes to perform a multi-node Value Diff:
+
+<figure markdown>
+  ![Perform a Value Diff on multiple nodes](../../assets/images/features/multi-node-value-diff.gif){: .shadow}
+  <figcaption>Perform a Value Diff on multiple nodes</figcaption>
+</figure>
+
 
 
 ## Screenshot

@@ -89,7 +89,7 @@ The main interface to **Recce** is the [lineage DAG](features/lineage.md#node-su
 
 ## Getting Started
 
-Try the [5-minute tutorial](get-started-jaffle-shop.md) that uses dbt’s Jaffle Shop project, or take the [online demo](docs/demo.md) for a test run, which includes an actual PR and related Recce Instance.
+Try the [5-minute tutorial](get-started-jaffle-shop.md) that uses dbt’s Jaffle Shop project, or take the [online demo](demo.md) for a test run, which includes an actual PR and related Recce Instance.
 
 
 ## What does **Recce** mean?
