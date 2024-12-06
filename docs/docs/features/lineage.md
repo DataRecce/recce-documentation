@@ -259,9 +259,9 @@ To select multiple nodes individually, click the check box on the nodes you wish
 
 To select a node and all of its parents or children:
 
-1. Click the checkbox on the node
-2. Right click the node
-3. Click to select either parent or child nodes
+1. Click the checkbox on the node.
+2. Right click the node.
+3. Click to select either parent or child nodes.
 
 <figure markdown>
   ![Select a node and its parents or children](../../assets/images/features/select-node-children.gif){: .shadow}
@@ -312,65 +312,37 @@ In the diff result, we can find a **Copy to Clipboard** button. it's a handy fea
 
 ## Add to Checklist
 
-In the lineage page, we can run different type of check. However, for these reason we would like to add to checklist
+The Recce Checklist provides a way to record the results of a data check during change exploration. The purpose of adding Checks to the Checklist is to enable you to:
 
-1. Keep the check and I can rerun this after my code change
-2. Add my result and interpretation for review purpose
+- Save Checks with notes of your interpretation of the data.
+- Re-run checks following further data modeling changes.
+- Share Checks as part of PR or stakeholder review.
 
-### Lineage Diff
+### Schema and Lineage Diff
 
-**Lineage diff by selector**
+From the Lineage DAG, click the Actions dropdown menu and click Lineage Diff or Schema Diff from the Add to Checklist section. This will add:
 
-1. Select nodes by `Select` and `Exclude` on the top control.
-1. Click **...** at the top-right corner
-1. Click the **Lineage diff**
+- Lineage Diff: The current Lineage view, dependent on your <a href="#select-nodes">node selection</a> options.
+- Schema Diff: A diff of all nodes if none are selected, or specific <a href="#multi-node-selection">selected nodes</a>.
 
-**Lineage diff by multi nodes selection**
+<figure markdown>
+  ![Add a Lineage Diff Check or Schema Check via the Actions dropdown menu](../../assets/images/features/actions-dropdown.png){: .shadow}
+  <figcaption>Add a Lineage Diff Check or Schema Check via the Actions dropdown menu</figcaption>
+</figure>
 
-1. Click **Select nodes** button at the top-right corner
-1. Select nodes
-1. Click the **Add lineage diff check** button
+### Diffs performed via the Explore Change dropdown menu
 
+For the majority of diffs, which are performed via the Explore Change dropdown menu, the Check can be added by clicking the Add to Checklist button in the results panel:
 
-### Schema Diff
-
-**Schema diff by node selector**
-
-1. Select nodes by `Select` and `Exclude` on the top control.
-1. Click **...** at the top-right corner
-1. Click the **Schema diff** button
+<figure markdown>
+  ![Add a Check by clicking the Add to Checklist button in the diff results panel](../../assets/images/features/add-to-checklist-button.png){: .shadow}
+  <figcaption>Add a Check by clicking the Add to Checklist button in the diff results panel</figcaption>
+</figure>
 
 
-**Schema diff by multi nodes selection**
+An example performing a Top-K diff and adding the results to the Checklist:
 
-1. Click **Select nodes** button at the top-right corner
-1. Select nodes
-1. Click the **Add schema check** button
-
-**Schema diff for single node**
-
-1. Select a node, then the node detail would show.
-2. Click **Add check** button on the node detail pane.
-3. Click **Schema check**
-
-### Row Count Diff
-
-**Row count diff by node selector**
-
-1. Select nodes by `Select` and `Exclude` on the top control.
-1. Click **...** at the top-right corner
-1. Click the **Row Count Diff by Selctor**, then it will run the row count diff
-1. Click the **Add to checklist** in the result page.
-
-**Row count diff by multi nodes selection**
-
-1. Click **Select nodes** button
-1. Select nodes
-1. Click **Row count diff**, then it will run the row count diff
-1. Select a node, then the run result would show.
-1. Click **Add to checklist**
-
-### Other Diffs
-
-1. Execute the diff    
-1. Click **Add to checklist**
+<figure markdown>
+  ![Example adding a Top-K Diff to the Checklist](../../assets/images/features/add-to-checklist.gif){: .shadow}
+  <figcaption>Example adding a Top-K Diff to the Checklist</figcaption>
+</figure>
