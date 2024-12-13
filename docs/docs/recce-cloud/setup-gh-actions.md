@@ -120,12 +120,13 @@ If executed successfully, the dbt target will be placed in the run artifacts and
 ![alt text](../../assets/images/recce-cloud/dbt-artifacts.png){: .shadow}
 
 ### Upload base artifacts to Recce Cloud
-For Recce Cloud users, you update of the base artifact to Recce Cloud by `recce cloud upload-artifacts`. 
+For Recce Cloud users, you can upload the base artifact to Recce Cloud by `recce cloud upload-artifacts`. 
 You and other developers on your team can then download by `recce cloud download-base-artifacts` without preparing base artifacts every time. 
 
 If you use dbt Cloud to run CI/CD, and
-- if you have a prod job but not schedule, you can schedule a GitHub Action Workflow to trigger the job and then download and upload the dbt artifacts to Recce Cloud.
-- if you have a schedule job to run prod and after PR merged, you can use GitHub Action Workflow to download and upload the dbt artifacts to Recce Cloud.
+
+1. if you have a prod job but not schedule, you can have a GitHub Action Workflow to trigger the job and then [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload to Recce Cloud.
+2. if you have a schedule job to run prod and after PR merged, you can have a GitHub Action Workflow to [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload to Recce Cloud.
     - Since the GitHub Action Workflow is triggered after dbt Cloud job, it may have some latency.
 
 ### PR Workflow (Pull Request Branch)
