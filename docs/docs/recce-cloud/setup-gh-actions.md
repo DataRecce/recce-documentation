@@ -15,7 +15,7 @@ To automate the process, we can use [GitHub Actions](https://github.com/features
 
 We suggest setting up two GitHub Actions workflows in your GitHub repository. One for the base environment and another for the PR environment.
 
-- **Base environment workflow**: Triggered on every merge to the `main branch`. This ensures that base dbt artifacts are readily available for use when a PR is opened.
+- **Base environment workflow**: Triggered on every merge to the `main branch`. This ensures that base dbt artifacts are readily available for use.
 
 - **PR environment workflow**: Triggered on every push to the `pull-request branch`. This workflow will compare base models with the current PR environment.
 
@@ -56,12 +56,12 @@ We suggest setting up two GitHub Actions workflows in your GitHub repository. On
 
 ### Prepare base dbt artifacts
 
-For dbt Core users
+For dbt Core users:
 
-   1. Run dbt on the base environment.
-   2. Use the GitHub Action workflow below
-      1. Build base dbt artifacts
-      2. Upload dbt artifacts to Recce Cloud
+  1. Run dbt on the base environment.
+  2. Use the GitHub Action workflow below.
+    1. Build base dbt artifacts
+    2. Upload dbt artifacts to Recce Cloud
 
 Upload the base dbt artifact to Recce Cloud by `recce cloud upload-artifacts`. 
 You and other developers on your team can then download by `recce cloud download-base-artifacts` without building base artifacts every time. 
@@ -125,9 +125,8 @@ jobs:
 
 For dbt Cloud users running CI/CD:
 
-1. For unscheduled production jobs: Use a GitHub Action workflow (coming soon) to trigger the job. The workflow will [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload them to Recce Cloud.
-
-2. For scheduled production jobs: Use a GitHub Action workflow (coming soon) to [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload them to Recce Cloud.
+  1. For unscheduled production jobs: Use a GitHub Action workflow (coming soon) to trigger the job. The workflow will [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload them to Recce Cloud.
+  2. For scheduled production jobs: Use a GitHub Action workflow (coming soon) to [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload them to Recce Cloud.
     - Note: The GitHub Action workflow is triggered after the dbt Cloud job, so there may be some latency.
 
 ### PR Workflow (Pull Request Branch)
