@@ -120,7 +120,7 @@ jobs:
           recce cloud upload-artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
-          RECCE_STATE_PASSWORD: ${{ vars.RECCE_STATE_PASSWORD}}
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 ```
 
 For dbt Cloud users, if you use dbt Cloud to run CI/CD,
@@ -186,7 +186,7 @@ jobs:
           recce cloud download-base-artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
-          RECCE_STATE_PASSWORD: ${{ vars.RECCE_STATE_PASSWORD}}
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 
       - name: Prepare the PR environment
         run: |
@@ -206,7 +206,7 @@ jobs:
           recce cloud upload-artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
-          RECCE_STATE_PASSWORD: ${{ vars.RECCE_STATE_PASSWORD}}
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 
       - name: Prepare Recce Summary
         id: recce-summary
