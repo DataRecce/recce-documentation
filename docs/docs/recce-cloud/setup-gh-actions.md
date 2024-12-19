@@ -15,7 +15,7 @@ To automate the process, we can use [GitHub Actions](https://github.com/features
 
 We suggest setting up two GitHub Actions workflows in your GitHub repository. One for the base environment and another for the PR environment.
 
-- **Base environment workflow**: Triggered on every merge to the `main branch`. This ensures that base artifacts are readily available for use when a PR is opened.
+- **Base environment workflow**: Triggered on every merge to the `main branch`. This ensures that base dbt artifacts are readily available for use.
 
 - **PR environment workflow**: Triggered on every push to the `pull-request branch`. This workflow will compare base models with the current PR environment.
 
@@ -54,12 +54,17 @@ We suggest setting up two GitHub Actions workflows in your GitHub repository. On
 
 ## Set up Recce with GitHub Actions
 
-### Base Workflow (Main Branch)
+### Prepare base dbt artifacts
 
-This workflow will perform the following actions:
+For dbt Core users:
 
-1. Run dbt on the base environment.
-2. Upload the generated DBT artifacts to [github workflow artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) for later use.
+  1. Run dbt on the base environment.
+  2. Use the GitHub Action workflow below.
+    1. Build base dbt artifacts
+    2. Upload dbt artifacts to Recce Cloud
+
+Upload the base dbt artifact to Recce Cloud by `recce cloud upload-artifacts`. 
+You and other developers on your team can then download by `recce cloud download-base-artifacts` without building base artifacts every time. 
 
 !!! note
 
@@ -99,6 +104,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install recce
 
       - name: Run DBT
         run: |
@@ -110,14 +116,18 @@ jobs:
           DBT_BASE_TARGET: "prod"
 
       - name: Upload DBT Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: target
-          path: target/
+        run: |
+          recce cloud upload-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 ```
 
-If executed successfully, the dbt target will be placed in the run artifacts and will be named **target**.
-![alt text](../../assets/images/recce-cloud/dbt-artifacts.png){: .shadow}
+For dbt Cloud users running CI/CD:
+
+  1. For unscheduled production jobs: Use a GitHub Action workflow (coming soon) to trigger the job. The workflow will [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload them to Recce Cloud.
+  2. For scheduled production jobs: Use a GitHub Action workflow (coming soon) to [download dbt artifacts](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact) and upload them to Recce Cloud.
+    - Note: The GitHub Action workflow is triggered after the dbt Cloud job, so there may be some latency.
 
 ### PR Workflow (Pull Request Branch)
 
@@ -153,27 +163,31 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Merge Base Branch into PR
         uses: DataRecce/PR-Update@v1
         with:
           baseBranch: ${{ github.event.pull_request.base.ref }}
           autoMerge: false
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10.x"
           cache: pip
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install recce~=0.34
+          pip install recce
+
       - name: Download artifacts for the base environment
         run: |
-          gh repo set-default ${{ github.repository }}
-          base_branch=${{ github.base_ref }}
-          run_id=$(gh run list --workflow ${WORKFLOW_BASE} --branch ${base_branch} --status success --limit 1 --json databaseId --jq '.[0].databaseId')
-          echo "Download artifacts from run $run_id"
-          gh run download ${run_id} -n target -D target-base
+          recce cloud download-base-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
+
       - name: Prepare the PR environment
         run: |
           dbt deps
@@ -182,14 +196,17 @@ jobs:
           dbt docs generate --target ${{ env.DBT_CURRENT_TARGET}}
         env:
           DBT_CURRENT_TARGET: "pr"
+
       - name: Run Recce
         run: |
           recce run --cloud
+
       - name: Upload DBT Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: target
-          path: target/
+        run: |
+          recce cloud upload-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 
       - name: Prepare Recce Summary
         id: recce-summary
@@ -264,4 +281,4 @@ recce server --cloud --review
 
 **Review in the GitHub codespace**
 
-Please see [GitHub Codespaces](./setup-gh-codespaces.md) integration
+Please see [GitHub Codespaces](./setup-gh-codespaces.md) integration.
