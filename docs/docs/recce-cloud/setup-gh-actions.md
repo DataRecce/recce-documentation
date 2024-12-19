@@ -104,6 +104,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install recce
 
       - name: Run DBT
         run: |
@@ -115,10 +116,11 @@ jobs:
           DBT_BASE_TARGET: "prod"
 
       - name: Upload DBT Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: target
-          path: target/
+        run: |
+          recce cloud upload-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          RECCE_STATE_PASSWORD: ${{ vars.RECCE_STATE_PASSWORD}}
 ```
 
 For dbt Cloud users, if you use dbt Cloud to run CI/CD,
@@ -161,27 +163,31 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Merge Base Branch into PR
         uses: DataRecce/PR-Update@v1
         with:
           baseBranch: ${{ github.event.pull_request.base.ref }}
           autoMerge: false
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10.x"
           cache: pip
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install recce~=0.34
+          pip install recce
+
       - name: Download artifacts for the base environment
         run: |
-          gh repo set-default ${{ github.repository }}
-          base_branch=${{ github.base_ref }}
-          run_id=$(gh run list --workflow ${WORKFLOW_BASE} --branch ${base_branch} --status success --limit 1 --json databaseId --jq '.[0].databaseId')
-          echo "Download artifacts from run $run_id"
-          gh run download ${run_id} -n target -D target-base
+          recce cloud download-base-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          RECCE_STATE_PASSWORD: ${{ vars.RECCE_STATE_PASSWORD}}
+
       - name: Prepare the PR environment
         run: |
           dbt deps
@@ -190,14 +196,17 @@ jobs:
           dbt docs generate --target ${{ env.DBT_CURRENT_TARGET}}
         env:
           DBT_CURRENT_TARGET: "pr"
+
       - name: Run Recce
         run: |
           recce run --cloud
+
       - name: Upload DBT Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: target
-          path: target/
+        run: |
+          recce cloud upload-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          RECCE_STATE_PASSWORD: ${{ vars.RECCE_STATE_PASSWORD}}
 
       - name: Prepare Recce Summary
         id: recce-summary
