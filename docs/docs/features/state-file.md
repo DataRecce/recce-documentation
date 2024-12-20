@@ -18,8 +18,8 @@ In the PR review process, the state file can serve as a medium of communication 
 
 ### Create a State File for Review
 
+- **Save from Web UI**: Click the **Save** button at the top of the app to save the file in the directory where you run Recce.
 - **Export from Web UI**: To export the current Recce state, you can use the **Export** button located in the top right corner of the Web UI to export the state to a file.
-
 - **Output of the Recce Run**:
   A more mature dbt project may have a CI/CD process in place where dbt transformations are run, and the results are placed in a PR-specific environment. In such cases, you can integrate [recce run](./recce-run.md) in your automation workflow, making it convenient for reviewers to audit the results to determine whether the merge can proceed.
 
@@ -44,13 +44,21 @@ In this mode, the Recce instance won't use the dbt artifacts inside `target` and
 
 ![State File For Development](../../assets/images/features/state-file-dev.png)
 
-When running the Recce server, you can specify an additional file argument
 
-```
-recce server recce_issue_1.json
-```
+When running the Recce server, you have the following options:
 
-If this file exists, Recce will use it as the initial state. If it doesn't exist, Recce will create a new one. When the server is terminated, the final state will be written into this file.
+1. Run without specifying a state file:
+    ```
+    recce server
+    ```
+    In this case, you can choose to save the state to a file if you decide it should be stored.
+1. Run with a specified state file:
+    ```
+    recce server recce_issue_1.json
+    ```
+    If the specified file exists, Recce will use it as the initial state. Otherwise, Recce will create a new one.
+
+When the server is terminated, the final state will be written to the specified file.
 
 ## Recce Cloud
 
