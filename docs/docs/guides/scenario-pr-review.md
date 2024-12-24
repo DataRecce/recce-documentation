@@ -41,7 +41,7 @@ If you want the reviewer to access your environment, you can also attach the [Re
 
 **As a Submitter**
 
-1. Export the recce state file
+1. Save or export the recce state file
 2. Attach the state file into the PR comment
 
 **As a Reviewer**

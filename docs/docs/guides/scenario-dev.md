@@ -95,15 +95,21 @@ ORDER BY
 
 Next, you can add this check to your [checklist](../features/checklist.md). After modifying your code each time, rerun this check until it meets your requirements.
 
-## Store your data
+## Save Your State
 
-During development, we may inevitably switch branches. If you want to preserve the current state, you can use the [Export the state file](../features/state-file.md) for later loading.
+Switching branches is often unavoidable during development. To preserve the current state for future use, save or export the [state file](../features/state-file.md). To resume the state, start the Recce server with the state file as an argument:
 
-
-Another technique is to specify the file directly when opening it.
 ```
 recce server recce_issue_123.json
 ```
 
-When you close the Recce instance, it saves your current session to this file. The next time you open it using the same file, it will restore to the previous state.
+![alt text](../../assets/images/features/state-file-save.png){: .shadow}
 
+## Import Checklist
+You can import a checklist from a state file by following these steps:
+
+1. Go to the **Checklist** page.
+1. Click the **Import** icon at the top of the checklist.
+1. Select the state file you want to import.
+
+This is particularly useful for preserving your favorite checks across different branches.

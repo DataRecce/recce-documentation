@@ -5,52 +5,89 @@ icon: material/file
 
 ## Introduction
 
-The state file is the serialized state of a recce instance. There are two scenarios where we need to export the state file:
+The state file represents the serialized state of a Recce instance. It is a JSON-formatted file containing the following information:
 
-- [PR Review](#pr-review): We can include the state file in the PR Review Comment. If the reviewer wants to further connect to the PR environment, they can use this file to see the final results and perform deeper audits.
-- [Development](#development): During development, we often need to save the state and even switch between different branches for development.
+- **Checks**: Data from the checks added to the checklist on the Checklist page.
+- **Runs**: Each diff execution in Recce corresponds to a run, similar to a query in a data warehouse. Typically, a single run submits a series of queries to the warehouse and retrieves the final results.
+- **Environment Artifacts**: Includes `manifest.json` and `catalog.json` files for both the base and current environments.
+- **Runtime Information**: Metadata such as Git branch details and pull request (PR) information from the CI runner.
 
-## PR Review
+## How to Save the State File
 
-In the PR review process, the state file can serve as a medium of communication between the submitter and the reviewer.
+There are multiple ways to save the state file.
 
-![State File For PR Review](../../assets/images/features/state-file-pr.png)
+1. **Save from the Web UI**: Click the **Save** button at the top of the app. Recce will continuously write updates to the state file, effectively working like an auto-save feature, and persist the state until the Recce instance is closed. The file is saved with the specified filename in the directory where the recce server command is run.
 
-### Create a State File for Review
+1. **Export from the Web UI**: Click the **Export** button located in the top-right corner to download the current Recce state to any location on your machine.
+   ![](../../assets/images/features/state-file-save.png){: .shadow}
 
-- **Export from Web UI**: To export the current Recce state, you can use the **Export** button located in the top right corner of the Web UI to export the state to a file.
+1. **Start Recce from a State File**: You can provide a state file as an argument when launching Recce. If the file does not exist, Recce will create a state file and start with an empty state. If the file exists, Recce will load the state and continue working from it.
+   ```
+   recce server my_recce_state.json
+   ```
 
-- **Output of the Recce Run**:
-  A more mature dbt project may have a CI/CD process in place where dbt transformations are run, and the results are placed in a PR-specific environment. In such cases, you can integrate [recce run](./recce-run.md) in your automation workflow, making it convenient for reviewers to audit the results to determine whether the merge can proceed.
+1. **Use the `run` Command**: For more complex dbt projects with a CI/CD process, where dbt transformations are executed and results are placed in a PR-specific environment, you can integrate the [recce run](./recce-run.md) command into your workflow. This allows reviewers to easily audit results and decide whether a merge can proceed.
+   ```
+   # create state file at recce_state.json
+   recce run
+   ```
 
-### What's in the State File
 
-- **Checks**: These are the data from the checks that have been added to the checklist on the Checks page.
-- **Runs**: Each execution in Recce represents a run, analogous to a query in the warehouse. However, typically, a single run may submit series of queries in the warehouse and get the final run result.
-- **Environments' Artifacts**: The base and current environments' `manifest.json` and `catalog.json`.
-- **Runtime Information**: Such as git branch information, PR information in the CI runner.
+## How to Use the State File
 
-### Review the State File
+The state file can be used in several ways:
 
-To review a PR, you can download the corresponding state file and open the file with additional `--review` option.
+1. **Continue the state**: Launch Recce with the specified state file.
+   ```
+   recce server my_recce_state.json
+   ```
+1. **Review the state**: Running Recce with the `--review` option enables review mode. In this mode, Recce uses the dbt artifacts in the state file instead of those in the `target/` and `target-base/` directories. This option is useful for distinguishing between development and review purposes.
+   ```
+   recce server --review my_recce_state.json
+   ```   
+1. **Import checklist from file**: To preserve favorite checks across different branches, you can import a checklist by clicking the **Import** button at the top of the checklist.
+1. **Continue the state from `recce run`**: This will execute the checks in the specified state file.
+   ```
+   recce run --state-file my_recce_state.json
+   ```
 
-```
-recce server --review recce_state.json
-```
+## Scenario: Development
 
-In this mode, the Recce instance won't use the dbt artifacts inside `target` and `target-base`. Instead, it will use the artifacts from the Recce state file.
+In the development workflow, the state file acts as a session for developing a feature. It allows you to store checks to verify the diff results against the base environment.
 
-## Development
+Common development workflow:
+
+1. Run the recce server without a state file.
+    ```
+    recce server
+    ```
+1. Add checks to the checklist. 
+1. Save the state by clicking the **Save** or **Export** button.
+1. Resume your session by launching Recce with the specific state file.
+    ```
+    recce server recce_issue_1.json
+    ```
 
 ![State File For Development](../../assets/images/features/state-file-dev.png)
 
-When running the Recce server, you can specify an additional file argument
+## Scenario: PR Review
 
-```
-recce server recce_issue_1.json
-```
+During the PR review process, the state file serves as a communication medium between the submitter and the reviewer.
 
-If this file exists, Recce will use it as the initial state. If it doesn't exist, Recce will create a new one. When the server is terminated, the final state will be written into this file.
+1. Start the Recce server without a state file.
+    ```
+    recce server
+    ```
+1. Add checks to the checklist. 
+1. Save the state by clicking the **Save** or **Export** button.
+1. Share the state file with the reviewer or attach it as a comment in the pull request.
+1. The reviewer reviews the results using the state file
+
+    ```
+    recce server --review recce_issue_1.json
+    ```
+
+![State File For PR Review](../../assets/images/features/state-file-pr.png)
 
 ## Recce Cloud
 
