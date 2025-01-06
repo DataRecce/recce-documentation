@@ -49,7 +49,7 @@ Recce expects two sets of dbt [artifacts](https://docs.getdbt.com/reference/arti
 - `target/` - dbt artifacts for your development branch
 
 #### Prepare artifacts for the `base` environment
-For most data warehouses, you can download the artifafcts from the codebase of your main branch. You don't need to re-run the whole production in your local. 
+For most data warehouses, you can download the artifacts generated from the codebase of your main branch. You don't need to re-run the whole production in your local. 
 
 However, if you use duckdb, you need to generate the artifacts for the base environment. 
 Checkout the `main` branch of your project and generate the required artifacts into `target-base`. You can skip `dbt build` if this environment already exists. 
