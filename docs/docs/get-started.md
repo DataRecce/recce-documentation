@@ -8,9 +8,7 @@ icon: material/rocket-launch-outline
 ## Prerequisites
 Recce requires that your dbt project has two separate [environments](https://docs.getdbt.com/docs/environments-in-dbt) that refers to different [schemas](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#understanding-target-schemas). For example, one for production with prod schema and another for development with dev schema.
 
-For most data warehouses, Recce can get your schema from your dbt artifacts.
-
-However, if you use duckdb, you need to prepare two targets with separate schemas in your dbt profile.Your `profiles.yml` might look something like this:
+Recce can get your schema from all data warehouses, so you don't need to update the profiles.yml. However, if you use duckdb, you need to add a separate schemas in your dbt profile so you can run locally.Your `profiles.yml` might look something like this:
 
 ```yaml
 jaffle_shop:
@@ -51,7 +49,7 @@ Recce expects two sets of dbt [artifacts](https://docs.getdbt.com/reference/arti
 - `target/` - dbt artifacts for your development branch
 
 #### Prepare artifacts for the `base` environment
-For most data warehouses, you can download the artifacts from your main branch. You don't need to re-run the whole production in your local. 
+For most data warehouses, you can download the artifafcts from the codebase of your main branch. You don't need to re-run the whole production in your local. 
 
 However, if you use duckdb, you need to generate the artifacts for the base environment. 
 Checkout the `main` branch of your project and generate the required artifacts into `target-base`. You can skip `dbt build` if this environment already exists. 
