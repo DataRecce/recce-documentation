@@ -6,9 +6,11 @@ icon: material/rocket-launch-outline
 # Getting Started
 
 ## Prerequisites
-Recce requires that your dbt project has two [environments](https://docs.getdbt.com/docs/environments-in-dbt) to compare. For example, one for production and another for development. 
+Recce requires that your dbt project has two separate [environments](https://docs.getdbt.com/docs/environments-in-dbt) that refers to different [schemas](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#understanding-target-schemas). For example, one for production with prod schema and another for development with dev schema.
 
-Prepare two targets with separate [schemas](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#understanding-target-schemas) in your dbt profile. Your `profiles.yml` might look something like this:
+For most data warehouses, Recce can get your schema from your dbt artifacts.
+
+However, if you use duckdb, you need to prepare two targets with separate schemas in your dbt profile.Your `profiles.yml` might look something like this:
 
 ```yaml
 jaffle_shop:
@@ -48,8 +50,10 @@ Recce expects two sets of dbt [artifacts](https://docs.getdbt.com/reference/arti
 - `target-base/` - dbt artifacts for to be used as the base for the comparison e.g. production
 - `target/` - dbt artifacts for your development branch
 
-#### Generate artifacts for the `base` environment
+#### Prepare artifacts for the `base` environment
+For most data warehouses, you can download the artifacts from your main branch. You don't need to re-run the whole production in your local. 
 
+However, if you use duckdb, you need to generate the artifacts for the base environment. 
 Checkout the `main` branch of your project and generate the required artifacts into `target-base`. You can skip `dbt build` if this environment already exists. 
 
 ```shell
