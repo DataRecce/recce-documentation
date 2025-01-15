@@ -1,8 +1,133 @@
+section.testimonials-top
+	.section-content
+		display: grid
+		grid-template-columns: 1fr
+		grid-row-gap: 2rem
+
+		@include media-breakpoint-up(lg)
+			grid-template-columns: 1fr 1fr 1fr
+			grid-column-gap: 2rem
+
+
+		.testionial
+			display: flex
+			flex-direction: column
+			border: solid $color-light-gray 1px
+			border-radius: 2rem
+			padding: 3rem 1.5rem
+
+			.testimonial-header
+				h2
+					font-size: 1.8rem
+					font-style: italic
+			
+			.testimonial-body
+				display: flex
+				flex-direction: row
+
+				
+				.testimonial-image
+					margin-right: 2rem
+					img
+						width: 7rem
+						height: 7rem
+						border-radius: 100%
+						box-shadow: 0 0 30px -20px rgba(0,0,0,0.4)
+						margin-bottom: 1rem
+						@include media-breakpoint-up(md)
+
+
+				.testimonial-meta
+					h4
+						font-size: 1.5rem
+						font-weight: 400
+						margin-bottom: 0
+						span
+							font-weight: 700
+					h5
+						font-size: 1.4rem
+						color: $color-medium-gray
+						margin-bottom: 0
+
+
+
 section.testimonials
-	padding: 8rem 0 
-	background-color: #f8f9fa
+	padding: 4rem 0 8rem 0 
+
+	.section-header
+		margin-bottom: 4rem
+		h2
+			text-transform: none
+			span
+				color: $color-brand
 
 	.testimonials-holder
+		display: flex
+		flex-direction: column
+		justify-content: center
+
+
+		@include media-breakpoint-up(lg)
+			flex-direction: row
+			flex-wrap: wrap
+
+
+			.testimonial
+				background-color: #F8FAFC
+				border-radius: 1rem
+				display: flex
+				flex-direction: column
+				margin-left: 1rem
+				margin-right: 1rem
+				width: 30%
+				padding: 1rem
+				justify-content: space-between
+				margin-bottom: 2rem
+
+				.testimonial-body
+					.quote-icon
+						width: 35px
+						margin-bottom: 3rem
+						img
+							width: 100%
+							height: auto	
+					.testimonial-text
+						flex-grow: 1
+						padding-bottom: 2rem
+
+				.testimonial-meta
+					.testimonial-meta-content
+						display: flex
+						flex-direction: row
+						img
+							width: 7rem
+							height: 7rem
+							border-radius: 100%
+							box-shadow: 0 0 30px -20px rgba(0,0,0,0.4)
+							margin-bottom: 1rem
+							margin-right: 1rem
+
+						h4
+							font-size: 1.8rem
+							margin-bottom: 1rem
+						h5
+							color: $color-black
+							font-size: 1.4rem
+							span
+								display: block
+								color: $color-medium-gray
+
+
+
+
+
+
+
+
+
+
+
+	.testimonials-holders
 		display: grid
 		grid-template-columns: 1fr
 		grid-column-gap: 4rem
@@ -14,87 +139,84 @@ section.testimonials
 			padding-left: 0
 			padding-right: 0
 
-.testimonial
-	//margin: 4rem 
-	display: flex
-	flex-direction: column
-	.testimonial-body
-		display: flex
-		position: relative
-		flex-direction: column
-		flex-grow: 1
-		@include media-breakpoint-up(md)
-			flex-direction: row
-		i.quote-icon
-			color: $color-brand
-			display: block
-			position: absolute
-			font-size: 16rem
-			display: block
-			top: -3rem
-			line-height: 1
-			position: absolute
-			opacity: 0.2
-			left: -5rem
-			line-height: 1
-			@include media-breakpoint-up(md)
-				font-size: 10rem
-				position: relative
-				opacity: 1
-				top: 0
-				left: 0
-		p.testimonial-text
-			font-size: 2rem
-			font-family: $font-serif
-			font-style: italic
-			padding-left: 2rem
-			padding-top: 4rem
-			margin-bottom: 1rem
-			@include media-breakpoint-up(md)
-				padding-top: 4rem
-				font-size: 2.2rem
-				padding-left: 0
-	.testimonial-meta
-		display: flex
-		justify-content: center
-		@include media-breakpoint-up(md)
-			justify-content: flex-end
-		.testimonial-meta-content
-			width: 100%
-			display: flex
-			flex-direction: column
-			align-items: flex-end
-			align-content: center
-			text-align: right
-			@include media-breakpoint-up(md)
-				//max-width: 40rem
-				flex-direction: row-reverse
-				align-items: center
-				align-content: center
-				text-align: right
-			img
-				width: 7rem
-				height: 7rem
-				border-radius: 100%
-				box-shadow: 0 0 30px -20px rgba(0,0,0,0.4)
-				margin-bottom: 1rem
-				@include media-breakpoint-up(md)
-					margin-bottom: 0
-					margin-left: 2rem
+// .testimonial
+// 	display: flex
+// 	flex-direction: column
+// 	.testimonial-body
+// 		display: flex
+// 		position: relative
+// 		flex-direction: column
+// 		flex-grow: 1
+// 		@include media-breakpoint-up(md)
+// 			flex-direction: row
+// 		i.quote-icon
+// 			color: $color-brand
+// 			display: block
+// 			position: absolute
+// 			font-size: 16rem
+// 			display: block
+// 			top: -3rem
+// 			line-height: 1
+// 			position: absolute
+// 			opacity: 0.2
+// 			left: -5rem
+// 			line-height: 1
+// 			@include media-breakpoint-up(md)
+// 				font-size: 10rem
+// 				position: relative
+// 				opacity: 1
+// 				top: 0
+// 				left: 0
+// 		p.testimonial-text
+// 			font-size: 2rem
+// 			font-family: $font-serif
+// 			font-style: italic
+// 			padding-left: 2rem
+// 			padding-top: 4rem
+// 			margin-bottom: 1rem
+// 			@include media-breakpoint-up(md)
+// 				padding-top: 4rem
+// 				font-size: 2.2rem
+// 				padding-left: 0
+// 	.testimonial-meta
+// 		display: flex
+// 		justify-content: center
+// 		@include media-breakpoint-up(md)
+// 			justify-content: flex-end
+// 		.testimonial-meta-content
+// 			width: 100%
+// 			display: flex
+// 			flex-direction: column
+// 			align-items: flex-end
+// 			align-content: center
+// 			text-align: right
+// 			@include media-breakpoint-up(md)
+// 				flex-direction: row-reverse
+// 				align-items: center
+// 				align-content: center
+// 				text-align: right
+// 			img
+// 				width: 7rem
+// 				height: 7rem
+// 				border-radius: 100%
+// 				box-shadow: 0 0 30px -20px rgba(0,0,0,0.4)
+// 				margin-bottom: 1rem
+// 				@include media-breakpoint-up(md)
+// 					margin-bottom: 0
+// 					margin-left: 2rem
 
 
-			h4
-				font-size: 1.8rem
-				margin: 0
-			h5
-				font-size: 1.6rem
-				margin: 0
-				width: 300px
-				span
-					font-weight: normal
+// 			h4
+// 				font-size: 1.8rem
+// 				margin: 0
+// 			h5
+// 				font-size: 1.6rem
+// 				margin: 0
+// 				width: 300px
+// 				span
+// 					font-weight: normal
 
-	&:nth-child(even)
-		.testimonial-meta
-			@include media-breakpoint-up(md)
-				//justify-content: flex-start
+// 	&:nth-child(even)
+// 		.testimonial-meta
+// 			@include media-breakpoint-up(md)
 

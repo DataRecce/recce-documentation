@@ -1,55 +1,24 @@
 .btn
 	font-size: 1.6rem
 	border-radius: 0.5rem
-	padding: 0.5rem 2rem
+	padding: 1rem 1.6rem
 	font-weight: bold
 	transition: none
-	text-transform: uppercase
-	border-left: none
-	border-right: none
+	text-transform: capitalize
+	border: none
 	font-family: $font-header
 	font-weight: 600
 	@include media-breakpoint-up(lg)
 		font-size: 2rem
 	&.btn-primary
 		background-color: $color-brand
-		border-color: $color-brand
-		border-bottom: solid darken($color-brand, 30%) 4px
 		&:hover, &:focus, &:active
-			background-color: $color-brand !important
-			border-color: $color-brand !important
+			background-color: darken($color-brand, 10%)
 	&.btn-secondary
 		background-color: $color-dark-gray
-		border-color: $color-dark-gray
-		border-bottom: solid darken($color-dark-gray, 50%) 4px
+		border: none
 		color: #fff
 		&:hover, &:focus, &:active
-			background-color: $color-dark-gray !important
-			border-color: $color-dark-gray !important
-
-		
+			background-color: $color-black !important
 	a
 		color: #fff
-	&:hover, &:focus, &:active
-		border-bottom: 0px
-		position: relative
-		bottom: -4px
-		margin-bottom: 4px
-	// &.btn-primary-alt
-	// 	background-color: darken($color-brand-highlight, 10%)
-	// 	border-color: darken($color-brand-highlight, 30%)
-	// 	color: $color-white
-	// 	color: darken($color-brand-highlight, 70%)
-	// 	transition: none
-	// 	padding: 1rem 2rem
-	// 	font-weight: bold
-	// 	border-bottom: solid black 3px
-	// 	margin-top: 1rem
-	// 	text-transform: uppercase
-	// 	&:hover, &:focus, &:active
-	// 		background-color: darken($color-brand-highlight, 10%) !important
-	// 		border-color: darken($color-brand-highlight, 30%) !important
-	// 		border-bottom: none
-	// 		position: relative
-	// 		bottom: -3px
-	// 		margin-bottom: 4px
