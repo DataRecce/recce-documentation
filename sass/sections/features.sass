@@ -1,6 +1,40 @@
+section.features
+	.section-content
+		padding: 8rem 0
+	.feature
+		display: flex
+		flex-direction: column
+		margin-bottom: 12rem
+		&:last-of-type
+			margin-bottom: 0
+		@include media-breakpoint-up(lg)
+			flex-direction: row
+			justify-content: space-between
+			align-items: center
+
+		&:nth-child(even)
+			@include media-breakpoint-up(lg)
+				flex-direction: row-reverse			
+
+		.feature-details
+			width: 100%
+			@include media-breakpoint-up(lg)
+				width: 40%
+
+		.feature-image
+			width: 100%
+			@include media-breakpoint-up(lg)
+				width: 50%
+			img
+				width: 100%
+				height: auto
+
+
+
+
 $block-width: 800px
 
-section.features
+section.featuresold
 	padding: 0
 	display: flex
 	flex-direction: column

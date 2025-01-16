@@ -1,40 +1,86 @@
 section.footer
-	background-color: darken($color-dark-gray, 10%)
-	background-color: $color-brand
-	color: $color-white
-	.footer-holder
+	.section-content
 		display: flex
 		flex-direction: row
 		justify-content: space-between
-		align-items: center
-		align-content: center
-		.brand
-			display: flex
-			flex-direction: row
-			align-content: center
-			justify-content: center
-			align-items: center
-			text-decoration: none
-			margin-right: 1rem
-			.logo
-				margin-right: 1rem
+		.footer-brand
+			width: 50%
+			@include media-breakpoint-up(md)
+				width: auto
+			.brand
 				display: flex
-				justify-content: center
+				flex-direction: row
 				align-items: center
-				align-content: center
-				width: 35px
-				img
-					width: 100%
-					max-width: 50px
-					height: auto
-			h1
-				margin: 0
-				padding: 0
-				font-size: 2.6rem
-				text-transform: uppercase
-				font-family: $font-brand
-				color: $color-white
-				font-weight: 800
+				text-decoration: none
+				.logo
+					margin-right: 1.2rem
+					display: flex
+					align-items: center
+					margin-bottom: 2rem
+					width: 40px
+					@include media-breakpoint-up(lg)
+						width: 80px
+					img
+						width: 100%
+						height: auto
+				h1
+					margin: 0
+					padding: 0
+					text-transform: uppercase
+					font-family: $font-brand
+					color: $color-brand
+					font-weight: 800
+					font-size: 2.2rem
+					@include media-breakpoint-up(lg)
+						font-size: 4.2rem
 
-		p.copy
-			margin-bottom: 0
+			h2
+				max-width: 100%
+				font-weight: normal
+				font-size: 1.8rem
+				@include media-breakpoint-up(md)
+					font-size: 2.4rem
+					max-width: 60%
+
+		.footer-links
+			width: 50%
+			padding-left: 3rem
+			padding-top: 2rem
+
+			@include media-breakpoint-up(md)
+				padding-left: 1rem
+				padding-right: 2rem
+				width: 25%
+				width: auto
+
+			@include media-breakpoint-up(lg)
+				padding-left: 0
+
+			ul.footer-nav
+				list-style: none
+				li
+					font-weight: bold
+					i
+						display: inline-block
+						&:first-of-type
+							color: $color-brand
+					a 
+						display: inline-block
+						i
+							color: inherit
+						&:hover, &:focus
+							color: $color-brand
+
+
+			h2
+				font-size: 1.8rem
+
+
+	.copy
+		padding: 2rem 0
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		p
+			color: $color-medium-gray
+

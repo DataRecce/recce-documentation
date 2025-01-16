@@ -1,0 +1,73 @@
+section.getting-started
+	.section-content
+		background-color: #151B23
+		border-radius: 2rem
+		padding: 6rem 2rem
+		color: $color-white
+
+		display: flex
+		flex-direction: column-reverse
+
+
+		@include media-breakpoint-up(lg)
+			flex-direction: row
+			padding: 6rem
+
+		.code-example, .get-started
+			display: flex
+			flex-direction: column
+
+		.code-example
+			width: 100%
+			border: solid $color-dark-gray 1px
+			border-radius: 2rem
+			padding: 3rem 3rem
+			@include media-breakpoint-up(lg)
+				width: 50%
+			@include media-breakpoint-up(xxl)
+				width: 45%
+
+			span
+				color: $color-brand
+				color: $color-medium-gray
+
+		.get-started
+			justify-content: space-between
+			width: 100%
+			padding-left: 3rem
+			margin-bottom: 3rem
+			@include media-breakpoint-up(lg)
+				width: 50%
+				margin-bottom: 0
+			@include media-breakpoint-up(xxl)
+				width: 55%
+
+			h2	
+				font-size: 3.5rem
+			
+			ul.steps
+				padding: 5rem 0
+				@include media-breakpoint-up(lg)
+					padding: 0
+				li
+					font-size: 2.5rem
+					margin-bottom: 2rem
+					display: flex
+					list-style: none
+					font-family: $font-header
+
+					i
+						width: 2rem
+						height: 2rem
+						color: $color-brand
+						padding-right: 3rem
+					span
+						display: inline-block
+			p
+				text-align: right
+				a
+					text-decoration: none
+					font-weight: 700					
+
+
+

@@ -1,0 +1,66 @@
+section.roles
+	.section-content
+		border: solid $color-medium-gray 1px
+		border-radius: 2rem
+		padding: 6rem 8rem
+		.roles-content
+			display: grid
+			grid-template-columns: 1fr
+			grid-row-gap: 4rem
+			@include media-breakpoint-up(lg)
+				grid-column-gap: 10%
+				grid-template-columns: 30% 60%
+
+			.roles-details
+				h2
+					span
+						color: $color-brand
+
+			.roles-holder
+				display: grid
+				grid-template-columns: 1fr
+				grid-row-gap: 5rem
+				grid-column-gap: 2rem
+				@include media-breakpoint-up(xl)
+					grid-template-columns: 1fr 1fr
+				.role
+					border-radius: 2rem
+					overflow: hidden
+					background-color: rgba(235, 235, 235, 1)
+					.role-header
+						background-color: $color-black
+						color: $color-white
+						h2
+							font-size: 1.8rem
+							padding: 2rem
+							text-transform: uppercase
+
+					.role-body
+						padding: 2rem 2rem 2rem 2rem
+						ul
+							list-style: none
+							padding: 0
+							margin: 0
+							li
+								margin-bottom: 1.5rem
+								display: flex
+								i
+									display: inline-block
+									display: flex
+									margin-right: 1rem
+									font-size: 2rem
+									color: $color-brand
+									margin-top: 0.4rem
+								span
+									display: inline-block
+					&.highlight
+						background-color: $color-brand-lighter
+						.role-header
+							background-color: $color-brand
+						.role-body
+							color: #904129
+
+
+
+
+				

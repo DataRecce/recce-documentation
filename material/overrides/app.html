@@ -58,14 +58,12 @@
 
           <div class="nav-holder">
             <ul class="nav">
-              <li class="nav-item"><a href="/cloud" class="nav-link">Cloud</a></li>
+              <!-- <li class="nav-item"><a href="/cloud" class="nav-link">Cloud</a></li> -->
               <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
               <li class="nav-item"><a href="/docs" class="nav-link">Docs</a></li>
               <li class="nav-item"><a href="/case-studies" class="nav-link">Case Studies</a></li>
-              <li class="nav-item"><a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub <i class="bi bi-box-arrow-up-right"></i></a></li>  
-              <li class="nav-item btn btn-primary signup"><a href="/#signup" class="nav-link">Sign Up</a></li>
+              <li class="nav-item btn btn-primary signup"><a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub <i class="bi bi-box-arrow-up-right"></i></a></li>
             </ul>
-            <p class="quotes-cta d-none">Here's <a href="/#users">what our users are saying</a> about Recce <i class="bi bi-chat-heart-fill"></i></p>
 
         </div>
       </div>
@@ -74,40 +72,81 @@
 
     {% block content %}{% endblock %}
 
+    <section class="cal-book" id="cal">
 
-    <section class="footer">
-      <div class="container">
-        <div class="row">
-
-          <div class="col col-12 col-sm-12">
-
-            <div class="footer-holder pb-5">
-
-              <div class="d-flex flex-column align-items-start">
-                <a href="#top" class="brand mb-2">
-                  <div class="logo">
-                    <img src="/assets/images/recce-logo-white.png" />
-                  </div>
-                  <h1>Recce</h1>
-                </a>
-
-                <p class="copy">&copy; 2024 InfuseAI / Recce</p>  
-              </div>
-              
-              
-              <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
-                  <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" />
-                </a>
-            </div>
-          
+      <div class="container-xl">
+        <div class="section-content">
+          <div class="section-header">
+            <span class="section-tag">Get in touch</span>
+            <h2>Book <span>a</span> Demo</h2>
+            <p>Find out more about how Recce can improve your data PR review process</p>
           </div>
 
+          <!-- Cal inline embed code begins -->
+          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+          <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", "chat", {origin:"https://cal.com"});
+
+            Cal.ns.chat("inline", {
+            elementOrSelector:"#my-cal-inline",
+            calLink: "team/recce/chat",
+            layout: "month_view"
+            });
+
+            Cal.ns.chat("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#ff6e42"}},"hideEventTypeDetails":false,"layout":"month_view"});
+            </script>
+            <!-- Cal inline embed code ends -->
+
+            <p class="text-center py-5">
+              <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
+                <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" />
+              </a>
+            </p>
 
         </div>
       </div>
-
     </section>
 
+    <section class="footer">
+      <div class="container-xl">
+
+        <div class="section-content">
+
+          <div class="footer-brand">
+            <a href="#top" class="brand mb-2">
+              <div class="logo">
+                <img src="/assets/images/recce-logo-orange.png" />
+              </div>
+              <h1>Recce</h1>
+            </a>
+
+            <h2>Preview dbt data modeling changes before merging to prod.</h2> 
+          </div>
+
+          <div class="footer-links">
+            <h2>Quick Links</h2>
+            <ul class="footer-nav">
+              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/blog" class="nav-link">Blog</a></li>
+              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/docs" class="nav-link">Documentation</a></li>
+              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/case-studies" class="nav-link">Case Studies</a></li>
+              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub</a></li>  
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="copy">
+
+            <p>&copy; 2025 InfuseAI / Recce</p>  
+
+            <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
+              <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" />
+            </a>
+        </div>
+
+      </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
