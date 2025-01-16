@@ -6,17 +6,22 @@ section.roles
 		.roles-content
 			display: grid
 			grid-template-columns: 1fr
-			grid-row-gap: 6rem
+			grid-row-gap: 4rem
 			@include media-breakpoint-up(lg)
 				grid-column-gap: 10%
 				grid-template-columns: 30% 60%
+
+			.roles-details
+				h2
+					span
+						color: $color-brand
 
 			.roles-holder
 				display: grid
 				grid-template-columns: 1fr
 				grid-row-gap: 5rem
 				grid-column-gap: 2rem
-				@include media-breakpoint-up(lg)
+				@include media-breakpoint-up(xl)
 					grid-template-columns: 1fr 1fr
 				.role
 					border-radius: 2rem
@@ -31,9 +36,11 @@ section.roles
 							text-transform: uppercase
 
 					.role-body
-						padding: 2rem
+						padding: 2rem 2rem 2rem 2rem
 						ul
 							list-style: none
+							padding: 0
+							margin: 0
 							li
 								margin-bottom: 1.5rem
 								display: flex

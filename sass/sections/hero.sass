@@ -4,6 +4,7 @@ section.hero
 	align-items: center
 	overflow: hidden
 	position: relative
+	padding-top: 0
 
 	.section-content
 		display: flex
@@ -33,17 +34,20 @@ section.hero
 					font-size: 4rem
 				@include media-breakpoint-up(md)
 					font-size: 5rem
-					br
-						display: none
 
 				@include media-breakpoint-up(lg)
 					font-size: 5.5rem
+				@include media-breakpoint-up(xl)
+					font-size: 6rem
 					br
 						display: block
 			h2
-				font-size: 2rem
-				font-weight: 300
+				font-size: 1.8rem
+				font-weight: 500
 				line-height: 1.6
+				color: $color-dark-gray
+				padding-left: 10%
+				padding-right: 10%
 				strong
 					font-weight: 600
 
@@ -55,11 +59,18 @@ section.hero
 				font-weight: 800
 				font-size: 2.6rem
 
+			a.btn
+				margin: 2rem 1rem
+				border-radius: 1rem
+				letter-spacing: 1px
+				font-size: 1.7rem
+
 		.featured-image
 			width: 100%
 			height: 100%
 			.featured-image-holder
 				box-shadow: 0 0 27px -15px $color-dark-gray
+				box-shadow: 0 0 50px -35px darken($color-brand, 40%)
 				border-radius: 1rem
 				overflow: hidden
 

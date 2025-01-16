@@ -1,8 +1,17 @@
 section.cal-book
-	background-color: $color-cal
-	
-	.section-header
+
+	.section-content
 		color: $color-white
-		text-transform: initial
-		span
-			text-transform: lowercase
+		background-color: $color-cal
+		border-radius: 2rem
+		padding: 3rem
+		@include media-breakpoint-up(lg)
+			padding: 4rem 6rem
+
+		.section-header
+			text-align: left
+			.section-tag
+				background-color: rgba(255, 110, 66, 0.2)
+			p
+				max-width: 35%
+

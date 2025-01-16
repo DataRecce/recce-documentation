@@ -8,6 +8,9 @@
 	border: none
 	font-family: $font-header
 	font-weight: 600
+	&.btn-small
+		padding: 0.5rem 1rem
+		font-size: 1.4rem
 	@include media-breakpoint-up(lg)
 		font-size: 2rem
 	&.btn-primary
@@ -20,5 +23,12 @@
 		color: #fff
 		&:hover, &:focus, &:active
 			background-color: $color-black !important
+
+	&.btn-dark
+		background-color: $color-black
+		border: none
+		color: #fff
+		&:hover, &:focus, &:active
+			background-color: #00c0f3
 	a
 		color: #fff
