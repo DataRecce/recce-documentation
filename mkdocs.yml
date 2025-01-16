@@ -53,7 +53,7 @@ nav:
           - docs/features/recce-summary.md
       - Advanced Features:
           - docs/features/state-file.md
-          - docs/features/preset-checks.md                    
+          - docs/features/preset-checks.md
           - docs/features/node-selection.md
           - docs/reference/configuration.md
       - Scenarios:
@@ -63,19 +63,22 @@ nav:
           - docs/guides/best-practices-prep-env.md
       - Architecture:
           - docs/architecture/overview.md
+      - Privacy & Terms:
+          - docs/agreement/privacy-policy.md
+          - docs/agreement/terms-of-use.md
   - Cloud (Alpha):
       - docs/recce-cloud/index.md
       - docs/recce-cloud/getting-started-recce-cloud.md
-      - docs/recce-cloud/setup-gh-actions.md      
+      - docs/recce-cloud/setup-gh-actions.md
       - docs/recce-cloud/setup-gh-codespaces.md
       - docs/recce-cloud/expose-recce-instance-visibility.md
       - Cloud Architecture:
-        # - docs/recce-cloud/architecture/index.md
-        - docs/recce-cloud/architecture/security.md
+          # - docs/recce-cloud/architecture/index.md
+          - docs/recce-cloud/architecture/security.md
   #- Blog: "https://medium.com/inthepipeline"
   - Blog:
-    - blog/index.md
-    - blog/tags.md
+      - blog/index.md
+      - blog/tags.md
 
 markdown_extensions:
   - admonition
@@ -93,6 +96,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
         #- toc:
         #   title: On this page
+
 
   - pymdownx.superfences:
       custom_fences:
