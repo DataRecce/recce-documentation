@@ -39,11 +39,6 @@ The current implementation of breaking change analysis is still very conservativ
 1. Adding a `LEFT JOIN` to a table and selecting columns from it. This is often used to enrich the current model with additional dimension table data without affecting existing downstream tables.
 1. All modified python models or seeds are treated as breaking change.
 
-
-In some cases, breaking changes may be mistakenly identified as non-breaking changes, such as:
-
-1. Adding a new column can result in a table expansion effect, similar to the functionality of DuckDB's [unnest function](https://duckdb.org/docs/sql/query_syntax/unnest.html). The unnest function flattens lists or structs, potentially transforming a single upstream row into multiple downstream rows.
-
 ## Technology
 
 Breaking Change Analysis is powered by the SQL analysis and AST diff capabilities of [SQLGlot](https://github.com/tobymao/sqlglot) to  compare two SQL semantic trees.
