@@ -43,7 +43,6 @@ nav:
           - docs/get-started-jaffle-shop.md
           - docs/installation.md
           - docs/start-with-dbt-cloud.md
-          - docs/start-with-sqlmesh.md
       - Web UI:
           - docs/features/lineage.md
           - docs/features/query.md
