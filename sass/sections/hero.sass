@@ -20,6 +20,36 @@ section.hero
 			z-index: 99
 			text-align: center
 
+			.release
+				border: solid darken($color-light-gray, 20%) 1px
+				border-radius: 20px
+				display: inline-block
+				padding: 0.5rem 1rem
+				font-weight: 600
+				margin-bottom: 2rem
+				position: relative
+				i
+					font-size: 110%
+				i, span
+					color: $color-brand
+				&:hover
+					background-color: $color-brand
+					border-color: $color-brand
+					color: $color-white
+					i, span
+						color: $color-white
+
+
+				a
+					text-decoration: none
+					position: absolute
+					top: 0
+					left: 0
+					bottom: 0
+					right: 0
+
+
+
 
 			h1
 				font-size: 3rem
