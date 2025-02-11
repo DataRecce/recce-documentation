@@ -16,12 +16,36 @@
 
 {% block content %}
 
+    <script>
+      async function getLatestRelease() {
+          try {
+              const response = await fetch('https://api.github.com/repos/DataRecce/recce/releases/latest');
+              const data = await response.json();
+              
+              const latestVersion = data.tag_name;
+              const releaseLink = data.html_url;
+
+              // Update the page with a clickable link
+              document.getElementById('release-info').innerHTML = 
+                `<i class="bi bi-rocket-takeoff"></i> We just launched Recce ${latestVersion}! <span>Take a look</span> <a href="${releaseLink}" target="_blank" title="Check out the release notes for Recce ${latestVersion}"></a>`;
+          } catch (error) {
+              console.error('Error fetching release data:', error);
+              //document.getElementById('release-info').textContent = "Failed to fetch release data.";
+          }
+      }
+
+      getLatestRelease();
+    </script>
+
 
     <section class="hero">
       <div class="container-xl">
         <div class="section-content">
 
           <div class="message">
+            <div class="release" id="release-info">
+            </div>
+
             <h1>Self&#8209;Serve&nbsp;<span>Review</span>&nbsp;<br />for&nbsp;Self&#8209;Serve&nbsp;<span>Data</span></h1>
 
             <h2>Contextual data impact analysis for comprehensive PR review. Validate data impact with reproducible data testing environments during development and as part of continuous integration.</h2>
