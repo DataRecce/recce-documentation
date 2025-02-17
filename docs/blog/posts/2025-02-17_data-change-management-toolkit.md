@@ -3,7 +3,7 @@ title: Recce - Your data change management toolkit
 date: 2025-02-17
 slug: recce-data-change-management-toolkit
 description: >
-   Recce's updated interface lets you stay on track while assessing and exploring data impact in your dbt project when making dbt data model changes, and performing dbt PR review. 
+   With Recce you’re able to validate your data modeling changes against a known-good baseline, comparing datasets before and after your modifications, in a risk-free environment. And there’s a diff for every occasion.
 categories:
   - Data Change Management
   - Impact assessment
