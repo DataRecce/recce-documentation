@@ -57,7 +57,7 @@ In this mode, you can perform the following actions:
 - Track model changes with basic lineage diff
 - Run queries with Jinja and macros
 
-## Full comparison mode
+### Full comparison mode
 
 To use the full suite of diffing tools in Recce, set up a base dbt environment for Recce to compare against. 
 
