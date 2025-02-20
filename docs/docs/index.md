@@ -6,7 +6,7 @@ icon: material/hand-wave-outline
 
 # What is **Recce**?
 
-**Recce** is a data validation toolkit designed to enhance the pull request (PR) review process for dbt projects. **Recce** provides enhanced visibility into the data impact from dbt modeling changes by comparing the data in dev and prod environments. Using Recce for data impact assessment before merging a PR ensures that production data remains stable and accurate.
+**Recce** (/ˈrɛki/), pronounced 'reh-kee', is short for 'reconnaissance'. It's a data change management toolkit designed to enhance the pull request (PR) review process for dbt projects. **Recce** provides enhanced visibility into the data impact from dbt modeling changes by comparing the data in dev and production environments. Using Recce for data impact assessment before merging a PR ensures that production data remains stable and accurate.
 
 ## Key Features
 
@@ -38,38 +38,30 @@ The improved visibility into data impact gives PR reviewers the confidence to si
 <div style="position: relative; padding-bottom: 71.68758716875871%; height: 0;"><iframe src="https://www.loom.com/embed/f6ea8a9b37964cbd9821bb6896d3206f?sid=9c701279-08cd-45c5-b12d-e7967d8f898d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 
-## How **Recce** Works
+## How Recce Works
+Recce works by comparing dbt model changes between two environments, which is essential for full impact analysis. However, you can still get started with Recce without first preparing a base environment.
 
-**Recce** compares dbt environments using the dbt artifacts from both **dev** and **prod** environments. 
+### Quick start
 
-1. Generate artifacts for the **prod** environment:
+Launch Recce in any dbt project in just two commands:
 
-    ```
-    # Build prod and generate dbt docs into ./target-base
-    dbt seed --target prod
-    dbt run --target prod
-    dbt docs generate --target prod --target-path ./target-base
-    ```
+```yaml
+# cd into your dbt project
+pip install -U recce
+recce server
+```
 
-2. Switch to your **dev** branch and generate dev artifacts:
+In this mode, you can perform the following actions:
 
-    ```
-    # Switch to your dev branch
-    git switch my-awesome-branch
+- Explore lineage and navigate your dbt project
+- Track model changes with basic lineage diff
+- Run queries with Jinja and macros
 
-    # build your dev environment
-    dbt seed
-    dbt run
-    dbt docs generate
-    ```
+## Full comparison mode
 
-3. Start your **Recce** Instance:
+To use the full suite of diffing tools in Recce, set up a base dbt environment for Recce to compare against. 
 
-    ```
-    recce server
-    ```
-
-Open your the **Recce** web UI to start exploring and understanding data impact, and validating your work.
+See the [Getting Started](get-started.md) page for instructions on how to do this.
 
 ## What you get
 
