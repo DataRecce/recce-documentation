@@ -13,7 +13,7 @@ Common use-cases for column-level lineage are
 
 ## Usage
 
-1. Select a node in thew lineage DAG, then click the **eye** icon next to the column you want to view.
+1. Select a node in the lineage DAG, then click the **eye** icon next to the column you want to view.
 
     ![alt text](../../assets/images/features/cll-1.png){: .shadow}
 
@@ -23,7 +23,7 @@ Common use-cases for column-level lineage are
 
 ## Transformation Types
 
-The transformation type is also displayed for each column, which will help in understanding how the column was generated or modified.
+The transformation type is also displayed for each column, which will help you understand how the column was generated or modified.
 
 | Type | Description  |
 |------|--------------|
