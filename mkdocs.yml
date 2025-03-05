@@ -55,6 +55,7 @@ nav:
           - docs/features/preset-checks.md
           - docs/features/node-selection.md
           - docs/features/breaking-change-analysis.md
+          - docs/features/column-level-lineage.md
           - docs/reference/configuration.md
       - Scenarios:
           - docs/guides/scenario-dev.md
