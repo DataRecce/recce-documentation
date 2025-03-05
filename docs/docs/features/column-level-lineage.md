@@ -13,7 +13,7 @@ Common use-cases for column-level lineage are
 
 ## Usage
 
-1. Select a node and click the **eye** icon next to a column.
+1. Select a node in thew lineage DAG, then click the **eye** icon next to the column you want to view.
 
     ![alt text](../../assets/images/features/cll-1.png){: .shadow}
 
@@ -23,17 +23,17 @@ Common use-cases for column-level lineage are
 
 ## Transformation Types
 
-Each column can also display its transformation type, helping users understand how the column was generated or modified.
+The transformation type is also displayed for each column, which will help in understanding how the column was generated or modified.
 
 | Type | Description  |
 |------|--------------|
-| Pass Through  |The column is directly selected from the upstream table. |
+| Pass-through  |The column is directly selected from the upstream table. |
 | Renamed | The column is selected from the upstream table but with a different name. |
 | Derived | The column is created through transformations applied to upstream columns, such as calculations, conditions, functions, or aggregations. |
 | Source | The column is not derived from any upstream data. It may originate from a seed/source node, literal value, or data generation function. |
-| Unknown | We have no information about the transformation type. It can be parse error or any unknown reason. | 
+| Unknown | We have no information about the transformation type. This could be due to a parse error, or other unknown reason. | 
 
 
 ## Limitation
 
-Column-level lineage only displays column selection operations. It does not indicate whether a column is used in filters (WHERE clauses), grouping (GROUP BY), joins, or other transformations.
+Column-level lineage only displays column selection operations. It does not indicate if a column has been used in filters (WHERE clauses), with grouping (GROUP BY), joins, or other transformations.
