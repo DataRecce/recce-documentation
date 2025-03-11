@@ -13466,6 +13466,18 @@ section.case-study .case-study-body .testimonial {
   }
 }
 
+section.security-compliance .section-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+section.security-compliance .section-content img {
+  max-width: 200px;
+  height: auto;
+}
+
 body {
   position: relative;
   min-height: 100vh;
