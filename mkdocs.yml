@@ -3,7 +3,7 @@ site_description: >-
   Data change validation for dbt projects - 
   Create 'all signal, no noise' pull request comments
 
-copyright: Copyright &copy; 2024 InfuseAI / Recce <br /><a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" /><img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" /></a>
+copyright: Copyright &copy; 2025 Recce <br /><a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" /><img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" /></a>
 
 # Repository
 repo_name: datarecce/recce
@@ -66,6 +66,7 @@ nav:
           - docs/architecture/overview.md
       - Privacy & Terms:
           - docs/agreement/privacy-policy.md
+          - docs/agreement/cookies-policy.md
           - docs/agreement/terms-of-use.md
   - Cloud (Alpha):
       - docs/recce-cloud/index.md
