@@ -7,7 +7,7 @@ icon: fontawesome/solid/user-shield
 
 _Effective date: January 1, 2025_
 
-This Privacy Policy explains how your personal information is collected, used and disclosed by InfuseAI Inc. (“InfuseAI,” “we” or “us”) when you use our website [https://datarecce.io](https://datarecce.io), online products and monitoring services (“Platform”) (collectively, “Services”), or when you otherwise interact with us. This Privacy Policy also describes your choices regarding use, access and correction of personal information collected about you through our Services.
+This Privacy Policy explains how your personal information is collected, used and disclosed by InfuseAI Inc. (“Recce,” “we” or “us”) when you use our website [https://datarecce.io](https://datarecce.io), online products and monitoring services (“Platform”) (collectively, “Services”), or when you otherwise interact with us. This Privacy Policy also describes your choices regarding use, access and correction of personal information collected about you through our Services.
 
 By accessing or using the Services, you acknowledge that you have read and understood the content of this Privacy Policy and consent to our collection, using and sharing of your personal information. Please read this Privacy Policy carefully and ensure that you understand it before you start.
 
@@ -27,7 +27,7 @@ When you access or use the Services, we automatically collect personal informati
 
 Log Files: We gather certain personal information about your use of the Services, including the type of browser you use, access times, pages viewed, your IP address and the page you visited before navigating to the Services, and store it in log files.
 
-Personal information Collected by Cookies and Other Tracking Technologies: We use various technologies to collect personal information including cookies. For more information about cookies, and how to disable them, please see our Cookie Policy page [https://www.infuseai.io/document/privacy-policy#](https://www.infuseai.io/document/privacy-policy#) and Your Choices below.
+Personal information Collected by Cookies and Other Tracking Technologies: We use various technologies to collect personal information including cookies. For more information about cookies, and how to disable them, please see our Cookie Policy page [https://datarecce.io/docs/agreement/privacy-policy/](/docs/agreement/privacy-policy/) and Your Choices below.
 
 ### Personal information We Collect from Other Sources
 
@@ -54,7 +54,7 @@ We may use your personal information to:
 - Notify you about important changes to the Services, including changes or updates to this Privacy Policy;
 - Facilitate contests, sweepstakes and promotions and process and deliver entries and rewards;
 - Link or combine with personal information we get from others to help understand your needs and provide you with better service;
-- Consider you for possible employment at InfuseAI in connection with an application that you submit; and
+- Consider you for possible employment at Recce in connection with an application that you submit; and
 - Carry out any other purpose described to you at the time the personal information was collected.
 
 ## Our Sharing of Personal Information
@@ -65,11 +65,11 @@ With vendors, consultants and other service providers we have vetted and approve
 
 In response to a request for personal information if we believe disclosure is permitted by, in accordance with, or required by, any applicable law, regulation or legal process such as to comply with a subpoena or applicable court order;
 
-With any person to whom disclosure is necessary to enable us to enforce our rights under this Privacy Policy or under any agreement we enter into with you or to protect the rights, property and safety of InfuseAI or third parties;
+With any person to whom disclosure is necessary to enable us to enforce our rights under this Privacy Policy or under any agreement we enter into with you or to protect the rights, property and safety of Recce or third parties;
 
-In connection with, or during negotiations of, any merger, sale of InfuseAI assets, financing or acquisition of all or a portion of our business by another company;
+In connection with, or during negotiations of, any merger, sale of Recce assets, financing or acquisition of all or a portion of our business by another company;
 
-Between and among InfuseAI and all companies affiliated with InfuseAI who may act for us for any of the purposes set out in this Privacy Policy, including our current and future parents, affiliates, subsidiaries and other companies under common control and ownership;
+Between and among Recce and all companies affiliated with Recce who may act for us for any of the purposes set out in this Privacy Policy, including our current and future parents, affiliates, subsidiaries and other companies under common control and ownership;
 
 With analytics and search engine providers that assist us in the improvement and optimization of our Website, subject to our Cookies Policy; and
 
@@ -126,11 +126,11 @@ You may be able to add, update or delete your personal information, but we will 
 
 ### Cookies
 
-Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. Please note that if you choose to remove or reject cookies, this could affect the availability and functionality of our Services. For more information, please see InfuseAI’s Cookie Policy at [https://www.infuseai.io/document/privacy-policy#](https://www.infuseai.io/document/privacy-policy#)
+Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. Please note that if you choose to remove or reject cookies, this could affect the availability and functionality of our Services. For more information, please see Recce’s Cookie Policy at [https://datarecce.io/docs/agreement/cookies-policy/](/docs/agreement/cookies-policy/) 
 
 ## Promotional Communications
 
-You may opt out of receiving promotional emails from infuseAI by following the instructions in those emails or by emailing us If you opt out, we may still send you non-promotional emails, such as those about your account or our ongoing business relations.
+You may opt out of receiving promotional emails from Recce by following the instructions in those emails or by emailing us If you opt out, we may still send you non-promotional emails, such as those about your account or our ongoing business relations.
 
 ## Contact Us
 
