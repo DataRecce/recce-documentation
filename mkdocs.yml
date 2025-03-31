@@ -17,20 +17,22 @@ extra:
     provider: google
     property: G-E06MSTE2SX
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/DataRecce/recce
-    - icon: fontawesome/brands/slack
-      link: https://getdbt.slack.com/archives/C05C28V7CPP
     - icon: fontawesome/brands/discord
       link: https://discord.gg/HUUx9fyphJ
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/datarecce
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/datarecce
+    - icon: fontawesome/brands/bluesky
+      link: https://x.com/datarecce
     - icon: fontawesome/brands/mastodon
       link: https://mastodon.social/@DataRecce
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/datarecce
     - icon: fontawesome/brands/medium
       link: https://medium.com/inthepipeline
+    - icon: fontawesome/brands/github
+      link: https://github.com/DataRecce/recce
+    - icon: fontawesome/brands/slack
+      link: https://getdbt.slack.com/archives/C05C28V7CPP
 
 nav:
   - index.md

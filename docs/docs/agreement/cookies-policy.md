@@ -14,7 +14,7 @@ Recce ("us", "we", or "our") uses cookies on [https://datarecce.io](https://data
 
 Our Cookies Policy explains what cookies are, how we use cookies, how third-parties we may partner with may use cookies on the Service, your choices regarding cookies and further information about cookies.
 
-What are cookies
+## What are cookies
 Cookies are small pieces of text sent by your web browser by a website you visit. A cookie file is stored in your web browser and allows the Service or a third-party to recognize you and make your next visit easier and the Service more useful to you.
 
 Cookies can be "persistent" or "session" cookies.
