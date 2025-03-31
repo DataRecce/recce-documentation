@@ -10,11 +10,11 @@ output:
 
 ## 1. INTRODUCTION
 
-Welcome to [https://datarecce.io](https://datarecce.io/) (and sub-domains). The website is owned and operated by InfuseAI, Inc. (“InfuseAI” or “we” or “us”). Please read these Terms of Use (“Terms of Use”) carefully as it constitutes a legally binding contract between you and InfuseAI governing your use of the websites owned and/or operated by us and any other online services (collectively, the “Services”). By accessing or using the Services, you agree to be legally bound by these Terms of Use whether as a visitor or as a registered user. If you do not agree with any of these Terms of Use, please do not use or access the Services in any manner.
+Welcome to [https://datarecce.io](https://datarecce.io/) (and sub-domains). The website is owned and operated by InfuseAI, Inc. (“Recce” or “we” or “us”). Please read these Terms of Use (“Terms of Use”) carefully as it constitutes a legally binding contract between you and Recce governing your use of the websites owned and/or operated by us and any other online services (collectively, the “Services”). By accessing or using the Services, you agree to be legally bound by these Terms of Use whether as a visitor or as a registered user. If you do not agree with any of these Terms of Use, please do not use or access the Services in any manner.
 
-You warrant and represent to InfuseAI that you are able to enter into
+You warrant and represent to Recce that you are able to enter into
 
-contracts by any and all applicable laws and regulations. If you are entering into these Terms of Use for an entity, such as the company you work for, you warrant and represent that you have the authority to bind that entity and you agree that “you” as used in these Terms of Use includes both you personally and the entity you represent. You and InfuseAI are collectively referred to as the “Parties” and each is a “Party”
+contracts by any and all applicable laws and regulations. If you are entering into these Terms of Use for an entity, such as the company you work for, you warrant and represent that you have the authority to bind that entity and you agree that “you” as used in these Terms of Use includes both you personally and the entity you represent. You and Recce are collectively referred to as the “Parties” and each is a “Party”
 
 ## 2. DEFINITIONS
 
@@ -24,7 +24,7 @@ contracts by any and all applicable laws and regulations. If you are entering in
 
 **2.3** Billing Information: Any of your billing information, including, without limitation, bank account numbers, credit card or debit card numbers, account details, ACH information, and similar data.
 
-**2.4** Confidential Information: (i) With respect to InfuseAI, the Platform, the Website, and any and all source code relating thereto and any other non-public information or material regarding our legal or business affairs, financing, customers, properties, pricing, or data; (ii) with respect to you, your Data and any other non-public information or material regarding your legal or business affairs, financing, customers, properties, or data; and (iii) with respect to each Party, the terms and conditions of the Services.
+**2.4** Confidential Information: (i) With respect to Recce, the Platform, the Website, and any and all source code relating thereto and any other non-public information or material regarding our legal or business affairs, financing, customers, properties, pricing, or data; (ii) with respect to you, your Data and any other non-public information or material regarding your legal or business affairs, financing, customers, properties, or data; and (iii) with respect to each Party, the terms and conditions of the Services.
 
 **2.5** Data: (i) Any data that you or your Authorized Users submit by using the Services and (ii) Any data on the Servers that you or your Authorized Users query, transform, process or otherwise access.
 
@@ -42,7 +42,7 @@ contracts by any and all applicable laws and regulations. If you are entering in
 
 **3.1** Trial Period
 
-If you register for a free trial, we will make one or more free subscription services available to you on a trial basis free of charge until the earlier of (a) the end of the free trial period for which you registered to use the applicable Services, (b) the start date of any payable Services ordered by you or (c) termination by InfuseAI at our own discretion.
+If you register for a free trial, we will make one or more free subscription services available to you on a trial basis free of charge until the earlier of (a) the end of the free trial period for which you registered to use the applicable Services, (b) the start date of any payable Services ordered by you or (c) termination by Recce at our own discretion.
 
 During the Trial Period, our representations and warranties herein shall not apply, and we will not be liable to you for damages of any kind related to the Services, including, without limitation, your use of, or inability to use, the Services. You are at your own risk during the Trial Period.
 
