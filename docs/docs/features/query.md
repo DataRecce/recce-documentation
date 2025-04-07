@@ -54,7 +54,7 @@ In the current version, Recce provides two ways to compare the query result betw
 
 **Query diff occurs in the client side:**
 
-Without providing primary key(s) upfront, AdDoc query compare in the client side. That is, Recce fetches the first 2,000 rows and compare in the client side. The advantage is it has more flexibility to query sql for no PK, especially when column structures differ or no clear primary key exists.
+Without providing primary key(s) upfront, AdHoc query compare in the client side. That is, Recce fetches the first 2,000 rows and compare in the client side. The advantage is it has more flexibility to query sql for no PK, especially when column structures differ or no clear primary key exists.
 However, the limitation is that we cannot find the mismatched rows in a big query result.
 
 **Query diff occurs in the warehouse:**
