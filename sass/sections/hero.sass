@@ -1,10 +1,23 @@
 section.hero
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 80%, #ECEAEA 100%)
 	display: flex
 	justify-content: center
 	align-items: center
 	overflow: hidden
 	position: relative
 	padding-top: 0
+	padding-bottom: 0
+	z-index: 0
+	&:after
+		height: 0
+		content: ""
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: #fff
+		@include media-breakpoint-up(md)
+			height: 5rem
 
 	.section-content
 		display: flex
@@ -19,15 +32,20 @@ section.hero
 			padding: 3rem
 			z-index: 99
 			text-align: center
-
+			display: flex
+			flex-direction: column
+			align-items: center
+	
 			.release
-				border: solid darken($color-light-gray, 20%) 1px
-				border-radius: 20px
+				//border: solid #D7DDE5 1px
+				background-color: #F3F5F7
+				border-radius: 2rem
 				display: inline-block
-				padding: 0.5rem 1rem
+				padding: 0.7rem 1.3rem
 				font-weight: 600
 				margin-bottom: 2rem
 				position: relative
+
 				i
 					font-size: 110%
 				i, span
@@ -72,14 +90,18 @@ section.hero
 					br
 						display: block
 			h2
-				font-size: 1.8rem
-				font-weight: 500
-				line-height: 1.6
+				font-size: 1.6rem
+				font-weight: 400
+				line-height: 1.7
 				color: $color-dark-gray
 				padding-left: 10%
 				padding-right: 10%
+				width: 100%
+				max-width: 900px
 				strong
 					font-weight: 600
+				@include media-breakpoint-up(lg)
+					font-size: 1.8rem
 
 			h3
 				color: $color-brand
@@ -90,19 +112,22 @@ section.hero
 				font-size: 2.6rem
 
 			a.btn
-				margin: 2rem 1rem
+				margin: 2rem 0.5rem
 				border-radius: 1rem
 				letter-spacing: 1px
-				font-size: 1.7rem
+				font-size: 1.6rem
+				font-weight: 700
+				@include media-breakpoint-up(md)
+					margin: 2rem 1rem
+
 
 		.featured-image
 			width: 100%
 			height: 100%
+			position: relative
+
 			.featured-image-holder
-				box-shadow: 0 0 27px -15px $color-dark-gray
-				box-shadow: 0 0 50px -35px darken($color-brand, 40%)
 				border-radius: 1rem
-				overflow: hidden
 
 				img
 					width: 100%
@@ -112,6 +137,32 @@ section.hero
 				text-align: center
 				padding: 2rem 0
 				color: lighten($color-dark-gray, 30%)
+
+			#hero-checklist
+				position: absolute
+				//top: 20rem
+				left: -10rem
+				//width: 100%
+				//max-width: 350px
+				width: 30%
+				bottom: 2%
+				left: -10%
+				z-index: 999
+				img
+					width: 100%
+					height: auto
+			#hero-distribution
+				position: absolute 
+				top: 8rem
+				right: -15rem
+				//width: 100%
+				//max-width: 400px
+				width: 35%
+				right: -15%
+				top: 0
+				img
+					width: 100%
+					height: auto
 
 
 

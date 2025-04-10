@@ -12,4 +12,34 @@ section
 			color: $color-brand
 		h2
 			font-size: 3.6rem
-			text-transform: uppercase
+
+		&.aligned-left
+			text-align: left
+			@include media-breakpoint-up(lg)
+				h2
+					font-size: 4.3rem
+
+		&.horizontal
+			text-align: center
+			display: flex
+			flex-direction: column
+			h2
+				font-size: 3.2rem
+			@include media-breakpoint-up(lg)
+				text-align: left
+				display: flex
+				flex-direction: row
+				justify-content: center
+				align-items: center
+				align-content: center
+
+				h2, p
+					width: 45%
+
+				h2
+					font-size: 3.8rem
+
+			@include media-breakpoint-up(xl)
+				h2
+					font-size: 4.8rem
+
