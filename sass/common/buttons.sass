@@ -4,7 +4,7 @@
 	padding: 1rem 1.6rem
 	font-weight: bold
 	transition: none
-	text-transform: capitalize
+	//text-transform: capitalize
 	border: none
 	font-family: $font-header
 	font-weight: 600
@@ -30,5 +30,12 @@
 		color: #fff
 		&:hover, &:focus, &:active
 			background-color: #00c0f3
+	&.btn-hollow
+		background-color: transparent
+		border: solid #A0AEC0 1px
+		color: #3B3B3B
+		&:hover, &:focus, &:active
+			background-color: lighten(#A0AEC0, 25%)
+			//color: #fff
 	a
 		color: #fff
