@@ -1,101 +1,90 @@
 header
-	padding: 4rem 0
+	padding: 4rem 0 3rem 0
 	position: relative
-	&:after
-		position: absolute
-		content: ""
-		width: 80%
-		display: block
-		left: 50%
-		transform: translateX(-50%)
-		bottom: 0
-		@include media-breakpoint-up(md)
-			display: none
 
-	.header-content
+	.navbar-toggler 
+		border: none
+		&:focus, &:hover, &:active
+			border: none
+			box-shadow: none
 		display: flex
-		flex-direction: column
-		padding-left: 2rem
-		padding-right: 2rem
+		justify-content: center
+		align-items: center
+		align-content: center
+		i
+			font-size: 2.4rem
+			color: #000
+		.navbar-toggler-icon
+			width: 2.4rem
+			height: 2.4rem
+			color: #000
+			fill: #000
+			background: none
 
+
+	.navbar-brand
+		display: flex
+		flex-direction: row
+		align-content: center
+		justify-content: center
+		align-items: center
+		text-decoration: none
+		margin-right: 1rem
+		//margin-bottom: 3rem
+		@include media-breakpoint-up(lg)
+			margin-bottom: 0
+		.logo
+			margin-right: 1rem
+			display: flex
+			justify-content: center
+			align-items: center
+			align-content: center
+			width: 35px
+			margin-right: 1rem
+			img
+				width: 100%
+				max-width: 50px
+				height: auto
+
+		h1
+			margin: 0
+			padding: 0
+			font-size: 2.6rem
+			text-transform: uppercase
+			font-family: $font-brand
+			color: $color-brand
+			font-weight: 800
+
+	.nav-centered
+		width: 100%
+		text-align: center
 
 		@include media-breakpoint-up(lg)
-			flex-direction: row
-			justify-content: space-between
-			align-items: flex-start
+			width: auto
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+
 		
+		.nav-item
+			margin: 0 1.5rem
+			font-size: 1.8rem
+			@include media-breakpoint-up(sm)
+				//margin-left: 2rem
+			@include media-breakpoint-up(md)
+				//margin-left: 3rem
+			&:first-of-type
+				//margin-left: 0
 
-
-		.brand
-			display: flex
-			flex-direction: row
-			align-content: center
-			justify-content: center
-			align-items: center
-			text-decoration: none
-			margin-right: 1rem
-			margin-bottom: 3rem
-			@include media-breakpoint-up(lg)
-				margin-bottom: 0
-			.logo
-				margin-right: 1rem
-				display: flex
-				justify-content: center
-				align-items: center
-				align-content: center
-				width: 35px
-				img
-					width: 100%
-					max-width: 50px
-					height: auto
-			h1
-				margin: 0
-				padding: 0
-				font-size: 2.6rem
-				text-transform: uppercase
-				font-family: $font-brand
-				font-weight: 800
-
-	.nav-holder
-		.nav
-			display: flex
-			align-items: center
-			align-content: center
-			flex-wrap: wrap
-			justify-content: center
-			font-family: $font-header
-			font-weight: 600
-			text-transform: capitalize
-			letter-spacing: 1px
-			@include media-breakpoint-up(lg)
-				justify-content: flex-end
-
-			.nav-item
-				margin-left: 1rem
-				font-size: 1.8rem
-				@include media-breakpoint-up(sm)
-					margin-left: 2rem
+			a.nav-link
+				color: #000
+				font-weight: 500
+				size: 1.6rem
 				@include media-breakpoint-up(md)
-					margin-left: 3rem
-				&:first-of-type
-					margin-left: 0
+					//color: $color-brand
+				&:hover
+					color: $color-brand
 
-				a
-					color: $color-dark-gray
-					@include media-breakpoint-up(md)
-						//color: $color-brand
-					&:hover
-						color: $color-brand
-
-				&.signup
-					display: none
-					@include media-breakpoint-up(md)
-						display: inline-block
-				&.btn
-					font-size: 1.6rem
-					padding: 0.1rem 0.5rem
-					a
-						color: #fff
 
 	.action-buttons
 		a.btn
@@ -113,4 +102,22 @@ header
 			font-size: 2rem
 			@include media-breakpoint-up(lg)
 				text-align: right
+
+
+
+	.header-grid
+		width: 100%
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		position: relative
+		@include media-breakpoint-up(lg)
+			display: grid
+			grid-template-columns: 1fr 2fr 1fr
+
+		
+		.navbar
+			width: 100%
+
+		
 

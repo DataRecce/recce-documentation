@@ -16,8 +16,11 @@ section.hero
 		right: 0
 		bottom: 0
 		background-color: #fff
+		height: 10rem
 		@include media-breakpoint-up(md)
 			height: 5rem
+		@include media-breakpoint-up(xl)
+			height: 6rem
 
 	.section-content
 		display: flex
@@ -37,25 +40,27 @@ section.hero
 			align-items: center
 	
 			.release
-				//border: solid #D7DDE5 1px
+				border: solid #D7DDE5 1px
 				background-color: #F3F5F7
 				border-radius: 2rem
 				display: inline-block
 				padding: 0.7rem 1.3rem
-				font-weight: 600
+				font-weight: 500
 				margin-bottom: 2rem
 				position: relative
+				font-size: 1.5rem
 
 				i
-					font-size: 110%
+					margin-right: 0.8rem
 				i, span
 					color: $color-brand
 				&:hover
-					background-color: $color-brand
-					border-color: $color-brand
-					color: $color-white
+					background-color: darken(#F3F5F7, 5%)
+					//background-color: $color-brand
+					//border-color: $color-brand
+					//color: $color-white
 					i, span
-						color: $color-white
+						//color: $color-white
 
 
 				a
@@ -112,7 +117,11 @@ section.hero
 				font-size: 2.6rem
 
 			a.btn
-				margin: 2rem 0.5rem
+				margin: 0.5rem
+				width: 100%
+				@include media-breakpoint-up(sm)
+					margin: 2rem 0.5rem
+					width: auto
 				border-radius: 1rem
 				letter-spacing: 1px
 				font-size: 1.6rem
@@ -126,12 +135,24 @@ section.hero
 			height: 100%
 			position: relative
 
+			.featured-image-holder-mobile
+				z-index: 999
+				position: relative
+				@include media-breakpoint-up(md)
+					display: none
+				img
+					width: 100%
+					height: auto
 			.featured-image-holder
 				border-radius: 1rem
+				display: none
+				@include media-breakpoint-up(md)
+					display: block
 
 				img
 					width: 100%
 					height: auto
+
 			h2
 				font-size: 1.5rem
 				text-align: center
@@ -139,27 +160,34 @@ section.hero
 				color: lighten($color-dark-gray, 30%)
 
 			#hero-checklist
+				display: none
 				position: absolute
 				//top: 20rem
 				left: -10rem
 				//width: 100%
 				//max-width: 350px
 				width: 30%
-				bottom: 2%
+				bottom: -3%
 				left: -10%
 				z-index: 999
+				@include media-breakpoint-up(md)
+					display: block
+				@include media-breakpoint-up(lg)
+					bottom: -5%
 				img
 					width: 100%
 					height: auto
 			#hero-distribution
+				display: none
+				@include media-breakpoint-up(md)
+					display: block
 				position: absolute 
-				top: 8rem
 				right: -15rem
 				//width: 100%
 				//max-width: 400px
 				width: 35%
 				right: -15%
-				top: 0
+				top: 10%
 				img
 					width: 100%
 					height: auto

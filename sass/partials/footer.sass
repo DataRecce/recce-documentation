@@ -1,26 +1,29 @@
 section.footer
 	background-color: #151B23
+	color: #fff
+	padding-top: 6rem
 	.section-content
-		display: flex
-		flex-direction: row
-		justify-content: space-between
+
+		
 		.footer-brand
-			width: 50%
+			//width: 50%
 			@include media-breakpoint-up(md)
-				width: auto
+				//width: auto
 			.brand
 				display: flex
 				flex-direction: row
 				align-items: center
+				align-content: center
 				text-decoration: none
+				margin-bottom: 2rem
 				.logo
 					margin-right: 1.2rem
 					display: flex
 					align-items: center
-					margin-bottom: 2rem
+					//margin-bottom: 2rem
 					width: 40px
 					@include media-breakpoint-up(lg)
-						width: 80px
+						width: 40px
 					img
 						width: 100%
 						height: auto
@@ -33,20 +36,18 @@ section.footer
 					font-weight: 800
 					font-size: 2.2rem
 					@include media-breakpoint-up(lg)
-						font-size: 4.2rem
+						font-size: 2.8rem
 
 			h2
 				max-width: 100%
 				font-weight: normal
-				font-size: 1.8rem
-				@include media-breakpoint-up(md)
-					font-size: 2.4rem
-					max-width: 60%
+				font-size: 1.4rem
+				margin-bottom: 5rem
 
 		.footer-links
-			width: 50%
+			//width: 50%
 			padding-left: 3rem
-			padding-top: 2rem
+
 
 			@include media-breakpoint-up(md)
 				padding-left: 1rem
@@ -59,22 +60,59 @@ section.footer
 
 			ul.footer-nav
 				list-style: none
+				margin: 0
+				padding: 0
 				li
-					font-weight: bold
+					margin-bottom: 2rem
 					i
 						display: inline-block
+						margin-right: 1.3rem
 						&:first-of-type
 							color: $color-brand
 					a 
 						display: inline-block
+						color: #fff
 						i
 							color: inherit
+
 						&:hover, &:focus
 							color: $color-brand
 
 
 			h2
-				font-size: 1.8rem
+				font-size: 1.4rem
+				font-weight: normal
+				color: rgba(255, 255, 255, 0.7)
+
+		.mailinglist-form
+
+			.row.form-row
+				background-color: #21262e
+				border-radius: 0.8rem
+				overflow: hidden
+				padding: 0.3rem 1rem 1rem 1.2rem
+			h2
+				font-size: 1.6rem
+				font-weight: 600
+				margin-bottom: 4rem
+			h3
+				text-transform: uppercase
+				font-size: 1rem
+				color: rgba(255, 255, 255, 0.7)
+				font-weight: 400
+
+			input.email
+				background-color: #21262e
+				color: #fff
+				border: transparent
+				line-height: 1.8
+				&::placeholder
+					color: #fff
+
+			.btn
+				font-size: 1.4rem
+				font-weight: 600
+				width: 100%
 
 
 	.copy
@@ -82,6 +120,15 @@ section.footer
 		display: flex
 		flex-direction: row
 		justify-content: space-between
+		border-top: solid #383d44 1px
+		margin-top:  5rem
+		padding-top: 3rem
 		p
-			color: $color-medium-gray
+			color: rgba(255, 255, 255, 0.7)
+			font-size: 1.6rem
+
+
+		.social-links
+			a
+				color: #b9bbbd
 
