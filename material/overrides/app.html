@@ -6,7 +6,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans&family=Rubik:wght@300;600;800&family=Lora:wght@400..700&family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -29,45 +29,50 @@
 
   </head>
   
-  <body class="homepage">
+<body class="homepage">
 
-    <div class="announcement-bar d-none_">
-      <div class="container">
-        <div class="row">
-          <div class="col col-12 col-sm-12">
-            
-            <p>
-              See <span>what our users are saying</span> about Recce <i class="bi bi-chat-heart-fill"></i>
-              <a href="/#users"></a>
-            </p>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-xl position-relative">
+
+        <!-- Left: Logo -->
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <div class="logo me-2">
+            <img src="/assets/images/recce-logo-orange.png" />
           </div>
-        </div>
-      </div>
-    </div>
+          <h1 class="mb-0 h4">Recce</h1>
+        </a>
 
-    <header>
-      <div class="container-xl">
-        <div class="header-content">
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Center: Nav Links (Absolutely Centered) -->
+        <div class="collapse navbar-collapse justify-content-center nav-centered" id="mainNav">
+          <ul class="navbar-nav  mb-2 mb-lg-0">
+            <li class="nav-item"><a href="/docs" class="nav-link">Docs</a></li>
+            <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="/case-studies" class="nav-link">Case&nbsp;Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Buttons -->
+        <div class="action-buttons ms-auto d-none d-lg-block">
           
-          <a href="/" class="brand">
-            <div class="logo">
-              <img src="/assets/images/recce-logo-orange.png" />
-            </div>
-            <h1>Recce</h1>
-          </a>
+          <a href="#" class="btn btn-hollow btn-lg"><i class="bi bi-github"></i><span>Github</span></a>
 
-          <div class="nav-holder">
-            <ul class="nav">
-              <!-- <li class="nav-item"><a href="/cloud" class="nav-link">Cloud</a></li> -->
-              <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
-              <li class="nav-item"><a href="/docs" class="nav-link">Docs</a></li>
-              <li class="nav-item"><a href="/case-studies" class="nav-link">Case Studies</a></li>
-              <li class="nav-item btn btn-primary signup"><a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub <i class="bi bi-box-arrow-up-right"></i></a></li>
-            </ul>
+          <a href="#cal" class="btn btn-primary btn-lg d-none d-lg-inline">Book a demo</a>
+
 
         </div>
+
       </div>
-    </header>
+    </nav>
+  </header>
 
 
     {% block content %}{% endblock %}
@@ -113,36 +118,132 @@
 
         <div class="section-content">
 
-          <div class="footer-brand">
-            <a href="#top" class="brand mb-2">
-              <div class="logo">
-                <img src="/assets/images/recce-logo-orange.png" />
+          <div class="row">
+
+            <div class="col-12 col-sm-6 col-lg-5">
+
+              <div class="footer-brand">
+                
+                <a href="#top" class="brand">
+                  <div class="logo">
+                    <img src="/assets/images/recce-logo-orange.png" />
+                  </div>
+                  <h1>Recce</h1>
+                </a>
+
+                <h2>Preview dbt data modeling changes<br />before merging to prod.</h2> 
+
+                <!-- <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
+                  <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" style="margin-bottom: 2rem"/>
+                </a>
+
+                <br />
+
+                <a href="#">
+                  <img src="/assets/images/home/soc2-logo-footer.png" alt="SOC 2 Certified" class="" style="width: 198px; height: auto">
+                </a> -->
+
               </div>
-              <h1>Recce</h1>
-            </a>
 
-            <h2>Preview dbt data modeling changes before merging to prod.</h2> 
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+
+              <div class="footer-links">
+                <h2>Quick Links</h2>
+                <ul class="footer-nav">
+                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/blog" class="nav-link">Blog</a></li>
+                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/docs" class="nav-link">Documentation</a></li>
+                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/case-studies" class="nav-link">Case Studies</a></li>
+                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub</a></li>  
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="col-12 col-sm-12 col-lg-4">
+
+              <div class="mailinglist-form">
+                <h2>Level-up your data project PR review and<br />stop merging breaking changes into production</h2>
+
+                <h3>Sign up for Recce updates</h3>
+                <div id="mc_embed_shell">
+                  <div id="mc_embed_signup">
+                    <form action="https://app.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=006a76e2f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+
+                      <div id="mc_embed_signup_scroll">
+
+
+                        <div class="row row-cols-lg-auto g-3 align-items-start form-row">
+
+                          <div class="col-12 col-md-8 col-lg-8">
+                              <label class="visually-hidden" for="mce-EMAIL">Email Address</label>
+
+                              <input type="email" name="EMAIL" class="required email form-control" id="mce-EMAIL" required="" placeholder="Your Email" value="" required>
+                              <div hidden=""><input type="hidden" name="tags" value="6322902"></div>
+                          </div>
+                            
+                          <div class="col-12 col-md-4 col-lg-4">
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b18366427f11835f05f68aeb_b82bfd845e" tabindex="-1" value=""></div><div class="clear">
+
+                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary" value="Subscribe"></div>
+                          </div>
+                        </div>
+
+
+                        <div id="mce-responses" class="clear">
+                          <div class="response" id="mce-error-response" style="display: none;"></div>
+                          <div class="response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[4]='DP_AUD';ftypes[4]='dropdown';fnames[6]='MONITORING';ftypes[6]='dropdown';fnames[7]='CI';ftypes[7]='dropdown';fnames[5]='CLOUD_AUD';ftypes[5]='dropdown';fnames[8]='CLOUD_USER';ftypes[8]='dropdown';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+              </div>
+              
+            </div>
+
+
           </div>
 
-          <div class="footer-links">
-            <h2>Quick Links</h2>
-            <ul class="footer-nav">
-              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/blog" class="nav-link">Blog</a></li>
-              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/docs" class="nav-link">Documentation</a></li>
-              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/case-studies" class="nav-link">Case Studies</a></li>
-              <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub</a></li>  
-            </ul>
-          </div>
+          
+
+          
 
         </div>
 
         <div class="copy">
 
-            <p>&copy; 2025 Recce</p>  
+          <div class="company">
+            <p>&copy; Recce 2025, All Rights Reserved</p>
+          </div>
 
-            <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
-              <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" />
-            </a>
+          <div class="social-links">
+            <ul class="list-unstyled d-flex gap-3">
+              <li>
+                <a href="#" target="_blank" rel="noopener">
+                  <i class="bi bi-twitter" aria-hidden="true"></i>
+                  <span class="visually-hidden">Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener">
+                  <i class="bi bi-linkedin" aria-hidden="true"></i>
+                  <span class="visually-hidden">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener">
+                  <i class="bi bi-github" aria-hidden="true"></i>
+                  <span class="visually-hidden">GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </div>     
+
+            
         </div>
 
       </div>

@@ -1,0 +1,42 @@
+section.faq
+	background-color: #F7F7F7
+	margin-top: 5rem
+	.accordion
+		.accordion-item
+			padding: 3rem
+			margin-bottom: 3rem
+			border: transparent
+			background-color: #fff
+			border-radius: 3.2rem
+
+			.accordion-button
+				&:after
+					display: none
+				&:focus, &:active, &:hover
+					background: transparent
+					border: none
+					box-shadow: none
+				i
+					font-size: 2.4rem
+					border-radius: 100%
+					background-color: rgba(253, 104, 62, 0.1)
+					width: 3rem
+					height: 3rem
+					text-align: center
+					color: #FF6E42
+
+				.closed
+					display: none
+				.open
+					display: inline-block
+				&.collapsed
+					.closed
+						display: inline-block
+					.open
+						display: none
+				h3
+					font-size: 2.2rem
+
+
+
+				

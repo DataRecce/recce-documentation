@@ -1,5 +1,5 @@
 ---
-template: home2.html
+template: home.html
 title: Home
 icon: material/home
 ---

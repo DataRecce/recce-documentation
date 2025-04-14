@@ -1,4 +1,4 @@
-{% extends "app2.html" %}
+{% extends "app.html" %}
 
 {% block meta %}
     <title>Recce - Data-Modeling Validation Toolkit for Analytics and Data Engineers using dbt</title>
@@ -21,17 +21,18 @@
 
   <div class="container-xl">
 
-    <div class="section-header">
+    <div class="page-header-content">
 
-      <h2>Simple Pricing that<br />Grows with Your Team</h2>
 
-      <p>Get powerful features, scalable support, and real value — all in one simple plan, or many tailored ones.</p>
+      <h1>Simple Pricing that<br />Grows with Your Team</h1>
+      <h2>Get powerful features, scalable support, and real value — all in one simple plan, or many tailored ones.</h2>
 
     </div>
 
   </div>
 
 </section>
+
 
 <section class="pricing">
 
@@ -154,19 +155,20 @@
 
       </div>
 
-      <div class="package">
-        <h2>Not sure?</h2>
+      <div class="package package-not-sure">
+        <h2>Not sure which plan?</h2>
+        <h2><a href="#">Talk to us</a></h2>
       </div>
 
-      <div class="package">
+      <div class="package package-oss">
 
         <div class="package-content">
           <div class="icon">
             <img src="/assets/images/home/oss.png" />
           </div>
           <div>
-            <h2>OSS</h2>
-            <p>description</p>
+            <h2 class="package-title">Open-Source Core</h2>
+            <p>Local data validation toolkit for dbt. Explore and validate changes, then generate checks locally with Recce OSS.</p>
           </div>
         </div>
 
@@ -179,6 +181,69 @@
 
     </div>
   </div>
+
+</section>
+
+
+<section class="faq">
+
+  <div class="container-xl">
+
+    <div class="section-header">
+
+      <h2>FAQ</h2>
+
+      <p>Frequently Asked Questions</p>
+
+    </div>
+
+    <div clas="section-content">
+
+
+      <div class="accordion" id="faqAccordion">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeading1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+              <h3>What is Recce?</h3>
+              <i class="bi bi-plus ms-auto closed"></i>
+              <i class="bi bi-dash ms-auto open"></i>
+            </button>
+          </h2>
+          <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>
+                Recce is a data collaboration tool for teams doing data validation, impact analysis, and PR reviews.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeading2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+              <h3>How does pricing work?</h3>
+              <i class="bi bi-plus ms-auto closed"></i>
+              <i class="bi bi-dash ms-auto open"></i>
+            </button>
+          </h2>
+          <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>
+                Pricing is based on user seats and active minutes per month. Contact us for enterprise pricing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat for each FAQ -->
+      </div>
+
+    </div>
+
+  </div>
+
+
 
 </section>
 

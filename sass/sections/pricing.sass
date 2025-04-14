@@ -84,6 +84,34 @@ section.pricing
 				display: flex
 				flex-direction: column
 
+			&.package-not-sure
+				background-color: transparent
+				box-shadow: none
+				text-align: center
+				font-size: 2.4rem
+				h2
+					margin-bottom: 0
+					font-weight: 50
+					font-size: 2.8rem
+
+			&.package-oss
+				.package-content
+					display: flex
+					flex-direction: column
+					@include media-breakpoint-up(lg)
+						padding-right: 3rem
+						.icon
+							margin-bottom: 0
+							margin-right: 3rem
+				.package-cta
+					width: 100%
+					@include media-breakpoint-up(lg)
+						width: calc(33% - 5rem)
+
+					.btn
+						width: 100%
+
+
 
 	
 		@include media-breakpoint-up(lg)

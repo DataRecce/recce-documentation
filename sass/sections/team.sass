@@ -1,0 +1,127 @@
+section.team
+	width: 100%
+	.section-content
+		border-top-left-radius: 2.4rem
+		border-top-right-radius: 2.4rem
+		background-color: #fff
+		padding: 5rem 6rem 3rem 6rem
+
+	.section-header
+		h2
+			font-size: 4.8rem
+			font-weight: 800
+
+	.col
+
+.team-members
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+
+.team-member
+	display: flex
+	flex-direction: column
+	background-color: #F7F7F7
+	padding: 3rem
+	border-radius: 1rem
+	width: 100%
+	margin-bottom: 3rem
+	@include media-breakpoint-up(lg)
+		width: 49%
+		margin-bottom: 0
+
+	.person-meta
+		display: flex
+		flex-direction: row
+		justify-content: flex-start
+		align-items: center
+		align-content: center
+		.person-image
+			.img-holder
+				width: 7rem
+				height: 7rem
+				border-radius: 100%
+				overflow: hidden
+				float: left
+				margin-right: 2rem
+				img
+					width: 100%
+					height: auto
+
+		h2
+			color: $color-brand
+			font-size: 2.4rem
+			margin-bottom: 0
+			font-weight: 700
+		h3
+			font-size: 1.6rem
+			font-weight: 600
+			margin-bottom: 0
+
+	.person-content
+		margin: 2rem 0
+		font-size: 1.6rem
+
+	.person-links
+		ul
+			list-style: none
+			margin: 0
+			padding: 0
+			li
+				font-size: 2.4rem
+				a
+					color: #000
+					&:hover
+						color: $color-brand
+
+section.board
+	padding-top: 0
+	.section-content
+		padding: 0rem 6rem 0 6rem
+
+	.section-header
+		text-align: left
+		h2
+			font-size: 3.2rem
+			font-weight: 600
+		
+	.team-members
+		background-color: #F7F7F7
+		border-radius: 1rem
+
+
+section.investors
+
+	.section-header
+		text-align: center
+
+	.section-content
+		padding: 0rem 6rem 0 6rem
+
+		
+	.investors-holder
+		background-color: #F7F7F7
+		border-radius: 1rem
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		padding: 6rem 3rem
+		.investor
+			display: flex
+			justify-content: center
+			align-items: center
+			align-content: center
+			width: 100%
+			&:first-of-type
+				margin-bottom: 5rem
+				@include media-breakpoint-up(lg)
+					margin-bottom: 0
+			@include media-breakpoint-up(lg)
+				width: 50%
+
+			.investor-image
+				width: 100%
+				max-width: 300px
+				img
+					width: 100%
+					height: auto

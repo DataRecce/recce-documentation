@@ -92,6 +92,12 @@ header
 			font-weight: 700
 			padding: 0.8rem 2.4rem
 			border-radius: 1.2rem
+			i
+				margin-right: 0.5rem
+			&:first-of-type
+				display: none
+				@include media-breakpoint-up(xxl)
+					display: inline-block
 
 
 		.quotes-cta
@@ -100,7 +106,7 @@ header
 			font-family: $font-header
 			font-weight: 600
 			font-size: 2rem
-			@include media-breakpoint-up(lg)
+			@include media-breakpoint-up(xl)
 				text-align: right
 
 

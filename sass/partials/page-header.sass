@@ -1,0 +1,64 @@
+.page-header
+
+	.page-header-content
+		width: 100%
+		padding: 3rem
+		z-index: 99
+		text-align: center
+		display: flex
+		flex-direction: column
+		align-items: center
+		h1
+			font-size: 3rem
+			font-weight: 800
+			color: $color-dark-gray
+			margin-bottom: 1rem
+			line-height: 1.2
+			margin-bottom: 2.5rem
+			span
+				color: $color-brand
+			@include media-breakpoint-up(sm)
+				font-size: 4rem
+			@include media-breakpoint-up(md)
+				font-size: 5rem
+
+			@include media-breakpoint-up(lg)
+				font-size: 5.5rem
+			@include media-breakpoint-up(xl)
+				font-size: 6rem
+				br
+					display: block
+		h2
+			font-size: 1.6rem
+			font-weight: 400
+			line-height: 1.7
+			color: $color-dark-gray
+			padding-left: 10%
+			padding-right: 10%
+			width: 100%
+			max-width: 900px
+			strong
+				font-weight: 600
+			@include media-breakpoint-up(lg)
+				font-size: 1.8rem
+
+		h3
+			color: $color-brand
+			text-transform: uppercase
+			text-transform: uppercase
+			font-family: $font-brand
+			font-weight: 800
+			font-size: 2.6rem
+
+		a.btn
+			margin: 0.5rem
+			width: 100%
+			@include media-breakpoint-up(sm)
+				margin: 2rem 0.5rem
+				width: auto
+			border-radius: 1rem
+			letter-spacing: 1px
+			font-size: 1.6rem
+			font-weight: 700
+			@include media-breakpoint-up(md)
+				margin: 2rem 1rem
