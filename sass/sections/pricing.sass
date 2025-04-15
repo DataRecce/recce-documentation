@@ -99,10 +99,20 @@ section.pricing
 					display: flex
 					flex-direction: column
 					@include media-breakpoint-up(lg)
-						padding-right: 3rem
+						width: 66%
+						flex-direction: row
+						padding-right: 5rem
 						.icon
 							margin-bottom: 0
 							margin-right: 3rem
+							.icon-holder
+								width: 6rem
+								height: 6rem
+								img
+									width: 100%
+									height: auto
+					.package-title
+						margin-bottom: 1rem
 				.package-cta
 					width: 100%
 					@include media-breakpoint-up(lg)
