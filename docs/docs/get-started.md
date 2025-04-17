@@ -5,6 +5,8 @@ icon: material/rocket-launch-outline
 
 # Getting started
 
+This guide walks you through how to use Recce, whether you're exploring for the first time or expanding to Recce Cloud.
+
 Use Recce to validate your dbt changes with clarity and confidence. Recce helps you:
 
 - Explore what changed
@@ -22,7 +24,7 @@ pip install -U recce
 recce server
 ```
 
-Recce use dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts), which is generated when every invocation. You can find these files in the `target/` folder.
+Recce use dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts) generated with every invocation. You can find these files in the `target/` folder.
 
 | artifacts     | dbt command                        |
 | ------------- | ---------------------------------- |
@@ -50,11 +52,11 @@ Not all data changes are obviously right or wrong. Comparing metrics before and 
 
 When you configure two dbt environments (e.g. prod and dev schemas), Recce lets you:
 
-- Explore modified models and downstream impact
+- **Explore** modified models and downstream impact
 
-- Validate changes via diffs or custom queries
+- **Validate** changes via diffs or custom queries
 
-- Add validation results to checklists for review and alignment
+- Add validation results to **Checklists** for review and alignment
 
 
 ### How to setup two environments
@@ -107,9 +109,9 @@ dbt docs generate
 ```
 
 ## Share to collaborate 
-With Recce Cloud, you can share your validation view with stakeholders, no screenshots or pasted images needed.
+If you’ve followed the steps above and are ready to share your checklist with others, Recce Cloud makes it easy.
 
-Just one link to share:
+Just one link gives full context:
 
 - Lineage
 
