@@ -27,7 +27,7 @@
 
               // Update the page with a clickable link
               document.getElementById('release-info').innerHTML = 
-                `<i class="bi bi-rocket-takeoff"></i> We just launched Recce ${latestVersion}! <span>Take a look</span> <a href="${releaseLink}" target="_blank" title="Check out the release notes for Recce ${latestVersion}"></a>`;
+                `<i class="bi bi-rocket-takeoff-fill"></i> We just launched Recce ${latestVersion}! <span>Take a look</span> <a href="${releaseLink}" target="_blank" title="Check out the release notes for Recce ${latestVersion}"></a>`;
           } catch (error) {
               console.error('Error fetching release data:', error);
               //document.getElementById('release-info').textContent = "Failed to fetch release data.";
@@ -37,7 +37,6 @@
       getLatestRelease();
     </script>
 
-
     <section class="hero">
       <div class="container-xl">
         <div class="section-content">
@@ -46,22 +45,33 @@
             <div class="release" id="release-info">
             </div>
 
-            <h1>Self&#8209;Serve&nbsp;<span>Review</span>&nbsp;<br />for&nbsp;Self&#8209;Serve&nbsp;<span>Data</span></h1>
+            <h1>Trust, Verify, Ship</h1>
 
-            <h2>Contextual data impact analysis for comprehensive PR review. Validate data impact with reproducible data testing environments during development and as part of continuous integration.</h2>
+            <h2>Cut dbt review time by 90% and ship accurate data fast</h2>
 
-            <a href="/docs/get-started/" class="btn btn-primary btn-large">Get Started</a>
+            <div class="cta-buttons">
+              <a href="/pricing" class="btn btn-primary btn-large">Start Free</a>
+              <a href="https://pr1.demo.datarecce.io/" class="btn btn-hollow btn-large" target="_blank">See in Action</a>
+            </div>
 
-            <a href="#cal" class="btn btn-secondary btn-large">Book a Call</a>
           </div>
           
           <div class="featured-image">
             <div class="featured-image-holder">
-              <img src="/assets/images/home/hero-image-cropped.png" />
+              <img src="/assets/images/home/recce-hero-lineage-2.png" />
             </div>
-            <h2>
-              Lineage Diff in Recce app helps you visualize the impact area of dbt data model changes
-            </h2>
+
+            <div class="featured-image-holder-mobile">
+              <img src="/assets/images/home/hero-mobile.png" />
+            </div>
+
+            <div id="hero-checklist">
+              <img src="/assets/images/home/hero-checklist.png" />
+            </div>
+
+            <div id="hero-distribution">
+              <img src="/assets/images/home/hero-distribution.png" />
+            </div>
           </div>
 
 
@@ -70,325 +80,193 @@
     </section>
 
 
-    <section class="testimonials-top">
-      <div class="container-xl">
-        <div class="section-content">
+    <section class="workflow">
 
-          <div class="testionial">
-              <div class="testimonial-header">
-                <h2>"Recce was a game changer"</h2>
-              </div>
-              <div class="testimonial-body">
-                <div class="testimonial-image">
-                  <img src="assets/images/testimonials/testimonial-5.jpg" alt="" class="avatar avatar-md rounded-circle" >
-                </div>
-                <div class="testimonial-meta">
-                  <h4><span>Thiago Trabach</span><br />Head of Data Science &amp; Engineering</h4>
-                  <h5>Prefeitura do Rio de Janeiro</h5>
-                </div>
-              </div>
-          </div>
+      <div class="container">
+        <div class="section-header horizontal">
 
-          <div class="testionial">
-              <div class="testimonial-header">
-                <h2>"My entire team uses Recce"</h2>
-              </div>
-              <div class="testimonial-body">
-                <div class="testimonial-image">
-                  <img src="assets/images/testimonials/testimonial-1.jpg" alt="" class="avatar avatar-md rounded-circle" >
-                </div>
-                <div class="testimonial-meta">
-                  <h4><span>Omri Antman</span><br />Head of Data and Analytics</h4>
-                  <h5>Imagen</h5>
-                </div>
-              </div>
-          </div>
+          <h2>Accelerating Your Data Workflow</h2>
 
-          <div class="testionial">
-              <div class="testimonial-header">
-                <h2>"Work smarter, not harder"</h2>
-              </div>
-              <div class="testimonial-body">
-                <div class="testimonial-image">
-                  <img src="assets/images/testimonials/testimonial-4.jpg" alt="" class="avatar avatar-md rounded-circle" >
-                </div>
-                <div class="testimonial-meta">
-                  <h4><span>Andy Sawyer</span><br />Strategy Leader & Advisor</h4>
-                </div>
-              </div>
-          </div>
+          <p>Recce lets you evaluate data in context before production and ship working data faster, turning the data deployment process from frustrating overhead into a competitive advantage.</p>
 
         </div>
       </div>
-    </section>
 
-
-    <section class="getting-started">
+    <section class="processes">
       <div class="container-xl">
         <div class="section-content">
 
-          <div class="code-example">
 
-                <div class="code-section">
-                  <span># Build prod and generate dbt docs into ./target-base</span><br />
-                  dbt seed --target prod<br />
-                  dbt run --target prod<br />
-                  dbt docs generate --target prod --target-path ./target-base<br /><br />
-                </div>
+          <div class="process-holder">
 
-                <div class="code-section">
-                  <span># Switch to your dev branch</span><br />
-                  git switch my-awesome-branch<br /><br />
-                </div>
+            <div class="process">
 
-                <div class="code-sectionon">
-                  <span># build your dev environment</span><br />
-                  dbt seed<br />
-                  dbt run<br />
-                  dbt docs generate<br />
-                </div>
-
-                <div class="code-section">
-                  <span># Start a Recce Instance</span><br />
-                  recce server
-                </div>
-          </div>
-
-          <div class="get-started">
-            <h2># Get Started in 5 Minutes</h2>
-
-            <ul class="steps">
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <span>Prep your dev and prod environment dbt artifacts</span>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <span>Run Recce</span>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <span>Explore and preview data change before merging to prod</span>
-              </li>
-            </ul>
-
-            <p><a href="/docs/get-started-jaffle-shop/">View docs <span>&gt;</span></a></p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="benefits">
-      <div class="container-xl">
-        <div class="section-content">
-
-          <span class="section-tag light">Benefits</span>
-
-          <h2>Recce excels where it matters most</h2>
-
-          <div class="benefits-holder">
-
-            <div class="benefit">
               <div class="icon">
-                <img src="/assets/images/home/merge.svg" />
+                <img src="/assets/images/home/process-1.png" />
               </div>
-              <h3>Faster Merge Times</h3>
-              <p>Analytics engineers can provide the proof-of-correctness of their work so PR reviewers and stakeholders can sign off quickly and confidently.</p>
+              <div class="">
+                <h3>Detect  Changes</h3>
+                <p>Recce scans for changes and generates a checklist</p>
+              </div>
+
             </div>
 
-            <div class="benefit">
+            <div class="process">
+
               <div class="icon">
-                <img src="/assets/images/home/merge.svg" />
+                <img src="/assets/images/home/process-2.png" />
               </div>
-              <h3>Visibility into Data Impact</h3>
-              <p>Understand data impact by comparing your development branch data with production data for accurate impact assessment.</p>
+              <div class="">
+                <h3>Verify Impact</h3>
+                <p>Contextualize data modifications & validate with stakeholders</p>
+              </div>
+
             </div>
 
-            <div class="benefit">
+            <div class="process">
+
               <div class="icon">
-                <img src="/assets/images/home/merge.svg" />
+                <img src="/assets/images/home/process-3.png" />
               </div>
-              <h3>Stable Production Data</h3>
-              <p>Use Recce to QA data before merging to production ensures that live daat remains stable.</p>
+              <div class="">
+                <h3>Deploy with Confidence</h3>
+                <p>Automate best practices & ship clean data</p>
+              </div>
+
             </div>
 
-            <div class="benefit">
-              <div class="icon">
-                <img src="/assets/images/home/merge.svg" />
-              </div>
-              <h3>Pull Request Best Practices</h3>
-              <p>Recce enables data teams to successfully implement data best practices with actionable insights for each PR.</p>
-            </div>
-          
-          </div>
-
-          <div class="cta">
-            <p>Read through our documentation to get a full grasp of Recce’s powers. <a href="/docs">Read More</a></p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <section class="roles">
+      <div class="section-content">
+
+        <div class="how">
+          <div class="container-xl">
+
+            <div class="row">
+
+              <div class="col-12 col-sm-12 col-md-6 col-lg-5">
+                <div class="how-tag">
+                  <span>Visibility </span>
+                </div>
+                <h2>Focus on What Matters</h2>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> Recognize changed and impacted data</li>
+                  <li><i class="bi bi-check-circle"></i> Generate actionable review checklists</li>
+                  <li><i class="bi bi-check-circle"></i> See the full business context behind changes</li>
+                </ul>
+                <a href="https://pr1.demo.datarecce.io/" class="btn btn-hollow btn-lg" target="_blank">Live Demo</a>
+              </div>
+              
+              <div class="col-12 col-sm-12 col-md-6 col-lg-7">
+                <img src="/assets/images/home/how-visibility.png"  class="img-fluid"/>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="how">
+          <div class="container-xl">
+
+            <div class="row flex-md-row-reverse">
+
+              <div class="col-12 col-sm-12 col-md-6 col-lg-5">
+                <div class="how-tag">
+                  <span>Verifiability</span>
+                </div>
+                <h2>Collaborate for Clarity</h2>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> Contextualize changes for better review</li>
+                  <li><i class="bi bi-check-circle"></i> Verify data impact with stakeholders</li>
+                  <li><i class="bi bi-check-circle"></i> Automate best practices for new team members</li>
+                </ul>
+                <a href="/case-studies/rio-department-of-health/" class="btn btn-hollow btn-lg">Case Study</a>
+              </div>
+              
+              <div class="col-12 col-sm-12 col-md-6 col-lg-7">
+                <img src="/assets/images/home/how-verify.png" class="img-fluid"/>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="how">
+          <div class="container-xl">
+
+            <div class="row">
+
+              <div class="col-12 col-sm-12 col-md-6 col-lg-5">
+                <div class="how-tag">
+                  <span>Velocity</span>
+                </div>
+                <h2>Accelerate Data Deployment</h2>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> Catch errors early before production</li>
+                  <li><i class="bi bi-check-circle"></i> Automate validation steps</li>
+                  <li><i class="bi bi-check-circle"></i> Reduce time spent manually reviewing changes</li>
+                </ul>
+                <a href="https://medium.com/inthepipeline/using-column-level-lineage-to-validate-dbt-data-model-changes-2569b21af7ca" class="btn btn-hollow btn-lg" target="_blank">The Recce Workflow</a>
+              </div>
+              
+              <div class="col-12 col-sm-12 col-md-6 col-lg-7">
+                <img src="/assets/images/home/how-velocity.png" class="img-fluid"/>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+    <section class="cloud-share">
+
       <div class="container-xl">
         <div class="section-content">
 
-          <span class="section-tag">Streamlined PR Review</span>
+          <div class="cloud-description">
+            <h2>Securely Share to Cloud</h2>
+            <p>Easily share and review data validation checks—no local setup required. Recce Cloud gives your team secure, SOC 2 Type I–compliant access to checks right in the browser, so reviewers and stakeholders can jump in fast.</p>
+          </div>
 
-          <div class="roles-content">
-
-            <div class="roles-details">
-              <h2>For <span>Analytics Engineers</span> and PR Reviewers</h2>
-              <p>Recce improves developer and reviewer, or stakeholder, communication by providing a systematic method to demonstrate and record data impact</p>
-
-              <a href="https://pr1.cloud.datarecce.io/" target="_blank" class="btn btn-primary">View Demo</a>
-            </div>
-
-            <div class="roles-holder">
-
-              <div class="role highlight">
-                <div class="role-header">
-                  <h2>Analytics Engineer</h2>
-                </div>
-                <div class="role-body">
-                  <ul>
-                    <li>
-                      <i class="bi bi-check-circle"></i>
-                      <span>QA your work, as you work by systematizing the ad-hoc checks you already do</span>
-                    </li>
-                    <li><i class="bi bi-check-circle"></i>
-                      <span>Focus your QA checks only where change is detected</span>
-                    </li>
-                    <li><i class="bi bi-check-circle"></i>
-                      <span>Share data check results for PR review as proof-of-correctness of your work</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="role">
-                <div class="role-header">
-                  <h2>PR Reviewer</h2>
-                </div>
-                <div class="role-body">
-                  <ul>
-                    <li><i class="bi bi-check-circle"></i>
-                      <span>View and approve data checks with high visibility into data impact</span>
-                    </li>
-                    <li><i class="bi bi-check-circle"></i>
-                      <span>Get full coverage of data impact with automated and developer created checks</span>
-                    </li>
-                    <li><i class="bi bi-check-circle"></i>
-                      <span>Merge PRs with quickly and with high confidence</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-
+          <div class="cloud-image">
+            <img src="/assets/images/home/cloud-share.png" />
           </div>
 
         </div>
       </div>
     </section>
-
-    <section class="features">
-      <div class="container-xl">
-        <div class="section-content">
-
-          <div class="feature">
-
-            <div class="feature-details">
-               <span class="section-tag">Lineage Diff</span>
-               <h2 class="feature-title">Impact-Focused Analysis</h2>
-               <p>Focus your impact assessment on only the affected area of the lineage DAG.</p>
-               <p><a href="/docs/features/lineage/#lineage-diff">Read the documentation &gt;</a></p>
-
-            </div>
-
-            <div class="feature-image">
-              <img src="/assets/images/home/feature-impact.png" />
-            </div>
-
-          </div>
-
-
-          <div class="feature">
-
-            <div class="feature-details">
-               <span class="section-tag">Data Integrity</span>
-               <h2 class="feature-title">Structural Checks</h2>
-               <p>Maintain data consistency with automated row count and schema checks.</p>
-               <p><a href="/docs/features/lineage/#schema-diff">Read the documentation &gt;</a></p>
-
-            </div>
-
-            <div class="feature-image">
-              <img src="/assets/images/home/feature-checks.png" />
-            </div>
-
-          </div>
-
-
-          <div class="feature">
-
-            <div class="feature-details">
-               <span class="section-tag">Data Profile Diff</span>
-               <h2 class="feature-title">Statistical Comparisons</h2>
-               <p>Understand data impact at a glance with before-and-after data profiles.</p>
-               <p><a href="/docs/features/lineage/#profile-diff">Read the documentation &gt;</a></p>
-
-            </div>
-
-            <div class="feature-image">
-              <img src="/assets/images/home/feature-stats.png" />
-            </div>
-
-          </div>
-
-
-          <div class="feature">
-
-            <div class="feature-details">
-               <span class="section-tag">Low Level Checks</span>
-               <h2 class="feature-title">Granular Spot-Checks</h2>
-               <p>See row-level data change for precise validation and root cause analysis.</p>
-               <p><a href="/docs/features/query/">Read the documentation &gt;</a></p>
-
-            </div>
-
-            <div class="feature-image">
-              <img src="/assets/images/home/feature-granular.png" />
-            </div>
-
-          </div>
-
-
-
-        </div>
-      </div>
-    </section>
-
 
     <section class="testimonials" id="users">
 
-      <div class="section-header">
-        <h2>What our <span>Users</span> are Saying</h2>
+      <div class="container-xl">
+        <div class="section-header aligned-left">
+          <h2>Who Uses Recce</h2>
+        </div>
       </div>
 
       <div class="container-xl">
         <div class="section-content">
-          <div class="testimonials-holder">
+
+          <!-- <div class="testimonials-holder"> -->
+            <div class="testimonials-scroller">
+              <div class="testimonials-track">
               
             <div class="testimonial">
 
               <div class="testimonial-body">
-                <div class="quote-icon">
-                  <img src="/assets/images/home/quote-icon.svg" />
-                </div>
                 <p class="testimonial-text">
                   In my job I have to understand data change, and <strong>Recce was a game changer</strong>. It made our PR review much quicker - <strong>From a day to less than an hour to merge.</strong>
                 </p>
@@ -398,9 +276,12 @@
                 <div class="testimonial-meta-content">
                   <img src="assets/images/testimonials/testimonial-5.jpg" alt="" class="avatar avatar-md rounded-circle" >
                   <div class="ms-2">
-                    <h4 class="text-primary mb-0"><a href="https://www.linkedin.com/in/thiagotcunha/" target="_blank">Thiago Trabach</a></h4>
+                    <h4 class="text-primary"><a href="https://www.linkedin.com/in/thiagotcunha/" target="_blank">Thiago Trabach</a></h4>
                     <h5>Head of Data Science &amp; Engineering <br /><span>Prefeitura do Rio de Janeiro</span></h5>
                   </div>
+                </div>
+                <div class="quote-icon">
+                  <img src="/assets/images/home/quotes.png" />
                 </div>
               </div>
 
@@ -409,9 +290,6 @@
             <div class="testimonial">
 
               <div class="testimonial-body">
-                <div class="quote-icon">
-                  <img src="/assets/images/home/quote-icon.svg" />
-                </div>
                 <p class="testimonial-text">
                   <strong>My entire team uses Recce as part of their PR flow</strong>...  we use it almost on every PR. I changed a major table in our DB that impacted over 20 down the funnel processes, and (Recce) helped me QA it very efficiently.
                 </p>
@@ -421,32 +299,12 @@
                 <div class="testimonial-meta-content">
                   <img src="assets/images/testimonials/testimonial-1.jpg" alt="" class="avatar avatar-md rounded-circle" >
                   <div class="ms-2">
-                    <h4 class="text-primary mb-0"><a href="https://www.linkedin.com/in/omri-antman-5557908b/" target="_blank">Omri Antman</a></h4>
+                    <h4 class="text-primary"><a href="https://www.linkedin.com/in/omri-antman-5557908b/" target="_blank">Omri Antman</a></h4>
                     <h5>Head of Data and Analytics<br /><span>Imagen</span></h5>
                   </div>
                 </div>
-              </div>
-
-            </div>
-
-            <div class="testimonial">
-
-              <div class="testimonial-body">
                 <div class="quote-icon">
-                  <img src="/assets/images/home/quote-icon.svg" />
-                </div>
-                <p class="testimonial-text">
-                  (Recce) helps visualize... everything from the lineage to the single value. You have <strong>a visual representation of the change in values for a PR available to everyone.</strong>
-                </p>
-              </div>
-
-              <div class="testimonial-meta">
-                <div class="testimonial-meta-content">
-                  <img src="assets/images/testimonials/testimonial-2.jpg" alt="" class="avatar avatar-md rounded-circle" >
-                  <div class="ms-2">
-                    <h4 class="text-primary mb-0"><a href="https://www.linkedin.com/in/igor-dal-bo-31940150/" target="_blank">Igor Dal Bo</a></h4>
-                    <h5>Data Engineer<br /><span>FactoryPal</span></h5>
-                  </div>
+                  <img src="/assets/images/home/quotes.png" />
                 </div>
               </div>
 
@@ -455,54 +313,6 @@
             <div class="testimonial">
 
               <div class="testimonial-body">
-                <div class="quote-icon">
-                  <img src="/assets/images/home/quote-icon.svg" />
-                </div>
-                <p class="testimonial-text">
-                  <strong>Recce provides a powerful set of features out of the box</strong> - Perfect for teams without dedicated engineers who can build and maintain bespoke solutions</strong>
-                </p>
-              </div>
-
-              <div class="testimonial-meta">
-                <div class="testimonial-meta-content">
-                  <img src="assets/images/testimonials/testimonial-3.jpg" alt="" class="avatar avatar-md rounded-circle" >
-                  <div class="ms-2">
-                    <h4 class="text-primary mb-0"><a href="https://www.linkedin.com/in/yu-hau-bruce-huang-profile/" target="_blank">Bruce Huang</a></h4>
-                    <h5>Data Engineer<br /><span>Migo</span></h5>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="testimonial">
-
-              <div class="testimonial-body">
-                <div class="quote-icon">
-                  <img src="/assets/images/home/quote-icon.svg" />
-                </div>
-                <p class="testimonial-text">
-                  Recce... can simplify your workflow and boost your productivity...<strong>work smarter, not harder</strong>.
-                </p>
-              </div>
-
-              <div class="testimonial-meta">
-                <div class="testimonial-meta-content">
-                  <img src="assets/images/testimonials/testimonial-4.jpg" alt="" class="avatar avatar-md rounded-circle" >
-                  <div class="ms-2">
-                    <h4 class="text-primary"><a href="https://www.linkedin.com/in/andrewdsawyer/" target="_blank">Andy Sawyer</a></h4>
-                    <h5>Strategy Leader & Advisor<br /><span>Easy Agile</span></h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial">
-
-              <div class="testimonial-body">
-                <div class="quote-icon">
-                  <img src="/assets/images/home/quote-icon.svg" />
-                </div>
                 <p class="testimonial-text">
                   A client told me they wanted to check their data and there was <strong>no other solution that offered a UI like Recce</strong>... it was really useful</strong>.
                 </p>
@@ -516,10 +326,87 @@
                     <h5>Head of Data Engineering<br /><span>Astrafy</span></h5>
                   </div>
                 </div>
+                <div class="quote-icon">
+                  <img src="/assets/images/home/quotes.png" />
+                </div>
               </div>
             </div>
 
+            <div class="testimonial">
+
+              <div class="testimonial-body">
+                <p class="testimonial-text">
+                  (Recce) helps visualize... everything from the lineage to the single value. You have <strong>a visual representation of the change in values for a PR available to everyone.</strong>
+                </p>
+              </div>
+
+              <div class="testimonial-meta">
+                <div class="testimonial-meta-content">
+                  <img src="assets/images/testimonials/testimonial-2.jpg" alt="" class="avatar avatar-md rounded-circle" >
+                  <div class="ms-2">
+                    <h4 class="text-primary"><a href="https://www.linkedin.com/in/igor-dal-bo-31940150/" target="_blank">Igor Dal Bo</a></h4>
+                    <h5>Data Engineer<br /><span>FactoryPal</span></h5>
+                  </div>
+                </div>
+                <div class="quote-icon">
+                  <img src="/assets/images/home/quotes.png" />
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="testimonial">
+
+              <div class="testimonial-body">
+                <p class="testimonial-text">
+                  <strong>Recce provides a powerful set of features out of the box</strong> - Perfect for teams without dedicated engineers who can build and maintain bespoke solutions</strong>
+                </p>
+              </div>
+
+              <div class="testimonial-meta">
+                <div class="testimonial-meta-content">
+                  <img src="assets/images/testimonials/testimonial-3.jpg" alt="" class="avatar avatar-md rounded-circle" >
+                  <div class="ms-2">
+                    <h4 class="text-primary"><a href="https://www.linkedin.com/in/yu-hau-bruce-huang-profile/" target="_blank">Bruce Huang</a></h4>
+                    <h5>Data Engineer<br /><span>Migo</span></h5>
+                  </div>
+                </div>
+                <div class="quote-icon">
+                  <img src="/assets/images/home/quotes.png" />
+                </div>
+              </div>
+
+            </div>
+
+            <div class="testimonial">
+
+              <div class="testimonial-body">
+                <p class="testimonial-text">
+                  Recce... can simplify your workflow and boost your productivity...<strong>work smarter, not harder</strong>.
+                </p>
+              </div>
+
+              <div class="testimonial-meta">
+                <div class="testimonial-meta-content">
+                  <img src="assets/images/testimonials/testimonial-4.jpg" alt="" class="avatar avatar-md rounded-circle" >
+                  <div class="ms-2">
+                    <h4 class="text-primary"><a href="https://www.linkedin.com/in/andrewdsawyer/" target="_blank">Andy Sawyer</a></h4>
+                    <h5>Strategy Leader & Advisor<br /><span>Easy Agile</span></h5>
+                  </div>
+                </div>
+                <div class="quote-icon">
+                  <img src="/assets/images/home/quotes.png" />
+                </div>
+              </div>
+            </div>
+
+
+            
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -542,9 +429,22 @@
 
         </div>
       </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const track = document.querySelector('.testimonials-track');
+          const testimonials = track.querySelectorAll('.testimonial');
+
+          testimonials.forEach((testimonial) => {
+            const clone = testimonial.cloneNode(true);
+            track.appendChild(clone);
+          });
+        });
+      </script>
+
     </section>
 
-    <section class="text-center security-compliance">
+    <!-- <section class="text-center security-compliance">
       <div class="container-xl">
         <div class="section-content bg-light">
           <div class="col-md-8 ">
@@ -556,61 +456,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="cta" id="signup">
-      <div class="container-xl">
-        <div class="section-content">
-
-
-          <div class="mailinglist-form">
-            <h2>Level-up your data project PR review and stop merging breaking changes into production</h2>
-
-            <h3>Sign up for Recce updates</h3>
-            <div id="mc_embed_shell">
-              <div id="mc_embed_signup">
-                <form action="https://app.us1.list-manage.com/subscribe/post?u=2b18366427f11835f05f68aeb&amp;id=b82bfd845e&amp;f_id=006a76e2f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
-
-                  <div id="mc_embed_signup_scroll">
-
-
-                    <div class="row row-cols-lg-auto g-3 align-items-start">
-
-                      <div class="col-12 col-md-8 col-lg-8">
-                          <label class="visually-hidden" for="mce-EMAIL">Email Address</label>
-
-                          <input type="email" name="EMAIL" class="required email form-control" id="mce-EMAIL" required="" placeholder="Your Email" value="" required>
-                          <div hidden=""><input type="hidden" name="tags" value="6322902"></div>
-                      </div>
-                        
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b18366427f11835f05f68aeb_b82bfd845e" tabindex="-1" value=""></div><div class="clear">
-
-                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary" value="Subscribe"></div>
-                      </div>
-                    </div>
-
-
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display: none;"></div>
-                      <div class="response" id="mce-success-response" style="display: none;"></div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[4]='DP_AUD';ftypes[4]='dropdown';fnames[6]='MONITORING';ftypes[6]='dropdown';fnames[7]='CI';ftypes[7]='dropdown';fnames[5]='CLOUD_AUD';ftypes[5]='dropdown';fnames[8]='CLOUD_USER';ftypes[8]='dropdown';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-          </div>
-
-          <div class="mailinglist-image">
-            <img src="/assets/images/landing/home/Recce-newsletter-horizontal.png" />
-          </div>
-
-
-        </div>
-      </div>
-    </section>  
+    </section> -->
 
 
 {% endblock %}

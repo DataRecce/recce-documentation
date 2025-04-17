@@ -1,0 +1,133 @@
+header
+	padding: 4rem 0 3rem 0
+	position: relative
+
+	.navbar-toggler 
+		border: none
+		&:focus, &:hover, &:active
+			border: none
+			box-shadow: none
+		display: flex
+		justify-content: center
+		align-items: center
+		align-content: center
+		i
+			font-size: 2.4rem
+			color: #000
+		.navbar-toggler-icon
+			width: 2.4rem
+			height: 2.4rem
+			color: #000
+			fill: #000
+			background: none
+
+
+	.navbar-brand
+		display: flex
+		flex-direction: row
+		align-content: center
+		justify-content: center
+		align-items: center
+		text-decoration: none
+		margin-right: 1rem
+		//margin-bottom: 3rem
+		@include media-breakpoint-up(lg)
+			margin-bottom: 0
+		.logo
+			margin-right: 1rem
+			display: flex
+			justify-content: center
+			align-items: center
+			align-content: center
+			width: 35px
+			margin-right: 1rem
+			img
+				width: 100%
+				max-width: 50px
+				height: auto
+
+		h1
+			margin: 0
+			padding: 0
+			font-size: 2.6rem
+			text-transform: uppercase
+			font-family: $font-brand
+			color: $color-brand
+			font-weight: 800
+
+	.nav-centered
+		width: 100%
+		text-align: center
+
+		@include media-breakpoint-up(lg)
+			width: auto
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+
+		
+		.nav-item
+			padding: 0
+			margin: 0
+			font-size: 1.8rem
+			@include media-breakpoint-up(sm)
+				//margin-left: 2rem
+			@include media-breakpoint-up(md)
+				//margin-left: 3rem
+			&:first-of-type
+
+
+			a.nav-link
+				color: #000
+				font-weight: 500
+				font-size: 1.6rem
+				padding: 1rem 1.6rem
+				@include media-breakpoint-up(xl)
+					padding: 1rem 2.2rem
+				&:hover
+					color: $color-brand
+
+
+	.action-buttons
+		a.btn
+			font-size: 1.6rem
+			font-weight: 700
+			padding: 0.8rem 1.4rem
+			border-radius: 1.2rem
+			@include media-breakpoint-up(xl)
+				padding: 0.8rem 2.4rem
+			i
+				margin-right: 0.5rem
+			&:first-of-type
+				//display: none
+				@include media-breakpoint-up(xxl)
+					display: inline-block
+
+
+		.quotes-cta
+			text-align: center
+			padding-top: 2rem
+			font-family: $font-header
+			font-weight: 600
+			font-size: 2rem
+			@include media-breakpoint-up(xl)
+				text-align: right
+
+
+
+	.header-grid
+		width: 100%
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		position: relative
+		@include media-breakpoint-up(lg)
+			display: grid
+			grid-template-columns: 1fr 2fr 1fr
+
+		
+		.navbar
+			width: 100%
+
+		
+

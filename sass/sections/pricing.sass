@@ -1,0 +1,141 @@
+section.pricing
+	.section-content
+		display: grid
+		gap: 2rem
+		grid-template-columns: 1fr
+
+		.package
+			padding: 3rem
+			border-radius: 3.2rem
+			background-color: #fff
+			box-shadow: 0 0 50px rgba(0, 0, 0, 0.1)
+
+			.icon
+				width: 60px
+				height: 60px
+				margin-bottom: 3rem
+				img
+					width: 100%
+					height: auto
+
+			.package-details
+				p
+					font-size: 1.6rem
+					font-weight: 400p
+					&:last-of-type
+						margin-bottom: 0
+				@include media-breakpoint-up(lg)
+					height: 23rem
+
+			h2.package-title
+				font-weight: 600
+				margin-bottom: 2.5rem
+				font-size: 2.4rem
+
+				@include media-breakpoint-up(xl)
+					font-size: 3.2rem
+			
+			.package-price
+				h2
+					font-size: 4rem
+					@include media-breakpoint-up(xl)
+						font-size: 6rem
+					font-weight: 600
+					letter-spacing: -2%
+					margin-bottom: 0
+					margin-top: auto
+					span
+						font-size: 1.8rem
+				h3
+					font-size: 1.3rem
+					font-weight: 400
+
+			
+			.features
+				flex-grow: 1
+				h4
+					font-size: 1.3rem
+					font-weight: 400
+					text-transform: uppercase
+					margin-top: 3rem
+
+				ul
+					list-style: none
+					padding: 0
+					margin: 0 0 3rem 0
+
+					li
+						margin-bottom: 1rem
+						display: flex
+						flex-direction: row
+						justify-content: flex-start
+						align-items: center
+						align-content: center
+						i
+							font-size: 2.4rem
+							fill: #F46100
+							color: #F46100
+							margin-right: 1rem
+			.cta
+				.btn
+					width: 100%
+
+			&:nth-child(-n+3)
+				display: flex
+				flex-direction: column
+
+			&.package-not-sure
+				background-color: transparent
+				box-shadow: none
+				text-align: center
+				font-size: 2.4rem
+				h2
+					margin-bottom: 0
+					font-weight: 50
+					font-size: 2.8rem
+
+			&.package-oss
+				.package-content
+					display: flex
+					flex-direction: column
+					@include media-breakpoint-up(lg)
+						width: 66%
+						flex-direction: row
+						padding-right: 5rem
+						.icon
+							margin-bottom: 0
+							margin-right: 3rem
+							.icon-holder
+								width: 6rem
+								height: 6rem
+								img
+									width: 100%
+									height: auto
+					.package-title
+						margin-bottom: 1rem
+				.package-cta
+					width: 100%
+					@include media-breakpoint-up(lg)
+						width: calc(33% - 5rem)
+
+					.btn
+						width: 100%
+
+
+
+	
+		@include media-breakpoint-up(lg)
+			grid-template-columns: repeat(3, 1fr)
+
+			.package:nth-child(4)
+				grid-column: 1 / -1 // span full width
+				box-shadow: none
+				background-color: transparent
+				text-align: center
+			.package:nth-child(5)
+				grid-column: 1 / -1 // span full width
+				display: flex
+				flex-direction: row
+				align-items: center
+				align-content: center
+				justify-content: space-between

@@ -17,8 +17,6 @@ extra:
     provider: google
     property: G-E06MSTE2SX
   social:
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/HUUx9fyphJ
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/datarecce
     - icon: fontawesome/brands/bluesky
