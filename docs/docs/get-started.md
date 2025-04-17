@@ -3,7 +3,7 @@ title: Getting Started
 icon: material/rocket-launch-outline
 ---
 
-# Getting Started
+# Getting started
 
 Use Recce to validate your dbt changes with clarity and confidence. Recce helps you:
 
@@ -13,7 +13,7 @@ Use Recce to validate your dbt changes with clarity and confidence. Recce helps 
 
 For a hands-on walkthrough, check out the [Jaffle Shop Tutorial](https://www.notion.so/infuseai/get-started-jaffle-shop.md).
 
-## Start Recce with Two Commands
+## Start Recce with two commands
 
 Navigate to your dbt project and run:
 ```shell
@@ -33,7 +33,7 @@ Recce use dbt [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifa
 
     The regeneration of the `catalog.json` file is not required after every `dbt run`. it is only required to regenerate this file when models or columns are added or updated.
 
-## Get Instant Visibility
+## Get instant visibility
 
 With just one environment, Recce gives you:
 
@@ -45,7 +45,7 @@ With just one environment, Recce gives you:
 
 Perfect for early exploration, root cause analysis, and faster debugging before involving others.
 
-## Unlock Diff & Validation with Two Environments
+## Unlock diff & validation with two environments
 Not all data changes are obviously right or wrong. Comparing metrics before and after is key to confident validation.
 
 When you configure two dbt environments (e.g. prod and dev schemas), Recce lets you:
@@ -115,6 +115,8 @@ Just one link to share:
 
 - Diff results
 
-- Checklist validation and comments
+- Checklist validation with comments
+
+Built for teams, Recce Cloud includes secure, cloud-hosted sharing and collaboration features designed for fast reviews and confident sign-off.
   
-Sign up for [Recce Cloud](https://cloud.datarecce.io) and [learn more](/pricing) about the it. 
+[Sign up for Recce Cloud](/pricing) to unlock collaboration at scale.
