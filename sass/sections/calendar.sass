@@ -1,17 +1,44 @@
 section.cal-book
 
 	.section-content
-		color: $color-white
-		background-color: $color-cal
+		//color: $color-white
+		//background-color: $color-cal
 		border-radius: 2rem
-		padding: 3rem
-		@include media-breakpoint-up(lg)
-			padding: 4rem 6rem
+		padding-left: 0
+		padding-right: 0
+		display: grid
+		grid-template-columns: 1fr
+		@include media-breakpoint-up(xl)
+			grid-template-columns: 1fr 3fr
+			grid-row-gap: 2rem
+			grid-column-gap: 2rem
+		@include media-breakpoint-up(xxl)
+			grid-template-columns: 1fr 2fr
 
 		.section-header
 			text-align: left
 			.section-tag
 				background-color: rgba(255, 110, 66, 0.2)
 			p
-				max-width: 35%
+				//max-width: 35%
+
+		.calendar-holder
+			@include media-breakpoint-up(lg)
+				background-color: #171717
+				border-radius: 1rem
+				overflow: hidden
+
+
+			.mobile-button
+				display: block
+
+				@media (min-width: 800px)
+					display: none
+
+			#my-cal-inline
+				display: none
+
+				@media (min-width: 800px)
+					display: block
+
 

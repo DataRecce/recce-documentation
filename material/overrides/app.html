@@ -65,7 +65,7 @@
           
           <a href="https://github.com/datarecce/recce" class="btn btn-hollow btn-lg" target="_blank"><i class="bi bi-github"></i><span>Github</span></a>
 
-          <a href="https://cal.com/team/recce/enterprise" class="btn btn-primary btn-lg d-none d-lg-inline" target="_blank">Book a demo</a>
+          <a href="https://cal.com/team/recce/chat" class="btn btn-primary btn-lg d-none d-lg-inline" target="_blank">Book a demo</a>
 
 
         </div>
@@ -82,13 +82,38 @@
       <div class="container-xl">
         <div class="section-content">
           <div class="section-header">
-            <span class="section-tag">Get in touch</span>
+            <!-- <span class="section-tag">Get in touch</span> -->
             <h2>Book <span>a</span> Demo</h2>
             <p>Find out more about how Recce can improve your data PR review process</p>
           </div>
 
-          <!-- Cal inline embed code begins -->
-          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+          <div class="calendar-holder">
+            <!-- Cal inline embed code begins -->
+            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+
+
+            <div class="mobile-button">
+              <!-- Cal element-click embed code begins -->
+              <script type="text/javascript">
+              (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+              Cal("init", "chat", {origin:"https://cal.com"});
+
+
+              // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+              // `data-cal-link="team/recce/chat"`
+              // data-cal-namespace="chat"
+              // `data-cal-config='{"layout":"month_view"}'`
+
+              Cal.ns.chat("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+              </script>
+              <!-- Cal element-click embed code ends -->
+
+              <button data-cal-link="team/recce/chat" class="btn btn-primary btn-lg "><i class="bi bi-calendar-event"></i> Schedule a Meeting</button>
+            </div>
+
+
+          </div>
+
           <script type="text/javascript">
             (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
           Cal("init", "chat", {origin:"https://cal.com"});
@@ -103,15 +128,20 @@
             </script>
             <!-- Cal inline embed code ends -->
 
-            <p class="text-center py-5">
-              <a href="https://cal.com/team/recce/chat?utm_source=banner&utm_campaign=oss" target="_blank" />
-                <img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-light.svg" />
-              </a>
-            </p>
-
         </div>
       </div>
     </section>
+
+
+    <section class="test">
+
+        
+      </section>
+
+
+
+
+
 
     <section class="footer">
       <div class="container-xl">
@@ -152,13 +182,13 @@
                 <h2>Quick Links</h2>
                 <ul class="footer-nav">
 
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/docs" class="nav-link">Documentation</a></li>
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/blog" class="nav-link">Blog</a></li>
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/about" class="nav-link">About</a></li>
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/pricing" class="nav-link">Pricing</a></li>
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/careers" class="nav-link">Careers</a></li>
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="/case-studies" class="nav-link">Case Studies</a></li>
-                  <li class="nav-item"><i class="bi bi-chevron-right"></i>&nbsp;<a href="https://github.com/datarecce/recce" class="nav-link" target="_blank">GitHub</a></li>  
+                  <li class="nav-item"><a href="/docs" class="nav-link"><i class="bi bi-chevron-right"></i>&nbsp;Documentation</a></li>
+                  <li class="nav-item"><a href="/blog" class="nav-link"><i class="bi bi-chevron-right"></i>&nbsp;Blog</a></li>
+                  <li class="nav-item"><a href="/about" class="nav-link"><i class="bi bi-chevron-right"></i>&nbsp;About</a></li>
+                  <li class="nav-item"><a href="/pricing" class="nav-link"><i class="bi bi-chevron-right"></i>&nbsp;Pricing</a></li>
+                  <li class="nav-item"><a href="/careers" class="nav-link"><i class="bi bi-chevron-right"></i>&nbsp;Careers</a></li>
+                  <li class="nav-item"><a href="/case-studies" class="nav-link"><i class="bi bi-chevron-right"></i>&nbsp;Case Studies</a></li>
+                  <li class="nav-item"><a href="https://github.com/datarecce/recce" class="nav-link" target="_blank"><i class="bi bi-chevron-right"></i>&nbsp;GitHub</a></li>  
                 </ul>
               </div>
 
@@ -232,19 +262,19 @@
           <div class="social-links">
             <ul class="list-unstyled d-flex gap-3">
               <li>
-                <a href="#" target="_blank" rel="noopener">
+                <a href="https://x.com/DataRecce" target="_blank" rel="noopener">
                   <i class="bi bi-twitter" aria-hidden="true"></i>
                   <span class="visually-hidden">Twitter</span>
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener">
+                <a href="https://www.linkedin.com/company/datarecce/" target="_blank" rel="noopener">
                   <i class="bi bi-linkedin" aria-hidden="true"></i>
                   <span class="visually-hidden">LinkedIn</span>
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener">
+                <a href="https://github.com/datarecce/recce" target="_blank" rel="noopener">
                   <i class="bi bi-github" aria-hidden="true"></i>
                   <span class="visually-hidden">GitHub</span>
                 </a>
@@ -259,6 +289,35 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const track = document.querySelector('.testimonials-track');
+        if (!track) return;
+
+        // Clone testimonials
+        const testimonials = track.querySelectorAll('.testimonial');
+        testimonials.forEach((testimonial) => {
+          const clone = testimonial.cloneNode(true);
+          track.appendChild(clone);
+        });
+
+        // Pause on hover (desktop)
+        track.addEventListener('mouseenter', () => {
+          track.style.animationPlayState = 'paused';
+        });
+        track.addEventListener('mouseleave', () => {
+          track.style.animationPlayState = 'running';
+        });
+
+        // Pause on touch (mobile)
+        track.addEventListener('touchstart', () => {
+          track.style.animationPlayState = 'paused';
+        });
+        track.addEventListener('touchend', () => {
+          track.style.animationPlayState = 'running';
+        });
+      });
+    </script>
   </body>
 
 </html>

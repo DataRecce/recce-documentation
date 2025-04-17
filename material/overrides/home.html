@@ -259,7 +259,10 @@
 
       <div class="container-xl">
         <div class="section-content">
-          <div class="testimonials-holder">
+
+          <!-- <div class="testimonials-holder"> -->
+            <div class="testimonials-scroller">
+              <div class="testimonials-track">
               
             <div class="testimonial">
 
@@ -399,9 +402,11 @@
               </div>
             </div>
 
-            
 
+            
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -424,6 +429,19 @@
 
         </div>
       </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const track = document.querySelector('.testimonials-track');
+          const testimonials = track.querySelectorAll('.testimonial');
+
+          testimonials.forEach((testimonial) => {
+            const clone = testimonial.cloneNode(true);
+            track.appendChild(clone);
+          });
+        });
+      </script>
+
     </section>
 
     <!-- <section class="text-center security-compliance">

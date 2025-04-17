@@ -1,3 +1,9 @@
+@keyframes scroll-left
+	0%
+		transform: translateX(0)
+	100%
+		transform: translateX(-50%)
+
 section.testimonials
 	padding: 4rem 0 8rem 0 
 
@@ -7,6 +13,61 @@ section.testimonials
 			text-transform: none
 			span
 				color: $color-brand
+
+
+	.testimonials-scroller
+		overflow: hidden
+		position: relative
+
+	.testimonials-track
+		display: flex
+		gap: 2rem
+		animation: scroll-left 80s linear infinite
+		width: max-content
+		@include media-breakpoint-up(md)
+			animation-duration: 60s // slower scroll on mobile
+
+		&:hover
+			animation-play-state: paused
+
+		.testimonial
+			flex: 0 0 auto
+			width: 32rem // fixed width to help with scroll
+			background-color: #F8FAFC
+			border-radius: 1rem
+			padding: 2.5rem
+			display: flex
+			flex-direction: column-reverse
+			justify-content: start
+			.testimonial-meta
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+				min-height: 11rem
+
+
+				.testimonial-meta-content
+					display: flex
+					flex-direction: row
+					img
+						width: 7rem
+						height: 7rem
+						border-radius: 100%
+						box-shadow: 0 0 30px -20px rgba(0,0,0,0.4)
+						margin-bottom: 1rem
+						margin-right: 1rem
+
+					h4
+						font-size: 1.8rem
+						margin-bottom: 1rem
+					h5
+						color: $color-black
+						font-size: 1.4rem
+						span
+							display: block
+							color: $color-medium-gray
+
+
 
 	.testimonials-holder
 		display: grid

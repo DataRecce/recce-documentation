@@ -13369,6 +13369,14 @@ section.features.cloud-features {
   padding: 4rem 0;
 }
 
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 section.testimonials {
   padding: 4rem 0 8rem 0;
 }
@@ -13380,6 +13388,64 @@ section.testimonials .section-header h2, section.testimonials .section-header .h
 }
 section.testimonials .section-header h2 span, section.testimonials .section-header .h2 span {
   color: #ff6e42;
+}
+section.testimonials .testimonials-scroller {
+  overflow: hidden;
+  position: relative;
+}
+section.testimonials .testimonials-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-left 80s linear infinite;
+  width: max-content;
+}
+@media (min-width: 768px) {
+  section.testimonials .testimonials-track {
+    animation-duration: 60s;
+  }
+}
+section.testimonials .testimonials-track:hover {
+  animation-play-state: paused;
+}
+section.testimonials .testimonials-track .testimonial {
+  flex: 0 0 auto;
+  width: 32rem;
+  background-color: #F8FAFC;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: start;
+}
+section.testimonials .testimonials-track .testimonial .testimonial-meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 11rem;
+}
+section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content {
+  display: flex;
+  flex-direction: row;
+}
+section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100%;
+  box-shadow: 0 0 30px -20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content h4, section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content .h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content h5, section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content .h5 {
+  color: #1e2129;
+  font-size: 1.4rem;
+}
+section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content h5 span, section.testimonials .testimonials-track .testimonial .testimonial-meta .testimonial-meta-content .h5 span {
+  display: block;
+  color: #adb5bd;
 }
 section.testimonials .testimonials-holder {
   display: grid;
@@ -13644,14 +13710,22 @@ section.testimonials .testimonials-holders {
 }
 
 section.cal-book .section-content {
-  color: #fff;
-  background-color: #1f1f1f;
   border-radius: 2rem;
-  padding: 3rem;
+  padding-left: 0;
+  padding-right: 0;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   section.cal-book .section-content {
-    padding: 4rem 6rem;
+    grid-template-columns: 1fr 3fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+  }
+}
+@media (min-width: 1400px) {
+  section.cal-book .section-content {
+    grid-template-columns: 1fr 2fr;
   }
 }
 section.cal-book .section-content .section-header {
@@ -13660,8 +13734,28 @@ section.cal-book .section-content .section-header {
 section.cal-book .section-content .section-header .section-tag {
   background-color: rgba(255, 110, 66, 0.2);
 }
-section.cal-book .section-content .section-header p {
-  max-width: 35%;
+@media (min-width: 992px) {
+  section.cal-book .section-content .calendar-holder {
+    background-color: #171717;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+}
+section.cal-book .section-content .calendar-holder .mobile-button {
+  display: block;
+}
+@media (min-width: 800px) {
+  section.cal-book .section-content .calendar-holder .mobile-button {
+    display: none;
+  }
+}
+section.cal-book .section-content .calendar-holder #my-cal-inline {
+  display: none;
+}
+@media (min-width: 800px) {
+  section.cal-book .section-content .calendar-holder #my-cal-inline {
+    display: block;
+  }
 }
 
 section.news {
