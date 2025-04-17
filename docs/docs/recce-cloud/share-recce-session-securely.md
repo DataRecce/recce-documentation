@@ -13,7 +13,7 @@ If you've already used Recce to validate your PR and prepared checks, but stakeh
 
 1. Obtain API token from Recce Cloud
     
-    To connect to your Recce Cloud account, you need an API token. Please copy your API Token from the personal settings page in Recce Cloud.
+    To connect to your Recce Cloud account, you need an API token. Please copy your API Token from the [personal settings page](https://cloud.datarecce.io/settings#tokens) in Recce Cloud.
     ![Recce API Token](../../assets/images/recce-cloud/setting-page-api-token-fs8.png){: .shadow}
 
 1. Add the token to `.recce/profile.yml`
