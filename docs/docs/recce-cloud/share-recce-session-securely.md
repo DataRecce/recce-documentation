@@ -21,30 +21,33 @@ The first time you do this, you'll need to connect your local Recce to Recce Clo
 
 1. Enable Recce Sharing
 
-    To start sharing, you can launch Recce server and click __Enable Sharing__ button.
+    To start sharing, launch Recce server and click the **Enable Sharing** button.
 
     ![Recce Server](../../assets/images/recce-cloud/recce-server-enable-sharing-fs8.png){: .shadow}
 
 1. Sign in to Recce Cloud and get your API token
-    
-    Please copy your API token from the [personal settings page](https://cloud.datarecce.io/settings#tokens) in Recce Cloud.
+
+    Copy your API token from the [personal settings page](https://cloud.datarecce.io/settings#tokens) in Recce Cloud.
+
     ![Recce API Token](../../assets/images/recce-cloud/setting-page-api-token-fs8.png){: .shadow}
 
 1. Add the token to `.recce/profile.yml`
 
-    For convenience, you can enter your API token in `.recce/profile.yml`, located by default in your home directory. 
+    For convenience, you can add your API token in `.recce/profile.yml`, located by default in your home directory. 
     ```yaml
     user_id: <your_user_id>
     api_token: <your_api_token>
     ```
-    Or, for one-time use, you can use `--api-token` flag with commend. e.g.,
+    Alternatively, for one-time use, you can use `--api-token` flag with commend. e.g.,
     ```bash
     recce server --api-token <your_api_token>
     ```
 
-1. Start Recce server
+1. Relaunch Recce server
 
-    After launching, you'll see the __Share__ button, then you can click it to get the link on top.
+    After adding the API token, restarting Recce server is required to load the new configuration.
+    Once it's running, you'll see the **Share** button, then you can click it to get the link on top.
+
     ![Recce Share From Server](../../assets/images/recce-cloud/recce-share-from-server-fs8.png){: .shadow}
 
     You can also use the `recce share` command. If you already have a prepared Recce state file, you can obtain a share link directly through the command line.
