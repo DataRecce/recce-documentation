@@ -64,7 +64,7 @@ Setup two separate [environments](https://docs.getdbt.com/docs/environments-in-d
 
 Recce supports schema discovery across all major warehouses without needing to modify your `profiles.yml`.
 
-However, if you're using DuckDB, you’ll need to explicitly define both schemas. For example:
+However, if you're using DuckDB, you’ll need to explicitly define both schemas to make it run locally. For example:
 ```yaml
 jaffle_shop:
   target: dev
