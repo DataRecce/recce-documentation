@@ -3,23 +3,27 @@ title: Breaking Change Analysis
 icon: octicons/diff-modified-24
 ---
 
-**Breaking Change Analysis** examines modified models and categorizes changes into three types: **Breaking change**, **Partial breaking change**, and **Non breaking change**.
+**Breaking Change Analysis** examines modified models and categorizes changes into three types:
 
-Traditionally, any modification to a model’s SQL was assumed to affect all downstream models. However, not all changes have the same level of impact. For example, formatting adjustments or adding a new column should not break any downstream dependencies. **Breaking Change Analysis** helps you assess whether a change affects downstream models, and if so, to what extent.
+- Breaking changes
+- Partial breaking changes
+- Non-breaking changes
+
+It's generally assumed that any modification to a model’s SQL will affect all downstream models. However, not all changes have the same level of impact. For example, formatting adjustments or the addition of a new column should not break downstream dependencies. Breaking change analysis helps you assess whether a change affects downstream models and, if so, to what extent.
 
 
-##  Categories
+## Categories of change
 Category | Downstream Impact | Examples
 ---|---|---
-Non breaking change | No downstream models are affected |  Adding a new column, formatting SQL, adding comments
+Non-breaking change | No downstream models are affected |  New column, formatting SQL, adding comments
 Partial breaking change | Only downstream models referencing certain columns are affected | Removing, renaming, or modifying the definition of a column
 Breaking change | All downstream models are affected | Changing filter conditions (e.g. `WHERE`), sort order (`ORDER BY`), or other SQL logic
 
 ## Usage
 
-To enable the feature, click the **Breaking Change Analysis** toggle on the  **Lineage** page. 
+To enable **Breaking Change Analysis**, click the toggle on the  **Lineage** page. 
 
-All modified models will display their change category directly on the node. Additionally, partial breaking changes are highlighted with a dashed orange border to indicate that they may not impact your downstream models.
+All modified models display their change category directly on the node. Additionally, partial breaking changes are highlighted with a dashed orange border to indicate that they may not impact downstream models.
 
 === "Disabled"
     
@@ -32,7 +36,7 @@ All modified models will display their change category directly on the node. Add
 
 ## Column-Level Lineage
 
-In models classified as **Non breaking** or **Partial breaking**, added, removed, or modified columns will be listed. You can click on a column to open its [Column-Level Lineage](./column-level-lineage.md)
+In models classified as **non-breaking** or **partial breaking** -  added, removed, or modified columns will be listed. Click on a column to open its [Column-Level Lineage](./column-level-lineage.md)
 
 ![Column-level lineage](../../assets/images/features/breaking-change-lineage.png){: .shadow}
 
