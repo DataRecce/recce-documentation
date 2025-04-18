@@ -76,6 +76,7 @@ nav:
       - docs/recce-cloud/setup-gh-actions.md
       - docs/recce-cloud/setup-gh-codespaces.md
       - docs/recce-cloud/expose-recce-instance-visibility.md
+      - docs/recce-cloud/share-recce-session-securely.md
       - Cloud Architecture:
           # - docs/recce-cloud/architecture/index.md
           - docs/recce-cloud/architecture/security.md
