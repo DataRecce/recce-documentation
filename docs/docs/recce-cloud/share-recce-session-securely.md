@@ -3,11 +3,15 @@ title: Share Recce Session
 icon: material/account-eye
 ---
 
-If you've already used Recce to validate your PR and prepared checks, but stakeholders might not have the environment to run Recce. Recce Cloud allows you to quickly and easily share your Recce validation results. Just click your share link to open a read-only Recce instance directly in the browser with __no local setup required__, so your reviewers or stakeholders can quickly join the review process.
+## Share your validation results with anyone, no setup needed
+
+If you've already used Recce to validate your PR and prepared checks, but stakeholders might not have the environment to run Recce.
+
+Recce Cloud allows you to share your Recce validation results with full context, using a simple link. Stakeholders can open a read-only Recce view directly in their browser. No installation, no configuration, just instant access.
 
 !!! Note
 
-    Please note that Recce users with the link can visit your sharing session.
+    Please note that Recce users with the link can visit your sharing session. If you need to restrict access, please contact us.
 
 ## How to use
 
