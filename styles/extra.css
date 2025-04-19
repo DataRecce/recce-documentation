@@ -1,0 +1,177 @@
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+	font-weight: bold;
+}
+.md-typeset h1 {
+	color: --md-default-fg-color;
+}
+
+.md-typeset code:not(.md-typeset pre > code) {
+	color: #ff6e42;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+/**** Nav ****/
+
+/* .md-nav {
+	font-size: 0.8rem;
+} */
+
+/*.md-nav__title {
+	display: none;
+}*/
+
+/* .md-nav__item {
+	padding: 0.3rem 0;
+	font-weight: bold;
+} */
+
+.md-nav__link[href]:hover {
+	color: #ff6e42;
+}
+
+/**** Blog ****/
+
+.md-post--excerpt .md-post__content h2 {
+	line-height: 1.2;
+}
+
+.md-post__action a {
+	background-color: #ff6e42;
+	color: #fff !important;
+	padding: .3rem 1rem;
+	border-radius: 1rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 1rem;
+}
+.md-post__action a:hover {
+	border-bottom: none !important;
+}
+
+
+.md-post--excerpt {
+	padding-bottom: 2.5rem;
+	margin-bottom: 2.5rem;
+	border-bottom: dashed black 1px;
+}
+
+.md-post--excerpt:last-of-type {
+	border-bottom: none;
+}
+
+.md-content__inner .article-cta {
+	border-top: dashed 1px #d2d2d2;
+	padding-top: 1rem;
+	margin-top: 1rem;
+}
+
+.md-content__inner .mailchimp-cta {
+	background-color: #ff6e42;
+	border-radius: 1rem;
+	overflow: hidden;
+	color: #fff;
+	margin-top: 1rem;
+	position: relative;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.md-content__inner .mailchimp-cta::before {
+  content: "";
+  position: absolute;
+  background-image: url('/assets/images/Logo_Recce_white-fs8.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 20%;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: 0;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup form {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup form h2 {
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+.md-content__inner .mailchimp-cta #mc_embed_signup form h3 {
+	margin-top: 0;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup .button {
+	text-transform: uppercase;
+	color: #ff6e42;
+	font-weight: bold;
+	background-color: #fff;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup .button:hover {
+	background-color: #000;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup #mce-success-response {
+	color: #fff;
+}
+
+.md-content__inner .mailchimp-cta #mc_embed_signup div.response {
+	width: 100%;
+}
+
+
+/**** Links ****/
+
+.md-typeset a {
+	
+}
+.md-typeset a:hover, .md-typeset a:focus, 
+.md-post .md-post__meta a:hover, .md-post .md-post__meta a:focus {
+	border-bottom: solid #ff6e42 1px;
+	color: #ff6e42;
+}
+
+.md-typeset .md-button:hover, .md-typeset .md-button:focus {
+	background-color: #e04f23;
+	border-color: #e04f23;
+
+}
+
+h1 a:hover, h2 a:hover a, h3 a:hover {
+	border-bottom: none;
+/*	background-color: #ff6e42;*/
+/*	color: #fff;*/
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* https://github.com/squidfunk/mkdocs-material/issues/492#issuecomment-336640342 */
+
+.video-wrapper {
+	position: relative;
+	display: block;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+}
+.video-wrapper > iframe {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
