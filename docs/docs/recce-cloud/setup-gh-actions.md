@@ -119,7 +119,7 @@ jobs:
         run: |
           recce cloud upload-artifacts
         env:
-          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 ```
 
@@ -185,7 +185,7 @@ jobs:
         run: |
           recce cloud download-base-artifacts
         env:
-          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 
       - name: Prepare the PR environment
@@ -205,7 +205,7 @@ jobs:
         run: |
           recce cloud upload-artifacts
         env:
-          GITHUB_TOKEN: ${{ secrets.RECCE_CLOUD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           RECCE_STATE_PASSWORD: ${{ secrets.RECCE_STATE_PASSWORD}}
 
       - name: Prepare Recce Summary
