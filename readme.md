@@ -1,3 +1,10 @@
+Recce Documentation (Archived)
+========================
+
+**This repository is archived. The documentation is no longer maintained here.**
+
+The new documentation repository is located at [recce-docs](https://github.com/DataRecce/recce-docs)
+
 # Usage
 
 ## Install
