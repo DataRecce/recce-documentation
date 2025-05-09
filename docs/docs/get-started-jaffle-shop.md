@@ -50,7 +50,7 @@ icon: material/school
 
    -        -- `amount` is currently stored in cents, so we convert it to dollars
    -        amount / 100 as amount
-   +        amount
+   +        amount / 20 as amount
 
             from source
    )
@@ -74,5 +74,5 @@ icon: material/school
    Click the `Run Diff` or press `Cmd + Shift + Enter`
    Click on the 🔑 icon next to the `order_id` column to compare records that are uniquely identified by their `order_id`.
    ![](../assets/images/jaffle-shop/jaffle_shop_query.png)
-1. Click the `+` to add the query result to checklist
+1. Click the `Add to Checklist` to add the query result to checklist
    ![](../assets/images/jaffle-shop/jaffle_shop_check.png)
